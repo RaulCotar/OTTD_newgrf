@@ -1,0 +1,191 @@
+/*
+	Made by Raul Cotar, with (slightly modified) sprites from "redFISH".
+	Build using: nmlc --grf "C:/Users/Cotar Raul/Documents/OpenTTD/newgrf/industryXTension(3).grf" industryXtension.nml -p DEFAULT
+	In-game debug: 	set newgrf_developer_tools 1		to enable dev tools
+					reload_newgrfs						to reload the active grfs
+					set newgrf_show_old_versions 1		to show all versions of the grfs
+*/
+
+grf {
+	grfid: "RC!\04";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 3;
+	min_compatible_version: 3;
+}
+
+// TABLES
+cargotable { // All cargo lables referenced in this file should be in here.
+	PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD, CORE, DIAM, FRUT, MAIZ, RUBR, WATR
+}
+
+// CARGOS
+item(FEAT_CARGOS, cargo_goods, 0x05) {
+	property {
+		weight:                         0.75; // was .5 in ogfx+i
+		price_factor:                   152; // was 149 in ogfx+i
+		town_growth_multiplier:         1; // was 0 in ogfx+i
+	}
+}
+item(FEAT_CARGOS, cargo_oil, 0x03) {
+	property {
+		price_factor:                   109; // was ~107 in ogfx+i
+	}
+}
+
+// TILES (using base sprites)
+item (FEAT_INDUSTRYTILES, liquid) {
+	property {
+		substitute:			21; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, boiler) {
+	property {
+		substitute:			22; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, fact_midl) {
+	property {
+		substitute:			39; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, fact_front) {
+	property {
+		substitute:			40; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, fact_side) {
+	property {
+		substitute:			41; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, matter) {
+	property {
+		substitute:			42; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, hall) {
+	property {
+		substitute:			60; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, horn_red) {
+	property {
+		substitute:			61; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, tank) {
+	property {
+		substitute:			62; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, horn_big) {
+	property {
+		substitute:			69; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, wood) {
+	property {
+		substitute:			71; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+item (FEAT_INDUSTRYTILES, pipes) {
+	property {
+		substitute:			119; // gets all the props of the original
+		accepted_cargos:	[[cargotype("PASS"), 4], [cargotype("STEL"), 8], [cargotype("WOOD"), 8]]; // just override the cargos
+		// tekes 4/8 pass, idk what it really means
+	}
+}
+/*DEFINE_TILE(liquid, 21);
+DEFINE_TILE(boiler, 22);
+DEFINE_TILE(fact_midl, 39);
+DEFINE_TILE(fact_front, 40);
+DEFINE_TILE(fact_side, 41);
+DEFINE_TILE(matter, 42);
+DEFINE_TILE(hall, 60);
+DEFINE_TILE(horn_red, 61);
+DEFINE_TILE(tank, 62);
+DEFINE_TILE(horn_big, 69);
+DEFINE_TILE(wood, 71);
+DEFINE_TILE(pipes, 119);*/
+
+// TILELAYOUTS
+tilelayout tl_ind_plant { // using the tiles defined above
+	// x, y: tile
+	0, 0:	boiler;
+	0, 1:	boiler;
+	0, 2:	fact_midl;
+	0, 3:	fact_front;
+	
+	1, 0:	hall;
+	1, 1:	horn_big;
+	1, 2:	fact_side;
+	1, 3:	matter;
+	
+	2, 0:	hall;
+	2, 1:	hall;
+	2, 2:	horn_red;
+	2, 3:	wood;
+	
+	3, 0:	matter;
+	3, 1:	hall;
+	3, 2:	horn_red;
+	3, 3:	wood;
+}
+
+// PRODUCE
+produce (plant_prod_logic, 0, 2, 2, 0, 3, (waiting_cargo_2 || waiting_cargo_3)); // I give up.
+produce (plant_prod_pass, 0, 0, 2, 0, 0, 0); // prod 2 pass out of nowhere every 256 tics
+
+// ITEMS
+item(FEAT_INDUSTRIES, industrial_plant) {
+	// sadly, cargo_types are only for nml 0.5, which is not yet relesed
+	property {
+		substitute:				0x06; // replaced by factory if not available, also inherits it's props
+		name:					string(STR_PLANT_NAME);
+		life_type:				IND_LIFE_TYPE_PROCESSING; // affects production, overriden by cb I think
+		spec_flags:				bitmask(IND_FLAG_BUILT_ONLY_AFTER_1960, IND_FLAG_CAN_CAUSE_SUBSIDENCE);
+		new_ind_msg:			TTD_STR_NEWS_INDUSTRY_CONSTRUCTION; // display when built during gameplay
+		closure_msg:			TTD_STR_NEWS_INDUSTRY_CLOSURE_SUPPLY_PROBLEMS; // from default strings
+		nearby_station_name:	string(STR_PLANT_STATION);
+		
+		fund_cost_multiplier:	222; // base depends on life_type
+		prob_map_gen:			3; // at map generation, low
+		prob_in_game:			2; // during game, low
+		conflicting_ind_types:	[industry_type(IND_TYPE_OLD, 0x03), industry_type(IND_TYPE_OLD, 0x08)]; // do not place near forests or steel mills
+		
+		accept_cargo_types:		[cargotype("PASS"), cargotype("STEL"), cargotype("WOOD")];
+		prod_cargo_types:		[cargotype("PASS"), cargotype("GOOD")];
+		prod_multiplier:		[1, 1]; // quantiy for every produced cargo, see cb for goods
+		min_cargo_distr:		0; // keep [x] goods to plant before uploading to station
+		
+		map_colour:				185; // color index for minimap (185=orange)
+		layouts:				[tl_ind_plant]; // see tl
+	}
+	graphics {
+ 		produce_cargo_arrival:	plant_prod_logic; // can't use a sw for some reason, so I'm left with that shitty produce block
+		produce_256_ticks:		plant_prod_pass; // every 256 tics, see prod
+ 	}
+}

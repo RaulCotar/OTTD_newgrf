@@ -1,0 +1,79 @@
+/*  This file is part of The Dutch Track Set
+ *  This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+
+//Defines RAIL (Unelectrified 160 km/h)
+item(FEAT_RAILTYPES,item_RAIL) {
+	property {
+		//Naming
+		label:						"RAIL";
+		name:						string(STR_NAME_RAIL);
+		toolbar_caption:			string(STR_TOOL_RAIL);
+		menu_text:					string(STR_MENU_RAIL);
+		build_window_caption:		string(STR_BUIL_RAIL);
+		autoreplace_text:			string(STR_REPL_RAIL);
+		new_engine_text:			string(STR_NENG_RAIL);
+		sort_order:					00;
+		
+		//Properties of the rail
+		compatible_railtype_list:	["ELRL","SAEA","SBEE","SBCA","SADD","SAEA"];
+		powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD","SAEA"];
+		acceleration_model:			ACC_MODEL_RAIL;
+
+		//Costs
+		construction_cost:			8;
+		maintenance_cost:			8;
+
+		//Graphics and other stuff
+		station_graphics:			RAILTYPE_STATION_NORMAL;
+		//No catenary, level crossings are allowed, so no flags
+		
+		//Long list with fallback types:
+		alternative_railtype_list:	["SAAN","SABN","SACN","SADN","SAEN"];		
+	}
+
+	//Properties that depend on the parameter settings
+	
+	//Speedlimits
+	//on
+	if ( param_speed_limit == 1 ) {
+		property {
+			speed_limit: 			160 km/h;
+		}
+	}
+	//off
+	else {
+		property {
+			speed_limit:		 	0 km/h;
+		}
+	}
+
+	//Track Compatibility
+	//Non electrified, electrified, metro
+	if ( param_track_compat == 1) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD"];
+			powered_railtype_list:		["RAIL","ELRL","SAEA","SBEE","SBCA","SADD"];
+		}
+	}
+	//Full compatibility (Non electrfied, electrified)
+	if (param_track_compat == 2) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+			powered_railtype_list:		["RAIL","ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+		}
+	}	
+	
+	
+	graphics {
+		//track_overlay:	spriteset_RAIL_overlay;
+		//underlay:			spriteset_RAIL_underlay;
+		//tunnels:			spriteset_RAIL_tunnel;
+		//level_crossings:  spriteset_RAIL_levcross;
+		//depots:           spriteset_RAIL_depot;
+		//bridge_surfaces:  spriteset_RAIL_bridges;
+		fences:				switch_RAIL_fences;
+	}
+}

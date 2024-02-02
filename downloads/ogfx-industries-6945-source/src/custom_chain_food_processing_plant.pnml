@@ -1,0 +1,97 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#define DEFINE_FOOD_PROCESSING_PLANT_TILES(label1, number1, label2, number2, label3, number3) \
+	item(FEAT_INDUSTRYTILES, food_processing_plant_tile_1) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, food_processing_plant_tile_2) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, food_processing_plant_tile_3) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, food_processing_plant_tile_4) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	}
+
+#define DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_3(label1, label2, label3) \
+	item(FEAT_INDUSTRIES, industry_food_processing_plant) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 ), cargotype( #label2 ), cargotype( #label3 )]; \
+		} \
+	}
+
+#define DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_2(label1, label2) \
+	item(FEAT_INDUSTRIES, industry_food_processing_plant) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 ), cargotype( #label2 )]; \
+		} \
+	}
+
+#define DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_1(label1) \
+	item(FEAT_INDUSTRIES, industry_food_processing_plant) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 )]; \
+		} \
+	}
+
+if (GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	item(FEAT_INDUSTRIES, industry_food_processing_plant) {
+		property {
+			conflicting_ind_types: [industry_type(IND_TYPE_NEW, industry_fruit_plantation)];
+		}
+	}
+} else {
+	item(FEAT_INDUSTRIES, industry_food_processing_plant) {
+		property {
+			conflicting_ind_types: [industry_type(IND_TYPE_NEW, industry_fruit_plantation), industry_type(IND_TYPE_NEW, industry_farm)];
+		}
+	}
+}
+
+if (FRUIT_ENABLED && ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 8, LVST, 8, FRUT, 8)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_3(GRAI, LVST, FRUT)
+
+} else if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 8, LVST, 8, FRUT, 0)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_2(GRAI, LVST)
+
+} else if (FRUIT_ENABLED && ANY_GRAIN_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 8, LVST, 0, FRUT, 8)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_2(GRAI, FRUT)
+
+} else if (FRUIT_ENABLED && LIVESTOCK_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 0, LVST, 8, FRUT, 8)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_2(LVST, FRUT)
+
+} else if (FRUIT_ENABLED) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 0, LVST, 0, FRUT, 8)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_1(FRUT)
+
+} else if (ANY_GRAIN_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 8, LVST, 0, FRUT, 0)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_1(GRAI)
+
+} else if (LIVESTOCK_ENABLED && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+	DEFINE_FOOD_PROCESSING_PLANT_TILES(GRAI, 0, LVST, 8, FRUT, 0)
+	DEFINE_FOOD_PROCESSING_PLANT_INDUSTRY_1(LVST)
+
+}

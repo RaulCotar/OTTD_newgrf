@@ -1,0 +1,56 @@
+//Example train three!
+template temp_pacer(y){
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[2,y,10,22,-4,-11]       //North
+	[22,y,26,22,-16,-12]     //North East
+	[52,y,36,18,-17,-11]     //East
+	[92,y,26,22,-10,-12]     //South East
+	[122,y,10,22,-4,-11]     //South
+	[142,y,26,22,-16,-12]    //South West
+	[172,y,36,18,-17,-11]    //West
+	[212,y,26,22,-10,-12]    //North West
+}
+
+spriteset (pacer_front_rgr,"gfx/pacer.png"){temp_pacer(194)}
+spriteset (pacer_back_rgr, "gfx/pacer.png"){temp_pacer(218)}
+
+switch(FEAT_TRAINS, SELF, sw_143_livery, (position_in_vehid_chain + 1) % 2){
+	1 : pacer_front_rgr ;
+	pacer_back_rgr ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_143_articulated_part, extra_callback_info1){
+	1:return item_train_three;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item (FEAT_TRAINS, item_train_three, 3){
+	property{
+		name: string(STR_TRAIN_THREE_NAME);
+		climates_available: ALL_CLIMATES;
+		introduction_date:date(1,1,1);
+		model_life:VEHICLE_NEVER_EXPIRES;
+        refittable_cargo_classes:     bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes: bitmask();
+		vehicle_life:40;
+		reliability_decay:0;
+		cost_factor:10;
+		running_cost_base:RUNNING_COST_DIESEL;
+		running_cost_factor:24;
+		sprite_id:SPRITE_ID_NEW_TRAIN;
+		speed:75 mph;
+		track_type:RAIL;
+		power:454;
+		engine_class:ENGINE_CLASS_DIESEL;
+		weight:48 ton;
+		air_drag_coefficient: 0.08;
+		tractive_effort_coefficient:0.71;
+		cargo_capacity:75;
+		loading_speed:25;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DIESEL,4,DISABLE_WAGON_POWER);
+	}
+	graphics{
+		default:sw_143_livery;
+		articulated_part: sw_143_articulated_part;
+	}
+}

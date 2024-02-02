@@ -1,0 +1,400 @@
+/*
+	Made by Raul Cotar, with sprites from "Quick Silver" and "Centennial".
+	Build using: ..\program\nmlc -l lang --grf dev/builds/trainXTension_build_ver.grf trainXtension.nml
+	In-game debug: 	set newgrf_developer_tools 1		to enable dev tools
+					reload_newgrfs						to reload the active grfs
+					set newgrf_show_old_versions 1		to show all versions of the grfs
+*/
+
+grf {
+	grfid: "RC!\02";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 30;
+	min_compatible_version: 30;
+	param {
+		param_use_2cc_cargo { // a value of the param 0
+			name:		string(STR_PARAM_USE2CCC_NAME);
+			desc:		string(STR_PARAM_USE2CCC_DESC);
+			type:		bool;
+			def_value:	1; // use 2cc by default
+			bit:		1; // uses 1st bit (whose bits?). Idk how many bits I can use (64?)
+		}
+	}
+	param {
+		param_enable_speed_limits {
+			desc:		string(STR_PARAM_SPEEDLIMITS_NAME);
+			name:		string(STR_PARAM_SPEEDLIMITS_DESC);
+			type:		bool;
+			def_value:	1; // limits enabled by default
+			bit:		1; // idfk
+		}
+	}
+	param {
+		param_enable_lvlcross {
+			desc:		string(STR_PARAM_LVLCROSS_NAME);
+			name:		string(STR_PARAM_LVLCROSS_DESC);
+			type:		bool;
+			def_value:	1; // enabled by default
+			bit:		1; // idfk
+		}
+	}
+}
+
+// TABLES
+railtypetable {
+	RAIL,
+	ELRL,
+	SBCA,
+	MONO,
+	MGLV
+}
+cargotable { // All cargo lables referenced in this file should be in here.
+	//Default cargos
+   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
+	//Tropical cargos
+   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
+	//ECS
+   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR,SAND, SULP, TOUR, VEHI, WDPR, WOOL,
+	//FIRS
+   BEER, CLAY, ENSP, FMSP, FRVG, GRVL, MILK, MNSP, PHOS, PORE, RCYC, SCMT, SGBT, SGCN, JAVA, COPR, SUGR,
+	//Nuclear stuff
+	URAN, NWST
+}
+
+// TEMPLATES (for spritesets)
+// !!! In-game offsets are 4x the nml value!
+template tmpl_engine(x, y) { // For engine sprites.
+	//[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,           8,        24,           -3,         -12]
+    [x+  9,     y,          22,        17,          -14,          -8]
+    [x+ 32,     y,          32,        12,          -17,          -8]
+    [x+ 65,     y,          22,        17,           -8,         -10]
+    [x+ 88,     y,           8,        24,           -3,         -14]
+    [x+ 97,     y,          22,		   17,          -14,          -9]
+    [x+120,     y,          32,        12,          -15,          -8]
+    [x+153,     y,          22,        17,           -7,          -8]
+}
+template tmpl_engine_buy(x, y) { // For engine buy menu sprites.
+	// the West-heading sprite from "tmpl_engine"
+	[x+120,     y,          32,        12,          -18,         -7]
+}
+template tmpl_wagon(x, y) { // For 4-view wagons.
+	// Same as for engine, but only 4 views and different offsets
+	// y should be in steps of 25
+	[x    ,		y,  		 8,		   24,   		 -3,		 -12]
+    [x+  9, 	y, 		 	22,		   17,  		-14, 		  -9]
+    [x+ 32,	 	y, 			32,		   12,  		-16, 		  -8]
+    [x+ 65, 	y, 			22,		   17,   		 -6, 		  -9]
+}
+template tmpl_wagon_buy(x, y) { // For 4-view wagons buy menu.
+	// 3rd spritefrom 'tmpl_wagon'
+    [x+ 32,	 	y, 			32,		   12,  		-16, 		  -8]
+}
+template tmpl_overlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -31,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+}
+template tmpl_underlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -32,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+	//Crossings
+	[   1,   49,       63,    31,     -31,         0]
+	[  66,   49,       63,    31,     -31,         0]
+    [ 131,   49,       63,    31,     -31,         0]
+    [ 196,   49,       63,    31,     -31,         0]
+    [ 261,   49,       63,    31,     -31,         0]
+    [ 326,   49,       63,    31,     -31,         0]
+}
+template tmpl_tunnel() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+    [   3,    1,       63,    30,       -32,        0]
+    [  68,    1,       63,    30,       -31,        0]
+    [   3,   64,       63,    30,       -31,        0]
+    [  68,   64,       63,    30,       -30,        0]
+}
+template tmpl_bridge() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[   1,    1,       64,    31,       -31,        0]
+	[  66,    1,       64,    31,       -31,        0]
+	//Slopes
+	[ 131,    1,       64,    39,       -31,       -8]
+	[ 196,    1,       64,    23,       -31,        0]
+	[ 261,    1,       64,    23,       -31,        0]
+	[ 326,    1,       64,    39,       -32,       -8]
+}
+
+// SPRITESETS
+spriteset (spriteset_engine_steam, 			"gfx/IronHorse.png")		{ tmpl_engine(0, 0) 	} // for 'Iron Horse'
+spriteset (spriteset_engine_steam_buy, 		"gfx/IronHorse.png")  		{ tmpl_engine_buy(0, 0) }
+spriteset (spriteset_engine_heavy, 			"gfx/HeavyTurbo_2cc.png")	{ tmpl_engine(0, 0) 	} // for 'Heavy Turbo'
+spriteset (spriteset_engine_heavy_buy, 		"gfx/HeavyTurbo_2cc.png")	{ tmpl_engine_buy(0, 0) }
+spriteset (spriteset_wagon_freight_empty, 	"gfx/FreightCar.png")		{ tmpl_wagon(0, 0) } // for 'Freight wagon', empty
+spriteset (spriteset_wagon_freight_cc1,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 25) } // for 'Freight wagon', cc1
+spriteset (spriteset_wagon_freight_cc2,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 50) } // for 'Freight wagon', cc2
+spriteset (spriteset_wagon_freight_buy,		"gfx/FreightCar.png")		{ tmpl_wagon_buy(0, 25) } // using cc1
+spriteset(spriteset_HSRL_overlay,"gfx/HSRL/Overlay-HSRL.png")			{tmpl_overlay()}
+spriteset(spriteset_HSRL_underlay,"gfx/HSRL/Underlay-HSRL.png")			{tmpl_underlay()}
+spriteset(spriteset_HSRL_tunnel,"gfx/HSRL/Tunnel-HSRL.png")				{tmpl_tunnel()}
+spriteset(spriteset_HSRL_bridges,"gfx/HSRL/Bridge-HSRL.png")			{tmpl_bridge()}
+spriteset(spriteset_HSRL_levcrossclosed,"gfx/HSRL/LevelCrossing-HSRL.png") {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[  1,     1,       64,    31,       -31,          0]
+	[ 66,     1,       64,    31,       -31,          0]
+	[148,     7,       14,    15,       -11,         -9]	
+	[233,     8,       14,    15,        -2,        -10]
+	[148,     7,       14,    15,       -13,         -9]		
+	[207,     7,       13,    13,       -11,        -10]
+	[175,     6,       13,    13,         0,        -10]
+	[233,     8,       14,    15,         5,        -11]	
+	[175,     6,       13,    13,        -2,        -10]	
+	[207,     7,       13,    13,        -6,        -12]
+}
+spriteset(spriteset_HSRL_levcrossopen,"gfx/HSRL/LevelCrossing-HSRL.png") {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[  1,     1,       64,    31,       -31,          0]
+	[ 66,     1,       64,    31,       -31,          0]
+	[157,    28,        5,    15,        -2,        -11]	
+	[233,    29,        5,    15,        -2,        -12]
+	[157,    28,        5,    15,        -4,        -11]			
+	[215,    28,        5,    15,        -3,        -12]
+	[175,    27,        5,    15,         0,        -12]	
+	[233,    29,        5,    15,         5,        -13]	
+	[175,    27,        5,    15,        -2,        -12]	
+	[215,    28,        5,    15,         2,        -14]
+}
+
+// SWITCHES
+switch (FEAT_TRAINS, SELF, sw_freight_which_cc, position_in_consist % 2 || !param_use_2cc_cargo) { // freight sprite (pos decision)
+	0: spriteset_wagon_freight_cc2; // positions start from 1 (loco=0)
+	spriteset_wagon_freight_cc1; // if even pos or no 2cc, see param
+}
+switch (FEAT_TRAINS, SELF, sw_freight_gfx, (10 * cargo_count / cargo_capacity) >= 5) { // freight sprite (load decision)
+	0: spriteset_wagon_freight_empty; // empty
+	1: sw_freight_which_cc;
+}
+switch(FEAT_RAILTYPES,SELF,switch_HSRL_levcross,level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: spriteset_HSRL_levcrossclosed;
+	spriteset_HSRL_levcrossopen; //Default return
+}
+/*switch (FEAT_TRAINS, SELF, sw_freight_cap, cargo_type_in_veh) { // freight capacity based on year and cargo type
+	MAIL: (date_of_last_service >= date(1972,1,1))? 37 : 35;
+	(date_of_last_service >= date(1972,1,1))? 35 : 30;
+}*/
+ 
+// ITEMS
+item(FEAT_RAILTYPES, item_HSRL) {
+	property {
+		label:						"SBCA";
+		name:						string(STR_HSRL_NAME);
+		toolbar_caption:			string(STR_HSRL_TOOL);
+		menu_text:					string(STR_HSRL_MENU);
+		build_window_caption:		string(STR_HSRL_BUIL);
+		autoreplace_text:			string(STR_HSRL_REPL);
+		new_engine_text:			string(STR_HSRL_NENG);
+		sort_order:					30;
+		introduction_date:			date(1980,01,01);
+
+		compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+		powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+		alternative_railtype_list:	["SBAA","SBBA","SBCA","SBDA","SBEA"]; // fallbacks
+		introduces_railtype_list:   ["SAEA","SADD","ELRL","SAA3"];
+		acceleration_model:			ACC_MODEL_RAIL;
+
+		construction_cost:			24;
+		maintenance_cost:			24;
+
+		station_graphics:			RAILTYPE_STATION_NORMAL;
+		railtype_flags:				bitmask(0);
+	}	
+	if (param_enable_lvlcross == 0) {
+		property {
+			railtype_flags:			bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+		}
+	}
+	if (param_enable_speed_limits == 1) {
+		property {
+			speed_limit:	400 km/h;
+		}
+	}
+	
+	graphics {
+		track_overlay:		spriteset_HSRL_overlay;
+		underlay:			spriteset_HSRL_underlay;
+		tunnels:			spriteset_HSRL_tunnel;
+		level_crossings:  	switch_HSRL_levcross;
+		bridge_surfaces:  	spriteset_HSRL_bridges;
+		//catenary_wire:	spriteset_HSRL_catwire;
+		//catenary_pylons:	spriteset_HSRL_catpol;
+		//fences:			switch_HSRL_fences;
+	}
+}
+item (FEAT_TRAINS, item_wagon_freight) {
+	property {
+		name:							string(STR_RST_FREIGHT);
+		misc_flags:						bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1950, 4, 1); // late for a wagon
+		model_life:						80; // ~2031
+		vehicle_life:					30;
+		track_type:						RAIL;
+		cost_factor:					239; // ~2800 eur
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		weight:							22 ton; // use settings for weight mult
+		speed:							160 km/h; // vanilla = infinit
+		power:							0; // it's a wagon, hopefully
+		tractive_effort_coefficient: 	0;
+        air_drag_coefficient: 			0;
+		extra_power_per_wagon: 			0; // idk if I should specify this
+		
+		cargo_allow_refit:				[GOOD, MAIL, FOOD, FRUT, PAPR]; // the real deal
+		refit_cost:						0; // for easier refit without cb
+		default_cargo_type:				GOOD;
+		cargo_capacity:					35; // see cb -- pls change to livery-based cap changes
+		cargo_age_period:				200; // 74 = +1 age / day, default 185
+		loading_speed:					6; // 5 default
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		engine_class:					ENGINE_CLASS_DIESEL; // does it matter for a wagon?
+		bitmask_vehicle_info:			0; // idk
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+	}
+	graphics {
+		default: 						sw_freight_gfx; // see sw
+		purchase:						spriteset_wagon_freight_buy;
+	}
+}
+item (FEAT_TRAINS, item_engine_heavy) { // HEAVY TURBO item
+	property { // See docs for more info
+		name:							string(STR_RST_HEAVY);
+		misc_flags:						bitmask(TRAIN_FLAG_TILT, TRAIN_FLAG_2CC); // +20% corner speed, 2 comp colours
+		ai_special_flag:				AI_FLAG_CARGO; // PASSENGER or CARGO
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1966, 4, 1); // later diesel loco
+		model_life:						50; // stays at peak reliability until ~2017
+		vehicle_life:					30; // time before replacement, usually ~20y
+		reliability_decay:				10; // decay speed, usually 20
+		refittable_cargo_classes:		bitmask(); // no cargo, try comment these
+		non_refittable_cargo_classes:	bitmask(); // idk if I should specify these
+		track_type:						RAIL; // from table, see cb for ELRL part
+		dual_headed:					0; // [0/1]
+		
+		cost_factor:					36; // buy cost multiplier. Trial & error.
+		running_cost_base:				RUNNING_COST_DIESEL; // internal calcs
+		weight:							218 ton; // [f] heaviest single unit in the game
+		air_drag_coefficient:			0.05; // in range(.004, .75)
+		length:							8; // 8 = full length veh
+		
+		tractive_effort_coefficient: 	0.3; // max TE (ish) = coef * 10 * mass
+		power:							1 hp; // all these sholud be specified in here
+		speed:							1 km/h; // but should be handled by cb
+		running_cost_factor:			1; // see graphics block for details
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN; // to enable new gfx
+		engine_class:					ENGINE_CLASS_DIESEL; // for audio-video effects defaults
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 1, DISABLE_WAGON_POWER); // arg2 = in-game offset, see README
+		bitmask_vehicle_info:			0; // idk
+		
+		/* Unused:
+			retire_early: [y]; // disallow purchase y years after model life
+			cargo_allow_refit: [array of cargo labels]; // allow refit to these no matter the classes
+			cargo_disallow_refit: [array of cargo labels];
+			loading_speed: [x]; // more = faster [un]loading
+			cargo_age_period: [x]; // x tics to age++. day=74, def=185
+			refit_cost: [x]; // mult of 50% of base cost of veh
+			default_cargo_type: [cargo label] // too long, read wiki
+			cargo_capacity: [x]; // if different across cargos, use callback
+			extra_power_per_wagon: [f]; // effects only if there is also a livery override for that wag
+			extra_weight_per_wagon: [f]; // default = 0, use for powered wagons
+			effect_spawn_model_and_powered: see docs. A more elaborate way of doing effects.
+		*/
+		
+	}
+	graphics { // Everything related to graphics and callbacks
+		default:						spriteset_engine_heavy; // default spriteset
+		
+		purchase:						spriteset_engine_heavy_buy; // buy menu spriteset
+		additional_text:				return string(STR_RST_HEAVY_DESC); // buy menu desc + hybrid stats
+		purchase_power:					6522; // all these should match ELRL specs from below
+		purchase_speed:					100; // buy menu
+		purchase_running_cost_factor:	165; // buy menu
+		
+		power:							return (current_railtype == ELRL)? 9384 : 6522; // this * 0.74571 kW
+		speed:							return (current_railtype == ELRL)? 120 : 100; // 120 : 100 km/h
+		running_cost_factor:			return (current_railtype == ELRL)? 182 : 166; // ~ 7257 : ~6580 eur/y
+	}
+	// livery_override {...} only if you need it for wagons
+}
+item (FEAT_TRAINS, item_engine_steam) { // IRON HORSE item
+	property { // See docs for more info
+		name:							string(STR_RST_STEAM);
+		misc_flags:						bitmask(TRAIN_FLAG_TILT, TRAIN_FLAG_2CC); // +20% corner speed, 2 comp colours
+		ai_special_flag:				AI_FLAG_PASSENGER; // PASSENGER or CARGO
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1956, 4, 1); // last steam loco
+		model_life:						50; // stays at peak reliability until ~2007
+		vehicle_life:					30; // time before replacement, usually ~20y
+		reliability_decay:				10; // decay speed, usually 20
+		refittable_cargo_classes:		bitmask(); // no cargo, try comment these
+		non_refittable_cargo_classes:	bitmask(); // idk if I should specify this
+		track_type:						RAIL; // from table
+		dual_headed:					0; // [0/1]
+		
+		cost_factor:					24; // buy cost multiplier. Trial & error.
+		running_cost_base:				RUNNING_COST_STEAM; // internal calcs
+		running_cost_factor:			119; // mult to above. Trial & error.
+		weight:							156 ton; // On the heavy side. float maybe
+		power:							1479 hp; // [f], =1500hp, 2nd most powerful, 1 hp = 0.7457 kW
+		tractive_effort_coefficient:	0.27; // total TE = f * 10 * weight <kN>
+		speed:							156 km/h; // [f],there are conversion roundings to 'km-ish'
+		air_drag_coefficient:			0.04; // in range(.004, .75)
+		length:							8; // 8 = full length veh
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN; // to enable new gfx
+		engine_class:					ENGINE_CLASS_STEAM; // for audio-video effects defaults
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_STEAM, -1, DISABLE_WAGON_POWER); // arg2 = in-game offset, see README
+		bitmask_vehicle_info:			0; // idk
+		
+		/* Unused:
+			retire_early: [y]; // disallow purchase y years after model life
+			cargo_allow_refit: [array of cargo labels]; // allow refit to these no matter the classes
+			cargo_disallow_refit: [array of cargo labels];
+			loading_speed: [x]; // more = faster [un]loading
+			cargo_age_period: [x]; // x tics to age++. day=74, def=185
+			refit_cost: [x]; // mult of 50% of base cost of veh
+			default_cargo_type: [cargo label] // too long, read wiki
+			cargo_capacity: [x]; // if different across cargos, use callback
+			extra_power_per_wagon: [f]; // effects only if there is also a livery override for that wag
+			extra_weight_per_wagon: [f]; // default = 0, use for powered wagons
+			effect_spawn_model_and_powered: see docs. A more elaborate way of doing effects.
+		*/
+		
+	}
+	graphics { // Everything related to graphics and callbacks
+		default:						spriteset_engine_steam; // default spriteset
+		purchase:						spriteset_engine_steam_buy; // buy menu spriteset
+		additional_text:				return string(STR_RST_STEAM_DESC); // buy menu desc
+	}
+	//livery_override() {}
+}

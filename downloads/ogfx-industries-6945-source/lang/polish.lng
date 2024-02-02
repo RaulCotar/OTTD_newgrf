@@ -1,0 +1,121 @@
+##grflangid 0x30
+##plural 7
+##gender m f n
+##case b c d m n w
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maksymalna odległość rafinerii od brzegu
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maksymalna odległość rafinerii od brzegu. Wstawienie zera wyłącza to ograniczenie.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Bez limitu wydobycia
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} konfliktuje z {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} nie zostało przewidziane do współpracy z klimatem zabawkowym
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... rafinerie muszą być budowane blisko brzegu
+STR_ERR_FACTORY_CHAINS                                          :Wybrałeś dla {STRING} więcej niż trzy łańcuchy dostaw do fabryk .Zapoznaj się z opisem łańuchów towarów.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :...mogą być budowane tylko poniżej linii śniegu
+STR_ERR_NO_DESERT_ONLY                                          :... nie może być na pustyni
+STR_ERR_TOWN_TOO_SMALL                                          :... miasto jest za małe by mieć {COMMA} przedsiębiorstwo tego typu (może być tylko jedno z tych przedsiębiorstw dla wszystkich {COMMA} budynków)
+
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Sklep
+
+
+#Station names.
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Łańcuch dostaw węgla
+STR_PARAM_COAL_CHAIN_DESC                                       :Od tego parametru zależy obecność łańcucha dostaw rudy żelaza. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Zależnie od klimatu
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Zawsze
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Brak
+
+STR_PARAM_OIL_CHAIN                                             :Łańcuch przemysłu naftowego
+STR_PARAM_OIL_CHAIN_DESC                                        :Od tego parametru zależy obecność łańcucha dostaw ropy naftowej. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu. "Brak" deaktywuje przemysł naftowy. Pozostałe ustawienia pozwalają na wybór produkcji ropy naftowej.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Zależnie od klimatu
+STR_PARAM_OIL_CHAIN_WELLS                                       :Pola naftowe i Rafinerie
+STR_PARAM_OIL_CHAIN_RIG                                         :Pola naftowe i Rafinerie
+STR_PARAM_OIL_CHAIN_ALL                                         :Pola naftowe, Platformy wiertnicze i Rafinerie
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Brak
+
+STR_PARAM_VALUABLES_CHAIN                                       :Łańcuch bankowy
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Od tego parametru zależy obecność i działanie banków. Ustawienie "zależnie od klimatu" przywraca domyślne banki i ich towary. "Brak" deaktywuje banki. Pozostałe ustawienia włączają banki i pozwalają na ustawienie, jakie towary są przez nie akceptowane (lub w przypadku Kosztowności, również produkowane).
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Zależnie od klimatu
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Kosztowności
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Złoto
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamenty
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Złoto i Diamenty
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Brak
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Łańcuch dostaw rudy żelaza
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Od tego parametru zależy obecność łańcucha dostaw rudy żelaza. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu. Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Zależnie od klimatu
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Zawsze
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Brak
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Łańcuch dostaw rudy miedzi
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Od tego parametru zależy obecność łańcucha dostaw rudy miedzi. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu. Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Zależnie od klimatu
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Zawsze
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Brak
+
+STR_PARAM_RUBBER_CHAIN                                          :Łańcuch dostaw kauczuku
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Od tego parametru zależy obecność łańcucha dostaw kauczuku. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.  Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Zależnie od klimatu
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Zawsze
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Brak
+
+STR_PARAM_FARM_CHAIN                                            :Łańcuch produkcji rolniczej
+STR_PARAM_FARM_CHAIN_DESC                                       :Od tego parametru zależy obecność łańcucha przemysłu rolnego. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu. "Brak" deaktywuje farmy. Pozostałe ustawienia pozwalają na wybór towarów produkowanych przez farmy. Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Zależnie od klimatu
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Ziarno
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Żywiec
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Zboże i Żywiec
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Brak
+
+STR_PARAM_FARM_DESTINATION                                      :Przeznaczenie produktów rolnych
+STR_PARAM_FARM_DESTINATION_DESC                                 :Od tego parametru zależy przeznaczenie produktów rolnych. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.  Pozostałe ustawienia pozwalają na wybór przemysłu. Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Zależnie od klimatu
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Przetwórnie żywności
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabryka
+
+STR_PARAM_FRUIT_CHAIN                                           :Łańuch produkcji owoców
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Od tego parametru zależy obecność łańcucha produkcji Owoców. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Zależnie od klimatu
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Zawsze
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Brak
+
+STR_PARAM_WOOD_PRODUCER                                         :Producent drewna
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Od tego parametru zależy wybór producenta drewna. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność producenta od ustawień klimatu.  Pozostałe ustawienia pozwalają na wybór producenta drewna. Wpłynie to też na wysokość opłat za transport drewna.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Zależnie od klimatu
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Lasy
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Tartak (wyrąb lasu)
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Brak
+
+STR_PARAM_WOOD_DESTINATION                                      :Przeznaczenie drewna
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Od tego parametru zależy obecność łańcucha dostaw drewna. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.  Pozostałe ustawienia pozwalają na wybór przemysłu drzewnego. Uwaga, do fabryki mogą być dostarczone maksymalnie 3 produkty. Jeśli wybierzesz więcej niż 3, niektóre produkty zostaną przerzucone do innych zakładów (produkty rolne do Przetwórni żywności, Drewno do Tartaku).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Zależnie od klimatu
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Tartak (produkuje towary)
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Zakład papierniczy
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabryki
+
+STR_PARAM_WATER_CHAIN                                           :Łańcuch dostaw wody
+STR_PARAM_WATER_CHAIN_DESC                                      :Od tego parametru zależy obecność łańcucha dostaw wody. Ustawienie "Zależnie od klimatu" przywraca domyślną zależność od ustawień klimatu.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Zależnie od klimatu
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Zawsze
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Brak
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Wyłącz ograniczenia budowy wiertni pól naftowych
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Wiertnie pól naftowych będą się pojawiać w klimacie umiarkowanym w czasie gry, a w klimacie arktycznym i tropikalnym także po roku 1950. Pola naftowe w klimacie umiarkowanym mogą zwiekszać swoją produktywność.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Wyłącz ograniczenia budowy platform wiertniczych
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Platformy wiertnicze mogą powstawać przez 1960 rokiem oraz w czasie generowania mapy
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Wyłącz ograniczenia budowy Banków, które akceptują Kosztowności
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banki akceptujące Kosztowności budowane podczas generacji mapy
+

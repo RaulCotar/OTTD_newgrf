@@ -1,0 +1,94 @@
+##grflangid 0x04
+##plural 0
+##gender m f
+
+#Main grf title and description
+STR_GRF_NAME                    :{TITLE}
+STR_GRF_DESCRIPTION             :Dutch Tracks o Vías holandesas para OpenTTD{}(c)Dutch Trackset Team{}Licencia: GPLv2 ó superior.{}Leer el Readme para más detalles.
+STR_GRF_LOAD_ORDER              :Cargar este NewGRF antes de cualquier otro NewGRF ferroviario para su correcto funcionamiento (OpenTTD < r24272)
+
+# Parameter descriptions
+# Rail speed
+STR_PARAM_NAME_SPEED    :Límites de velocidad
+STR_PARAM_DESC_SPEED    :Utiliza este parámetro para quitar los límites de velocidad.
+
+# Track compatibility
+STR_PARAM_NAME_TRACK_COMPAT             :Compatibilidad de vías
+STR_PARAM_DESC_TRACK_COMPAT             :Utiliza este parámetro para escoger entre diferentes listas de compatibilidad de vía. ¡Utiliza esta opción cuando no tienes un set ferroviario compatible cargado! Esto no afecta a la potencia motora de locomotora alguna si dependen estas del tipo de vía sobre el que corren, no en vano esto es controlado (independientemente) por cada set ferroviario.
+STR_PARAM_TRACK_COMPAT_DEF              :No electrificado, CC, CA, Metro (Por defecto)
+STR_PARAM_TRACK_COMPAT_POW              :No electrificado, electrificado, Metro (Sin distinción entre CA/CC)
+STR_PARAM_TRACK_COMPAT_FULL             :No electrificado, electrificado (Sin distinción entre CA/CC/Metro)
+
+# Level Crossing Highspeed
+STR_PARAM_NAME_LEVCROSS_HIGH    :Pasos a nivel para HSL/Betuweroute/Futurista
+STR_PARAM_DESC_LEVCROSS_HIGH    :Utiliza este parámetro para activar/desactivar los pasos a nivel en las vías HSL/Betuweroute/Futurista.
+
+# Level Crossing Metro
+STR_PARAM_NAME_LEVCROSS_METRO   :Pasos a nivel para las vías del Metro
+STR_PARAM_DESC_LEVCROSS_METRO   :Utiliza este parámetro para activar/desactivar los pasos a nivel en las vías de Metro
+
+# Fences
+STR_PARAM_NAME_FENCES                   :Vallas
+STR_PARAM_DESC_FENCES                   :Utiliza este parámetro para establecer el tipo de vallas que se usarán en el juego (vallas de las vías holandesas, vallas OTTD o sin vallas)
+STR_PARAM_FENCES_DUTCH                  :Vallas de las vías holandesas (si están disponibles)
+STR_PARAM_FENCES_OTTD                   :Vallas OTTD
+STR_PARAM_FENCES_NONE                   :Sin vallas
+
+
+# Rail descriptions
+
+# Unelectrified Rail
+STR_NAME_RAIL   :Ferrocarril sin electrificar
+STR_TOOL_RAIL   :Ferrocarril sin electrificar
+STR_MENU_RAIL   :Ferrocarril sin electrificar
+STR_BUIL_RAIL   :Ferrocarril sin electrificar
+STR_REPL_RAIL   :Sin electrificar
+STR_NENG_RAIL   :Motor sin electrificar
+
+# YARD Rail
+STR_NAME_YARD   :Patio/Estación [Universal]
+STR_TOOL_YARD   :Patio/Estación [Universal]
+STR_MENU_YARD   :Patio/Estación [Universal]
+STR_BUIL_YARD   :Patio/Estación [Universal]
+STR_REPL_YARD   :Eléctrico (Patio/Estación)
+STR_NENG_YARD   :Motor eléctrico (multisistema)
+
+# Electrified [1500V DC]
+STR_NAME_STANDARDRAIL   :Vía estandar [1500V CC]
+STR_TOOL_STANDARDRAIL   :Vía estandar [1500V CC]
+STR_MENU_STANDARDRAIL   :Vía estandar [1500V CC]
+STR_BUIL_STANDARDRAIL   :Vía estandar [1500V CC]
+STR_REPL_STANDARDRAIL   :1500V CC (Vía estandar)
+STR_NENG_STANDARDRAIL   :Motor 1500V CC
+
+# Betuweroute [25kV AC]
+STR_NAME_BETUWE :Betuweroute [25kV CA]
+STR_TOOL_BETUWE :Betuweroute [25kV CA]
+STR_MENU_BETUWE :Betuweroute [25kV CA]
+STR_BUIL_BETUWE :Betuweroute [25kV CA]
+STR_REPL_BETUWE :25kV CA (Betuweroute)
+STR_NENG_BETUWE :Motor (Betuweroute) 25kV CA
+
+# Metro
+STR_NAME_METRO  :Metro
+STR_TOOL_METRO  :Metro
+STR_MENU_METRO  :Metro
+STR_BUIL_METRO  :Metro
+STR_REPL_METRO  :Metro
+STR_NENG_METRO  :Motor Metro
+
+# HSL [25kV AC]
+STR_NAME_HSL    :HSL [25kV CA]
+STR_TOOL_HSL    :HSL [25kV CA]
+STR_MENU_HSL    :HSL [25kV CA]
+STR_BUIL_HSL    :HSL [25kV CA]
+STR_REPL_HSL    :25kV CA (HSL)
+STR_NENG_HSL    :Motor (HSL) 25kV CA
+
+# Futuristic [Universal]
+STR_NAME_FUTURISTIC     :Futurista [Universal]
+STR_TOOL_FUTURISTIC     :Futurista [Universal]
+STR_MENU_FUTURISTIC     :Futurista [Universal]
+STR_BUIL_FUTURISTIC     :Futurista [Universal]
+STR_REPL_FUTURISTIC     :Eléctrico (Futurista)
+STR_NENG_FUTURISTIC     :Motor eléctrico (Futurista)

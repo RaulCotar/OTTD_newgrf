@@ -1,0 +1,96 @@
+Version 0.3.5
+-------------
+- Feature: Gold mine shows also correct ground on half desert and half snow tiles
+- Change: Different map colours on mini map
+- Add: Translation additions and updates for all languages: Catalan, Croatian, Dutch, Finnish, German, Greek,
+       Hungarian, Indonesian, Korean, Norwegian bokmal, Russian, Scotish Gaelic, and Spanish
+
+
+Version 0.3.4
+-------------
+
+- Feature: Limit the number of certain types of industries based on the number of houses of their town.
+- Add: Dutch translation.
+- Add: Greek translation.
+- Add: Russian translation.
+- Fix: Banks now close after a random interval when they have not been serviced for a long time.
+- Fix: Chain logic for the farm was incorrectly defined.
+- Fix: Sawmills appeared when they were selected as the destination cargo for Wood but the Wood chain was disabled.
+
+
+Version 0.3.3
+-------------
+
+- Fix: Make sure to be using the defined callbacks.
+
+
+Version 0.3.2
+-------------
+
+- Fix: The 'station's name from nearby industries' grf is also an industry NewGRF and thus incompatible
+- Fix: Various alignment issues with the diamond mine
+- Fix: Correct some strings of the English language.
+- Fix: Give Shops a more appropiate fund cost multiplier.
+- Fix: Power plants and water towers did not process cargo.
+- Fix: Prevent shops from closing when they are being serviced too.
+
+
+Version 0.3.1
+-------------
+
+- Fix: Take into account TTRS' definition of banks as an industry
+- Fix: Correct some industry placements (like forests not in desert, etc...)
+- Fix: There was no industry accepting Wood when four cargos for the Factory were chosen.
+- Fix: Improve ground tile awareness of power plants
+- Fix: Ground awareness for water supplies
+- Change: Different tree for the forest in tropical climate
+
+
+Version 0.3.0
+-------------
+
+- Feature: Customizable Iron Ore chain.
+- Feature: Customizable Copper Ore chain.
+- Feature: Customizable Rubber chain.
+- Feature: Customizable Farm chain.
+- Feature: Customizable Fruit chain.
+- Feature: Customizable Wood chain.
+- Feature: Customizable Water chain.
+- Add: Shop industry for Food acceptance in temperate.
+- Add: Warning when using too many factory chains.
+- Add: Ground aware farms tiles
+- Change: The Power Plant and the Water Tower now close after a random period of time without delivered cargo.
+- Change: Re-add the dirt to the oil derrik's ground tiles.
+
+
+Version 0.2.0
+-------------
+
+- Feature: Parameter for disabling Oil Wells building restrictions.
+- Feature: Parameter for disabling Oil Rig building restrictions.
+- Feature: Compatibility checks for several NewGRFs. Deactivate self in case of doubt
+- Feature: Disabling building limits for Oil Rigs also allows them to be built during map generation.
+- Feature: Parameter for disabling Valuables Bank building restrictions.
+- Feature: Ground awareness for the diamond mine
+- Feature: Animation for the diamond mine
+- Add: Ground tile aware gold mine tiles
+- Change: Make the meaning of 'coastal distance 0' slightly clearer for oil refineries
+- Fix: Currently toyland climate is not supported
+- Fix: Bundle readme.txt instead of readme.ptxt
+- Fix: Also allow random generation of banks when the valuable cargo is selected
+- Fix: Convert price factors to the right units.
+- Fix: Oil Rigs did not have heliports nor docks anymore.
+- Fix: Oil Rigs did not produce and accept Passengers anymore.
+- Fix: Improve ground awareness of oil wells
+
+
+Version 0.1.0
+-------------
+
+- Feature: Snow-aware oil wells
+- Feature: Snow-aware forests with growth animation
+- Feature: Customizable valuables industry chain.
+- Feature: Customizable oil industry chain.
+- Feature: Customizable coal industry chain.
+- Feature: Configurable distance from water for oil refineries.
+- Feature: Allow all industry types to close

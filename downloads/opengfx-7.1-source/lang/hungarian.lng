@@ -1,0 +1,7 @@
+##grflangid 0x24
+##plural 2
+##case t ba
+STR_GENERAL_DESC        :OpenGFX grafikus alapcsomag az OpenTTD-hez. Ingyenesen hozzáférhető a GNU General Public License 2-es verziójának feltételeivel. [{TITLE}]
+
+STR_GRF_NAME            :{TITLE}
+STR_GRF_DESCRIPTION     :{ORANGE}OpenGFX grafikus alapcsomag{BLACK}{}Az OpenGFX csapat jóvoltából.{}A teljes stáblistához lásd a readme-t.{}{BLACK}Licenc: {SILVER}GPL v2+{}{BLACK}Honlap: {SILVER}https://github.com/OpenTTD/OpenGFX

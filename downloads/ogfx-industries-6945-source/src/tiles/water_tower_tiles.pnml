@@ -1,0 +1,55 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Water tower */
+
+#define WATER_TOWER_TILE(groundtype, stage) \
+spritelayout water_tower_tile_ ## groundtype ## _construction ## stage { \
+	ground { sprite: GROUNDSPRITE_ ## groundtype; } \
+	building { sprite: 2344 + stage; } \
+}
+
+WATER_TOWER_TILE(NORMAL, 0)
+WATER_TOWER_TILE(NORMAL, 1)
+WATER_TOWER_TILE(NORMAL, 2)
+WATER_TOWER_TILE(SNOW, 0)
+WATER_TOWER_TILE(SNOW, 1)
+WATER_TOWER_TILE(SNOW, 2)
+WATER_TOWER_TILE(DESERT, 0)
+WATER_TOWER_TILE(DESERT, 1)
+WATER_TOWER_TILE(DESERT, 2)
+
+#define WATER_TOWER_TILE_CONSTRUCTION_SWITCH(terraintype) \
+switch (FEAT_INDUSTRYTILES, SELF, water_tower_tile_ ## terraintype ## _construction_switch, construction_state) { \
+	0: water_tower_tile_ ## terraintype ## _construction0; \
+	1: water_tower_tile_ ## terraintype ## _construction1; \
+	water_tower_tile_ ## terraintype ## _construction2; \
+}
+
+WATER_TOWER_TILE_CONSTRUCTION_SWITCH(NORMAL)
+WATER_TOWER_TILE_CONSTRUCTION_SWITCH(SNOW)
+WATER_TOWER_TILE_CONSTRUCTION_SWITCH(DESERT)
+
+switch (FEAT_INDUSTRYTILES, SELF, water_tower_tile_terrain_switch, terrain_type) {
+	TILETYPE_SNOW: water_tower_tile_SNOW_construction_switch;
+	TILETYPE_DESERT: water_tower_tile_DESERT_construction_switch;
+	water_tower_tile_NORMAL_construction_switch;
+}
+
+
+item(FEAT_INDUSTRYTILES, water_tower_tile_1) {
+	property {
+		substitute:      0x78;
+		override:        0x78;
+		accepted_cargos: [[WATR, 8]];
+	}
+
+	graphics {
+		water_tower_tile_terrain_switch;
+	}
+}

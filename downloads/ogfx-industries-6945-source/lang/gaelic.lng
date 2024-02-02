@@ -1,0 +1,124 @@
+##grflangid 0x13
+##plural 13
+##gender m f
+##case dat gen nom voc
+STR_GRF_NAME                                                    :Gnìomhachasan OpenGFX+ {VERSION}
+STR_GRF_DESCRIPTION                                             :Bheir OpenGFX+ Industries piseach air na gnìomhachasan bunaiteach is bheir e barrachd smachd dhut air dè na gnìomhachasan a bhios ri làimh.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :An t-astar as motha on uisge airson fìneadairean-ola
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :An t-astar as motha on uisge airson fìneadairean-ola. Ma shuidhicheas tu air neoni e, faodar fìneadairean-ola a thogail àite sam bith.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Gun chuingeachadh
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :Chan eil {STRING} co-chòrdail ri {STRING}.
+STR_ERR_NO_TOYLAND                                              :Cha deach {STRING} a dhealbhachadh ach an obraicheadh e air cruth-tìre nan dèideag.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... feumaidh tu fìneadairean-ola a thogail faisg air uisge
+STR_ERR_FACTORY_CHAINS                                          :Thagh thu barrachd air trì sreathan fhactaraidhean airson {STRING}. Thoir sùil air a' mhìneachadh air paramadairean nan sreathan airson barrachd fiosrachaidh.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... cha ghabh seo a thogail ach fon loidhne-shneachda
+STR_ERR_NO_DESERT_ONLY                                          :... cha ghabh seo a thogail ach san fhàsach
+STR_ERR_TOWN_TOO_SMALL                                          :... tha am baile seo ro bheag airson {COMMA} gnìomhachasan dhen t-seòrsa seo (chan fhaod ach aon dhe na gnìomhachasan seo a bhith ann airson gach {COMMA} {P taigh thaigh taighean taigh})
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Ma chleachdas tu {STRING} le Total Town Replacement Set (TTRS), bidh an sreath banca bunaiteach aig a' chruth-tìre is a charago an comas an-còmhnaidh.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Bùth
+
+
+#Station names.
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Sreath guail
+STR_PARAM_COAL_CHAIN_DESC                                       :Stiùirichidh am paramadair seo co-dhiù a bheil sreath guail ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :A-rèir a' chrutha-tìre
+STR_PARAM_COAL_CHAIN_ENABLED                                    :An comas
+STR_PARAM_COAL_CHAIN_DISABLED                                   :À comas
+
+STR_PARAM_OIL_CHAIN                                             :Sreath ola
+STR_PARAM_OIL_CHAIN_DESC                                        :Stiùirichidh am paramadair seo co-dhiù a bheil sreath ola ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Cuiridh "À comas" an sreath ola à gnìomh. Suidhichidh na roghainnean eile dè na gnìomhachasan co-cheangailte ri ola a bhios gnìomhach.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :A-rèir a' chrutha-tìre
+STR_PARAM_OIL_CHAIN_WELLS                                       :Tobraichean-ola is fìneadair-ola
+STR_PARAM_OIL_CHAIN_RIG                                         :Crann-ola is fìneadair-ola
+STR_PARAM_OIL_CHAIN_ALL                                         :Tobraichean-ola, crann-ola is fìneadair-ola
+STR_PARAM_OIL_CHAIN_DISABLED                                    :À comas
+
+STR_PARAM_VALUABLES_CHAIN                                       :Sreath banca
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Stiùirichidh am paramadair seo co-dhiù a bheil sreath banca ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Cuiridh "À comas" an sreath banca à gnìomh. Nì na roghainnean eile na bancaichean gnìomhach is suidhichidh iad dè an carago a ghabhas iad ris (no mas e seilbh a th' ann an saothraich iad e)
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :A-rèir a' chrutha-tìre
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Carago shealbh
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Carago òir
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Carago daoimein
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Carago òir is daoimein
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :À comas
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Sreath cloich-iarrainn
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Stiùirichidh am paramadair seo co-dhiù a bheil sreath cloich-iarrainn ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Thoir an aire nach urrainn do bharrachd air trì seòrsaichean dhe charago factaraidh a bhith agad aig an aon àm. Ma thaghas tu barrachd air trì dhiubh, gabhaidh gnìomhachas eile ri cuid a charago 'na àite (carago tuathanais leis an fhactaraidh bìdh is fiodh leis a' mhuillean-shàbhaidh).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :A-rèir a' chrutha-tìre
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :An comas
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :À comas
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Sreath cloiche-copair
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Stiùirichidh am paramadair seo co-dhiù a bheil sreath cloich-copair ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Thoir an aire nach urrainn do bharrachd air trì seòrsaichean dhe charago factaraidh a bhith agad aig an aon àm. Ma thaghas tu barrachd air trì dhiubh, gabhaidh gnìomhachas eile ri cuid a charago 'na àite (carago tuathanais leis an fhactaraidh bìdh is fiodh leis a' mhuillean-shàbhaidh).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :A-rèir a' chrutha-tìre
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :An comas
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :À comas
+
+STR_PARAM_RUBBER_CHAIN                                          :Sreath rubair
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Stiùirichidh am paramadair seo co-dhiù a bheil sreath rubair ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Thoir an aire nach urrainn do bharrachd air trì seòrsaichean dhe charago factaraidh a bhith agad aig an aon àm. Ma thaghas tu barrachd air trì dhiubh, gabhaidh gnìomhachas eile ri cuid a charago 'na àite (carago tuathanais leis an fhactaraidh bìdh is fiodh leis a' mhuillean-shàbhaidh).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :A-rèir a' chrutha-tìre
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :An comas
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :À comas
+
+STR_PARAM_FARM_CHAIN                                            :Sreath tuathanais
+STR_PARAM_FARM_CHAIN_DESC                                       :Stiùirichidh am paramadair seo co-dhiù a bheil sreath tuathanais ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann. Cuiridh "À comas" an sreath tuathanais à gnìomh. Suidhichidh na roghainnean eile an carago tuathanais a bhios gnìomhach. Thoir an aire nach urrainn do bharrachd air trì seòrsaichean dhe charago factaraidh a bhith agad aig an aon àm. Ma thaghas tu barrachd air trì dhiubh, gabhaidh gnìomhachas eile ri cuid a charago 'na àite (carago tuathanais leis an fhactaraidh bìdh is fiodh leis a' mhuillean-shàbhaidh).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :A-rèir a' chrutha-tìre
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Gràn
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Sprèidh
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Gràn is sprèidh
+STR_PARAM_FARM_CHAIN_DISABLED                                   :À comas
+
+STR_PARAM_FARM_DESTINATION                                      :Ceann-uidhe carago nan tuathanasan
+STR_PARAM_FARM_DESTINATION_DESC                                 :Stiùirichidh am paramadair seo ceann-uidhe a' charago on t-sreath tuathanais. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich càite an tèid carago nan tuathanasan. Suidhichidh na roghainnean eile dè na gnìomhachasan a ghabhas ri carago o thuathanasan. Ma thaghas tu barrachd air trì seòrsaichean dhe charago factaraidh aig an aon àm, 's dòcha gun gabh factaraidhean bìdh ris seach factaraidhean.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :A-rèir a' chrutha-tìre
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Factaraidh bìdh
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Factaraidh
+
+STR_PARAM_FRUIT_CHAIN                                           :Sreath mheasan
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Stiùirichidh am paramadair seo co-dhiù a bheil sreath mheasan ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :A-rèir a' chrutha-tìre
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :An comas
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :À comas
+
+STR_PARAM_WOOD_PRODUCER                                         :Saothraiche fiodha
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Stiùirichidh am paramadair seo dè an gnìomhachas a shaothraicheas fiodh. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich dè an gnìomhachas a shaothraicheas fiodh. 'S urrainn dhut cur romhad leis na roghainnean eile dè na gnìomhachasan a shaothraicheas fiodh. Bidh buaidh aig seo air reitichean pàigheadh an fhiodha cuideachd.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :A-rèir a' chrutha-tìre
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Coille
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Muileann-fiodha
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :À comas
+
+STR_PARAM_WOOD_DESTINATION                                      :Ceann-uidhe an fhiodha
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Stiùirichidh am paramadair seo ceann-uidhe a' charago fiodha. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich dè an gnìomhachas a ghabhas ri fiodh. Faodaidh tu cur romhad leis na roghainnean eile dè na gnìomhachasan a ghabhas ri fiodh. Thoir an aire nach urrainn do bharrachd air trì seòrsaichean dhe charago factaraidh a bhith agad aig an aon àm. Ma thaghas tu barrachd air trì dhiubh, gabhaidh gnìomhachas eile ri cuid a charago 'na àite (carago tuathanais leis an fhactaraidh bìdh is fiodh leis a' mhuillean-shàbhaidh).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :A-rèir a' chrutha-tìre
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Muillean-sàbhaidh
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Muileann-pàipeir
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Factaraidh
+
+STR_PARAM_WATER_CHAIN                                           :Sreath uisge
+STR_PARAM_WATER_CHAIN_DESC                                      :Stiùirichidh am paramadair seo co-dhiù a bheil sreath uisge ann no nach eil. Ma shuidhicheas tu am paramadair air "A-rèir a' chrutha-tìre", bidh e a' crochadh air na roghainnean bunaiteach airson a' chruth-tìre làithrich a bheil an sreath seo ann.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :A-rèir a' chrutha-tìre
+STR_PARAM_WATER_CHAIN_ENABLED                                   :An comas
+STR_PARAM_WATER_CHAIN_DISABLED                                  :À comas
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Cuir cuingeachaidhean air togail nan tobraichean-ola à comas
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Thèid tobraichean-ola a thogail air cruth-tìre measarra ann an geama àbhaisteach is cuideachd air cruth-tìre artach is tropaigeach an dèidh 1950. Faodaidh tobraichean-ola air cruth-tìre measarra an toradh a mheudachadh.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Cuir cuingeachaidhean togail air crainn-ola à comas
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Thèid tobraichean-ola a thogail ro 1960 is nochdaidh iad nuair a ghineas tu mapa.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Cuir cuingeachaidhean togail à comas airson bancaichean a ghabhas ri seilbh
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Nochdaidh bancaichean a ghabhas ri sealbh nuair a ghineas tu mapa.
+

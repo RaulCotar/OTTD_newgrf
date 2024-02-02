@@ -1,0 +1,103 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#define POWER_PLANT_SMOKE_XOFFSET 4
+#define POWER_PLANT_SMOKE_ZOFFSET 34
+
+#define powerplant_base_sprite 2045
+#define powerplant_smoke_base_sprite 3701
+
+#define POWERPLANT_TILE_LAYOUT(tile, stage, terrain) \
+spritelayout powerplant_tile_ ## tile ## _stage ## stage ## _ ## terrain { \
+    ground { sprite: GROUNDSPRITE_ ## terrain; } \
+    building { sprite: powerplant_base_sprite + stage + (tile - 1)*3; } \
+}
+
+#define POWERPLANT_TILE_SMOKE_LAYOUT(tile, stage, terrain, smoke) \
+spritelayout powerplant_tile_ ## tile ## _stage ## stage ## _smoke ## smoke ## _ ## terrain { \
+    ground { sprite: GROUNDSPRITE_ ## terrain; } \
+    building { sprite: powerplant_base_sprite + stage + (tile - 1)*3; } \
+	building { \
+		sprite: powerplant_smoke_base_sprite + smoke - 1; \
+		xoffset: POWER_PLANT_SMOKE_XOFFSET; \
+		yoffset: 0; \
+		zoffset: POWER_PLANT_SMOKE_ZOFFSET; \
+	} \
+}
+
+#define POWERPLANT_TILE(tile, stage) \
+POWERPLANT_TILE_LAYOUT(tile, stage, NORMAL) \
+POWERPLANT_TILE_LAYOUT(tile, stage, SNOW)
+
+#define POWERPLANT_TILE_SMOKE(tile, stage, smoke) \
+POWERPLANT_TILE_SMOKE_LAYOUT(tile, stage, NORMAL, smoke) \
+POWERPLANT_TILE_SMOKE_LAYOUT(tile, stage, SNOW, smoke)
+
+// We only re-define the chimney tower:
+POWERPLANT_TILE      (2, 0)
+POWERPLANT_TILE      (2, 1)
+POWERPLANT_TILE_SMOKE(2, 2, 1)
+POWERPLANT_TILE_SMOKE(2, 2, 2)
+POWERPLANT_TILE_SMOKE(2, 2, 3)
+POWERPLANT_TILE_SMOKE(2, 2, 4)
+POWERPLANT_TILE_SMOKE(2, 2, 5)
+POWERPLANT_TILE_SMOKE(2, 2, 6)
+POWERPLANT_TILE_SMOKE(2, 2, 7)
+POWERPLANT_TILE_SMOKE(2, 2, 8)
+
+#define POWERPLANT_TERRAIN_SWITCH(tile, stage) \
+switch (FEAT_INDUSTRYTILES, SELF, powerplant_tile_ ## tile ## _stage ## stage ## _terrain_switch, terrain_type) { \
+    TILETYPE_SNOW: powerplant_tile_ ## tile ## _stage ## stage ## _SNOW; \
+    TILETYPE_DESERT: powerplant_tile_ ## tile ## _stage ## stage ## _SNOW; \
+    powerplant_tile_ ## tile ## _stage ## stage ## _NORMAL; \
+}
+
+POWERPLANT_TERRAIN_SWITCH(2, 0)
+POWERPLANT_TERRAIN_SWITCH(2, 1)
+
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke1)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke2)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke3)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke4)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke5)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke6)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke7)
+POWERPLANT_TERRAIN_SWITCH(2, 2_smoke8)
+
+
+switch (FEAT_INDUSTRYTILES, SELF, power_plant_tile_2_smoke_animation, animation_frame) {
+	2: powerplant_tile_2_stage2_smoke2_terrain_switch;
+	3: powerplant_tile_2_stage2_smoke3_terrain_switch;
+	4: powerplant_tile_2_stage2_smoke4_terrain_switch;
+	5: powerplant_tile_2_stage2_smoke5_terrain_switch;
+	6: powerplant_tile_2_stage2_smoke6_terrain_switch;
+	7: powerplant_tile_2_stage2_smoke7_terrain_switch;
+	8: powerplant_tile_2_stage2_smoke8_terrain_switch;
+	powerplant_tile_2_stage2_smoke1_terrain_switch;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, power_plant_tile_2_graphics_switch, construction_state) {
+	0: powerplant_tile_2_stage0_terrain_switch;
+	1: powerplant_tile_2_stage0_terrain_switch;
+	2: powerplant_tile_2_stage1_terrain_switch;
+	power_plant_tile_2_smoke_animation;
+}
+
+item(FEAT_INDUSTRYTILES, power_plant_tile_2) {
+	property {
+		substitute:         0x08;
+		override:           0x08;
+		accepted_cargos:    [[PASS, 1], [COAL, 8]];
+		animation_info:     [ANIMATION_LOOPING, 8];
+		animation_speed:    3;
+		animation_triggers: bitmask(ANIM_TRIGGER_INDTILE_TILE_LOOP);
+	}
+	graphics {
+		power_plant_tile_2_graphics_switch;
+	}
+}

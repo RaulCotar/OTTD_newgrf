@@ -1,0 +1,16 @@
+################################################################
+# Definitions needed for tar releases
+# This part is automatically generated
+################################################################
+REPO_REVISION := 6945
+NEWGRF_VERSION := 6945
+REPO_HASH := 1bb6ac0f0784
+REPO_VERSION_STRING := v6945 (1bb6ac0f0784)
+REPO_TITLE := OpenGFX+ Industries v6945 (1bb6ac0f0784)
+REPO_DATE := 
+REPO_BRANCH := 
+REPO_MODIFIED := 
+REPO_TAGS    := 
+HG := :
+GIT := :
+PYTHON := :

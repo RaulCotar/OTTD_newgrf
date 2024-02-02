@@ -1,0 +1,113 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals,
+ * cola
+ * ***************************
+ */
+
+#define THIS_ID(...) tank_wagon ## __VA_ARGS__
+
+// DEFAULT
+MU_8SPRITES_32BPP(tank_wagon_default_temperate, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_default_tropic, "tank", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 75) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_default_arctic, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// CMNT:
+MU_8SPRITES_32BPP(tank_wagon_cement, "tank", "src/gfx/tank/rail_cement_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// COLA
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(tank_wagon_cola, "tank_cola_empty", "tank_cola", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 220, 0, 240)
+
+// FZDR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(tank_wagon_fizzy, "tank_fizzy_drink_empty", "tank_fizzy_drink", "src/gfx/tank/rail_oil_temperate.png", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0, 0, 0)
+
+// MILK:
+MU_8SPRITES_32BPP(tank_wagon_milk, "tank_milk", "src/gfx/tank/rail_milk_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// OIL_
+MU_8SPRITES_32BPP(tank_wagon_oil_temperate, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_oil_tropic, "tank_oil", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 75) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_oil_arctic, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// PETR
+MU_8SPRITES_32BPP(tank_wagon_fueloil, "tank_petrol", "src/gfx/tank/rail_fueloil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// RFPR:
+MU_8SPRITES_32BPP(tank_wagon_refineryproducts, "tank_refinery", "src/gfx/tank/rail_refineryproducts_temperate.png", tmpl_railwagon42, 0, 4) // 8 views needed
+
+// WATR
+MU_8SPRITES_32BPP(tank_wagon_water, "tank_water", "src/gfx/tank/rail_water_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+switch(FEAT_TRAINS, SELF, tank_wagon_default_climate_switch, climate) {
+    CLIMATE_TROPICAL: tank_wagon_default_tropic_switch_gui;
+    CLIMATE_ARCTIC: tank_wagon_default_arctic_switch_gui;
+    tank_wagon_default_temperate_switch_gui;
+}
+
+switch(FEAT_TRAINS, SELF, tank_wagon_oil_climate_switch, climate) {
+    CLIMATE_TROPICAL: tank_wagon_oil_tropic_switch_gui;
+    CLIMATE_ARCTIC: tank_wagon_oil_arctic_switch_gui;
+    tank_wagon_oil_temperate_switch_gui;
+}
+
+switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
+    CMNT: tank_wagon_cement_switch_gui;
+    COLA: tank_wagon_cola_switch_gui;
+    FZDR: tank_wagon_fizzy_switch_gui;
+    MILK: tank_wagon_milk_switch_gui;
+    OIL_: tank_wagon_oil_climate_switch;
+    PETR: tank_wagon_fueloil_switch_gui;
+    RFPR: tank_wagon_refineryproducts_switch_gui;
+    WATR: tank_wagon_water_switch_gui;
+    tank_wagon_default_climate_switch;
+}
+
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default 30.000l
+    COLA: return 25;
+    CMNT: return 15;
+    FZDR: return 25;
+    MILK: return 25;
+    WATR: return 25;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    // default: 24 tons
+    WATR: return 25;
+    MILK: return 25;
+    CB_FAILED;
+}
+
+item(FEAT_TRAINS, tank_wagon) {
+    property {
+        // We try to simulate the stats of the temperate oil wagon
+        name:                           string(STR_NAME_TANK_WAGON);
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_TANK
+        cost_factor:                    200;
+        cargo_capacity:                 30;
+        weight:                         24;
+    }
+    graphics {
+        cargo_capacity:     tank_wagon_cb_capacity_switch;
+        weight:             tank_wagon_cb_property_weight_switch;
+        refit_cost:         tank_refit_cost_switch;
+
+        purchase:           tank_wagon_default_climate_switch;
+        tank_wagon_switch;
+    }
+}
+
+#undef THIS_ID

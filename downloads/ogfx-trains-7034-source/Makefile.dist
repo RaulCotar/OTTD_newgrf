@@ -1,0 +1,16 @@
+################################################################
+# Definitions needed for tar releases
+# This part is automatically generated
+################################################################
+REPO_REVISION := 7034
+NEWGRF_VERSION := 7034
+REPO_HASH := 3fee98c18150
+REPO_VERSION_STRING := v7034 (3fee98c18150)
+REPO_TITLE := OpenGFX+ Trains v7034 (3fee98c18150)
+REPO_DATE := 
+REPO_BRANCH := 
+REPO_MODIFIED := 
+REPO_TAGS    := 
+HG := :
+GIT := :
+PYTHON := :

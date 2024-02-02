@@ -1,0 +1,73 @@
+##grflangid 0x02
+##plural 0
+##gender p m w n
+STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Lizenz: {SILVER}GPL v2{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
+
+STR_NAME_BULK_WAGON                                             :Schüttgutwaggon
+STR_NAME_TANK_WAGON                                             :Kesselwaggon
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stückgutwaggon
+STR_NAME_FLATBED_WAGON                                          :Flachbettwaggon
+STR_NAME_REFRIGERATOR_WAGON                                     :Kühlwaggon
+
+STR_NAME_TENDER                                                 :Tender
+
+STR_PARAM_ENGINES                                               :Auswahl der Lokomotiven:
+STR_PARAM_ENGINES_DESC                                          :Auswählen welche Lokomotiven dem Spiel zugefügt werden sollen. Du kannst ein anderes Klima oder alle Klimata (mit Ausnahme des Spielzeuglands) auswählen. Standardmäßig wird die für das jeweilige Klima bestimmte Zusammenstellung genommen. Die Einstellung 'Keine' deaktiviert alle Lokomotiven.
+STR_PARAM_ENGINES_DEFAULT                                       :automatisch nach Klima (standard)
+STR_PARAM_ENGINES_NONE                                          :Keine
+STR_PARAM_ENGINES_TEMPERATE                                     :gemäßigtes Klima
+STR_PARAM_ENGINES_ARCTIC                                        :arktisches Klima
+STR_PARAM_ENGINES_TROPICAL                                      :tropisches Klima
+STR_PARAM_ENGINES_TOYLAND                                       :Spielzeugland
+STR_PARAM_ENGINES_ALL                                           :Alle
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alle außer Spielzeugland
+
+STR_PARAM_KEEP_ORIGINAL                                         :Existierende Fahrzeuge beibehalten
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Diese Einstellung existiert nur zu Debugging-Zwecken. Sie ist auch sinnvoll, wenn Du dieses Set einem _bestehenden_ Spiel zufügst in welchem schon Züge vorhanden sind. Dies is aber i.A. problematisch und führt zu Problemen. Verwendung auf eigene Gefahr.
+STR_PARAM_PROVIDE_RAIL                                          :Eisenbahn
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Fahrzeuge für "normale" Schienen bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für "normale" Schienen bereitgestellt.
+STR_PARAM_PROVIDE_MONORAIL                                      :Einschienenbahn
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Fahrzeuge für Einschienenbahn bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für Einschienenbahn bereitgestellt.
+STR_PARAM_PROVIDE_MAGLEV                                        :Magnetschwebebahn
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Fahrzeuge für Magnetschwebebahn bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für die Magnetschwebebahn bereitgestellt
+
+STR_PARAM_RUNNING_COST                                          :Betriebskosten anpassen
+STR_PARAM_RUNNING_COST_DESC                                     :Erlaube die Betriebskosten der Fahrzeuge anzupassen (z.B. um sie anderen Fahrzeugsets gegenüber anzupassen)
+STR_PARAM_PURCHASE_COST                                         :Fahrzeugpreise anpassen
+STR_PARAM_PURCHASE_COST_DESC                                    :Erlaube die Listenpreise der Fahrzeuge anzupassen (z.B. um sie anderen Fahrzeugsets gegenüber anzupassen)
+STR_PARAM_COST_AUTOMATICALLY                                    :automatisch (standard)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normal
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Tender
+STR_PARAM_TENDER_DESC                                           :Verfügbarkeit von Tendern für Dampflokomotiven. Bedenke, dass Lokomotiven nicht umgedreht werden können, wenn diese Option angeschaltet ist.
+STR_PARAM_TENDER_NONE                                           :Nicht benutzen
+STR_PARAM_TENDER_ARTICULATED                                    :Nutzen
+
+STR_ERR_ENGINE_POOL                                             :Mehrere NewGRF-Fahrzeugsets erlauben = an
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Waren in diesem Wagon werden länger frisch gehalten als in anderen Wagen.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Holzschnitzel)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Fässer)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (Maschinen)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (Container)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Traktoren)

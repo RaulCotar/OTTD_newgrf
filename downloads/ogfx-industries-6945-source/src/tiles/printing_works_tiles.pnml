@@ -1,0 +1,41 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Printing works */
+
+item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
+	property {
+		substitute:      0x2B;
+		override:        0x2B;
+		accepted_cargos: [[PAPR, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, printing_works_tile_2) {
+	property {
+		substitute:      0x2C;
+		override:        0x2C;
+		accepted_cargos: [[PAPR, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, printing_works_tile_3) {
+	property {
+		substitute:      0x2D;
+		override:        0x2D;
+		accepted_cargos: [[PAPR, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
+	property {
+		substitute:      0x2E;
+		override:        0x2E;
+		accepted_cargos: [[PAPR, 8]];
+	}
+}

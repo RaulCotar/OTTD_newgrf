@@ -1,0 +1,91 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Farm */
+
+replace (2106, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground( 10,  10) }
+replace (2107, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground( 90,  10) }
+replace (2108, "src/gfx/farms/farm_no_ground.png") { [10, 60, 32, 64, -17, -28] }
+replace (2109, "src/gfx/farms/farm_no_ground.png") { [90, 60, 26, 37, -17, -17] }
+replace (2110, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground(170,  10) }
+replace (2111, "src/gfx/farms/farm_no_ground.png") { [170, 60, 57, 29, -25, -5] }
+replace (2112, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground(250,  10) }
+replace (2113, "src/gfx/farms/farm_no_ground.png") { [250, 60, 38, 31, -20, -12] }
+replace (2114, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground(330,  10) }
+replace (2115, "src/gfx/farms/farm_no_ground.png") { [330, 60, 45, 48, -6, -34] }
+replace (2116, "src/gfx/farms/farm_no_ground.png") { tmpl_level_ground(410,  10) }
+replace (2117, "src/gfx/farms/farm_no_ground.png") { [410, 60, 54, 30, -30, -1] }
+
+#define FARM_TILE_GROUND(number, groundsprite, buildingsprite, groundtype) \
+spritelayout farm_tile_ ## number ## _ ## groundtype { \
+	ground { sprite: GROUNDSPRITE_ ## groundtype; } \
+    childsprite { sprite: groundsprite; always_draw: 1; } \
+	building { sprite: buildingsprite; } \
+}
+#define FARM_TILE(number, groundsprite, buildingsprite) \
+FARM_TILE_GROUND(number, groundsprite, buildingsprite, NORMAL) \
+FARM_TILE_GROUND(number, groundsprite, buildingsprite, DESERT) \
+FARM_TILE_GROUND(number, groundsprite, buildingsprite, SNOW) \
+
+FARM_TILE(33, 2106, 2108)
+FARM_TILE(34, 2107, 2109)
+FARM_TILE(35, 2110, 2111)
+FARM_TILE(36, 2112, 2113)
+FARM_TILE(37, 2114, 2115)
+FARM_TILE(38, 2116, 2117)
+
+#define FARM_TILE_TERRAIN_SWITCH(number) \
+switch (FEAT_INDUSTRYTILES, SELF, farm_tile_ ## number ## _switch, terrain_type) { \
+	TILETYPE_SNOW: farm_tile_ ## number ## _ ## SNOW; \
+	TILETYPE_DESERT: farm_tile_ ## number ## _ ## DESERT; \
+	farm_tile_ ## number ## _ ## NORMAL; \
+}
+
+FARM_TILE_TERRAIN_SWITCH(33)
+FARM_TILE_TERRAIN_SWITCH(34)
+FARM_TILE_TERRAIN_SWITCH(35)
+FARM_TILE_TERRAIN_SWITCH(36)
+FARM_TILE_TERRAIN_SWITCH(37)
+FARM_TILE_TERRAIN_SWITCH(38)
+
+item(FEAT_INDUSTRYTILES, farm_tile_33) {
+	property {
+		substitute:      33;
+		override:        33;
+		accepted_cargos: [[PASS, 1]];
+	}
+    graphics {
+        farm_tile_33_switch;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, farm_tile_34) {
+	property {
+		substitute:      34;
+		override:        34;
+		accepted_cargos: [[PASS, 1]];
+	}
+    graphics {
+        farm_tile_34_switch;
+    }
+}
+
+#define SUBSTITUTE_FARM_TILE(num) \
+item(FEAT_INDUSTRYTILES, farm_tile_ ## num) { \
+    property { \
+        substitute: num; \
+        override: num; \
+    } \
+    graphics { \
+        farm_tile_ ## num ##_switch; \
+    } \
+}
+SUBSTITUTE_FARM_TILE(35)
+SUBSTITUTE_FARM_TILE(36)
+SUBSTITUTE_FARM_TILE(37)
+SUBSTITUTE_FARM_TILE(38)

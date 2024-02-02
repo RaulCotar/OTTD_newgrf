@@ -1,0 +1,57 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Steel mill */
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_1) {
+	property {
+		substitute:      0x34;
+		override:        0x34;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_2) {
+	property {
+		substitute:      0x35;
+		override:        0x35;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_3) {
+	property {
+		substitute:      0x36;
+		override:        0x36;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_4) {
+	property {
+		substitute:      0x37;
+		override:        0x37;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_5) {
+	property {
+		substitute:      0x38;
+		override:        0x38;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, steel_mill_tile_6) {
+	property {
+		substitute:      0x39;
+		override:        0x39;
+		accepted_cargos: [[PASS, 1], [IORE, 8]];
+	}
+}

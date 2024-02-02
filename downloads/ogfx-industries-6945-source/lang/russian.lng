@@ -1,0 +1,152 @@
+##grflangid 0x07
+##plural 6
+##gender p n m f
+##case acc nom pre f abl m n dat p gen
+STR_GRF_NAME                                                    :Предприятия OpenGFX+ {VERSION}
+STR_GRF_DESCRIPTION                                             :Предприятия OpenGFX+ улучшает стандартные предприятия и расширяет возможности по контролю за их доступностью.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Максимальное удалённость воды от нефтеперерабатывающего завода
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Максимальное удалённость воды от нефтеперерабатывающего завода. Значение, равное нулю позволяет строить заводы везде.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Бесконечность (позволять везде)
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} несовместим с {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} не рассчитан на работу с игрушечным ландшафтом.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... нефтеперерабатывающие заводы могут сроиться только недалеко от воды
+STR_ERR_FACTORY_CHAINS                                          :Вы выбрали больше трёх Фабричных цепей для {STRING}. Обратитесь к описанию параметров цепей за дополнительными сведениями.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... можно построить только ниже линии снега
+STR_ERR_NO_DESERT_ONLY                                          :... нельзя постороить на территории пустыни
+STR_ERR_TOWN_TOO_SMALL                                          :... этот город слишком мал для размещения {COMMA} предприятий такого типа (На каждые {COMMA} домов допускается только одно подобное предприятие)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Когда {STRING} используется вместе с Total Town Replacement Set, будет всегда использоваться банковкая цепь по умолчанию для климата.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Магазин
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} угольная шахта
+STR_POWER_STATION_STATION_NAME                                  :{STRING} электростанция
+STR_SAWMILL_STATION_NAME                                        :{STRING} лесопилка
+STR_FOREST_STATION_NAME                                         :{STRING} лес
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} нефтеперерабатывающий завод
+STR_OIL_RIG_STATION_NAME                                        :{STRING} нефтяная платформа
+STR_FACTORY_STATION_NAME                                        :{STRING} фабрика
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} типография
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} сталилитейный завод
+STR_FARM_STATION_NAME                                           :{STRING} ферма
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} шахта медной руды
+STR_OIL_WELL_STATION_NAME                                       :{STRING} нефтяная скважина
+STR_BANK_STATION_NAME                                           :{STRING} банк
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} продуктовый завод
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} бумажная фабрика
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} золотая шахта
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} алмазная шахта
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} шахта железной руды
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} плантация фруктов
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} плантация каучука
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} скважина
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} водонапорная башня
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} лесопилка
+STR_SHOP_STATION_NAME                                           :{STRING} магазин
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Угольная цепь
+STR_PARAM_COAL_CHAIN_DESC                                       :Этот параметр контролирует наличие Угольной цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Зависит от климата
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Включенa
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Выключенa
+
+STR_PARAM_OIL_CHAIN                                             :Нефтяная цепь
+STR_PARAM_OIL_CHAIN_DESC                                        :Этот параметр контролирует наличие Нефтяной цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Вариант "Выключено" отключит Нефтяную цепь, остальные определят, какие виды нефтяных предприятий будет работать.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Зависит от климата
+STR_PARAM_OIL_CHAIN_WELLS                                       :Нефтяная скважина и нефтеперерабатывающий завод
+STR_PARAM_OIL_CHAIN_RIG                                         :Нефтяная платформа и нефтеперерабатывающий завод
+STR_PARAM_OIL_CHAIN_ALL                                         :Нефтяная скважина, нефтяная платформа и нефтеперерабатывающий завод
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Выключенa
+
+STR_PARAM_VALUABLES_CHAIN                                       :Ценностная цепь
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Этот параметр контролирует наличие Ценностной цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Вариант "Выключено" отключит Ценностную цепь, остальные определят, какой вид ценных материалов, будет использоваться в качестве груза.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Зависит от климата
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Использовать Ценности в качестве груза
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Использовать Золото в качестве груза
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Использовать Алмазы в качестве груза
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Использовать Золото и Алмазы в качестве груза
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Выключенa
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Цепь железной руды
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Этот параметр контролирует наличие Цепи железной руды. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Учтите, что Фабрика может принимать только три типа груза, если вы будете использовать больше трёх, другие предприятия будут принимать лишние (Продуктовый завод будет принимать грузы с Фермы, Лесопилка - Дерево).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Зависит от климата
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Включенa
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Выключенa
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Цепь медной руды
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Этот параметр контролирует наличие Цепи медной руды. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Учтите, что Фабрика может принимать только три типа груза, если вы будете использовать больше трёх, другие предприятия будут принимать лишние (Продуктовый завод будет принимать грузы с Фермы, Лесопилка - Дерево).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Зависит от климата
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Включенa
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Выключенa
+
+STR_PARAM_RUBBER_CHAIN                                          :Каучуковая цепь
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Этот параметр контролирует наличие Каучуковой цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Учтите, что Фабрика может принимать только три типа груза, если вы будете использовать больше трёх, другие предприятия будут принимать лишние (Продуктовый завод будет принимать грузы с Фермы, Лесопилка - Дерево).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Зависит от климата
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Включенa
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Выключенa
+
+STR_PARAM_FARM_CHAIN                                            :Фермерская цепь
+STR_PARAM_FARM_CHAIN_DESC                                       :Этот параметр контролирует наличие Фермерской цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата. Вариант "Выключено" отключит Фермерскую цепь, остальные определят, какие виды Фермерских грузов будут использоваться. Учтите, что Фабрика может принимать только три типа груза, если вы будете использовать больше трёх, другие предприятия будут принимать лишние Продуктовый завод будет принимать грузы с Фермы, Лесопилка - Дерево).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Зависит от климата
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Зерно
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Скот
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Зерно и Скот
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Выключенa
+
+STR_PARAM_FARM_DESTINATION                                      :Место назначения Фермерских грузов
+STR_PARAM_FARM_DESTINATION_DESC                                 :Этот параметр контролирует места назначения Фермерских грузов. Когда параметр равен "Зависит от климата", места назначения будут определятся настройками по умолчанию для текущего климата. Остальные опции позволяют решить, какое предприятие будет принимать Фермерские грузы. Если больше трёх грузов для Фабрики выбраны, возможно местом назначения станет Продуктовый завод.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Зависит от климата
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Продуктовый Завод
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Фабрика
+
+STR_PARAM_FRUIT_CHAIN                                           :Фруктовая цепь
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Этот параметр контролирует наличие Фруктовой цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Зависит от климата
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Включенa
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Выключенa
+
+STR_PARAM_WOOD_PRODUCER                                         :Производитель дерева
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Этот параметр определяет, какая промышленность производит дерево. Когда параметр равен "Зависит от климата", производитель дерева будет определятся настройками по умолчанию для текущего климата. Остальные опции позволяют решить, какое предприятие будет производить дерево. Это так повлияет на оплату дерева.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Зависит от климата
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Лес
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Лесопилка
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Выключенa
+
+STR_PARAM_WOOD_DESTINATION                                      :Место назначения дерева
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Этот параметр определяет место назначения дерева. Когда параметр равен "Зависит от климата", место назначения дерева будет определятся настройками по умолчанию для текущего климата. Остальные опции позволяют решить, какое предприятие будет принимать дерево. Учтите, что Фабрика может принимать только три типа груза, если вы будете использовать больше трёх, другие предприятия будут принимать лишние Продуктовый завод будет принимать грузы с Фермы, Лесопилка - Дерево).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Зависит от климата
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Лесопилка
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Бумажная фабрика
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Фабрика
+
+STR_PARAM_WATER_CHAIN                                           :Водная цепь
+STR_PARAM_WATER_CHAIN_DESC                                      :Этот параметр контролирует наличие Водной цепи. Когда параметр равен "Зависит от климата", присутствие этой цепи будет определятся настройками по умолчанию для текущего климата.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Зависит от климата
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Включенa
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Выключенa
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Отключить ограничения постройки Нефтяных Скважин
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :По умолчанию, Нефтяные скважины не могут быть построены в умеренном климате (исключая генерацию карты) и они не могут появлятся после 1950 года в других климатах. Также, Нефтяные Скважины в умеренном климате никогда не увеличивают производительность.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Отключить ограничения постройки Нефтяных Платформ
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :По умолчанию, Нефтяные платформы не могут быть построены до 1960 года и они не появляются во время генерации карты.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Отключить ограничения постройки Банков Ценностей
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :По умолчанию, Банки ценностей не появляются во время генерации карты.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :создание/изменение/закрытие основных предприятий
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Включает случайное появление/закрытие предприятий.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :создание/изменение/закрытие городских предприятий
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Отключить случайное появление/закрытие банков, магазинов, водонапорных башен

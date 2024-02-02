@@ -1,0 +1,260 @@
+{{GRF_TITLE}}
+===================================
+This NewGRF adds Dutch tracks to OpenTTD.
+
+----------
+0 Contents
+----------
+
+1   About
+2   General information
+    2.1  Requirements
+    2.2  Installation
+    2.3  Parameter settings
+3   Known issues
+4   Background information
+5   Frequently Asked Questions
+6   Credits
+7   Contact information
+    7.1  Bug reports
+    7.2  Other problems
+    7.3  General enquiries
+8   License
+9   Source code
+	9.1  Obtaining the source
+	9.2  Building from source
+
+
+
+-------
+1 About
+-------
+
+This NewGRF adds tracks to OpenTTD, based on the systems used in The Netherlands. 
+It contains all major tracktypes, including a futuristic one.
+It is designed to work with the Dutch Train Set (v2), but will also work for 
+other train sets that follow the used labeling scheme.
+
+{{GRF_TITLE}}
+MD5Hash:  {{GRF_MD5}}
+Version:  {{REPO_REVISION}}
+GRF ID:   {{GRF_ID}}
+
+
+
+---------------------
+2 General information
+---------------------
+
+2.1 Requirements
+----------------
+
+- OpenTTD <1.2.0> or nightly r<22723>
+- TTDPatch is not supported
+
+2.2 Installation
+----------------
+
+OpenTTD:
+  see http://wiki.openttd.org/NewGRF
+  The latest release will be available through the Online Content Service
+
+
+2.3 Parameter settings
+----------------------
+
+Set the parameters before starting a new game. 
+Once started they cannot be changed any longer.
+
+Currently the following parameters are available:
+	-Speed limits: Can be set on or off. Default value is on.
+			This parameter allows you to disable track speed limits
+				On: Speedlimits
+				Off: No speedlimits
+					
+	-Track types: Has 3 possible values.
+			This parameter sets the different main track types
+				0: Non-electrified, DC, AC and Metro (Default)
+				1: Non-electrified, electrified and Metro (No AC/DC distinction)
+				2: Non-electrified and electrified (No AC/DC/Metro distinction)
+	
+	-Level crossings for X:	Can be set on or off. 
+		Default value for Metro is on, for HSL/Betuwe/Futuristic is off.
+			These parameters allows you to enable/disable 
+			level crossings for these two track groups.
+				On: Level crossings can be build
+				Off: Level crossings cannot be build
+						
+
+
+
+--------------
+3 Known issues
+--------------
+
+Grey tracks when playing with reserved tracks displayed:
+When playing with the setting to displaying reserved tracks on, some tracks might 
+look weird when reserved. This has to do with the way sprites are defined. 
+OpenTTD uses the overlay sprites for junctions, but uses a greyed/darkened
+version of the same sprites for reserved tracks. This will cause some partial 
+grey third rail and grey tracks.
+
+Metro graphics 3rd rail doesn't connect properly:
+In some cases (the 3rd rails don't connect properly to each other. This is because
+of the order OpenTTD draws the sprites. OpenTTD draws a part of the rail/tile 
+over the 3rd rail, creating a gap.
+
+Incorrect trains available in OpenTTD <r24272
+In OpenTTD r24272 the loading of labels for tracks and engines was changed. 
+These labels identify the tracks and the engines use those labels to identify on 
+which tracks they can run. In OpenTD <r24272 the order of NewGRF's was important,
+giving small errors like trains available for the wrong tracktype. Either update 
+OpenTTD or load the Track Set before any Train set.
+
+Strange introduction dates of the tracks
+Due to the way track introductions are done in NewGRFs, it is not possible to have 
+an advanced scheme that would work perfectly. Therefore, it was choosen to make sure 
+all tracks that should become available become available during the game, although 
+it might happen that this is several years before/after their real introduction. 
+See issues #4113 and #4114 on the bug tracker and 
+http://www.tt-forums.net/viewtopic.php?f=68&t=62382
+
+------------------------
+4 Background information
+------------------------
+
+The aim of this set is to provide Dutch based tracks to OpenTTD. 
+While many tracks have slight variations in properties only the 
+best properties have been choosen to limit the amount of tracks.
+
+
+
+----------------------------
+5 Frequently Asked Questions
+----------------------------
+
+Q: Why is it not possible to place different tracks on one tile?
+A: This is an OpenTTD limitation.
+
+
+
+---------
+6 Credits
+---------
+
+Graphics:
+- Oberhümer:	Tracks (from NuTracks)
+- Purno:		Metro, 1500V DC Catenary, Level Crossing Lights
+- Transportman:	Metro Level Crossing lights (based onOpenGFX block signals), Templating
+- Yoshi: 		Betuweroute Tracks/Catenary Poles/Fences
+
+Code:
+- Transportman
+
+Translations:
+- No translations yet
+
+Makefile system:
+- Planetmaker
+
+This set uses content from the following GPL v2 NewGRFs:
+- NuTracks v1.1.2 by Oberhümer:
+Dutch Track Set / NuTracks 
+Yard/Station	/ Lowspeed tracks
+HSL				/ Highspeed tracks
+Futuristic 		/ Very highspeed tracks
+
+- OpenGFX signals by the OpenGFX team:
+Basis for Metro Level Crossing lights	
+
+- Dutch Catenary Set by Purno:
+Catenary
+	
+---------------------
+7 Contact information
+---------------------
+
+7.1 Bug reports
+---------------
+
+Please report any bugs you find at
+  bug tracker: http://dev.openttdcoop.org/projects/dutchtracks/issues
+  or forum topic: http://www.tt-forums.net/viewtopic.php?f=26&t=59201
+
+Always included a detailed description of the bug, preferrably with
+screenshot, savegame and steps to reproduce. Also state the exact 
+game version you're using, as well as the version of this NewGRF.
+
+Please try to reproduce in a minimal configuration, with only this
+NewGRF loaded in a recent version of OpenTTD.
+
+If you have a savegame that includes NewGRFs not available on OpenTTD's 
+Online Content, then please try to reproduce the bug in a new game 
+which has all NewGRFs easily accessible.
+
+If you're using a patched version of the game, please try to reproduce
+the bug on an official game build. If you can't reproduce the bug, then
+don't report it here but in the forum topic of the patch(pack) instead.
+
+
+7.2 Other problems
+------------------
+
+If you have any problems using this NewGRF that are not covered in the 
+Frequently Asked Questions above, then you can ask your questions in the
+forum topic: http://www.tt-forums.net/viewtopic.php?f=26&t=59201
+
+
+7.3 General enquiries
+---------------------
+
+If you have any queries that cannot be asked in the forum topic, please
+check the forum topic for the current developers that you can contact.
+
+
+
+---------
+8 License
+---------
+
+{{GRF_TITLE}} - Trackset for OpenTTD
+Copyright (C) 2012 Dutch Trackset Team
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+
+
+----------------------
+9 Source code
+----------------------
+
+9.1 Obtaining the source
+---------------------
+
+The source code can be obtained from the #openttdcoop DevZone
+via source browser:
+    http://dev.openttdcoop.org/projects/dutchtracks/repository
+or via mercurial checkout:
+    hg clone http://hg.openttdcoop.org/dutchtracks
+or via a source bundle download (releases only):
+    http://bundles.openttdcoop.org/dutchtracks
+
+	
+9.2 Building from source
+---------------------	
+
+You can build the source code using the make command in Linux.
+See http://dev.openttdcoop.org/documents/28 for a guide by Foobar on
+the use of make on linux and the list of packages you need to install.

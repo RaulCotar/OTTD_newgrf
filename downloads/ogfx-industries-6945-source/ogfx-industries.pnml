@@ -1,0 +1,47 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "src/header.pnml"
+
+#include "src/templates_industries.pnml"
+
+/* Compatibility errors take precedence over custom chain errors. */
+#include "src/compatibility.pnml"
+#include "src/enable_conditions.pnml"
+
+#include "src/sprite_templates.pnml"
+
+#include "src/spritelayouts_groundaware.pnml"
+
+#include "src/cargo_definition.pnml"
+
+#include "src/tiles/bank_tiles.pnml"
+#include "src/tiles/copper_mine_tiles.pnml"
+#include "src/tiles/diamond_mine_tiles.pnml"
+#include "src/tiles/factory_tiles.pnml"
+#include "src/tiles/farm_tiles.pnml"
+#include "src/tiles/food_processor_tiles.pnml"
+#include "src/tiles/forest_tiles.pnml"
+#include "src/tiles/gold_mine_tiles.pnml"
+#include "src/tiles/iron_ore_mine_tiles.pnml"
+#include "src/tiles/oil_refinery_tiles.pnml"
+#include "src/tiles/oil_rig_tiles.pnml"
+#include "src/tiles/oil_well_tiles.pnml"
+#include "src/tiles/paper_mill_tiles.pnml"
+#include "src/tiles/powerplant_tiles.pnml"
+#include "src/tiles/printing_works_tiles.pnml"
+#include "src/tiles/sawmill_tiles.pnml"
+#include "src/tiles/shop_tiles.pnml"
+#include "src/tiles/steel_mill_tiles.pnml"
+#include "src/tiles/water_tower_tiles.pnml"
+#include "src/tiles/water_supply_tiles.pnml"
+
+#include "src/industry_definition.pnml"
+
+#include "src/custom_chain_factory.pnml"
+#include "src/custom_chain_food_processing_plant.pnml"

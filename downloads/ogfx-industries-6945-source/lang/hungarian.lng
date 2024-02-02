@@ -1,0 +1,123 @@
+##grflangid 0x24
+##plural 2
+##case ba t
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries kibővíti az alapértelmezett gazdasági épületeket és több irányítást biztosít felettük.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Az Olajfinomítók maximális távolsága a víztől
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Az Olajfinomítók maximális távolsága a víztől. '0' értékre állítva bárhol épülhetnek Olajfinomítók.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Korlátlan
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} nem kompatibilis a {STRING}-vel.
+STR_ERR_NO_TOYLAND                                              :{STRING} nem a játékvilággal való használatra lett tervezve.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... az olajfinomítóknak a vízparthoz közel kell lenniük
+STR_ERR_FACTORY_CHAINS                                          :Több mint 3 Gyár által fogadott áru lett bekapcsolva {STRING} esetében. További információ a láncolatok leírásában található.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... csak a hóhatár alatt építhető
+STR_ERR_NO_DESERT_ONLY                                          :... sivatagban nem építhető
+STR_ERR_TOWN_TOO_SMALL                                          :... ez a település túl kicsi {COMMA} ilyen típusú gazdasági épületnek (csak egy ilyen gazdasági épület lehet {COMMA} házanként)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Amennyiben az {STRING} a Total Town Replacement Set (TTRS)-el együtt van használva, az éghajlat alapértelmezett Bank láncolata lesz beállítva.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Bolt
+
+
+#Station names.
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Szén láncolat
+STR_PARAM_COAL_CHAIN_DESC                                       :Ez a paraméter a Szén láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Éghajlattól függő
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Bekapcsolva
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Kikapcsolva
+
+STR_PARAM_OIL_CHAIN                                             :Olaj láncolat
+STR_PARAM_OIL_CHAIN_DESC                                        :Ez a paraméter az Olaj láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja az Olaj láncolatot. A többi beállítás meghatározza, hogy milyen olajipari épületek esznek elérhetők.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Éghajlattól függő
+STR_PARAM_OIL_CHAIN_WELLS                                       :Olajkút és Olajfinomító
+STR_PARAM_OIL_CHAIN_RIG                                         :Olajfúrótorony és Olajfinomító
+STR_PARAM_OIL_CHAIN_ALL                                         :Olajkút, Olajfúrótorony, Olajfinomító
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Kikapcsolva
+
+STR_PARAM_VALUABLES_CHAIN                                       :Bank láncolat
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Ez a paraméter a Bank láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja a Bank láncolatot. A többi beállítás meghatározza, hogy milyen áruk szállíthatóak bankokba
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Éghajlattól függő
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Értéktárgyak
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Arany
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Gyémánt
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Arany és Gyémánt
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Kikapcsolva
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Vasérc láncolat
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Ez a paraméter a Vasérc láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva, egyes árukat egy másik gazdasági épület fogja fogadni (Mezőgazdasági áruk esetén Konzervgyár, Fa esetén Fűrésztelep).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Éghajlattól függő
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Bekapcsolva
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Kikapcsolva
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Rézérc láncolat
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Ez a paraméter a Rézérc láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva, egyes árukat egy másik gazdasági épület fogja fogadni (Mezőgazdasági áruk esetén Konzervgyár, Fa esetén Fűrésztelep).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Éghajlattól függő
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Bekapcsolva
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Kikapcsolva
+
+STR_PARAM_RUBBER_CHAIN                                          :Gumi láncolat
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Ez a paraméter a Gumi láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja a Mezőgazdasági láncolatot.Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva, egyes árukat egy másik gazdasági épület fogja fogadni (Mezőgazdasági áruk esetén Konzervgyár, Fa esetén Fűrésztelep).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Éghajlattól függő
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Bekapcsolva
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Kikapcsolva
+
+STR_PARAM_FARM_CHAIN                                            :Mezőgazdasági láncolat
+STR_PARAM_FARM_CHAIN_DESC                                       :Ez a paraméter a Mezőgazdasági láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja a Mezőgazdasági láncolatot.Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva, egyes árukat egy másik gazdasági épület fogja fogadni (Mezőgazdasági áruk esetén Konzervgyár, Fa esetén Fűrésztelep).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Éghajlattól függő
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Búza
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Állat
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Búza és Állat
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Kikapcsolva
+
+STR_PARAM_FARM_DESTINATION                                      :A mezőgazdasági áruk szállítási célja
+STR_PARAM_FARM_DESTINATION_DESC                                 :Ez a paraméter a Mezőgazdasági láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja a Mezőgazdasági láncolatot. A többi beállítás meghatározza, hogy hova szállíthatók a mezőgazdasági áruk.Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva a mezőgazdasági árukat a Konzervgyár fogja elfogadni.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Éghajlattól függő
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Konzervgyár
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Gyár
+
+STR_PARAM_FRUIT_CHAIN                                           :Gyümölcs láncolat
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Ez a paraméter a Gyümölcs láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Éghajlattól függő
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Bekapcsolva
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Kikapcsolva
+
+STR_PARAM_WOOD_PRODUCER                                         :Fa termelő
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Ez a paraméter a Fa láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ. A 'Kikapcsolt' kikapcsolja a Fa láncolatot. A többi beállítás meghatározza, hogy milyen létesítmény termeli a fát. Ez kihatással van a fa értékékre is.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Éghajlattól függő
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Erdő
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Favágó
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Kikapcsolva
+
+STR_PARAM_WOOD_DESTINATION                                      :A fa szállítási célja
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Ez a paraméter a Fa láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a fát fogadó létesítmény az éghajlattól függ. A többi beállítás meghatározza, hogy hova szállítható fa. Egyszerre csak 3 Gyár által fogadott áru kapcsolható be, amennyiben több lenne bekapcsolva, egyes árukat egy másik gazdasági épület fogja fogadni (Mezőgazdasági áruk esetén Konzervgyár, Fa esetén Fűrésztelep).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Éghajlattól függő
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Fűrésztelep
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papírgyár
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Gyár
+
+STR_PARAM_WATER_CHAIN                                           :Víz láncolat
+STR_PARAM_WATER_CHAIN_DESC                                      :Ez a paraméter a Víz láncolat elérhetőségét állítja be. Amennyiben az 'Éghajlattól függő' beállítás kerül kiválasztásra, a láncolat jelenléte az éghajlattól függ.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Éghajlattól függő
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Bekapcsolva
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Kikapcsolva
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Az olajkutak építési korlátozásainak letiltása
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Olajkutak épülhetnek a mérsékelt éghajlaton játék közben is, sakvidéki és trópusi éghajlaton pedig 1950 után is. Továbbá a mérsékelt éghajlati Olajkutak is növelhetik a termelésüket.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :A tengeri olajfútótornyok építési korlátozásainak letiltása
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :A tengeri olajfúrótornyok 1960 előtt is épülnek, és a térkép generálásakor is megjelennek
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Az értéktárgyakat elfogadó Bankok építési korlátozásainak letiltása
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Az értéktárgyakat elfogadó Bankok a térkép generálásakor megjelennek.
+

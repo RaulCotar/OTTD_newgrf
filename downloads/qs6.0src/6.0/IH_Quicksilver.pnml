@@ -1,0 +1,14 @@
+/* IH_Qicksilver 6.0 will dummy out several locomotives. Dummied out locos will return when Iron Horse 2.0 is released. */
+#include "src/header.pnml"
+/* #include "src/cargosprinter.pnml" */
+/* #include "src/cyclops.pnml" */
+/* #include "src/double_juice.pnml" */
+/* #include "src/electra.pnml" */
+#include "src/pneumatic_tube.pnml"
+#include "src/quicksilver_loco.pnml"
+
+
+
+/* DO NOT INCLUDE - NEEDS BETTER SPRITES */
+/* #include "src/badger.pnml" */
+/* #include "src/broken_nose.pnml" */

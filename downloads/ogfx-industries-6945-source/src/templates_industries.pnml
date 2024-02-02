@@ -1,0 +1,54 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Every month, the counter is increased. The counter is reset to zero whenever the power plant
+ * receives cargo. When the counter reaches 61, the industry will close when the random production
+ * change callback is called.
+ */
+#define INDUSTRY_BLACKHOLE_PRODUCTION_SWITCHES(name, industry_changes_enabled) \
+/* When we receive cargo, the counter is reset. */ \
+produce(name ## _cargo_arrive_produce, 0xFFFF, 0xFFFF, 0, 0, STORE_PERM(0, 0x00)); \
+\
+/* Every month the counter is increased if closure switch is enabled. */ \
+switch (FEAT_INDUSTRIES, SELF, name ##_monthly_prod_change_switch, STORE_PERM(LOAD_PERM(0x00) + industry_changes_enabled, 0x00)) { \
+	return CB_RESULT_IND_PROD_NO_CHANGE; \
+} \
+ \
+/* Only check industry closure if the counter is greater than 60 and industry closure in enabled. */ \
+switch (FEAT_INDUSTRIES, SELF, name ## _random_prod_change_switch, LOAD_PERM(0x00)) { \
+	0..60: return CB_RESULT_IND_PROD_NO_CHANGE; \
+	return CB_RESULT_IND_PROD_CLOSE; \
+}
+
+
+/* This industry cannot be placed in deserts. */
+switch (FEAT_INDUSTRIES, SELF, location_switch_no_desert, nearby_tile_terrain_type(0, 0)) {
+	TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+	return CB_RESULT_LOCATION_ALLOW;
+}
+
+/* This industry cannot be placed in deserts or above the snowline. */
+switch (FEAT_INDUSTRIES, SELF, location_switch_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+	TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+	TILETYPE_SNOW:   return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+	return CB_RESULT_LOCATION_ALLOW;
+}
+
+
+/* Only one industry of this type is allowed for every NUM_HOUSES_PER_INDUSTRY houses in the town. */
+#define INDUSTRY_ONE_INDUSTRY_PER_HOUSE_NUMBER(name, industry_ID) \
+ \
+switch (FEAT_INDUSTRIES, PARENT, name ## _num_houses_check_switch, [STORE_TEMP(LOAD_TEMP(0), 0x100), STORE_TEMP(NUM_HOUSES_PER_INDUSTRY, 0x101), var[0xB6] - NUM_HOUSES_PER_INDUSTRY * LOAD_TEMP(0)]) { \
+	0..0xFFFF: return CB_RESULT_LOCATION_ALLOW; \
+	return string(STR_ERR_TOWN_TOO_SMALL); \
+} \
+ \
+switch (FEAT_INDUSTRIES, SELF, name ## _location_check_switch, STORE_TEMP(industry_town_count(industry_ID, -1), 0)) { \
+	0: return CB_RESULT_LOCATION_ALLOW; \
+	name ## _num_houses_check_switch; \
+}

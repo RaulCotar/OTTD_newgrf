@@ -1,0 +1,37 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Food processing plant: Cargo acceptance is defined in src/custom_chain_food_processing_plant.pnml */
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_1) {
+	property {
+		substitute:      0x3C;
+		override:        0x3C;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_2) {
+	property {
+		substitute:      0x3D;
+		override:        0x3D;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_3) {
+	property {
+		substitute:      0x3E;
+		override:        0x3E;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_4) {
+	property {
+		substitute:      0x3F;
+		override:        0x3F;
+	}
+}

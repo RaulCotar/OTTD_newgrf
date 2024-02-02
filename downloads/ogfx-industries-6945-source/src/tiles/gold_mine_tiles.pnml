@@ -1,0 +1,172 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Gold mine */
+
+#define gold_mine_base_sprite 2215
+
+/* Replace all the original iron ore mine sprites by the semi-transparent ones without snow
+ * We'll need to supply possibly our own snowy versions
+ * In any case, we add a ground tile later in the tile layouts
+ */
+ 
+// 2215 - 2231
+replace (gold_mine_base_sprite+ 0, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82,  18) }
+replace (gold_mine_base_sprite+ 1, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162,  18) }
+replace (gold_mine_base_sprite+ 2, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242,  18) }
+replace (gold_mine_base_sprite+ 3, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(322,  18) }
+replace (gold_mine_base_sprite+ 4, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(402,  18) }
+replace (gold_mine_base_sprite+ 5, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(482,  18) }
+replace (gold_mine_base_sprite+ 6, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(562,  18) }
+replace (gold_mine_base_sprite+ 7, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(642,  18) }
+replace (gold_mine_base_sprite+ 8, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(722,  18) }
+replace (gold_mine_base_sprite+ 9, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(  2,  66) }
+replace (gold_mine_base_sprite+10, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82,  66) }
+replace (gold_mine_base_sprite+11, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162,  66) }
+replace (gold_mine_base_sprite+12, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242,  66) }
+replace (gold_mine_base_sprite+13, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(322,  66) }
+replace (gold_mine_base_sprite+14, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(402,  66) }
+replace (gold_mine_base_sprite+15, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(482,  66) }
+
+// 2232 - 2247
+replace (gold_mine_base_sprite+16+ 0, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82,  18) }
+replace (gold_mine_base_sprite+16+ 1, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162,  18) }
+replace (gold_mine_base_sprite+16+ 2, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242,  18) }
+replace (gold_mine_base_sprite+16+ 3, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(  2, 130) }
+replace (gold_mine_base_sprite+16+ 4, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82, 130) }
+replace (gold_mine_base_sprite+16+ 5, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162, 130) }
+replace (gold_mine_base_sprite+16+ 6, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242, 130) }
+replace (gold_mine_base_sprite+16+ 7, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(322, 130) }
+replace (gold_mine_base_sprite+16+ 8, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(402, 130) }
+replace (gold_mine_base_sprite+16+ 9, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(  2,  66) }
+replace (gold_mine_base_sprite+16+10, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82,  66) }
+replace (gold_mine_base_sprite+16+11, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(642, 130) }
+replace (gold_mine_base_sprite+16+12, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(722, 130) }
+replace (gold_mine_base_sprite+16+13, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(  2, 194) }
+replace (gold_mine_base_sprite+16+14, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82, 194) }
+replace (gold_mine_base_sprite+16+15, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162, 194) }
+
+// 2248 - 2262
+replace (gold_mine_base_sprite+32+ 0, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242, 194) }
+replace (gold_mine_base_sprite+32+ 1, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(322, 194) }
+replace (gold_mine_base_sprite+32+ 2, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(402, 194) }
+replace (gold_mine_base_sprite+32+ 3, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(482, 194) }
+replace (gold_mine_base_sprite+32+ 4, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(562, 194) }
+replace (gold_mine_base_sprite+32+ 5, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(642, 194) }
+replace (gold_mine_base_sprite+32+ 6, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(722, 194) } // 2254 needs different layout
+replace (gold_mine_base_sprite+32+ 7, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(  2, 258) }
+replace (gold_mine_base_sprite+32+ 8, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground( 82, 258) }
+replace (gold_mine_base_sprite+32+ 9, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(162, 258) }
+replace (gold_mine_base_sprite+32+10, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(242, 258) }
+replace (gold_mine_base_sprite+32+11, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(322, 258) }
+replace (gold_mine_base_sprite+32+12, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(402, 258) }
+replace (gold_mine_base_sprite+32+13, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(482, 258) }
+replace (gold_mine_base_sprite+32+14, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(562, 258) }
+replace (gold_mine_base_sprite+32+15, "src/gfx/gold_mine/gold_mine.png") { tmpl_level_ground(642, 258) }
+
+// Animated tile 7 (2263-2265)
+replace (gold_mine_base_sprite+48+0, "src/gfx/gold_mine/gold_mine.png") { [722, 258, 45, 54, -23, -27] }
+replace (gold_mine_base_sprite+48+1, "src/gfx/gold_mine/gold_mine.png") { [  2, 322, 45, 54, -23, -27] }
+replace (gold_mine_base_sprite+48+2, "src/gfx/gold_mine/gold_mine.png") { [ 66, 322, 45, 54, -23, -27] }
+
+
+
+#define GOLDMINE_TILE_TERRAIN(number) \
+GROUND_AWARE_SPRITELAYOUT(goldmine_tile_ ## number) \
+	childsprite { sprite: gold_mine_base_sprite + number + min(construction_state, 2) * 16; always_draw: 1; } \
+SPRITELAYOUT_END
+
+
+GOLDMINE_TILE_TERRAIN(0)
+GOLDMINE_TILE_TERRAIN(1)
+GOLDMINE_TILE_TERRAIN(2)
+GOLDMINE_TILE_TERRAIN(3)
+GOLDMINE_TILE_TERRAIN(4)
+GOLDMINE_TILE_TERRAIN(5)
+GOLDMINE_TILE_TERRAIN(6)
+// tile 7 contains the tower and is special
+GOLDMINE_TILE_TERRAIN(8)
+GOLDMINE_TILE_TERRAIN(9)
+GOLDMINE_TILE_TERRAIN(10)
+GOLDMINE_TILE_TERRAIN(11)
+GOLDMINE_TILE_TERRAIN(12)
+GOLDMINE_TILE_TERRAIN(13)
+GOLDMINE_TILE_TERRAIN(14)
+GOLDMINE_TILE_TERRAIN(15)
+
+/* special handling for tile #7 with the tower */
+#define GOLDMINE_TILE_BUILDING_ANIM(number, animframe, buildingsprite) \
+GROUND_AWARE_SPRITELAYOUT(goldmine_tile_ ## number ## _ ## animframe) \
+	childsprite { sprite: gold_mine_base_sprite + number + min(construction_state, 2) * 16; always_draw: 1; } \
+	CONDITIONAL_BUILDING_SPRITE(buildingsprite, 16, construction_state == 3) \
+SPRITELAYOUT_END
+
+GOLDMINE_TILE_BUILDING_ANIM(7, 0, gold_mine_base_sprite + 49)
+GOLDMINE_TILE_BUILDING_ANIM(7, 1, gold_mine_base_sprite + 50)
+GOLDMINE_TILE_BUILDING_ANIM(7, 2, gold_mine_base_sprite + 48)
+
+switch (FEAT_INDUSTRYTILES, SELF, goldmine_tile_7, animation_frame) {
+	1: goldmine_tile_7_1;
+	2: goldmine_tile_7_2;
+	goldmine_tile_7_0;
+}
+
+
+
+random_switch (FEAT_INDUSTRYTILES, SELF, goldmine_tile_random_anim_trigger_switch, bitmask(TRIGGER_INDUSTRYTILE_TILELOOP)) {
+	1: return CB_RESULT_NEXT_FRAME;
+	1: return CB_RESULT_STOP_ANIMATION;
+}
+switch (FEAT_INDUSTRYTILES, SELF, goldmine_tile_anim_trigger_switch, animation_frame) {
+	0: goldmine_tile_random_anim_trigger_switch;
+	return CB_RESULT_NEXT_FRAME;
+}
+
+#define GOLDMINE_TILE_REDEFINE(number) \
+item(FEAT_INDUSTRYTILES, goldmine_tile ## number) { \
+	property { \
+		substitute:          72 + number; \
+		override:            72 + number; \
+	} \
+	graphics { \
+		goldmine_tile_ ## number; \
+	} \
+}
+
+item(FEAT_INDUSTRYTILES, goldmine_tile7) {
+	property {
+		substitute:          79;
+		override:            79;
+		animation_info:     [ANIMATION_LOOPING, 3];
+		animation_speed:    2;
+		animation_triggers: bitmask(ANIM_TRIGGER_INDTILE_TILE_LOOP);
+		special_flags:      bitmask(INDTILE_FLAG_RANDOM_ANIMATION);
+	}
+	graphics {
+		anim_control: goldmine_tile_anim_trigger_switch;
+		anim_next_frame: goldmine_tile_random_anim_trigger_switch;
+		random_trigger: goldmine_tile_random_anim_trigger_switch;
+		goldmine_tile_7;
+	}
+}
+
+GOLDMINE_TILE_REDEFINE(0)
+GOLDMINE_TILE_REDEFINE(1)
+GOLDMINE_TILE_REDEFINE(2)
+GOLDMINE_TILE_REDEFINE(3)
+GOLDMINE_TILE_REDEFINE(4)
+GOLDMINE_TILE_REDEFINE(5)
+GOLDMINE_TILE_REDEFINE(6)
+GOLDMINE_TILE_REDEFINE(8)
+GOLDMINE_TILE_REDEFINE(9)
+GOLDMINE_TILE_REDEFINE(10)
+GOLDMINE_TILE_REDEFINE(11)
+GOLDMINE_TILE_REDEFINE(12)
+GOLDMINE_TILE_REDEFINE(13)
+GOLDMINE_TILE_REDEFINE(14)
+GOLDMINE_TILE_REDEFINE(15)

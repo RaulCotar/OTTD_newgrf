@@ -1,0 +1,122 @@
+##grflangid 0x5a
+##plural 1
+STR_GRF_NAME                                                    :OpenGFX+ Industries (Industri) {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+Industries lanjutkan industri standar dan kasihkan lebih banyak penguasan untuk industri yang mana tersedia.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Jarak terjauh dari perairan untuk kilang minyak
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Jarak terjauh dari perairan untuk kilang minyak. Nilai nol akan memungkinkan membangun kilang minyak dimana-mana.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Tanpa batas
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} tidak cocok sama {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} tidak dirancang untuk menjalan sama iklim taman bermain.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... kilang minyak harus dibangun di dekat perairan
+STR_ERR_FACTORY_CHAINS                                          :Anda pilih lebih dari tiga rantai pabrik untuk {STRING}. Periksa deskripsi 'parameter' rantai untuk lebih banyak informasi.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... cuma bisa dibuat dibawah garis salju
+STR_ERR_NO_DESERT_ONLY                                          :... tidak bisa dibuat di daerah gurun
+STR_ERR_TOWN_TOO_SMALL                                          :... kota ini terlalu kecil untuk dapat {COMMA} industri jenis ini (cuma bisa salah satu industri setiap {COMMA} rumah)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Jika {STRING} dipakai sama Total Town Replacement Set (TTRS), rantai Bank standar iklim sama kargonya akan terus diaktifkan.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Toko
+
+
+#Station names.
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Rantai Batu Bara
+STR_PARAM_COAL_CHAIN_DESC                                       :Parameter ini menguas kehadiran rantai Batu Bara. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Tergantung sama iklim
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Diaktifkan
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Dinon-aktifkan
+
+STR_PARAM_OIL_CHAIN                                             :Rantai Minyak
+STR_PARAM_OIL_CHAIN_DESC                                        :Parameter ini menguas kehadiran rantai Minyak. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. "Dinon-aktifkan" akan non-aktifkan rantai Minyak. Pengaturan yang lain akan memutuskan industri berhubung sama Minyak yang mana yang aktif.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Tergantung sama iklim
+STR_PARAM_OIL_CHAIN_WELLS                                       :Sumur Minyak dan Kilang Minyak
+STR_PARAM_OIL_CHAIN_RIG                                         :Pengeboran Minyak lepas pantai dan Kilang Minyak
+STR_PARAM_OIL_CHAIN_ALL                                         :Sumur Minyak, Pengeboran Minyak lepas pantai dan Kilang Minyak
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Dinon-aktifkan
+
+STR_PARAM_VALUABLES_CHAIN                                       :Rantai bank
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Parameter ini menguas kehadiran rantai Bank. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. "Dinon-aktifkan" akan non-aktifkan rantai Bank. Pengaturan yang lain akan aktifkan Bank dan memutuskan kargo yang mana diterima (atau dalam hal ini Barang Berharga juga dibuat) oleh itu
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Tergantung sama iklim
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Kargo Barang Berharga
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Kargo Emas
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Kargo Intan
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Kargo Emas dan Intan
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Dinon-aktifkan
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Rantai Bijih Besi
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Parameter ini menguas kehadiran rantai Bijih Besi. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. Perhatikan anda cuma boleh dapat tiga kargo Pabrik selama waktu yang sama. Jika anda pilih lebih dari tiga, malahan beberapa kargo diterima oleh industri yang lain (kargo Pertanian oleh Pabrik Pengolahan Makanan, Kayu oleh Penggergajian Kayu).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Tergantung sama iklim
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Diaktifkan
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Dinon-aktifkan
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Rantai Bijih Tembaga
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Parameter ini menguas kehadiran rantai Bijih Tembaga. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. Perhatikan anda cuma boleh dapat tiga kargo Pabrik selama waktu yang sama. Jika anda pilih lebih dari tiga, malahan beberapa kargo diterima oleh industri yang lain (kargo Pertanian oleh Pabrik Pengolahan Makanan, Kayu oleh Penggergajian Kayu).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Tergantung sama iklim
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Diaktifkan
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Dinon-aktifkan
+
+STR_PARAM_RUBBER_CHAIN                                          :Rantai Karet
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Parameter ini menguas kehadiran rantai Karet. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. Perhatikan anda cuma boleh dapat tiga kargo Pabrik selama waktu yang sama. Jika anda pilih lebih dari tiga, malahan beberapa kargo diterima oleh industri yang lain (kargo Pertanian oleh Pabrik Pengolahan Makanan, Kayu oleh Penggergajian Kayu).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Tergantung pada lansekap
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Diaktifkan
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Dinon-aktifkan
+
+STR_PARAM_FARM_CHAIN                                            :Rantai Pertanian
+STR_PARAM_FARM_CHAIN_DESC                                       :Parameter ini menguas kehadiran rantai Pertanian. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang. "Dinon-aktifkan" akan non-aktifkan rantai Pertanian. Pengaturan yang lain akan memutuskan kargo Pertanian yang mana yang aktif. Perhatikan anda cuma boleh dapat tiga kargo Pabrik selama waktu yang sama. Jika anda pilih lebih dari tiga, malahan beberapa kargo diterima oleh industri yang lain (kargo Pertanian oleh Pabrik Pengolahan Makanan, Kayu oleh Penggergajian Kayu).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Tergantung sama iklim
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Gandum
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Ternak
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Gandum dan Ternak
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Dinon-aktifkan
+
+STR_PARAM_FARM_DESTINATION                                      :Tujuan kargo Pertanian
+STR_PARAM_FARM_DESTINATION_DESC                                 :Parameter ini menguas tujuan kargo dari rantai Pertanian. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" tujuan kargo Pertanian akan jadi yang standar untuk iklim sekarang. Pilihan yang lain memungkinkan untuk pilih industri yang mana akan terima kargo Pertanian. Jika anda pilih lebih dari tiga kargo Pabrik pada waktu yang sama, bisa mungkin kargo Pertanian akan dimaksa untuk diterima oleh Pabrik Pengolahan Makanan.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Tergantung sama iklim
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Pabrik Pengolahan Makanan
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Pabrik
+
+STR_PARAM_FRUIT_CHAIN                                           :Rantai buah
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Parameter ini menguas kehadiran rantai Buah. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Tergantung sama iklim
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Diaktifkan
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Dinon-aktifkan
+
+STR_PARAM_WOOD_PRODUCER                                         :Produser Kayu
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Parameter ini menguas industri yang mana buatkan kargo Kayu. Kalau parameter dingaturkan ke "Tergantung sama iklim" industri yang buat Kayu akan jadi industri standar untuk iklim yang sekarang. Pilihan yang lain memungkinkan untuk pilih industri yang mana akan buat kargo Kayu. Ini juga akan mempengaruhkan biaya Kayu.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Tergantung pada lansekap
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Hutan
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Pabrik Pengolahan Kayu Gelondongan
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Dimatikan
+
+STR_PARAM_WOOD_DESTINATION                                      :Tujuan kayu
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Parameter ini menguas tujuan kargo Kayu. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" industri yang terima Kayu akan jadi industri standar untuk iklim sekarang. Pilihan yang lain memungkinkan anda untuk pilih industri yang mana akan terima kargo Kayu. Perhatikan anda cuma boleh dapat tiga kargo Pabrik selama waktu yang sama. Jika anda pilih lebih dari tiga, malahan beberapa kargo diterima oleh industri yang lain (kargo Pertanian oleh Pabrik Pengolahan Makanan, Kayu oleh Penggergajian Kayu).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Tergantung sama iklim
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Penggergajian Kayu
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Pabrik Pengolahan Kertas
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Pabrik
+
+STR_PARAM_WATER_CHAIN                                           :Rantai air
+STR_PARAM_WATER_CHAIN_DESC                                      :Parameter ini menguas kehadiran rantai Air. Kalau parameter ini dingaturkan ke "Tergantung sama iklim" kehadiran rantai ini akan mengandal sama pengaturan standar untuk iklim sekarang.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Tergantung sama iklim
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Diaktifkan
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Dinon-aktifkan
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Dinon-aktifkan batasan membangun Sumur Minyak
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Sumur Minyak akan dibuat di iklim sedang pada permainan biasa, dan juga setelah tahun 1950 di iklim arktik and tropis. Sumur Minyak di iklim sedang bisa naikkan produksinya.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Dinon-aktifkan batasan membangun Pengeboran Minyak lepas pantai
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Pengeboran Minyak lepas pantai akan dibuat sebelum tahun 1960 dan akan tampil pada pembuatan peta.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Dinon-aktifkan batasan membangun untuk Bank yang menerima Barang Berharga
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Bank yang terima Barang Berharga akan tampil pada pembuatan peta.
+

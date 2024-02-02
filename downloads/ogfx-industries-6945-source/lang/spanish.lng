@@ -1,0 +1,151 @@
+##grflangid 0x04
+##plural 0
+##gender m f
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries mejora las industrias estándar y permite un mayor control a la hora de decidir cuales se encuentran disponibles.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Máxima distancia hasta el agua para las refinerías de petróleo
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Máxima distancia hasta el agua para las refinerías de petróleo. Un valor de cero permite construir refinerías de petróleo en cualquier parte.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Infinita (permitir en cualquier lugar)
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} es incompatible con {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} no está diseñado para funcionar en el clima de Juguetelandia.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... las refinerías de petróleo deben construirse cerca del agua
+STR_ERR_FACTORY_CHAINS                                          :Has seleccionado más de tres cargas para la Fábrica en {STRING}. Comprueba la descripción de los parámetros de la cadena de industrias para más información.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... solamente puede construirse en zonas sin nieve
+STR_ERR_NO_DESERT_ONLY                                          :... no puede construirse en zonas desérticas
+STR_ERR_TOWN_TOO_SMALL                                          :... esta ciudad es demasiado pequeña para tener {COMMA} industrias de este tipo (solamente puede haber una industria de este tipo por cada {COMMA} casas)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Cuando {STRING} es empleado junto con Total Town Replacement Set, el Banco por defecto del clima actual junto con su carga estará siempre habilitado.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Mercado
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Mina de Carbón
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Central Eléctrica
+STR_SAWMILL_STATION_NAME                                        :{STRING} Aserradero
+STR_FOREST_STATION_NAME                                         :{STRING} Bosque
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Refinería de Petróleo
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Plataforma Petrolífera
+STR_FACTORY_STATION_NAME                                        :{STRING} Fábrica
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Imprenta
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Acería
+STR_FARM_STATION_NAME                                           :{STRING} Granja
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Mina de Cobre
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Pozo Petrolífero
+STR_BANK_STATION_NAME                                           :{STRING} Banco
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} Planta Procesadora de Alimentos
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Papelera
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Mina de Oro
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Mina de Diamantes
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Mina de Hierro
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Plantación de Fruta
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Plantación de Caucho
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Suministro de Agua
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Torre de Agua
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Aserradero
+STR_SHOP_STATION_NAME                                           :{STRING} Mercado
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Cadena del Carbón
+STR_PARAM_COAL_CHAIN_DESC                                       :Presencia de la cadena del Carbón. "Dependiente del clima" usará los valores por defecto del clima seleccionado.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Dependiente del clima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Activada
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Desactivada
+
+STR_PARAM_OIL_CHAIN                                             :Cadena del Petróleo
+STR_PARAM_OIL_CHAIN_DESC                                        :Presencia de la cadena del Petróleo. "Dependiente del clima" usará los valores por defecto del clima seleccionado. "Desactivada" deshabilitará la cadena del Petróleo. El resto de opciones determinan cuales de las industrias relacionadas con el Petróleo están activas.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Dependiente del clima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Pozos Petrolíferos y Refinería de Petróleo
+STR_PARAM_OIL_CHAIN_RIG                                         :Plataforma Petrolífera y Refinería de Petróleo
+STR_PARAM_OIL_CHAIN_ALL                                         :Pozos Petrolíferos, Plataforma Petrolífera y Refinería de Petróleo
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Desactivada
+
+STR_PARAM_VALUABLES_CHAIN                                       :Cadena del Banco
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Presencia de la cadena del Banco. "Dependiente del clima" usará los valores por defecto del clima seleccionado. "Desactivada" deshabilitará la cadena del Banco. El resto de opciones activará el Banco y determina cuales de las distintas cargas aceptadas por el Banco están activas.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Dependiente del clima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Objetos de valor
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Oro
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamantes
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Oro y Diamantes
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Desactivada
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Cadena del Mineral de Hierro
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Presencia de la cadena del Mineral de Hierro. "Dependiente del clima" usará los valores por defecto del clima seleccionado. Hay que tener en cuenta que solamente pueden estar activas tres cargas para la Fábrica a la vez. Si se seleccionan más de tres, algunas cargas serán aceptadas por otras industrias (las cargas de la Granja por la Planta Procesadora de Alimentos y la Madera por el Aserradero).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Dependiente del clima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Activada
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Desactivada
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Cadena del Mineral de Cobre
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Presencia de la cadena del Mineral de Cobre. "Dependiente del clima" usará los valores por defecto del clima seleccionado. Hay que tener en cuenta que solamente pueden estar activas tres cargas para la Fábrica a la vez. Si se seleccionan más de tres, algunas cargas serán aceptadas por otras industrias (las cargas de la Granja por la Planta Procesadora de Alimentos y la Madera por el Aserradero).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Dependiente del clima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Activada
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Desactivada
+
+STR_PARAM_RUBBER_CHAIN                                          :Cadena del Caucho
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Presencia de la cadena del Caucho. "Dependiente del clima" usará los valores por defecto del clima seleccionado. Hay que tener en cuenta que solamente pueden estar activas tres cargas para la Fábrica a la vez. Si se seleccionan más de tres, algunas cargas serán aceptadas por otras industrias (las cargas de la Granja por la Planta Procesadora de Alimentos y la Madera por el Aserradero).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Dependiente del clima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Activada
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Desactivada
+
+STR_PARAM_FARM_CHAIN                                            :Cadena de la Granja
+STR_PARAM_FARM_CHAIN_DESC                                       :Presencia de la cadena de la Granja. "Dependiente del clima" usará los valores por defecto del clima seleccionado. "Desactivada" deshabilitará la cadena de la Granja. El resto de opciones determinan cuales de las cargas de la Granja están activas. Hay que tener en cuenta que solamente pueden estar activas tres cargas para la Fábrica a la vez. Si se seleccionan más de tres, algunas cargas serán aceptadas por otras industrias (las cargas de la Granja por la Planta Procesadora de Alimentos y la Madera por el Aserradero).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Dependiente del clima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Grano
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Ganado
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Grano y Ganado
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Desactivada
+
+STR_PARAM_FARM_DESTINATION                                      :Destino de las cargas de la Granja
+STR_PARAM_FARM_DESTINATION_DESC                                 :Destino de las cargas producidas por la Granja. "Dependiente del clima" usará los valores por defecto del clima seleccionado. El resto de opciones permite decidir qué industria aceptará la carga producida por las Granjas. Si se seleccionan más de tres cargas para la Fábrica al mismo tiempo, es posible que las cargas de la Granja sean obligatoriamente aceptadas por la Planta Procesadora de Alimentos.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Dependiente del clima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Planta Procesadora de Alimentos
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fábrica
+
+STR_PARAM_FRUIT_CHAIN                                           :Cadena de la Fruta
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Presencia de la cadena de la Fruta. "Dependiente del clima" usará los valores por defecto del clima seleccionado.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Dependiente del clima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Activada
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Desactivada
+
+STR_PARAM_WOOD_PRODUCER                                         :Productora de Madera
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Industria que produce Madera. "Dependiente del clima" usará los valores por defecto del clima seleccionado. El resto de opciones permiten decidir qué industria producirá Madera. Esto también afecta a las tarifas de pago de la Madera.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Dependiente del clima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Bosque
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Aserradero
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Desactivada
+
+STR_PARAM_WOOD_DESTINATION                                      :Destino de la Madera
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Industria que acepta Madera. "Dependiente del clima" usará los valores por defecto del clima seleccionado. El resto de opciones permiten decidir qué industria aceptará Madera. Hay que tener en cuenta que solamente pueden estar activas tres cargas para la Fábrica a la vez. Si se seleccionan más de tres, algunas cargas serán aceptadas por otras industrias (las cargas de la Granja por la Planta Procesadora de Alimentos y la Madera por el Aserradero).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Dependiente del clima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Aserradero
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papelera
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fábrica
+
+STR_PARAM_WATER_CHAIN                                           :Cadena del Agua
+STR_PARAM_WATER_CHAIN_DESC                                      :Presencia de la cadena del Agua. "Dependiente del clima" usará los valores por defecto del clima seleccionado.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Dependiente del clima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Activada
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Desactivada
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Desactivar restricciones de construcción para los Pozos Petrolíferos
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Los Pozos Petrolíferos aparecerán en el clima templado durante el juego, y también aparecerán después del año 1950 en el resto de climas. Los Pozos Petrolíferos pueden incrementar su producción con clima templado.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Desactivar restricciones de construcción para las Plataformas Petrolíferas
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Las Plataformas Petrolíferas pueden ser construídas antes del año 1960 y pueden aparecer durante la generación del mapa.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Desactivar restricciones de construcción para Bancos que aceptan Objetos de Valor
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Los Bancos que aceptan Objetos de Valor aparecerán durante la generación del mapa.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Creación/cambio/cierre de las industrias principales
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Activar para hacer que las industrias OpenTTD estándar tengan su ritmo y vida natural, Desactivar para congelar la creación aleatoria/cierre de las industrias.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Creación/cambio/cierre de las industrias de la ciudad
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Desactivar para congelar la creación aleatoria/cierre de Bancos, Tiendas y Torres de Agua.

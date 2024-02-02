@@ -1,0 +1,232 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Gold mine */
+
+#define diamond_mine_base_sprite 2266
+
+/* Replace all the original iron ore mine sprites by the semi-transparent ones without snow
+ * We'll need to supply possibly our own snowy versions
+ * In any case, we add a ground tile later in the tile layouts
+ */
+
+template tmpl_diamond_rock_tile(x, y) {
+    [ x, y, 64, 46, -31,  -15 ]
+}
+template tmpl_building_tile(x, y, h) {
+    [ x, y, 64, h, -31,  -(h-31) ]
+}
+
+
+/* Ground sprites for the tiles where the rock is high */
+spriteset(diamond_mine_ground_overlay_0, "src/gfx/diamond_mine/diamond_mine.png") {
+	tmpl_level_ground(130,10)
+}
+spriteset(diamond_mine_ground_overlay_3, "src/gfx/diamond_mine/diamond_mine.png") {
+	tmpl_level_ground(370,10)
+}
+
+/* Due to the different ground tile origin we need to define them for each tile separately */
+#define DIAMOND_GROUND_0 sprite: diamond_mine_ground_overlay_0
+#define DIAMOND_GROUND_1 sprite: diamond_mine_base_sprite + 1
+#define DIAMOND_GROUND_2 sprite: diamond_mine_base_sprite + 2
+#define DIAMOND_GROUND_3 sprite: diamond_mine_ground_overlay_3
+#define DIAMOND_GROUND_4 sprite: diamond_mine_base_sprite + 4
+#define DIAMOND_GROUND_5 sprite: diamond_mine_base_sprite + 5
+#define DIAMOND_GROUND_6 sprite: diamond_mine_base_sprite + 6
+#define DIAMOND_GROUND_7 sprite: diamond_mine_base_sprite + 7
+#define DIAMOND_GROUND_8 sprite: diamond_mine_base_sprite + 8
+
+/* Replace the original sprites */
+// 2266 - 2274
+replace (diamond_mine_base_sprite+ 0, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground( 82,  74) } // same as lv. 2
+replace (diamond_mine_base_sprite+ 1, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(210,  10) }
+replace (diamond_mine_base_sprite+ 2, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(290,  10) }
+replace (diamond_mine_base_sprite+ 3, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_diamond_rock_tile(322,  74) } // same as lv. 2
+replace (diamond_mine_base_sprite+ 4, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(450,  10) }
+replace (diamond_mine_base_sprite+ 5, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(530,  10) }
+replace (diamond_mine_base_sprite+ 6, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(610,  10) }
+replace (diamond_mine_base_sprite+ 7, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(690,  10) }
+replace (diamond_mine_base_sprite+ 8, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(  2,  74) }
+
+// 2275 - 2283
+replace (diamond_mine_base_sprite+9+ 0, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground( 82,  74) }
+replace (diamond_mine_base_sprite+9+ 1, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(162,  74) }
+replace (diamond_mine_base_sprite+9+ 2, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(242,  74) }
+replace (diamond_mine_base_sprite+9+ 3, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_diamond_rock_tile(322,  74) }
+replace (diamond_mine_base_sprite+9+ 4, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(402,  74) }
+replace (diamond_mine_base_sprite+9+ 5, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(482,  74) }
+replace (diamond_mine_base_sprite+9+ 6, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(562,  74) }
+replace (diamond_mine_base_sprite+9+ 7, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(642,  74) }
+replace (diamond_mine_base_sprite+9+ 8, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(722,  74) }
+
+// 2284 - 2292
+replace (diamond_mine_base_sprite+18+ 0, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(  2, 138) }
+replace (diamond_mine_base_sprite+18+ 1, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground( 82, 138) }
+replace (diamond_mine_base_sprite+18+ 2, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_building_tile(162, 138, 36) }
+replace (diamond_mine_base_sprite+18+ 3, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_diamond_rock_tile(242, 138) }
+replace (diamond_mine_base_sprite+18+ 4, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(322, 138) }
+replace (diamond_mine_base_sprite+18+ 5, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(402, 138) }
+replace (diamond_mine_base_sprite+18+ 6, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(482, 138) }
+replace (diamond_mine_base_sprite+18+ 7, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(562, 138) }
+replace (diamond_mine_base_sprite+18+ 8, "src/gfx/diamond_mine/diamond_mine.png") { tmpl_level_ground(642, 138) }
+
+/* Normal industry tile without animation */
+#define DIAMONDMINE_TILE(number, groundtype, stage) \
+spritelayout diamondmine_tile_ ## number ## _ ## groundtype ## _construction ## stage { \
+	ground { sprite: GROUNDSPRITE_ ## groundtype; } \
+	childsprite { DIAMOND_GROUND_ ## number; always_draw: 1; } \
+	building { sprite: diamond_mine_base_sprite + number + stage * 9; } \
+}
+
+/* define the tile properly for all ground tiles */
+#define DIAMONDMINE_TILE_TERRAIN(number) \
+DIAMONDMINE_TILE(number, NORMAL, 0) \
+DIAMONDMINE_TILE(number, NORMAL, 1) \
+DIAMONDMINE_TILE(number, NORMAL, 2) \
+DIAMONDMINE_TILE(number, SNOW, 0) \
+DIAMONDMINE_TILE(number, SNOW, 1) \
+DIAMONDMINE_TILE(number, SNOW, 2) \
+DIAMONDMINE_TILE(number, DESERT, 0) \
+DIAMONDMINE_TILE(number, DESERT, 1) \
+DIAMONDMINE_TILE(number, DESERT, 2)
+
+DIAMONDMINE_TILE_TERRAIN(0)
+DIAMONDMINE_TILE_TERRAIN(1)
+DIAMONDMINE_TILE_TERRAIN(2)
+DIAMONDMINE_TILE_TERRAIN(3)
+DIAMONDMINE_TILE_TERRAIN(4)
+// DIAMONDMINE_TILE_TERRAIN(5) /* contains the tower and is special */ 
+DIAMONDMINE_TILE_TERRAIN(6)
+DIAMONDMINE_TILE_TERRAIN(7)
+DIAMONDMINE_TILE_TERRAIN(8)
+
+/* special handling for tile #5 with the animated tower (extra feature of this grf) */
+// The construction stages don't have the tower, they're normal:
+DIAMONDMINE_TILE(5, NORMAL, 0)
+DIAMONDMINE_TILE(5, NORMAL, 1)
+DIAMONDMINE_TILE(5, SNOW, 0)
+DIAMONDMINE_TILE(5, SNOW, 1)
+DIAMONDMINE_TILE(5, DESERT, 0)
+DIAMONDMINE_TILE(5, DESERT, 1)
+
+/* Animated tile with the tower; could (should?!) be done without template */
+#define DIAMONDMINE_TILE_BUILDING_ANIM(number, groundtype, stage, buildingsprite, animstage) \
+spritelayout diamondmine_tile_ ## number ## _ ## groundtype ## _construction ## stage ## _frame ## animstage { \
+	ground { sprite: GROUNDSPRITE_ ## groundtype; } \
+	childsprite { sprite: diamond_mine_base_sprite + number + stage * 9; always_draw: 1; } \
+	building { sprite: buildingsprite; xoffset: 5; yoffset: 0; zoffset: 9; } \
+}
+
+DIAMONDMINE_TILE_BUILDING_ANIM(5, NORMAL, 2, 2264, 0)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, NORMAL, 2, 2265, 1)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, NORMAL, 2, 2263, 2)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, SNOW, 2, 2264, 0)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, SNOW, 2, 2265, 1)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, SNOW, 2, 2263, 2)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, DESERT, 2, 2264, 0)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, DESERT, 2, 2265, 1)
+DIAMONDMINE_TILE_BUILDING_ANIM(5, DESERT, 2, 2263, 2)
+
+#define DIAMONDMINE_TILE_ANIMATION_SWITCH_BY_CONSTRUCTION(number, terraintype, construction_stage) \
+switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_ ## number ## _ ## terraintype ## _construction ## construction_stage, animation_frame) { \
+	1: diamondmine_tile_ ## number ## _ ## terraintype ## _construction ## construction_stage ## _frame1; \
+	2: diamondmine_tile_ ## number ## _ ## terraintype ## _construction ## construction_stage ## _frame2; \
+	diamondmine_tile_ ## number ## _ ## terraintype ## _construction ## construction_stage ## _frame0; \
+}
+DIAMONDMINE_TILE_ANIMATION_SWITCH_BY_CONSTRUCTION(5, NORMAL, 2)
+DIAMONDMINE_TILE_ANIMATION_SWITCH_BY_CONSTRUCTION(5, SNOW, 2)
+DIAMONDMINE_TILE_ANIMATION_SWITCH_BY_CONSTRUCTION(5, DESERT, 2)
+
+#define DIAMONDMINE_TILE_CONSTRUCTION_SWITCH(number, terraintype) \
+switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_ ## number ## _ ## terraintype ## _construction_switch, construction_state) { \
+	0: diamondmine_tile_ ## number ## _ ## terraintype ## _construction0; \
+	1: diamondmine_tile_ ## number ## _ ## terraintype ## _construction1; \
+	diamondmine_tile_ ## number ## _ ## terraintype ## _construction2; \
+}
+#define DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(number) \
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCH(number, SNOW) \
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCH(number, DESERT) \
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCH(number, NORMAL)
+
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(0)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(1)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(2)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(3)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(4)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(5)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(6)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(7)
+DIAMONDMINE_TILE_CONSTRUCTION_SWITCHES(8)
+
+
+#define DIAMONDMINE_TILE_CLIMATE_SWITCH(number) \
+switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_ ## number ## _terrain_switch, terrain_type) { \
+	TILETYPE_SNOW: diamondmine_tile_ ## number ## _ ## SNOW_construction_switch; \
+	TILETYPE_DESERT: diamondmine_tile_ ## number ## _ ## DESERT_construction_switch; \
+	diamondmine_tile_ ## number ## _ ## NORMAL_construction_switch; \
+}
+DIAMONDMINE_TILE_CLIMATE_SWITCH(0)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(1)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(2)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(3)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(4)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(5)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(6)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(7)
+DIAMONDMINE_TILE_CLIMATE_SWITCH(8)
+
+random_switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_random_anim_trigger_switch, bitmask(TRIGGER_INDUSTRYTILE_TILELOOP)) {
+	1: return CB_RESULT_NEXT_FRAME;
+	1: return CB_RESULT_STOP_ANIMATION;
+}
+switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_anim_trigger_switch, animation_frame) {
+	0: diamondmine_tile_random_anim_trigger_switch;
+	return CB_RESULT_NEXT_FRAME;
+}
+switch (FEAT_INDUSTRYTILES, SELF, diamondmine_tile_next_frame_switch, animation_frame) {
+	diamondmine_tile_random_anim_trigger_switch;
+}
+
+#define DIAMONDMINE_TILE_REDEFINE(number) \
+item(FEAT_INDUSTRYTILES, diamondmine_tile ## number) { \
+	property { \
+		substitute:          91 + number; \
+		override:            91 + number; \
+	} \
+	graphics { \
+		diamondmine_tile_ ## number ## _terrain_switch; \
+	} \
+}
+#define DIAMONDMINE_TILE_REDEFINE_ANIM(number) \
+item(FEAT_INDUSTRYTILES, diamondmine_tile ## number) { \
+	property { \
+		substitute:          91 + number; \
+		override:            91 + number; \
+		animation_info:     [ANIMATION_LOOPING, 3]; \
+		animation_speed:    2; \
+		animation_triggers: bitmask(ANIM_TRIGGER_INDTILE_TILE_LOOP); \
+		special_flags:      bitmask(INDTILE_FLAG_RANDOM_ANIMATION); \
+	} \
+	graphics { \
+		anim_control: diamondmine_tile_anim_trigger_switch; \
+		anim_next_frame: diamondmine_tile_next_frame_switch; \
+		random_trigger: diamondmine_tile_random_anim_trigger_switch; \
+		diamondmine_tile_ ## number ## _terrain_switch; \
+	} \
+}
+
+DIAMONDMINE_TILE_REDEFINE(0)
+DIAMONDMINE_TILE_REDEFINE(1)
+DIAMONDMINE_TILE_REDEFINE(2)
+DIAMONDMINE_TILE_REDEFINE(3)
+DIAMONDMINE_TILE_REDEFINE(4)
+DIAMONDMINE_TILE_REDEFINE_ANIM(5)
+DIAMONDMINE_TILE_REDEFINE(6)
+DIAMONDMINE_TILE_REDEFINE(7)
+DIAMONDMINE_TILE_REDEFINE(8)

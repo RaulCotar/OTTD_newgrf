@@ -1,0 +1,48 @@
+﻿##grflangid 0x01
+STR_GRF_NAME													:Iron Horse "Quicksilver" Add-On v6.0
+STR_GRF_DESC													:{ORANGE}Iron Horse "Quicksilver" Add-On{}{BLACK}GPL v2, coded by Gwyd and SimYouLater.
+STR_PARAM_COLOUR_SCHEME_NAME									:Colour scheme
+STR_PARAM_COLOUR_SCHEME_DESC									:Select the type of colour scheme to use
+STR_PARAM_COLOUR_SCHEME_1CC										:One company color
+STR_PARAM_COLOUR_SCHEME_2CC										:Two company colors
+STR_PARAM_COLOUR_SCHEME_REAL									:Real-world colors
+
+STR_NAME_badger_0												:Badger (Electric)
+STR_ADDITIONAL_TEXT_badger_0									:Based on BR Class 89
+STR_CANNOT_START_badger_0										:
+STR_CANNOT_ATTACH_OTHER_badger_0								:
+
+STR_NAME_broken_nose_0											:Broken Nose (Electric)
+STR_ADDITIONAL_TEXT_broken_nose_0								:Based on BR Class 22/SNCF Class BB 22200
+STR_CANNOT_START_broken_nose_0									:
+STR_CANNOT_ATTACH_OTHER_broken_nose_0							:
+
+STR_NAME_cargo_sprinter_0										:Cargo Sprinter (Diesel)
+STR_ADDITIONAL_TEXT_cargo_sprinter_0							:Based on CargoSprinter
+STR_CANNOT_START_cargo_sprinter_0								:
+STR_CANNOT_ATTACH_OTHER_cargo_sprinter_0						:
+
+STR_NAME_cyclops_0												:Cyclops (Diesel)
+STR_ADDITIONAL_TEXT_cyclops_0									:
+STR_CANNOT_START_cyclops_0										:
+STR_CANNOT_ATTACH_OTHER_cyclops_0								:
+
+STR_NAME_double_juice_0											:Double Juice (Electro-Diesel)
+STR_ADDITIONAL_TEXT_double_juice_0								:Based on BR Class 88
+STR_CANNOT_START_double_juice_0									:
+STR_CANNOT_ATTACH_OTHER_double_juice_0							:
+
+STR_NAME_electra_0												:Electra (Electric)
+STR_ADDITIONAL_TEXT_electra_0									:
+STR_CANNOT_START_electra_0										:
+STR_CANNOT_ATTACH_OTHER_electra_0								:
+
+STR_NAME_pneumatic_tube_0										:Pneumatic Tube (Metro)
+STR_ADDITIONAL_TEXT_pneumatic_tube_0							:Futuristic double-decker vacuum metro train
+STR_CANNOT_START_pneumatic_tube_0								:
+STR_CANNOT_ATTACH_OTHER_pneumatic_tube_0						:
+
+STR_quicksilver_0												:4-6-2 Quicksilver (Steam)
+STR_ADDITIONAL_TEXT_quicksilver_0								:Based on streamlined steam locomotives of the 1930's like LNER A4, LMS Coronation, NYC Mercury K4, etc.
+STR_CANNOT_START_quicksilver_0									:
+STR_CANNOT_ATTACH_OTHER_quicksilver_0							:

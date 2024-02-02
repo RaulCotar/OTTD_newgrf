@@ -1,0 +1,1607 @@
+//------------------------------------------------CARGO SPRINTER CODE SECTION------------------------------------------------
+
+// add the trailing slices to articulated consist
+switch (FEAT_TRAINS, SELF, cargo_sprinter_articulated_cb_switch, extra_callback_info1) {
+    
+        0: return cargo_sprinter;
+    
+        1: return cargo_sprinter_1;
+    
+        2: return cargo_sprinter_2;
+    
+        3: return cargo_sprinter;
+    
+        4: return cargo_sprinter_1;
+    
+        5: return cargo_sprinter_2;
+    
+  return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_cargo_sprinter_1(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -18 ]
+            [76,        y,          22,        22,          -8, -16 ]
+            [107,       y,          32,        15,          -5, -11 ]
+            [156,       y,          22,        22,          -1, -12 ]
+            [188,       y,          8,         25,          -3, -12 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -17 ]
+        }
+    
+
+
+
+
+    
+        
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 0 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 0 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 0 + 0, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_0_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_0_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_0_0, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_0_0;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_0_0;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_0_0;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_0_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_0,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_0_0;
+                return cargo_sprinter_1_switch_loaded_graphics_0_0_0;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 0 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 0 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 0 + 90, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_0_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_0_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_0_1, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_0_1;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_0_1;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_0_1;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_0_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_1,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_0_1;
+                return cargo_sprinter_1_switch_loaded_graphics_0_0_1;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 0 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 0 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 0 + 180, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_0_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_0_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_0_2,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_0_2, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_0_2;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_0_2;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_0_2;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_0_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_2,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_0_2;
+                return cargo_sprinter_1_switch_loaded_graphics_0_0_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: return cargo_sprinter_1_switch_graphics_0_0_1; // same vehicle, show no cab
+            return cargo_sprinter_1_switch_graphics_0_0_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_0_check_preceding_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_0_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: cargo_sprinter_1_switch_graphics_0_0_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_1_switch_graphics_0_0_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_0,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_0_check_following_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_0_2; // different grf, show rear cab
+        }
+
+    
+        
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 270 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 270 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 270 + 0, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_1_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_1_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_1_0, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_1_0;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_1_0;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_1_0;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_1_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_0,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_1_0;
+                return cargo_sprinter_1_switch_loaded_graphics_0_1_0;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 270 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 270 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 270 + 90, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_1_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_1_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_1_1, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_1_1;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_1_1;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_1_1;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_1_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_1,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_1_1;
+                return cargo_sprinter_1_switch_loaded_graphics_0_1_1;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 270 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 270 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 270 + 180, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_1_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_1_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_1_2,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_1_2, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_1_2;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_1_2;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_1_2;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_1_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_2,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_1_2;
+                return cargo_sprinter_1_switch_loaded_graphics_0_1_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: return cargo_sprinter_1_switch_graphics_0_1_1; // same vehicle, show no cab
+            return cargo_sprinter_1_switch_graphics_0_1_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_1_check_preceding_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_1_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: cargo_sprinter_1_switch_graphics_0_1_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_1_switch_graphics_0_1_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_1,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_1_check_following_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_1_2; // different grf, show rear cab
+        }
+
+    
+        
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 540 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 540 + 0, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 540 + 0, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_2_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_2_0,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_2_0, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_2_0;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_2_0;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_2_0;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_2_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_0,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_2_0;
+                return cargo_sprinter_1_switch_loaded_graphics_0_2_0;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 540 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 540 + 90, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 540 + 90, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_2_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_2_1,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_2_1, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_2_1;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_2_1;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_2_1;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_2_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_1,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_2_1;
+                return cargo_sprinter_1_switch_loaded_graphics_0_2_1;
+            }
+
+        
+            spriteset(cargo_sprinter_1_ss_empty_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(10 + 540 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_box_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(40 + 540 + 180, 0)
+            }
+            spriteset(cargo_sprinter_1_ss_loaded_liquids_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter_1(70 + 540 + 180, 0)
+            }
+
+            spritegroup cargo_sprinter_1_sg_empty_0_2_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_empty_0_2_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_empty_0_2_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_box_0_2_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_box_0_2_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_box_0_2_2,
+                ];
+            }
+            spritegroup cargo_sprinter_1_sg_loaded_liquids_0_2_2 {
+                loaded:  [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_2,
+                ];
+                loading: [
+                    cargo_sprinter_1_ss_loaded_liquids_0_2_2,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loaded_graphics_0_2_2, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_1_sg_loaded_liquids_0_2_2;
+                
+                    MILK: return cargo_sprinter_1_sg_loaded_liquids_0_2_2;
+                
+                    WATR: return cargo_sprinter_1_sg_loaded_liquids_0_2_2;
+                
+                return cargo_sprinter_1_sg_loaded_box_0_2_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_2,
+                [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_1_sg_empty_0_2_2;
+                return cargo_sprinter_1_switch_loaded_graphics_0_2_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: return cargo_sprinter_1_switch_graphics_0_2_1; // same vehicle, show no cab
+            return cargo_sprinter_1_switch_graphics_0_2_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_2_check_preceding_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_2_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter_1: cargo_sprinter_1_switch_graphics_0_2_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_1_switch_graphics_0_2_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_0_2,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_1_switch_graphics_0_2_check_following_vehicle_same_id;
+            return cargo_sprinter_1_switch_graphics_0_2_2; // different grf, show rear cab
+        }
+
+    
+
+    random_switch (FEAT_TRAINS, SELF,cargo_sprinter_1_switch_graphics_0, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+        
+            1: return cargo_sprinter_1_switch_graphics_0_0;
+        
+            1: return cargo_sprinter_1_switch_graphics_0_1;
+        
+            1: return cargo_sprinter_1_switch_graphics_0_2;
+        
+    }
+
+
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(cargo_sprinter_1_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup cargo_sprinter_1_sg_hidden {
+    loaded:  [
+        cargo_sprinter_1_ss_hidden,
+    ];
+    loading: [
+        cargo_sprinter_1_ss_hidden,
+    ];
+}
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(1), cargo_sprinter_1_switch_graphics_random_0) {
+        
+            1: return cargo_sprinter_1_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics_by_year, build_year) {
+    
+        0..1985:cargo_sprinter_1_switch_graphics_random_0;
+    
+    return cargo_sprinter_1_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_graphics, extra_callback_info1) {
+    0x10: return cargo_sprinter_1_sg_hidden;
+    return cargo_sprinter_1_switch_graphics_by_year;
+}
+
+
+// buy menu graphics
+
+    
+
+    
+        template spriteset_template_purchase_cargo_sprinter_1() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 56, 15, -28, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+
+
+
+spriteset(cargo_sprinter_1_ss_purchase, "gfx/cargo_sprinter_0.png") {
+  spriteset_template_purchase_cargo_sprinter_1()
+}
+
+spritegroup cargo_sprinter_1_sg_purchase {
+    loaded:  [
+        cargo_sprinter_1_ss_purchase,
+    ];
+    loading: [
+        cargo_sprinter_1_ss_purchase,
+    ];
+}
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_cargo_capacity_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 25;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_cargo_capacity_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 36;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_cargo_capacity_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 48;
+    }
+
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_cargo_capacity, param[0]) {
+    0: cargo_sprinter_1_switch_cargo_capacity_by_cargo_0;
+    1: cargo_sprinter_1_switch_cargo_capacity_by_cargo_1;
+    2: cargo_sprinter_1_switch_cargo_capacity_by_cargo_2;
+}
+
+// -- loading speed also determined by capacity, which varies by cargo -- //
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loading_speed_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 10;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loading_speed_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 12;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loading_speed_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 16;
+    }
+
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_1_switch_loading_speed, param[0]) {
+    0: cargo_sprinter_1_switch_loading_speed_by_cargo_0;
+    1: cargo_sprinter_1_switch_loading_speed_by_cargo_1;
+    2: cargo_sprinter_1_switch_loading_speed_by_cargo_2;
+}
+
+
+
+
+
+
+
+
+
+
+item(FEAT_TRAINS, cargo_sprinter_1, 101) {
+    property {
+        name:                           string(STR_NAME_cargo_sprinter_0, string(STR_NAME_SUFFIX_DIESEL));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_DIESEL;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1999,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 25;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          1000hp;
+        
+            speed:                          100mph;
+        
+        weight:                         92ton;
+        tractive_effort_coefficient:    0.3;
+        cost_factor:                    24;
+        running_cost_base:              RUNNING_COST_DIESEL;
+        running_cost_factor:            122;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_LIQUID,CC_PIECE_GOODS,CC_EXPRESS);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [FRUT,WATR];
+        cargo_disallow_refit:           [FISH,LVST,OIL_,TOUR,WOOD];
+        default_cargo_type:             GOOD;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_AUTOREFIT); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         3;
+        track_type:                     RAIL;
+    }
+    graphics {
+        default:                        cargo_sprinter_1_switch_graphics;
+        purchase:                       cargo_sprinter_1_sg_purchase;
+        
+        
+            cargo_capacity:                 cargo_sprinter_1_switch_cargo_capacity;
+            purchase_cargo_capacity:        cargo_sprinter_1_switch_cargo_capacity;
+            loading_speed:                  cargo_sprinter_1_switch_loading_speed;
+        
+        
+        
+        
+        
+    }
+}
+
+
+
+// -- end 101 -- 
+
+
+/*Null trailing slice for units */
+
+spriteset(cargo_sprinter_2_ss, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]   
+}
+
+spritegroup cargo_sprinter_2_sg {
+    loaded:  [
+        cargo_sprinter_2_ss,
+    ];
+    loading: [
+        cargo_sprinter_2_ss,
+    ];
+}
+
+item(FEAT_TRAINS, cargo_sprinter_2, 102) {
+    property {
+        climates_available:             NO_CLIMATE;
+        introduction_date:              date(01,01,01);
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          0hp;
+        weight:                         0ton;
+        cost_factor:                    0;
+        running_cost_factor:            0;
+        refit_cost:                     0;
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask();
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        misc_flags:                     bitmask(); // nml constants
+        length:                         2;
+    }
+    graphics {
+        default:                        cargo_sprinter_2_sg;
+    }
+}
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_cargo_sprinter(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -18 ]
+            [76,        y,          22,        22,          -8, -16 ]
+            [107,       y,          32,        15,          -5, -11 ]
+            [156,       y,          22,        22,          -1, -12 ]
+            [188,       y,          8,         25,          -3, -12 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -17 ]
+        }
+    
+
+
+
+
+    
+        
+        
+            spriteset(cargo_sprinter_ss_empty_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 0 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 0 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_0_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 0 + 0, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_0_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_0_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_0_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_0_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_0_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_0_0, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_0_0;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_0_0;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_0_0;
+                
+                return cargo_sprinter_sg_loaded_box_0_0_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_0,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_0_0;
+                return cargo_sprinter_switch_loaded_graphics_0_0_0;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 0 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 0 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_0_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 0 + 90, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_0_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_0_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_0_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_0_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_0_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_0_1, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_0_1;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_0_1;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_0_1;
+                
+                return cargo_sprinter_sg_loaded_box_0_0_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_1,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_0_1;
+                return cargo_sprinter_switch_loaded_graphics_0_0_1;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 0 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 0 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_0_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 0 + 180, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_0_2,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_0_2,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_0_2 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_0_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_0_2,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_0_2, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_0_2;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_0_2;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_0_2;
+                
+                return cargo_sprinter_sg_loaded_box_0_0_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_2,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_0_2;
+                return cargo_sprinter_switch_loaded_graphics_0_0_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: return cargo_sprinter_switch_graphics_0_0_1; // same vehicle, show no cab
+            return cargo_sprinter_switch_graphics_0_0_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_0_check_preceding_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_0_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: cargo_sprinter_switch_graphics_0_0_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_switch_graphics_0_0_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_0,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_0_check_following_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_0_2; // different grf, show rear cab
+        }
+
+    
+        
+        
+            spriteset(cargo_sprinter_ss_empty_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 270 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 270 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_1_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 270 + 0, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_1_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_1_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_1_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_1_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_1_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_1_0, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_1_0;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_1_0;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_1_0;
+                
+                return cargo_sprinter_sg_loaded_box_0_1_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_0,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_1_0;
+                return cargo_sprinter_switch_loaded_graphics_0_1_0;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 270 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 270 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_1_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 270 + 90, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_1_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_1_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_1_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_1_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_1_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_1_1, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_1_1;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_1_1;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_1_1;
+                
+                return cargo_sprinter_sg_loaded_box_0_1_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_1,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_1_1;
+                return cargo_sprinter_switch_loaded_graphics_0_1_1;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 270 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 270 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_1_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 270 + 180, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_1_2,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_1_2,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_1_2 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_1_2,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_1_2,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_1_2, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_1_2;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_1_2;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_1_2;
+                
+                return cargo_sprinter_sg_loaded_box_0_1_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_2,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_1_2;
+                return cargo_sprinter_switch_loaded_graphics_0_1_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: return cargo_sprinter_switch_graphics_0_1_1; // same vehicle, show no cab
+            return cargo_sprinter_switch_graphics_0_1_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_1_check_preceding_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_1_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: cargo_sprinter_switch_graphics_0_1_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_switch_graphics_0_1_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_1,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_1_check_following_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_1_2; // different grf, show rear cab
+        }
+
+    
+        
+        
+            spriteset(cargo_sprinter_ss_empty_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 540 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 540 + 0, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_2_0, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 540 + 0, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_2_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_2_0,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_2_0 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_2_0,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_2_0,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_2_0, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_2_0;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_2_0;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_2_0;
+                
+                return cargo_sprinter_sg_loaded_box_0_2_0;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_0,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_2_0;
+                return cargo_sprinter_switch_loaded_graphics_0_2_0;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 540 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 540 + 90, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_2_1, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 540 + 90, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_ss_empty_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_empty_0_2_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_box_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_box_0_2_1,
+                ];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_2_1 {
+                loaded:  [
+                    cargo_sprinter_ss_loaded_liquids_0_2_1,
+                ];
+                loading: [
+                    cargo_sprinter_ss_loaded_liquids_0_2_1,
+                ];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_2_1, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                
+                    BEER: return cargo_sprinter_sg_loaded_liquids_0_2_1;
+                
+                    MILK: return cargo_sprinter_sg_loaded_liquids_0_2_1;
+                
+                    WATR: return cargo_sprinter_sg_loaded_liquids_0_2_1;
+                
+                return cargo_sprinter_sg_loaded_box_0_2_1;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_1,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_2_1;
+                return cargo_sprinter_switch_loaded_graphics_0_2_1;
+            }
+
+        
+            spriteset(cargo_sprinter_ss_empty_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(10 + 540 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_box_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(40 + 540 + 180, 8)
+            }
+            spriteset(cargo_sprinter_ss_loaded_liquids_0_2_2, "gfx/cargo_sprinter_0.png") {
+                spriteset_template_cargo_sprinter(70 + 540 + 180, 8)
+            }
+
+            spritegroup cargo_sprinter_sg_empty_0_2_2 {
+                loaded:  [cargo_sprinter_ss_empty_0_2_2,];
+                loading: [cargo_sprinter_ss_empty_0_2_2,];
+            }
+            spritegroup cargo_sprinter_sg_loaded_box_0_2_2 {
+                loaded:  [cargo_sprinter_ss_loaded_box_0_2_2,];
+                loading: [cargo_sprinter_ss_loaded_box_0_2_2,];
+            }
+            spritegroup cargo_sprinter_sg_loaded_liquids_0_2_2 {
+                loaded:  [cargo_sprinter_ss_loaded_liquids_0_2_2,];
+                loading: [cargo_sprinter_ss_loaded_liquids_0_2_2,];
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loaded_graphics_0_2_2, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                BEER: return cargo_sprinter_sg_loaded_liquids_0_2_2;
+                MILK: return cargo_sprinter_sg_loaded_liquids_0_2_2;
+                WATR: return cargo_sprinter_sg_loaded_liquids_0_2_2;
+                return cargo_sprinter_sg_loaded_box_0_2_2;
+            }
+
+            switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_2,
+                [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]*100/var[0x61, 0, 0x0000FFFF, 0xBA]]) {
+                    0: return cargo_sprinter_sg_empty_0_2_2;
+                return cargo_sprinter_switch_loaded_graphics_0_2_2;
+            }
+
+        
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_check_preceding_vehicle_same_id,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: return cargo_sprinter_switch_graphics_0_2_1; // same vehicle, show no cab
+            return cargo_sprinter_switch_graphics_0_2_0; // different IH vehicle, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_check_preceding_vehicle_same_grf,
+                                    [STORE_TEMP(-3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_2_check_preceding_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_2_0; // different grf, show front cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2_check_following_vehicle_same_id,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+            cargo_sprinter: cargo_sprinter_switch_graphics_0_2_check_preceding_vehicle_same_grf;
+            return cargo_sprinter_switch_graphics_0_2_2; // different IH vehicle, show rear cab
+        }
+
+        switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_0_2,
+                                    [STORE_TEMP(3, 0x10F), var[0x61, 0, 0xFFFFFFFF, 0x25]]) {
+            str2number("CA\12\1E"): cargo_sprinter_switch_graphics_0_2_check_following_vehicle_same_id;
+            return cargo_sprinter_switch_graphics_0_2_2; // different grf, show rear cab
+        }
+
+    
+
+    random_switch (FEAT_TRAINS, BACKWARD_SELF(1),cargo_sprinter_switch_graphics_0) {
+        1: return cargo_sprinter_switch_graphics_0_0;
+        1: return cargo_sprinter_switch_graphics_0_1;
+        1: return cargo_sprinter_switch_graphics_0_2;
+    }
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(cargo_sprinter_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup cargo_sprinter_sg_hidden {
+    loaded:  [cargo_sprinter_ss_hidden,];
+    loading: [cargo_sprinter_ss_hidden,];
+}
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), cargo_sprinter_switch_graphics_random_0) {
+        1: return cargo_sprinter_switch_graphics_0;    
+    }
+	
+switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics_by_year, build_year) {
+    0..1985:cargo_sprinter_switch_graphics_random_0;
+    return cargo_sprinter_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_graphics, extra_callback_info1) {
+    0x10: return cargo_sprinter_switch_graphics_by_year;
+    return cargo_sprinter_sg_hidden;
+}
+
+
+// buy menu graphics
+
+        template spriteset_template_purchase_cargo_sprinter() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 56, 15, -28, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+spriteset(cargo_sprinter_ss_purchase, "gfx/cargo_sprinter_0.png") {
+  spriteset_template_purchase_cargo_sprinter()
+}
+
+spritegroup cargo_sprinter_sg_purchase {
+    loaded:  [cargo_sprinter_ss_purchase,];
+    loading: [cargo_sprinter_ss_purchase,];
+}
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_cargo_capacity_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_cargo_capacity_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_cargo_capacity_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_cargo_capacity, param[0]) {
+    0: cargo_sprinter_switch_cargo_capacity_by_cargo_0;
+    1: cargo_sprinter_switch_cargo_capacity_by_cargo_1;
+    2: cargo_sprinter_switch_cargo_capacity_by_cargo_2;
+}
+
+// -- loading speed also determined by capacity, which varies by cargo -- //
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loading_speed_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loading_speed_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loading_speed_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED)) {
+        bitmask(CC_PASSENGERS): return 0;
+        bitmask(CC_MAIL): return 0;
+        bitmask(CC_ARMOURED): return 0;
+        return 0;
+    }
+
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_loading_speed, param[0]) {
+    0: cargo_sprinter_switch_loading_speed_by_cargo_0;
+    1: cargo_sprinter_switch_loading_speed_by_cargo_1;
+    2: cargo_sprinter_switch_loading_speed_by_cargo_2;
+}
+
+    switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_visual_effect_and_powered_by_variant_0, current_railtype) {
+        return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+    }
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), cargo_sprinter_switch_visual_effect_and_powered_random_0) {
+        dependent: cargo_sprinter_switch_graphics_random_0;
+        1: cargo_sprinter_switch_visual_effect_and_powered_by_variant_0;
+      }
+
+switch (FEAT_TRAINS, SELF, cargo_sprinter_switch_visual_effect_and_powered, build_year) {
+    0..1985:cargo_sprinter_switch_visual_effect_and_powered_random_0;
+    return cargo_sprinter_switch_visual_effect_and_powered_random_0;
+}
+
+item(FEAT_TRAINS, cargo_sprinter, 100) {
+    property {
+        name:                           string(STR_NAME_cargo_sprinter_0, string(STR_NAME_SUFFIX_DIESEL));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_DIESEL;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1999,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 1;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          1000hp;
+        speed:                          100mph;
+        weight:                         92ton;
+        tractive_effort_coefficient:    0.3;
+        cost_factor:                    24;
+        running_cost_base:              RUNNING_COST_DIESEL;
+        running_cost_factor:            122;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_LIQUID,CC_PIECE_GOODS,CC_EXPRESS);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [FRUT,WATR];
+        cargo_disallow_refit:           [FISH,LVST,OIL_,TOUR,WOOD];
+        default_cargo_type:             GOOD;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_AUTOREFIT); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         2;
+        track_type:                     RAIL;
+    }
+    graphics {
+        default:                        cargo_sprinter_switch_graphics;
+        purchase:                       cargo_sprinter_sg_purchase;
+        cargo_capacity:                 cargo_sprinter_switch_cargo_capacity;
+            purchase_cargo_capacity:        cargo_sprinter_switch_cargo_capacity;
+            loading_speed:                  cargo_sprinter_switch_loading_speed;
+        visual_effect_and_powered:      cargo_sprinter_switch_visual_effect_and_powered;
+        articulated_part: cargo_sprinter_articulated_cb_switch;
+        
+    }
+}
+
+
+    if (param[1]==0) {
+        item(FEAT_TRAINS, cargo_sprinter, 100) {
+            property {
+                climates_available:             ALL_CLIMATES;
+            }
+        }
+    }
+
+
+// -- end 100 -- 

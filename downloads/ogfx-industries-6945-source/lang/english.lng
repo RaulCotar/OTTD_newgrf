@@ -1,0 +1,150 @@
+##grflangid 0x01
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries enhances the default industries and gives more control over which industries become available.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maximum distance from water for oil refineries
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maximum distance from water for oil refineries. A value of zero will allow building oil refineries everywhere.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :No limit
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} is incompatible with {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} is not designed to work with toyland climate.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... oil refineries must be built near water
+STR_ERR_FACTORY_CHAINS                                          :You have selected more than three factory chains for {STRING}. Check the description of the chain parameters for more information.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... can only be built below the snowline
+STR_ERR_NO_DESERT_ONLY                                          :... cannot be built in desert areas
+STR_ERR_TOWN_TOO_SMALL                                          :... this town is too small for having {COMMA} industries of this type (there can be only one of these industries for every {COMMA} houses)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :When {STRING} is used with the Total Town Replacement Set (TTRS), the climate's default Bank chain along with its cargo will always be enabled.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Shop
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Coal Mine
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Power Station
+STR_SAWMILL_STATION_NAME                                        :{STRING} Sawmill
+STR_FOREST_STATION_NAME                                         :{STRING} Forest
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Oil Refinery
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Oil Rig
+STR_FACTORY_STATION_NAME                                        :{STRING} Factory
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Printing Works
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Steel Mill
+STR_FARM_STATION_NAME                                           :{STRING} Farm
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Copper Ore Mine
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Oil Well
+STR_BANK_STATION_NAME                                           :{STRING} Bank
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} Food Processing Plant
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Paper Mill
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Gold Mine
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Diamond Mine
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Iron Ore Mine
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Fruit Plantation
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Rubber Plantation
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Water Supply
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Water Tower
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Lumber Mill
+STR_SHOP_STATION_NAME                                           :{STRING} Shop
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Coal chain
+STR_PARAM_COAL_CHAIN_DESC                                       :This parameter controls the presence of the Coal chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Depending on climate
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Enabled
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Disabled
+
+STR_PARAM_OIL_CHAIN                                             :Oil chain
+STR_PARAM_OIL_CHAIN_DESC                                        :This parameter controls the presence of the Oil chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. "Disabled" will deactivate the Oil chain. The other settings will determine which Oil related industries are active.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Depending on climate
+STR_PARAM_OIL_CHAIN_WELLS                                       :Oil Wells and Oil Refinery
+STR_PARAM_OIL_CHAIN_RIG                                         :Oil Rig and Oil Refinery
+STR_PARAM_OIL_CHAIN_ALL                                         :Oil Wells, Oil Rig and Oil Refinery
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Disabled
+
+STR_PARAM_VALUABLES_CHAIN                                       :Bank chain
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :This parameter controls the presence of the Bank chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. "Disabled" will deactivate the Bank chain. The other settings will activate Banks and determine which cargos are accepted (or in the case of Valuables also produced) by them
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Depending on climate
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Valuables cargo
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Gold cargo
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamonds cargo
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Gold and Diamonds cargos
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Disabled
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Iron Ore chain
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :This parameter controls the presence of the Iron Ore chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. Note that you can only have three Factory cargos at the same time. If you select more than three, some cargos are accepted by another industry instead (Farm cargos by the Food Processing Plant, Wood by the Sawmill).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Depending on climate
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Enabled
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Disabled
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Copper Ore chain
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :This parameter controls the presence of the Copper Ore chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. Note that you can only have three Factory cargos at the same time. If you select more than three, some cargos are accepted by another industry instead (Farm cargos by the Food Processing Plant, Wood by the Sawmill).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Depending on climate
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Enabled
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Disabled
+
+STR_PARAM_RUBBER_CHAIN                                          :Rubber chain
+STR_PARAM_RUBBER_CHAIN_DESC                                     :This parameter controls the presence of the Rubber chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. Note that you can only have three Factory cargos at the same time. If you select more than three, some cargos are accepted by another industry instead (Farm cargos by the Food Processing Plant, Wood by the Sawmill).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Depending on climate
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Enabled
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Disabled
+
+STR_PARAM_FARM_CHAIN                                            :Farm chain
+STR_PARAM_FARM_CHAIN_DESC                                       :This parameter controls the presence of the Farm chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate. "Disabled" will deactivate the Farm chain. The other settings will determine which Farm cargos are active. Note that you can only have three Factory cargos at the same time. If you select more than three, some cargos are accepted by another industry instead (Farm cargos by the Food Processing Plant, Wood by the Sawmill).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Depending on climate
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Grain
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Livestock
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Grain and Livestock
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Disabled
+
+STR_PARAM_FARM_DESTINATION                                      :Destination of Farm cargos
+STR_PARAM_FARM_DESTINATION_DESC                                 :This parameter controls the destination of cargos from the Farm chain. When the parameter is set to "Depending on climate" the destination of the Farm cargos will be the default one for the current climate. The rest of the options allow to decide which industry will accept Farm cargos. If you select more than three Factory cargos at once, it is possible that Farm cargos will be forced to be accepted by the Food Processing Plant.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Depending on climate
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Food Processing Plant
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Factory
+
+STR_PARAM_FRUIT_CHAIN                                           :Fruit chain
+STR_PARAM_FRUIT_CHAIN_DESC                                      :This parameter controls the presence of the Fruit chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Depending on climate
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Enabled
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Disabled
+
+STR_PARAM_WOOD_PRODUCER                                         :Wood producer
+STR_PARAM_WOOD_PRODUCER_DESC                                    :This parameter controls which industry produces the Wood cargo. When the parameter is set to "Depending on climate" the industry that produces Wood will be the default one for the current climate. The rest of the options allow to decide which industry will produce the Wood cargo. This will also affect Wood payment rates.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Depending on climate
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Forest
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Lumber Mill
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Disabled
+
+STR_PARAM_WOOD_DESTINATION                                      :Wood destination
+STR_PARAM_WOOD_DESTINATION_DESC                                 :This parameter controls the destination of the Wood cargo. When the parameter is set to "Depending on climate" the industry that accepts Wood will be the default one for the current climate. The rest of the options allow to decide which industry will accept the Wood cargo. Note that you can only have three Factory cargos at the same time. If you select more than three, some cargos are accepted by another industry instead (Farm cargos by the Food Processing Plant, Wood by the Sawmill).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Depending on climate
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Sawmill
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Paper Mill
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Factory
+
+STR_PARAM_WATER_CHAIN                                           :Water chain
+STR_PARAM_WATER_CHAIN_DESC                                      :This parameter controls the presence of the Water chain. When the parameter is set to "Depending on climate" the presence of this chain will depend on the default settings for the current climate.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Depending on climate
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Enabled
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Disabled
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Disable Oil Wells building restrictions
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Oil Wells will be built in temperate climate during normal gameplay, and also after the year 1950 in arctic and tropic climates. Oil Wells in temperate climate can increase their production.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Disable Oil Rig building restrictions
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Oil Rigs will be built before 1960 and will appear during map generation.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Disable building restrictions for Banks that accept Valuables
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banks that accept Valuables will appear during map generation.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Creation/change/closure of main industries
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Switch on to get standard OpenTTD industries life type, off to freeze random appearance/closure.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Creation/change/closure of town industries
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Switch off to freeze random appearance/closure of banks, shops, watertowers.
+

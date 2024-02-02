@@ -1,0 +1,145 @@
+grf {
+    grfid: "IHQ\01";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESC);
+    version: 60;
+    min_compatible_version: 60;
+    param {
+       colour_scheme {
+type: int;
+name: string(STR_PARAM_COLOUR_SCHEME_NAME);
+desc: string(STR_PARAM_COLOUR_SCHEME_DESC);
+min_value: 0;
+max_value: 2;
+def_value: 1;
+names: {
+    0: string(STR_PARAM_COLOUR_SCHEME_1CC);
+    1: string(STR_PARAM_COLOUR_SCHEME_2CC);
+    2: string(STR_PARAM_COLOUR_SCHEME_REAL);
+};
+        }
+    }
+}
+
+/*
+ * *********************
+ * Define railtype table
+ * *********************
+ */
+
+ railtypetable {
+ 	RAIL,
+ 	ELRL,
+ 	MGLV,
+ 	METRO: [MTRO, "3RDR", ELRL],
+	FUTURE: [MTRO, MGLV, VACT],
+ 	NG: [NAAN, NGRL, NLOW, NAAE, NBAN, ENLW, ENHI, ELNG],
+ 	ELNG: [NAAE, ENLW, ENHI, ELNG],
+ }
+ 
+ /*
+ * ********************************************
+ * Define cargo translation table and refits
+ * ********************************************
+ */
+ 
+ cargotable {
+//Default cargos
+   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
+
+//Tropical cargos
+   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
+
+//ECS
+   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR, SAND, SULP, TOUR, VEHI, WDPR, WOOL, 
+
+//FIRS
+   BEER, CLAY, ENSP, FMSP, FRVG, GRVL, MILK, MNSP, PHOS, PORE, RCYC, SCMT, SGBT, SGCN, JAVA, COPR, SUGR,
+ }
+ 
+ /*
+ * ********************************************
+ * Define vehicle views
+ * ********************************************
+ */
+   
+template tmpl_vehicle_8_views(x,y){
+    [ x, y, 8, 24, -3, -12]
+    [ x+16, y, 22, 16, -14, -8]
+    [ x+48, y, 32, 12, -17, -8]
+    [ x+96, y, 22, 17, -8, -10]
+    [ x+128, y, 8, 24, -3, -14]
+    [ x+144, y, 22, 17, -14, -9]
+    [ x+176, y, 32, 12, -15, -8]
+    [ x+224, y, 22, 16, -7, -8]
+}
+
+template tmpl_vehicle_acs(x,y){
+    [ x, y, 8, 20, -3, -12]
+    [ x+16, y, 18, 14, -10, -7]
+    [ x+48, y, 29, 13, -12, -9]
+    [ x+96, y, 18, 14, -5, -7]
+    [ x+128, y, 8, 20, -3, -10]
+    [ x+144, y, 18, 14, -9, -7]
+    [ x+176, y, 29, 13, -16, -9]
+    [ x+224, y, 18, 14, -7, -8]
+}
+
+template tmpl_vehicle_8_views_tender(x,y){
+    [ x, y, 8, 16, -3, -11]
+    [ x+16, y, 16, 14, -8, -9]
+    [ x+48, y, 19, 12, -4, -8]
+    [ x+80, y, 16, 14, -2, -7]
+    [ x+112, y, 8, 16, -3, -7]
+    [ x+128, y, 16, 14, -14, -6]
+    [ x+161, y, 19, 12, -15, -8]
+    [ x+192, y, 16, 14,  -7, -9]
+}
+
+template spriteset_template_double_juice(y, adjust_xoffs) {
+	//[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+	[60,        y,          8,         25,          -3, -17 ]
+	[76,        y,          22,        22,          -10, -15 ]
+	[107,       y,          32,        15,          -8, -11 ]
+	[156,       y,          22,        22,          -4, -13 ]
+	[188,       y,          8,         25,          -3, -10 ]
+	[204,       y,          22,        22,          -17, -12 ]
+	[235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+	[284,       y,          22,        22,          -10, -16 ]
+}
+
+template spriteset_template_purchase_double_juice() {
+	//[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+	[60,    10, 1, 1, 0, 0]
+	[60,    10, 1, 1, 0, 0]
+	[107,   10, 1, 1, 0, 0]
+	[60,    10, 1, 1, 0, 0]
+	[60,    10, 1, 1, 0, 0]
+	[60,    10, 1, 1, 0, 0]
+	[316,   10, 32, 15, -16, -10 ]
+	[60,    10, 1, 1, 0, 0]
+}
+
+template template_electrostar(x,y){
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ x, y, 8, 24, -3, -8]
+    [ x+9, y, 22, 19, -14, -11]
+    [ x+32, y, 32, 15, -16, -11]
+    [ x+65, y, 22, 19, -6, -11]
+    [ x+88, y, 8, 24, -3, -8]
+    [ x+97, y, 22, 19, -16, -11]
+    [ x+120, y, 32, 15, -16, -11]
+    [ x+153, y, 22, 19, -7, -11]
+}
+
+template tmpl_vehicle_1_views_purchase(x,y){
+    [ x, y, 51, 12, -25, -8]
+}
+
+template tmpl_vehicle_1_views_purchase_acs(x,y){
+    [ x, y, 41, 13, -20, -8]
+}
+
+
+traininfo_y_offset = 2;
+train_width_32_px = 1;

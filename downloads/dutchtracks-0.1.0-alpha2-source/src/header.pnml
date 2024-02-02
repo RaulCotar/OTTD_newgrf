@@ -1,0 +1,91 @@
+/*  This file is part of The Dutch Track Set
+ *  This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+
+// define the newgrf
+grf {
+	grfid:	"\FB\FB\07\01";
+	name:	string(STR_GRF_NAME);
+	desc:	string(STR_GRF_DESCRIPTION);
+	version:		REPO_REVISION;
+	min_compatible_version:	94;
+	
+	//parameters go below here
+	param 1 { //parameter to disable speedlimits
+		param_speed_limit {
+			type:	bool;
+			name:	string(STR_PARAM_NAME_SPEED);
+			desc:	string(STR_PARAM_DESC_SPEED);
+			def_value: 	1;
+		}
+	}
+	
+	param 2 { //parameter to set track compatibilities
+		param_track_compat {
+			name: string(STR_PARAM_NAME_TRACK_COMPAT);
+			desc: string(STR_PARAM_DESC_TRACK_COMPAT);
+			min_value:	0;
+			max_value:	2;
+			def_value:  0;
+			names: {
+				0: string(STR_PARAM_TRACK_COMPAT_DEF);
+				1: string(STR_PARAM_TRACK_COMPAT_POW);
+				2: string(STR_PARAM_TRACK_COMPAT_FULL);
+			};
+		}
+	}
+	
+	param 3 { //parameter to enable level crossings on HSL/Betuwe/Futuristic
+		param_levcross_high {
+			type:	bool;
+			name:	string(STR_PARAM_NAME_LEVCROSS_HIGH);
+			desc:	string(STR_PARAM_DESC_LEVCROSS_HIGH);
+			def_value:	0;
+		}
+	}
+	
+	param 4 { //parameter to enable level crossings on Metro
+		param_levcross_metro {
+			type:	bool;
+			name:	string(STR_PARAM_NAME_LEVCROSS_METRO);
+			desc:	string(STR_PARAM_DESC_LEVCROSS_METRO);
+			def_value:	1;
+		}
+	}
+	
+	param 5 { //parameter to disable Dutchtrack/OTTD fences (issue #4234)
+		param_fences {
+			name: string(STR_PARAM_NAME_FENCES);
+			desc: string(STR_PARAM_DESC_FENCES);
+			min_value:	0;
+			max_value:	2;
+			def_value:  0;
+			names: {
+				0: string(STR_PARAM_FENCES_DUTCH);
+				1: string(STR_PARAM_FENCES_OTTD);
+				2: string(STR_PARAM_FENCES_NONE);
+			};
+		}
+	}	
+}
+
+//check for OpenTTD and version
+if (ttd_platform != PLATFORM_OPENTTD) {
+    //requires OpenTTD
+    error(FATAL, USED_WITH, "OpenTTD");
+}
+else {
+    //check for OpenTTD version
+    if (openttd_version < version_openttd(1, 2, 0, 23971)) {
+        //requires OpenTTD version
+        error(FATAL, REQUIRES_OPENTTD, "1.2.0-RC1 / r23971");
+    }
+	else {
+		if (openttd_version < version_openttd(1, 2, 2, 24272)) { 
+			//warning to load the Track Set before any Train Set
+			error(NOTICE, string(STR_GRF_LOAD_ORDER));
+		}
+	}
+}

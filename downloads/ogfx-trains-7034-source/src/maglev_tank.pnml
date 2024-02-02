@@ -1,0 +1,50 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Maglev Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals,
+ * cola
+ * ***************************
+ */
+
+#define THIS_ID(...) maglev_tank_wagon ## __VA_ARGS__
+
+switch (FEAT_TRAINS, SELF, maglev_tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default 37.000l
+    COLA: return 32;
+    CMNT: return 22;
+    FZDR: return 32;
+    MILK: return 32;
+    WATR: return 32;
+    CB_FAILED;
+}
+
+item(FEAT_TRAINS, maglev_tank_wagon) {
+    property {
+        name:                           string(STR_NAME_TANK_WAGON);
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_TANK
+        cost_factor:                    200;
+        cargo_capacity:                 37;
+        weight:                         24;
+    }
+    graphics {
+	cargo_capacity:     maglev_tank_wagon_cb_capacity_switch;
+	weight:             tank_wagon_cb_property_weight_switch;
+        refit_cost:         tank_refit_cost_switch;
+
+        purchase:           monorail_tank_wagon_default_climate_switch;
+        monorail_tank_wagon_switch;
+    }
+}
+
+#undef THIS_ID

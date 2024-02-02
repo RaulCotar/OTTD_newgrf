@@ -1,0 +1,146 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Forest */
+
+spritelayout forest_tile_1_animation_1_normal {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: tree_base_sprite+3; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+3; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+3; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_2_normal {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: 2076; }
+}
+
+spritelayout forest_tile_1_animation_3_normal {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: tree_base_sprite; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_4_normal {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: tree_base_sprite+1; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+1; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+1; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_5_normal {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: tree_base_sprite+2; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+2; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+2; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_1_snow {
+	ground   { sprite: GROUNDSPRITE_SNOW; }
+	building { sprite: tree_base_sprite+59; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+59; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+59; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_2_snow {
+	ground   { sprite: GROUNDSPRITE_SNOW; }
+	building { sprite: 2076; }
+}
+
+spritelayout forest_tile_1_animation_3_snow {
+	ground   { sprite: GROUNDSPRITE_SNOW; }
+	building { sprite: tree_base_sprite+56; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+56; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+56; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_4_snow {
+	ground   { sprite: GROUNDSPRITE_SNOW; }
+	building { sprite: tree_base_sprite+57; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+57; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+57; xoffset: 2; yoffset: 10; }
+}
+
+spritelayout forest_tile_1_animation_5_snow {
+	ground   { sprite: GROUNDSPRITE_SNOW; }
+	building { sprite: tree_base_sprite+58; xoffset: 10; yoffset: 2; }
+	building { sprite: tree_base_sprite+58; xoffset: 6; yoffset: 6; }
+	building { sprite: tree_base_sprite+58; xoffset: 2; yoffset: 10; }
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_animation_normal, animation_frame) {
+	2:  forest_tile_1_animation_2_normal; // logged
+	3..4:  forest_tile_1_animation_3_normal; // small
+	5..6:  forest_tile_1_animation_4_normal; // medium
+	7..8:  forest_tile_1_animation_5_normal; // large
+	forest_tile_1_animation_1_normal;     // grown up
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_animation_snow, animation_frame) {
+	2:  forest_tile_1_animation_2_snow; // logged
+	3..4:  forest_tile_1_animation_3_snow; // small
+	5..6:  forest_tile_1_animation_4_snow; // medium
+	7..8:  forest_tile_1_animation_5_snow; // large
+	forest_tile_1_animation_1_snow;		// grown up
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_ground_switch, terrain_type) {
+	TILETYPE_SNOW: forest_tile_1_animation_snow;
+	forest_tile_1_animation_normal;
+}
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_construction1_ground_switch, terrain_type) {
+	TILETYPE_SNOW: forest_tile_1_animation_3_snow;
+	forest_tile_1_animation_3_normal;
+}
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_construction2_ground_switch, terrain_type) {
+	TILETYPE_SNOW: forest_tile_1_animation_4_snow;
+	forest_tile_1_animation_4_normal;
+}
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_construction3_ground_switch, terrain_type) {
+	TILETYPE_SNOW: forest_tile_1_animation_5_snow;
+	forest_tile_1_animation_5_normal;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_graphics_switch, construction_state) {
+	2: forest_tile_1_construction3_ground_switch;
+	1: forest_tile_1_construction2_ground_switch;
+	0: forest_tile_1_construction1_ground_switch;
+	forest_tile_1_ground_switch;
+}
+
+random_switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_random_anim_trigger_switch, bitmask(TRIGGER_INDUSTRYTILE_TILELOOP)) {
+	1: return 2;
+	2: return 1;
+}
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_anim_trigger_switch, animation_frame) {
+	1: forest_tile_1_random_anim_trigger_switch;
+	return CB_RESULT_DO_NOTHING;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, forest_tile_1_next_frame_switch, animation_frame) {
+	1: return CB_RESULT_STOP_ANIMATION;
+	return CB_RESULT_NEXT_FRAME;
+}
+
+item(FEAT_INDUSTRYTILES, forest_tile_1) {
+	property {
+		substitute:         0x10;
+		override:           0x10;
+		animation_info:     [ANIMATION_LOOPING, 10];
+		animation_speed:    9;
+		animation_triggers: bitmask(ANIM_TRIGGER_INDTILE_DISTRIBUTES_CARGO);
+		special_flags:      bitmask(INDTILE_FLAG_RANDOM_ANIMATION);
+	}
+	graphics {
+		anim_control: forest_tile_1_anim_trigger_switch;
+		anim_next_frame: forest_tile_1_next_frame_switch;
+		random_trigger: forest_tile_1_anim_trigger_switch;
+		forest_tile_1_graphics_switch;
+	}
+}

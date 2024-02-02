@@ -1,0 +1,458 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * =============================================================================
+ * CARGOS
+ * =============================================================================
+ */
+
+/* Original cargos can have the same ID if they are from different climates.
+ * Since we are going to customize present cargos, we can't rely on original
+ * definitions anymore. All cargos will be redefined, and disabled as needed
+ * afterwards. */
+
+#define SET_CARGO_STRINGS(text_id) \
+	type_name:                      text_id; \
+	unit_name:                      text_id + 0x20; \
+	units_of_cargo:                 text_id + 0x40; \
+	items_of_cargo:                 text_id + 0x60; \
+	type_abbreviation:              text_id + 0x80; \
+	is_freight:                     1;
+
+#define CONVERT_PRICE_FACTOR(number) \
+	(number * 10.0 * 20 * 255) / (1 << 21)
+
+if (COAL_ENABLED) {
+	item(FEAT_CARGOS, cargo_coal, 0x01) {
+		property {
+			SET_CARGO_STRINGS(0x0010)
+			sprite:                         4298;
+			number:                         0x01;
+
+			cargo_label:                    "COAL";
+			cargo_classes:                  bitmask(CC_BULK);
+			weight:                         1;
+			penalty_lowerbound:             7;
+			single_penalty_length:          255;
+			price_factor:                   CONVERT_PRICE_FACTOR(5916);
+			station_list_colour:            0x06;
+			cargo_payment_list_colour:      0x06;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x01); }
+}
+
+if (OIL_ENABLED) {
+	item(FEAT_CARGOS, cargo_oil, 0x03) {
+		property {
+			SET_CARGO_STRINGS(0x0012)
+			sprite:                         4300;
+			number:                         0x03;
+
+			cargo_label:                    "OIL_";
+			cargo_classes:                  bitmask(CC_LIQUID);
+			weight:                         1;
+			penalty_lowerbound:             25;
+			single_penalty_length:          255;
+			price_factor:                   CONVERT_PRICE_FACTOR(4437);
+			station_list_colour:            0xAE;
+			cargo_payment_list_colour:      0xAE;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x03); }
+}
+
+if (LIVESTOCK_ENABLED) {
+	item(FEAT_CARGOS, cargo_livestock, 0x04) {
+		property {
+			SET_CARGO_STRINGS(0x0013)
+			sprite:                         4301;
+			number:                         0x04;
+
+			cargo_label:                    "LVST";
+			cargo_classes:                  bitmask(CC_PIECE_GOODS);
+			weight:                         0.1875; // 3 / 16
+			penalty_lowerbound:             4;
+			single_penalty_length:          18;
+			price_factor:                   CONVERT_PRICE_FACTOR(4322);
+			station_list_colour:            0xD0;
+			cargo_payment_list_colour:      0xD0;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x04); }
+}
+
+if (GOODS_ENABLED) {
+	item(FEAT_CARGOS, cargo_goods, 0x05) {
+		property {
+			SET_CARGO_STRINGS(0x0014)
+			sprite:                         4302;
+			number:                         0x05;
+
+			cargo_label:                    "GOOD";
+			cargo_classes:                  bitmask(CC_EXPRESS);
+			weight:                         0.5; // 8 / 16
+			penalty_lowerbound:             5;
+			single_penalty_length:          28;
+			price_factor:                   CONVERT_PRICE_FACTOR(6144);
+			station_list_colour:            0xC2;
+			cargo_payment_list_colour:      0xC2;
+			town_growth_effect:             TOWNGROWTH_GOODS;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x05); }
+}
+
+if (ANY_GRAIN_ENABLED) {
+	item(FEAT_CARGOS, cargo_grain_maize_wheat, 0x06) {
+		property {
+			sprite:                         4303;
+			number:                         0x06;
+
+			cargo_label:                    "GRAI";
+			cargo_classes:                  bitmask(CC_BULK);
+			weight:                         1;
+			penalty_lowerbound:             4;
+			single_penalty_length:          40;
+			station_list_colour:            0xBF;
+			cargo_payment_list_colour:      0xBF;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x06); }
+}
+
+if (GRAIN_ENABLED) {
+	item(FEAT_CARGOS, cargo_grain_maize_wheat) {
+		property {
+			SET_CARGO_STRINGS(0x0015)
+
+			price_factor:                   CONVERT_PRICE_FACTOR(4778);
+		}
+	}
+} else if (WHEAT_ENABLED) {
+	item(FEAT_CARGOS, cargo_grain_maize_wheat) {
+		property {
+			SET_CARGO_STRINGS(0x0022)
+			price_factor:                   CONVERT_PRICE_FACTOR(4778);
+		}
+	}
+} else {
+	item(FEAT_CARGOS, cargo_grain_maize_wheat) {
+		property {
+			SET_CARGO_STRINGS(0x001B)
+			price_factor:                   CONVERT_PRICE_FACTOR(4322);
+		}
+	}
+}
+
+if (WOOD_ENABLED) {
+	item(FEAT_CARGOS, cargo_wood, 0x07) {
+		property {
+			SET_CARGO_STRINGS(0x0016)
+			sprite:                         4304;
+			number:                         0x07;
+
+			cargo_label:                    "WOOD";
+			cargo_classes:                  bitmask(CC_PIECE_GOODS);
+			weight:                         1;
+			penalty_lowerbound:             25;
+			single_penalty_length:          255;
+			/* Wood price factor depends on climate. */
+			station_list_colour:            0x37;
+			cargo_payment_list_colour:      0x54;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+		if (LUMBER_MILL_ENABLED) {
+			property {
+				price_factor:                   CONVERT_PRICE_FACTOR(7964);
+			}
+		} else {
+			property {
+				price_factor:                   CONVERT_PRICE_FACTOR(5005);
+			}
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x07); }
+}
+
+if (IRON_ORE_ENABLED) {
+	item(FEAT_CARGOS, cargo_iron_ore, 0x08) {
+		property {
+			SET_CARGO_STRINGS(0x0017)
+			sprite:                         4305;
+			number:                         0x08;
+
+			cargo_label:                    "IORE";
+			cargo_classes:                  bitmask(CC_BULK);
+			weight:                         1;
+			penalty_lowerbound:             9;
+			single_penalty_length:          255;
+			price_factor:                   CONVERT_PRICE_FACTOR(5120);
+			station_list_colour:            0xB8;
+			cargo_payment_list_colour:      0xB8;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x08); }
+}
+
+if (WATER_ENABLED) {
+	item(FEAT_CARGOS, cargo_water, 0x09) {
+		property {
+			SET_CARGO_STRINGS(0x0021)
+			sprite:                         4310;
+			number:                         0x09;
+
+			cargo_label:                    "WATR";
+			cargo_classes:                  bitmask(CC_LIQUID);
+			weight:                         1;
+			penalty_lowerbound:             20;
+			single_penalty_length:          80;
+			price_factor:                   CONVERT_PRICE_FACTOR(4664);
+			station_list_colour:            0xA0;
+			cargo_payment_list_colour:      0xA0;
+			town_growth_effect:             TOWNGROWTH_WATER;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x09); }
+}
+
+if (!ENABLE_TTRS_COMPATIBILITY) {
+	if (VALUABLES_ENABLED) {
+		item(FEAT_CARGOS, cargo_valuables, 0x0A) {
+			property {
+				SET_CARGO_STRINGS(0x0019)
+				sprite:                         4307;
+				number:                         0x0A;
+
+				cargo_label:                    "VALU";
+				cargo_classes:                  bitmask(CC_ARMOURED);
+				weight:                         0.125; // 2 / 16
+				penalty_lowerbound:             1;
+				single_penalty_length:          32;
+				price_factor:                   CONVERT_PRICE_FACTOR(7509);
+				station_list_colour:            0xBF;
+				cargo_payment_list_colour:      0xCA;
+				town_growth_effect:             TOWNGROWTH_NONE;
+				town_growth_multiplier:         0;
+			}
+		}
+	} else {
+		if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0A); }
+	}
+}
+
+if (FOOD_ENABLED) {
+	item(FEAT_CARGOS, cargo_food, 0x0B) {
+		property {
+			SET_CARGO_STRINGS(0x001E)
+			sprite:                         4312;
+			number:                         0x0B;
+
+			cargo_label:                    "FOOD";
+			cargo_classes:                  bitmask(CC_EXPRESS, CC_REFRIGERATED);
+			weight:                         1;
+			penalty_lowerbound:             0;
+			single_penalty_length:          30;
+			price_factor:                   CONVERT_PRICE_FACTOR(5688);
+			station_list_colour:            0x30;
+			cargo_payment_list_colour:      0x30;
+			town_growth_effect:             TOWNGROWTH_FOOD;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0B); }
+}
+
+if (STEEL_ENABLED) {
+	item(FEAT_CARGOS, cargo_steel, 0x0C) {
+		property {
+			SET_CARGO_STRINGS(0x0018)
+			sprite:                         4306;
+			number:                         0x0C;
+
+			cargo_label:                    "STEL";
+			cargo_classes:                  bitmask(CC_PIECE_GOODS);
+			weight:                         1;
+			penalty_lowerbound:             7;
+			single_penalty_length:          255;
+			price_factor:                   CONVERT_PRICE_FACTOR(5688);
+			station_list_colour:            0x0A;
+			cargo_payment_list_colour:      0x0A;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0C); }
+}
+
+if (COPPER_ORE_ENABLED) {
+	item(FEAT_CARGOS, cargo_copper_ore, 0x0D) {
+		property {
+			SET_CARGO_STRINGS(0x001A)
+			sprite:                         4309;
+			number:                         0x0D;
+
+			cargo_label:                    "CORE";
+			cargo_classes:                  bitmask(CC_BULK);
+			weight:                         1;
+			penalty_lowerbound:             12;
+			single_penalty_length:          255;
+			price_factor:                   CONVERT_PRICE_FACTOR(4892);
+			station_list_colour:            0xB8;
+			cargo_payment_list_colour:      0xB8;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0D); }
+}
+
+if (FRUIT_ENABLED) {
+	item(FEAT_CARGOS, cargo_fruit, 0x0E) {
+		property {
+			SET_CARGO_STRINGS(0x001C)
+			sprite:                         4308;
+			number:                         0x0E;
+
+			cargo_label:                    "FRUT";
+			cargo_classes:                  bitmask(CC_BULK, CC_REFRIGERATED);
+			weight:                         1;
+			penalty_lowerbound:             0;
+			single_penalty_length:          15;
+			price_factor:                   CONVERT_PRICE_FACTOR(4209);
+			station_list_colour:            0xD0;
+			cargo_payment_list_colour:      0xD0;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0E); }
+}
+
+if (!ENABLE_TTRS_COMPATIBILITY) {
+	if (DIAMONDS_ENABLED) {
+		item(FEAT_CARGOS, cargo_diamonds, 0x0F) {
+			property {
+				SET_CARGO_STRINGS(0x001D)
+				sprite:                         4311;
+				number:                         0x0F;
+
+				cargo_label:                    "DIAM";
+				cargo_classes:                  bitmask(CC_ARMOURED);
+				weight:                         0.125; // 2 / 16
+				penalty_lowerbound:             10;
+				single_penalty_length:          255;
+				price_factor:                   CONVERT_PRICE_FACTOR(5802);
+				station_list_colour:            0xBF;
+				cargo_payment_list_colour:      0xCA;
+				town_growth_effect:             TOWNGROWTH_NONE;
+				town_growth_multiplier:         0;
+			}
+		}
+	} else {
+		if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x0F); }
+	}
+}
+
+if (PAPER_ENABLED) {
+	item(FEAT_CARGOS, cargo_paper, 0x10) {
+		property {
+			SET_CARGO_STRINGS(0x001F)
+			sprite:                         4313;
+			number:                         0x10;
+
+			cargo_label:                    "PAPR";
+			cargo_classes:                  bitmask(CC_PIECE_GOODS);
+			weight:                         1;
+			penalty_lowerbound:             7;
+			single_penalty_length:          60;
+			price_factor:                   CONVERT_PRICE_FACTOR(5461);
+			station_list_colour:            0x0A;
+			cargo_payment_list_colour:      0x0A;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x10); }
+}
+
+if (!ENABLE_TTRS_COMPATIBILITY) {
+	if (GOLD_ENABLED) {
+		item(FEAT_CARGOS, cargo_gold, 0x11) {
+			property {
+				SET_CARGO_STRINGS(0x0020)
+				sprite:                         4307;
+				number:                         0x11;
+
+				cargo_label:                    "GOLD";
+				cargo_classes:                  bitmask(CC_ARMOURED);
+				weight:                         0.5; // 8 / 16
+				penalty_lowerbound:             10;
+				single_penalty_length:          40;
+				price_factor:                   CONVERT_PRICE_FACTOR(5802);
+				station_list_colour:            0xBF;
+				cargo_payment_list_colour:      0xCA;
+				town_growth_effect:             TOWNGROWTH_NONE;
+				town_growth_multiplier:         0;
+			}
+		}
+	} else {
+		if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x11); }
+	}
+}
+
+if (RUBBER_ENABLED) {
+	item(FEAT_CARGOS, cargo_rubber, 0x12) {
+		property {
+			SET_CARGO_STRINGS(0x0023)
+			sprite:                         4314;
+			number:                         0x12;
+
+			cargo_label:                    "RUBR";
+			cargo_classes:                  bitmask(CC_LIQUID);
+			weight:                         1;
+			penalty_lowerbound:             2;
+			single_penalty_length:          20;
+			price_factor:                   CONVERT_PRICE_FACTOR(4437);
+			station_list_colour:            0x06;
+			cargo_payment_list_colour:      0x06;
+			town_growth_effect:             TOWNGROWTH_NONE;
+			town_growth_multiplier:         0;
+		}
+	}
+} else {
+	if (climate != CLIMATE_TOYLAND) { disable_item(FEAT_CARGOS, 0x12); }
+}
+

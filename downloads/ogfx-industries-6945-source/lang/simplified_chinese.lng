@@ -1,0 +1,150 @@
+##grflangid 0x56
+##plural 1
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries增强了默认工业，并进一步可以控制哪些工业可以出现。
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :炼油厂到水源地的最大距离
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :原油精炼厂距离水域的最大距离。0表示允许随处可以修建。
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :无限制
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} 兼容于 {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} 与玩具气候不兼容
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... 石油精炼厂必须在水域附近修建
+STR_ERR_FACTORY_CHAINS                                          :你为 {STRING} 选择了超过三种工厂. 参见该产业链的描述以获得更多信息。
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... 只能在雪线以下修建
+STR_ERR_NO_DESERT_ONLY                                          :... 不能修建在沙漠区域
+STR_ERR_TOWN_TOO_SMALL                                          :... 本城镇太小以致不能拥有 {COMMA} 工业 (每 {COMMA} 建筑只对应一个本工业)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :当 {STRING} 和 Total Town Replacement Set (TTRS)共存时, 本气候默认的银行产业链将会启用。
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :商店
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} 煤矿
+STR_POWER_STATION_STATION_NAME                                  :{STRING} 发电厂
+STR_SAWMILL_STATION_NAME                                        :{STRING} 锯木厂
+STR_FOREST_STATION_NAME                                         :{STRING} 林场
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} 炼油厂
+STR_OIL_RIG_STATION_NAME                                        :{STRING} 石油钻塔
+STR_FACTORY_STATION_NAME                                        :{STRING} 工厂
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} 印刷厂
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} 钢铁厂
+STR_FARM_STATION_NAME                                           :{STRING} 农场
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} 铜矿山
+STR_OIL_WELL_STATION_NAME                                       :{STRING} 油田
+STR_BANK_STATION_NAME                                           :{STRING} 银行
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} 食品加工厂
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} 造纸厂
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} 金矿
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} 钻石矿
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} 铁矿山
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} 果园
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} 橡胶园
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} 水厂
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} 水塔
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} 伐木场
+STR_SHOP_STATION_NAME                                           :{STRING} 商店
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :煤矿产业链
+STR_PARAM_COAL_CHAIN_DESC                                       :本参数设置煤矿产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :依赖于气候
+STR_PARAM_COAL_CHAIN_ENABLED                                    :启用
+STR_PARAM_COAL_CHAIN_DISABLED                                   :禁用
+
+STR_PARAM_OIL_CHAIN                                             :石油产业链
+STR_PARAM_OIL_CHAIN_DESC                                        :本参数设置石油产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。“禁用”将会取消石油产业链。其他设置会决定哪种石油产品。
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :依赖于气候
+STR_PARAM_OIL_CHAIN_WELLS                                       :油井和原油精炼厂
+STR_PARAM_OIL_CHAIN_RIG                                         :油井和原油精炼厂
+STR_PARAM_OIL_CHAIN_ALL                                         :油井、钻井平台和原油精炼厂
+STR_PARAM_OIL_CHAIN_DISABLED                                    :禁用
+
+STR_PARAM_VALUABLES_CHAIN                                       :银行产业链
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :本参数设置银行产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。“禁用”选项取消银行产业链。其他选项将会启用银行产业链并决定接受哪种货物（或者是否产生贵重品）。
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :依赖于气候
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :贵重品
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :黄金
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :钻石
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :黄金和钻石
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :禁用
+
+STR_PARAM_IRON_ORE_CHAIN                                        :铁矿产业链
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :本参数设置铁矿产业链。当设为“依赖于气候”时，铁矿产业链的配置与本气候一致。注意，只允许三种工厂加工的货物存在。如果你选择超过了3种，部分货物将被其他工业接受(农场货物归食品厂，木材归锯木厂)。
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :依赖于气候
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :启用
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :禁用
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :铜矿产业链
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :本参数设置铜矿产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。注意，同时你只能设置三种工厂货物。如果你选择超过了3种，部分货物将被其他工业接受(农场货物归食品厂，木材归锯木厂)。
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :依赖于气候
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :启用
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :禁用
+
+STR_PARAM_RUBBER_CHAIN                                          :橡胶产业链
+STR_PARAM_RUBBER_CHAIN_DESC                                     :本参数设置橡胶产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。注意，同时你只能设置三种工厂货物。如果你选择超过了3种，部分货物将被其他工业接受(农场货物归食品厂，木材归锯木厂)。
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :依赖于气候
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :启用
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :禁用
+
+STR_PARAM_FARM_CHAIN                                            :农场产业链
+STR_PARAM_FARM_CHAIN_DESC                                       :本参数设置农场产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。“禁用”将会取消农产产业链。其他设置会决定出现哪种农业品。注意，同时你只能设置三种工厂货物。如果你选择超过了3种，部分货物将被其他工业接受(农场货物归食品厂，木材归锯木厂)。
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :依赖于气候
+STR_PARAM_FARM_CHAIN_GRAIN                                      :谷物
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :牲畜
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :谷物和牲畜
+STR_PARAM_FARM_CHAIN_DISABLED                                   :禁用
+
+STR_PARAM_FARM_DESTINATION                                      :农场产品的目的地
+STR_PARAM_FARM_DESTINATION_DESC                                 :本参数设置农产产品的目的地。当设置为“依赖于气候”时，则与当前气候一致。其他选项可以指定哪种工业接受农产品。如果你一次选择三种以上工厂，则农场产品可能被强制由食品加工厂接受处理。
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :依赖于气候
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :食品加工厂
+STR_PARAM_FARM_DESTINATION_FACTORY                              :工厂
+
+STR_PARAM_FRUIT_CHAIN                                           :水果产业链
+STR_PARAM_FRUIT_CHAIN_DESC                                      :本参数设置水果产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :依赖于气候
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :启用
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :禁用
+
+STR_PARAM_WOOD_PRODUCER                                         :木材生产者
+STR_PARAM_WOOD_PRODUCER_DESC                                    :本参数设置木材产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。其他选项决定哪个工业产生木材。同样影响木材运输费用。
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :依赖于气候
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :林场
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :伐木场
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :禁用
+
+STR_PARAM_WOOD_DESTINATION                                      :木材目的地
+STR_PARAM_WOOD_DESTINATION_DESC                                 :本参数设置木材的目的地。当设置为“依赖于气候”时，则与当前气候一致。其他选项可以指定哪种工业接受木材。注意，同时你只能设置三种工厂货物。如果你选择超过了3种，部分货物将被其他工业接受(农场货物归食品厂，木材归锯木厂)。
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :依赖于气候
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :锯木厂
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :造纸厂
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :工厂
+
+STR_PARAM_WATER_CHAIN                                           :水产业链
+STR_PARAM_WATER_CHAIN_DESC                                      :本参数设置水产业链。当参数设为“依赖于气候”时，本产业链配置取决于当前气候的配置。
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :依赖于气候
+STR_PARAM_WATER_CHAIN_ENABLED                                   :启用
+STR_PARAM_WATER_CHAIN_DISABLED                                  :禁用
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :禁用油井建筑限制
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :油井在常规游戏里在温带修建，1950年后在寒带和热带修建。在温带可以增加产量。
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :取消油井建筑限制
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :钻井平台在1960年以前修建，并在地图生成时出现。
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :取消接受贵重品的银行的修建限制
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :接受贵重品的银行在地图生成时安置
+
+STR_PARAM_INDUSTRY_CHANGES                                      :生成/改变/关闭 主工业
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :设置为"启用"则为OpenTTD标准工业模式，"关闭"则禁用工业随机的修建/破产。
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :产生/改变/关闭 城镇工业
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :设置为“禁用”来禁止银行、商店、水塔的随机 修建/破产。

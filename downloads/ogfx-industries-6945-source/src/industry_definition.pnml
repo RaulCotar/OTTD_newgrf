@@ -1,0 +1,532 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * =============================================================================
+ * INDUSTRIES
+ * =============================================================================
+ */
+
+/* All industries are redefined to make sure they are correct and to allow debugging them ingame. */
+
+/* Disable the tropic / arctic bank (it is merged with the temperate bank) */
+if (!ENABLE_TTRS_COMPATIBILITY) {
+	disable_item(FEAT_INDUSTRIES, 0x10);
+}
+
+/* Disable the tropical factory and farm (they are merged with their temperate counterparts). */
+disable_item(FEAT_INDUSTRIES, 0x17, 0x18);
+
+
+#define START_DEFINE_INDUSTRY(industry_name, industry_id, enable_condition) \
+if (enable_condition) { \
+	item(FEAT_INDUSTRIES, industry_name, industry_id) { \
+		property { \
+			substitute:                     industry_id; \
+			override:                       industry_id;
+
+#define END_DEFINE_INDUSTRY(industry_id) \
+		} \
+	} \
+} else { \
+	disable_item(FEAT_INDUSTRIES, industry_id); \
+}
+
+
+
+/* Coal mine */
+START_DEFINE_INDUSTRY(industry_coal_mine, 0x00, COAL_MINE_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("COAL")];
+	prob_random:                    8;
+	prob_in_game:                   param_industry_changes *  ((climate == CLIMATE_ARCTIC) ? 3 : 2);
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_COAL_MINE_STATION_NAME);
+END_DEFINE_INDUSTRY(0x00)
+
+/* Power plant */
+INDUSTRY_BLACKHOLE_PRODUCTION_SWITCHES(power_plant, param_industry_changes)
+
+START_DEFINE_INDUSTRY(industry_power_plant, 0x01, POWER_PLANT_ENABLED)
+	/* Close power plants normally. */
+	life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
+	accept_cargo_types:             [cargotype("COAL")];
+	prod_cargo_types:               [];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	nearby_station_name:            string(STR_POWER_STATION_STATION_NAME);
+END_DEFINE_INDUSTRY(0x01)
+
+item(FEAT_INDUSTRIES, industry_power_plant) {
+	graphics {
+		monthly_prod_change: power_plant_monthly_prod_change_switch;
+		random_prod_change:  power_plant_random_prod_change_switch;
+		produce_cargo_arrival: power_plant_cargo_arrive_produce;
+	}
+}
+
+/* Sawmill */
+START_DEFINE_INDUSTRY(industry_sawmill, 0x02, SAWMILL_ENABLED)
+	accept_cargo_types:             [cargotype("WOOD")];
+	prod_cargo_types:               [cargotype("GOOD")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_SAWMILL_STATION_NAME);
+END_DEFINE_INDUSTRY(0x02)
+
+/* Forest */
+START_DEFINE_INDUSTRY(industry_forest, 0x03, FOREST_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("WOOD")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_ORGANIC : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_FOREST_STATION_NAME);
+END_DEFINE_INDUSTRY(0x03)
+
+if (FOREST_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_forest) {
+		if (WOOD_ACCEPTED_BY_FACTORY) {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_sawmill), industry_type(IND_TYPE_NEW, industry_paper_mill), industry_type(IND_TYPE_NEW, industry_factory)];
+			}
+		} else {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_sawmill), industry_type(IND_TYPE_NEW, industry_paper_mill)];
+			}
+		}
+		graphics {
+			location_check: location_switch_no_desert;
+		}
+	}
+}
+
+/* Oil refinery */
+
+switch (FEAT_INDUSTRIES, SELF, oil_refinery_location_switch, var[0x8B]) {
+	0..param[0]: return 0x0400;                     // If there is a water tile at a distance of param[0] or less, allow construction.
+	return string(STR_ERR_OIL_REFINERY_NEAR_WATER); // Error.
+}
+
+/* Redefining this industry avoids the old "build near borders" behaviour. */
+START_DEFINE_INDUSTRY(industry_oil_refinery, 0x04, OIL_REFINERY_ENABLED)
+	accept_cargo_types:             [cargotype("OIL_")];
+	prod_cargo_types:               [cargotype("GOOD")];
+	prob_in_game:                   param_industry_changes *  2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_OIL_REFINERY_STATION_NAME);
+END_DEFINE_INDUSTRY(0x04)
+
+if (param[0] != 0 && OIL_REFINERY_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_oil_refinery) {
+		graphics {
+			location_check: oil_refinery_location_switch;
+		}
+	}
+}
+
+/* Oil rig */
+START_DEFINE_INDUSTRY(industry_oil_rig, 0x05, OIL_RIG_ENABLED)
+	accept_cargo_types:             [cargotype("PASS")];
+	prod_cargo_types:               [cargotype("OIL_"), cargotype("PASS")];
+	prob_in_game:                   param_industry_changes * 6;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_OIL_RIG_STATION_NAME);
+END_DEFINE_INDUSTRY(0x05)
+
+item(FEAT_INDUSTRIES, industry_oil_rig) {
+	if (param_oil_rig_disable_restrictions) {
+		property {
+			prob_random:                    3;
+			spec_flags:                     bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
+		}
+	} else {
+		property {
+			prob_random:                    0;
+			spec_flags:                     bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES, IND_FLAG_BUILT_ONLY_AFTER_1960);
+		}
+	}
+}
+
+/* Factory */
+START_DEFINE_INDUSTRY(industry_factory, 0x06, FACTORY_ENABLED)
+	prod_cargo_types:               [cargotype("GOOD")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_FACTORY_STATION_NAME);
+END_DEFINE_INDUSTRY(0x06)
+
+/* Printing works */
+START_DEFINE_INDUSTRY(industry_printing_works, 0x07, PRINTING_WORKS_ENABLED)
+	accept_cargo_types:             [cargotype("PAPR")];
+	prod_cargo_types:               [cargotype("GOOD")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_PRINTING_WORKS_STATION_NAME);
+	map_colour:			0x89;
+END_DEFINE_INDUSTRY(0x07)
+
+/* Steel mill */
+START_DEFINE_INDUSTRY(industry_steel_mill, 0x08, STEEL_MILL_ENABLED)
+	accept_cargo_types:             [cargotype("IORE")];
+	prod_cargo_types:               [cargotype("STEL")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_STEEL_MILL_STATION_NAME);
+END_DEFINE_INDUSTRY(0x08)
+
+/* Farm */
+START_DEFINE_INDUSTRY(industry_farm, 0x09, FARM_ENABLED)
+	accept_cargo_types:             [];
+	prob_random:                    8;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_ORGANIC : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_FARM_STATION_NAME);
+END_DEFINE_INDUSTRY(0x09)
+
+if (FARM_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_farm) {
+		if (LIVESTOCK_ENABLED && ANY_GRAIN_ENABLED) {
+			property {
+				prod_cargo_types:               [cargotype("GRAI"), cargotype("LVST")];
+				prod_multiplier:                [10, 10];
+				spec_flags:                     bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
+			}
+		} else if (ANY_GRAIN_ENABLED) {
+			property {
+				prod_cargo_types:               [cargotype("GRAI")];
+				prod_multiplier:                [11];
+				spec_flags:                     bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
+			}
+		} else if (LIVESTOCK_ENABLED) {
+			property {
+				prod_cargo_types:               [cargotype("LVST")];
+				prod_multiplier:                [11];
+				spec_flags:                     0;
+			}
+		}
+
+		if (GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_factory)];
+			}
+		} else {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_food_processing_plant)];
+			}
+		}
+		graphics {
+			location_check: location_switch_no_desert;
+		}
+	}
+}
+
+/* Copper ore mine */
+START_DEFINE_INDUSTRY(industry_copper_ore_mine, 0x0A, COPPER_ORE_MINE_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("CORE")];
+	prob_random:                    4;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	map_colour:			0x2b;
+	conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_factory)];
+	nearby_station_name:            string(STR_COPPER_ORE_MINE_STATION_NAME);
+END_DEFINE_INDUSTRY(0x0A)
+
+/* Oil wells */
+START_DEFINE_INDUSTRY(industry_oil_wells, 0x0B, OIL_WELLS_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("OIL_")];
+	prob_in_game:                   param_industry_changes *  2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_OIL_WELL_STATION_NAME);
+END_DEFINE_INDUSTRY(0x0B)
+
+item(FEAT_INDUSTRIES, industry_oil_wells) {
+	if (param_oil_wells_disable_restrictions && climate == CLIMATE_TEMPERATE) {
+		property {
+			prob_random:                    3;
+		}
+	}
+	if (param_oil_wells_disable_restrictions) {
+		property {
+			spec_flags:                     0;
+		}
+	}
+}
+
+/* Bank */
+INDUSTRY_BLACKHOLE_PRODUCTION_SWITCHES(industry_bank, param_smallindustry_changes)
+INDUSTRY_ONE_INDUSTRY_PER_HOUSE_NUMBER(industry_bank, 0x0C)
+
+if (!ENABLE_TTRS_COMPATIBILITY) {
+
+	START_DEFINE_INDUSTRY(industry_bank, 0x0C, BANK_ENABLED)
+		/* Close banks normally. */
+		life_type: param_smallindustry_changes ? IND_LIFE_TYPE_PROCESSING :
+ 							 IND_LIFE_TYPE_BLACK_HOLE;
+		nearby_station_name: string(STR_BANK_STATION_NAME);
+	END_DEFINE_INDUSTRY(0x0C)
+
+	if (BANK_ENABLED) {
+		item(FEAT_INDUSTRIES, industry_bank) {
+			if (VALUABLES_ENABLED) {
+				graphics {
+					location_check: industry_bank_location_check_switch;
+				}
+				property {
+					accept_cargo_types:             [cargotype("VALU")];
+					prod_cargo_types:               [cargotype("VALU")];
+					spec_flags:                     bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS);
+					conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_bank)];
+					prob_in_game:                   7 * param_smallindustry_changes;
+				}
+				if (param_valuables_bank_disable_restrictions) {
+					property {
+						prob_random:                    3;
+					}
+				} else {
+					property {
+						prob_random:                    0;
+					}
+				}
+			} else {
+				graphics {
+					monthly_prod_change: industry_bank_monthly_prod_change_switch;
+					random_prod_change:  industry_bank_random_prod_change_switch;
+					produce_cargo_arrival: industry_bank_cargo_arrive_produce;
+					location_check: industry_bank_location_check_switch;
+				}
+				property {
+					prod_cargo_types:               [];
+					spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
+					conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_gold_mine),
+													 industry_type(IND_TYPE_NEW, industry_diamond_mine)];
+					prob_random:                    6;
+					prob_in_game:                   param_industry_changes * 3;
+				}
+				if (DIAMONDS_ENABLED && GOLD_ENABLED) {
+					property {
+						accept_cargo_types:             [cargotype("GOLD"), cargotype("DIAM")];
+					}
+				} else if (GOLD_ENABLED) {
+					property {
+						accept_cargo_types:             [cargotype("GOLD")];
+					}
+				} else {
+					property {
+						accept_cargo_types:             [cargotype("DIAM")];
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Food processing plant */
+START_DEFINE_INDUSTRY(industry_food_processing_plant, 0x0D, FOOD_PROCESSING_PLANT_ENABLED)
+	prod_cargo_types:               [cargotype("FOOD")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	map_colour:			0x8c;
+	nearby_station_name:            string(STR_FOOD_PROCESSING_PLANT_STATION_NAME);
+END_DEFINE_INDUSTRY(0x0D)
+
+/* Paper mill */
+START_DEFINE_INDUSTRY(industry_paper_mill, 0x0E, PAPER_MILL_ENABLED)
+	accept_cargo_types:             [cargotype("WOOD")];
+	prod_cargo_types:               [cargotype("PAPR")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_PROCESSING : IND_LIFE_TYPE_BLACK_HOLE;
+	map_colour:			0x0f;
+	nearby_station_name:            string(STR_PAPER_MILL_STATION_NAME);
+END_DEFINE_INDUSTRY(0x0E)
+
+if (!ENABLE_TTRS_COMPATIBILITY) {
+	/* Gold mine */
+	START_DEFINE_INDUSTRY(industry_gold_mine, 0x0F, GOLD_MINE_ENABLED)
+		accept_cargo_types:             [];
+		prod_cargo_types:               [cargotype("GOLD")];
+		prob_random:                    4;
+		prob_in_game:                   param_industry_changes * 3;
+		life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+		map_colour:			0x42;
+		nearby_station_name:            string(STR_GOLD_MINE_STATION_NAME);
+	END_DEFINE_INDUSTRY(0x0F)
+
+	/* Diamond mine */
+	START_DEFINE_INDUSTRY(industry_diamond_mine, 0x11, DIAMOND_MINE_ENABLED)
+		accept_cargo_types:             [];
+		prod_cargo_types:               [cargotype("DIAM")];
+		prob_random:                    4;
+		prob_in_game:                   param_industry_changes * 3;
+		life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+		map_colour:			0x2d;
+		nearby_station_name:            string(STR_DIAMOND_MINE_STATION_NAME);
+	END_DEFINE_INDUSTRY(0x11)
+}
+
+/* Iron ore mine */
+START_DEFINE_INDUSTRY(industry_iron_ore_mine, 0x12, IRON_ORE_MINE_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("IORE")];
+	prob_random:                    5;
+	prob_in_game:                   param_industry_changes * 2;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	map_colour:			0x36;
+	nearby_station_name:            string(STR_IRON_ORE_MINE_STATION_NAME);
+END_DEFINE_INDUSTRY(0x12)
+
+START_DEFINE_INDUSTRY(industry_fruit_plantation, 0x13, FRUIT_PLANTATION_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("FRUT")];
+	prob_random:                    4;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	map_colour:			0x5f;
+	conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_food_processing_plant)];
+	nearby_station_name:            string(STR_FRUIT_PLANTATION_STATION_NAME);
+END_DEFINE_INDUSTRY(0x13)
+
+if (FRUIT_PLANTATION_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_fruit_plantation) {
+		graphics {
+			location_check: location_switch_no_desert_not_above_snowline;
+		}
+	}
+}
+
+START_DEFINE_INDUSTRY(industry_rubber_plantation, 0x14, RUBBER_PLANTATION_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("RUBR")];
+	prob_random:                    4;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_ORGANIC : IND_LIFE_TYPE_BLACK_HOLE;
+	conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_factory)];
+	nearby_station_name:            string(STR_RUBBER_PLANTATION_STATION_NAME);
+END_DEFINE_INDUSTRY(0x14)
+
+if (RUBBER_PLANTATION_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_rubber_plantation) {
+		graphics {
+			location_check: location_switch_no_desert_not_above_snowline;
+		}
+	}
+}
+
+/* Water supply */
+START_DEFINE_INDUSTRY(industry_water_supply, 0x15, WATER_SUPPLY_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("WATR")];
+	prob_random:                    4;
+	prob_in_game:                   param_industry_changes * 3;
+	life_type: param_industry_changes ? IND_LIFE_TYPE_EXTRACTIVE : IND_LIFE_TYPE_BLACK_HOLE;
+	nearby_station_name:            string(STR_WATER_SUPPLY_STATION_NAME);
+END_DEFINE_INDUSTRY(0x15)
+
+/* Water tower */
+INDUSTRY_BLACKHOLE_PRODUCTION_SWITCHES(water_tower, param_smallindustry_changes)
+INDUSTRY_ONE_INDUSTRY_PER_HOUSE_NUMBER(water_tower, 0x16)
+
+START_DEFINE_INDUSTRY(industry_water_tower, 0x16, WATER_TOWER_ENABLED)
+	/* Close water towers normally. */
+	life_type: 			IND_LIFE_TYPE_BLACK_HOLE;
+	accept_cargo_types:             [cargotype("WATR")];
+	prod_cargo_types:               [];
+	prob_random:                    8;
+	prob_in_game:                   param_smallindustry_changes * 4;
+	nearby_station_name:            string(STR_WATER_TOWER_STATION_NAME);
+END_DEFINE_INDUSTRY(0x16)
+
+item(FEAT_INDUSTRIES, industry_water_tower) {
+	graphics {
+		monthly_prod_change: water_tower_monthly_prod_change_switch;
+		random_prod_change:  water_tower_random_prod_change_switch;
+		produce_cargo_arrival: water_tower_cargo_arrive_produce;
+		location_check: water_tower_location_check_switch;
+	}
+}
+
+
+/* Lumber mill */
+START_DEFINE_INDUSTRY(industry_lumber_mill, 0x19, LUMBER_MILL_ENABLED)
+	accept_cargo_types:             [];
+	prod_cargo_types:               [cargotype("WOOD")];
+	prob_random:                    0;
+	prob_in_game:                   0;
+	nearby_station_name:            string(STR_LUMBER_MILL_STATION_NAME);
+END_DEFINE_INDUSTRY(0x19)
+
+if (LUMBER_MILL_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_lumber_mill) {
+		if (WOOD_ACCEPTED_BY_FACTORY) {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_sawmill), industry_type(IND_TYPE_NEW, industry_paper_mill), industry_type(IND_TYPE_NEW, industry_factory)];
+			}
+		} else {
+			property {
+				conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_sawmill), industry_type(IND_TYPE_NEW, industry_paper_mill)];
+			}
+		}
+		graphics {
+			location_check: location_switch_no_desert;
+		}
+	}
+}
+
+
+
+tilelayout shop_layout {
+	0, 0: shop_tile_1;
+}
+
+INDUSTRY_BLACKHOLE_PRODUCTION_SWITCHES(industry_shop, param_smallindustry_changes)
+INDUSTRY_ONE_INDUSTRY_PER_HOUSE_NUMBER(industry_shop, 0x1A)
+
+if (SHOP_ENABLED) {
+	item(FEAT_INDUSTRIES, industry_shop, 0x1A) {
+		property {
+			substitute: 0x00;
+
+			name:                           string(STR_SHOP_NAME);
+			layouts:                        [shop_layout];
+			prob_random:                    5;
+			prob_in_game:                   2 * param_smallindustry_changes;
+			accept_cargo_types:             [cargotype("FOOD")];
+			prod_cargo_types:               [];
+			map_colour:                     0x30;
+			conflicting_ind_types:          [industry_type(IND_TYPE_NEW, industry_food_processing_plant)];
+
+			/* Close shops normally. */
+			life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
+
+			fund_cost_multiplier:           100;
+			prod_multiplier:                [0, 0];
+			min_cargo_distr:                255;
+			spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
+
+			input_multiplier_1:             [0, 0];
+			input_multiplier_2:             [0, 0];
+			input_multiplier_3:             [0, 0];
+			prospect_chance:                1;
+			nearby_station_name:            string(STR_SHOP_STATION_NAME);
+		}
+		graphics {
+			monthly_prod_change: industry_shop_monthly_prod_change_switch;
+			random_prod_change:  industry_shop_random_prod_change_switch;
+			produce_cargo_arrival: industry_shop_cargo_arrive_produce;
+			location_check: industry_shop_location_check_switch;
+		}
+	}
+}

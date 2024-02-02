@@ -1,0 +1,146 @@
+##grflangid 0x35
+##plural 0
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries parantaa oletusteollisuuksia ja mahdollistaa käytettävissä olevien teollisuustyyppien tarkan määrittelyn.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Enimmäismatka vesialueelta öljynjalostamoille.
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Enimmäismatka vesialueelta öljynjalostamoille. Arvon ollessa nolla öljynjalostamoita voidaan rakentaa mihin tahansa.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Ei rajoituksia
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} ei ole yhteensopiva NewGRF:n "{STRING}" kanssa.
+STR_ERR_NO_TOYLAND                                              :{STRING} ei ole suunniteltu toimimaan lelumaassa.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... öljynjalostamo tulee rakentaa lähelle vettä
+STR_ERR_FACTORY_CHAINS                                          :Olet valinnut enemmän kuin kolme tehdasketjua {STRING}:lle. Lisätietoja aiheesta löydät ketjuparametrien kuvauksista.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... voidaan rakentaa ainoastaan lumirajan alapuolelle
+STR_ERR_NO_DESERT_ONLY                                          :... ei voida rakentaa aavikolle
+STR_ERR_TOWN_TOO_SMALL                                          :... tämä kaupunki on liian pieni {COMMA}:lle tämän tyypin teollisuudelle (näitä teollisuustyyppejä voi olla vain {COMMA} jokaista taloa kohden)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Jos {STRING} ja Total Town Replacement Set (TTRS) ovat samanaikaisesti käytössä, ilmaston oletuspankkiketju ja sen rahti ovat aina käytössä.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Liike
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING}, hiilikaivos
+STR_POWER_STATION_STATION_NAME                                  :{STRING}, voimalaitos
+STR_SAWMILL_STATION_NAME                                        :{STRING}, saha
+STR_FOREST_STATION_NAME                                         :{STRING}, hakkuualue
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING}, öljynjalostamo
+STR_OIL_RIG_STATION_NAME                                        :{STRING}, öljylautta
+STR_FACTORY_STATION_NAME                                        :{STRING}, tehdas
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING}, painotalo
+STR_STEEL_MILL_STATION_NAME                                     :{STRING}, teräsvalimo
+STR_FARM_STATION_NAME                                           :{STRING}, maatila
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING}, kuparikaivos
+STR_OIL_WELL_STATION_NAME                                       :{STRING}, öljykenttä
+STR_BANK_STATION_NAME                                           :{STRING}, pankki
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING}, ruoanjalostamo
+STR_PAPER_MILL_STATION_NAME                                     :{STRING}, paperitehdas
+STR_GOLD_MINE_STATION_NAME                                      :{STRING}, kultakaivos
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING}, timanttikaivos
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING}, rautakaivos
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING}, hedelmäplantaasi
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING}, kumiplantaasi
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING}, lähde
+STR_WATER_TOWER_STATION_NAME                                    :{STRING}, vesitorni
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING}, saha
+STR_SHOP_STATION_NAME                                           :{STRING}, kauppa
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Hiiliketju
+STR_PARAM_COAL_CHAIN_DESC                                       :Tämä parametri määrittää hiiliketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Ilmastosta riippuen
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Käytössä
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Ei käytössä
+
+STR_PARAM_OIL_CHAIN                                             :Öljyketju
+STR_PARAM_OIL_CHAIN_DESC                                        :Tämä parametri määrittää öljyketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta."Ei käytössä" poistaa öljyketjun käytöstä. Muut vaihtoehdot määrittävät öljyyn liittyvien teollisuustyyppien läsnäolon.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Ilmastosta riippuen
+STR_PARAM_OIL_CHAIN_WELLS                                       :Öljykenttä ja öljynjalostamo
+STR_PARAM_OIL_CHAIN_RIG                                         :Öljylautta ja öljykenttä
+STR_PARAM_OIL_CHAIN_ALL                                         :Öljykenttä, öljylautta ja öljynjalostamo
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Ei käytössä
+
+STR_PARAM_VALUABLES_CHAIN                                       :Pankkiketju
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Tämä parametri määrittää pankkiketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta. "Ei käytössä" poistaa pankkiketjun käytöstä. Muut vaihtoehdot aktivoivat pankit, ja määritävät niiden vastaanottaman rahdin (arvotavaroiden tapauksessa myös tuotettava rahti määritetään)
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Ilmastosta riippuen
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Arvotavararahti
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Kultarahti
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Timanttirahti
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Kulta- ja timanttirahti
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Ei käytössä
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Rautamalmiketju
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Tämä parametri määrittää rautamalmirahdin määränpään. Tämän parametrin ollessa "Ilmastosta riippuen" kyseisen ilmaston oletusteollisuus on käytössä. Muut vaihtoehdot mahdollistavat rautamalmia vastaanottavan teollisuuden vaihtamisen. Huomioi, että sinulla voi olla vain kolme tehdasrahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Ilmastosta riippuen
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Käytössä
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Ei käytössä
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Kuparimalmiketju
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Tämä parametri määrittää kuparimalmirahdin määränpään. Tämän parametrin ollessa "Ilmastosta riippuen" kyseisen ilmaston oletusteollisuus on käytössä. Muut vaihtoehdot mahdollistavat kuparimalmia vastaanottavan teollisuuden vaihtamisen. Huomioi, että sinulla voi olla vain kolme tehdasrahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Ilmastosta riippuen
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Käytössä
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Ei käytössä
+
+STR_PARAM_RUBBER_CHAIN                                          :Kumiketju
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Tämä parametri määrittää kumiketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta. Huomioi, että sinulla voi olla vain kolme Tehdas-rahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Ilmastosta riippuen
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Käytössä
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Ei käytössä
+
+STR_PARAM_FARM_CHAIN                                            :Maatalousketju
+STR_PARAM_FARM_CHAIN_DESC                                       :Tämä parametri määrittää maatalousketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta."Ei käytössä" poistaa maatalousketjun käytöstä. Muut vaihtoehdot määrittävät käytössä olevat maatalousrahdit. Huomioi, että sinulla voi olla vain kolme tehdasrahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Ilmastosta riippuen
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Viljaa
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Karjaa
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Viljaa ja karjaa
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Ei käytössä
+
+STR_PARAM_FARM_DESTINATION                                      :Maatilarahtien määränpää
+STR_PARAM_FARM_DESTINATION_DESC                                 :Tämä parametri määrittää maatalousrahtien määränpään. Tämän parametrin ollessa "Ilmastosta riippuen" kyseisen ilmaston oletusmääränpää maatalousrahdeille on käytössä. Muut vaihtoehdot mahdollistavat maatalousrahteja vastaanottavan teollisuuden vaihtamisen. Huomioi, että sinulla voi olla vain kolme tehdasrahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Ilmastosta riippuen
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Ruoanjalostamo
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Tehdas
+
+STR_PARAM_FRUIT_CHAIN                                           :Hedelmäketju
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Tämä parametri määrittää hedelmäketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Ilmastosta riippuen
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Käytössä
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Ei käytössä
+
+STR_PARAM_WOOD_PRODUCER                                         :Raakapuun tuottaja
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Tämä parametri määrittää raakapuun tuotantoteollisuustyypin. Tämän parametrin ollessa "Ilmastosta riippuen" kyseisen ilmaston oletusteollisuus on käytössä. Muut vaihtoehdot mahdollistavat raakapuuta tuottavan teollisuustyypin vaihtamisen. Tämä asetus vaikuttaa myös raakapuun rahtitaksoihin.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Ilmastosta riippuen
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Metsä
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Saha
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Ei käytössä
+
+STR_PARAM_WOOD_DESTINATION                                      :Raakapuun määränpää
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Tämä parametri määrittää raakapuurahdin määränpään. Tämän parametrin ollessa "Ilmastosta riippuen" kyseisen ilmaston oletusteollisuus on käytössä. Muut vaihtoehdot mahdollistavat raakapuuta vastaanottavan teollisuuden vaihtamisen. Huomioi, että sinulla voi olla vain kolme tehdasrahtia yhtäaikaa. Jos valitset useamman kuin kolme, osa rahdeista päätyy muille teollisuustyypeille (maatilarahdit ruoanjalostamolle, raakapuu sahalle).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Ilmastosta riippuen
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Saha
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Paperitehdas
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Tehdas
+
+STR_PARAM_WATER_CHAIN                                           :Vesiketju
+STR_PARAM_WATER_CHAIN_DESC                                      :Tämä parametri määrittää vesiketjun läsnäolon. Jos parametrin arvo on "Ilmastosta riippuen", tämän ketjun läsnäolo riippuu kyseisen ilmaston oletusasetuksesta.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Ilmastosta riippuen
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Käytössä
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Ei käytössä
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Poista käytöstä öljykenttien rakennusrajoitteet
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Öljykenttiä rakennetaan lauhkeaan ilmastoon tavallisen pelin aikana, ja myös vuoden 1950 jälkeen pohjoisessa ja subtrooppisessa ilmastossa. Lauhkeassa ilmastossa olevat öljykentät voivat lisätä tuotantoaan.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Poista käytöstä öljylauttojen rakennusrajoitteet
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Öljylauttoja rakennetaan ennen vuotta 1960, ja niitä ilmestyy kartalle maailman luonnin aikana.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Poista käytöstä arvotavaroita vastaanottavien pankkien rakennusrajoitteet
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Arvotavaroita vastaanottavia pankkeja ilmestyy maailman luonnin aikana.
+

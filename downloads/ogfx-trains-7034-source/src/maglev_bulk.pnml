@@ -1,0 +1,56 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Bulk wagon:
+ *
+ * coal, iron ore, bauxite, copper ore,
+ * gravel, sand, clay, grains, maize, wheat,
+ * sulphur, fertilizer, scrap metal,
+ * fruit, fruit & vegetables, toffee,
+ * sugar, cotton candy, sugar beet,
+ * lumber (wood chips)
+ * ***************************
+ */
+
+#define THIS_ID(...) maglev_bulk_wagon ## __VA_ARGS__
+
+switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default: 37 units
+    FICR: return 32;
+    FRUT: return 32;
+    FRVG: return 32;
+    OLSD: return 32;
+    RSGR: return 27;
+    RUBR: return 28;
+    SWET: return 32;
+    CB_FAILED;
+}
+
+item(FEAT_TRAINS, maglev_bulk_wagon) {
+    property {
+        name:                           string(STR_NAME_BULK_WAGON);
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_BULK
+        cost_factor:                    176;
+        cargo_capacity:                 37;
+        weight:                         18;
+     }
+    graphics {
+        cargo_capacity:     maglev_bulk_wagon_cb_capacity_switch;
+        weight:             bulk_wagon_cb_property_weight_switch;
+        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+        refit_cost:         bulk_refit_cost_switch;
+
+        purchase:           monorail_bulk_wagon_coal_climate_switch;
+        monorail_bulk_wagon_switch;
+    }
+}
+
+#undef THIS_ID

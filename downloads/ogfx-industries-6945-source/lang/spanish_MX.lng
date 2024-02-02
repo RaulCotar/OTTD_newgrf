@@ -1,0 +1,78 @@
+##grflangid 0x55
+##plural 0
+##gender m f
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Máxima distancia del mar a las refinerías de petróleo
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Sin límite
+
+STR_ERR_FACTORY_CHAINS                                          :Se han seleccionado más de tres cadenas de fábrica para {STRING}. La descripción de los parámetros de la cadena ofrece mayor información.
+STR_ERR_TOWN_TOO_SMALL                                          :... el pueblo es muy pequeño para tener {COMMA} industrias de este tipo (solo puede haber una de estas industrias por cada {COMMA} casas)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Cuando se use {STRING} con el set de Total Town Replacement (TTRS), la cadena de Banco predeterminada del clima siempre estará activada.
+
+
+#Industry strings.
+
+
+
+#Station names.
+STR_FACTORY_STATION_NAME                                        :Fábrica, {STRING}
+STR_COPPER_ORE_MINE_STATION_NAME                                :Mina de cobre, {STRING}
+STR_OIL_WELL_STATION_NAME                                       :Pozo petrolífero, {STRING}
+STR_BANK_STATION_NAME                                           :Banco, {STRING}
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :Planta procesadora de alimentos, {STRING}
+STR_PAPER_MILL_STATION_NAME                                     :Aserradero, {STRING}
+STR_GOLD_MINE_STATION_NAME                                      :Mina de oro, {STRING}
+STR_RUBBER_PLANTATION_STATION_NAME                              :Plantación de caucho, {STRING}
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Cadena de Carbón
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Activado
+
+STR_PARAM_OIL_CHAIN                                             :Cadena de Petróleo
+STR_PARAM_OIL_CHAIN_DESC                                        :Este parámetro controla las presencia de la cadena de Petróelo. Si se establece a "Dependiendo del clima", la presencia de esta cadena dependerá de las opciones predeterminadas del clima actual. "Desactivada" quitará la cadena de Petróleo. Las demás opciones determinarán las industrias de petróleo activas.
+STR_PARAM_OIL_CHAIN_WELLS                                       :Pozos y plataforma petrolíferos
+
+STR_PARAM_VALUABLES_CHAIN                                       :Cadena de Banco
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Este parámetro controla las presencia de la cadena de Banco. Si se establece a "Dependiendo del clima", la presencia de esta cadena dependerá de las opciones predeterminadas del clima actual. "Desactivada" quitará la cadena de Banco. Las demás opciones activarán los bancos y determinarán los cargamentos que reciben (o los producidos, en el caso de los objetos de valor)
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Cargamento de oro
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Desactivada
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Cadena de Mineral de hierro
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Desactivada
+
+
+STR_PARAM_RUBBER_CHAIN                                          :Cadena de Caucho
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Dependiendo del clima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Activada
+
+STR_PARAM_FARM_CHAIN_DESC                                       :Este parámetro controla las presencia de la cadena Agrícola. Si se establece a "Dependiendo del clima", la presencia de esta cadena dependerá de las opciones predeterminadas del clima actual. "Desactivada" quitará la cadena Agrícola. Las demás opciones determinarán los cargamentos agrícolas activos. Recuerda que solo se pueden tener tres cargamentos de Fábrica al mismo tiempo. Si se seleccionan más de tres, algunos serán recibidos por otra industria (cargamentos agrícolas, por la planta procesadora de alimentos; madera, por el aserradero).
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Grano y ganado
+
+STR_PARAM_FARM_DESTINATION                                      :Destino de cargamentos agrícolas
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Dependiendo del clima
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fábrica
+
+STR_PARAM_FRUIT_CHAIN                                           :Cadena de Fruta
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Dependiendo del clima
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Desactivada
+
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Este parámetro controla las industrias que producen cargamento de madera. Si se establece a "Dependiendo del clima", esa industria será la predeterminada para el clima actual. Las demás opciones son para decidir la industria que producirá madera. Esto afectará también las tarifas de pago por madera.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Dependiendo del clima
+
+STR_PARAM_WOOD_DESTINATION                                      :Destino de la madera
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Este parámetro controla el destino del cargamento de madera. Si se establece a "Dependiendo del clima", la industria que recibe madrá será la predeterminada para el clima actual. Las demás opciones son para decidir la industria que recibirá la madera. Recuerda que solo se pueden tener tres cargamentos de Fábrica al mismo tiempo. Si se seleccionan más de tres, algunos serán recibidos por otra industria (cargamentos de granja, por la planta procesadora de alimenos; madera, por el aserradero).
+
+STR_PARAM_WATER_CHAIN                                           :Cadena de Agua
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Dependiendo del clima
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Desactivada
+
+
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Desactivar restricciones de construcción de plataformas petrolíferas
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Los bancos que reciben objetos de valor aparecerán durante la creación del mapa.
+

@@ -1,0 +1,151 @@
+##grflangid 0x02
+##plural 0
+##gender p m w n
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ verbessert die Industrien und überlässt dem Spieler die Auswahl, welche Industrien im Spiel verwendet werden sollen.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maximaler Abstand vom Wasser für Ölraffinerien
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maximaler Abstand vom Wasser für Ölraffinerien. Ein Wert von Null erlaubt, Ölraffinerien überall zu errichten.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Unendlich (überall erlauben)
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} ist inkompatibel mit {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} ist nicht für Spielzeugland ausgelegt.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... Ölraffinerien müssen nahe am Wasser gebaut werden
+STR_ERR_FACTORY_CHAINS                                          :Es wurden für {STRING} mehr als drei Fracht-Ketten für die Fabrik ausgewählt. Bitte überprüfe die Beschreibungen der einzelnen Frachtketten.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... kann nur unterhalb der Schneegrenze gebaut werden
+STR_ERR_NO_DESERT_ONLY                                          :... kann nicht in Wüstengebieten gebaut werden
+STR_ERR_TOWN_TOO_SMALL                                          :... diese Stadt ist zu klein für {COMMA} Industrien diesen Typs (Für je {COMMA} Häuser ist nur eine solche Industrie erlaubt)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Wenn {STRING} zusammen mit dem Total Town Replacement Set (TTRS) genutzt wird, wird die dem Klima zugehörige Standardkette für Banken sowie die zugehörige Frachtart aktiviert.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Laden
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Kohlebergwerk
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Kraftwerk
+STR_SAWMILL_STATION_NAME                                        :{STRING} Sägemühle
+STR_FOREST_STATION_NAME                                         :{STRING} Wald
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Ölraffinerie
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Ölbohrplattform
+STR_FACTORY_STATION_NAME                                        :{STRING} Fabrik
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Druckerei
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Stahlwerk
+STR_FARM_STATION_NAME                                           :{STRING} Bauernhof
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Kupferbergwerk
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Ölquelle
+STR_BANK_STATION_NAME                                           :{STRING} Bank
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} Lebensmittelfabrik
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Papiermühle
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Goldmine
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Diamantenmine
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Eisenerzbergwerk
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Fruchthof
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Kautschukplantage
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Wasserversorgung
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Wasserturm
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Sägemühle
+STR_SHOP_STATION_NAME                                           :{STRING} Laden
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Kohle-Kette
+STR_PARAM_COAL_CHAIN_DESC                                       :Verwendung der Kohle-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Abhängig vom Klima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Aktiv
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Deaktiviert
+
+STR_PARAM_OIL_CHAIN                                             :Öl-Kette
+STR_PARAM_OIL_CHAIN_DESC                                        :Verwendung der Öl-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Die anderen Einstellungen legen die Industrien fest, die verwendet werden sollen.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Abhängig vom Klima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Ölquellen und Ölraffinerien
+STR_PARAM_OIL_CHAIN_RIG                                         :Ölbohrplattformen und Ölraffinerien
+STR_PARAM_OIL_CHAIN_ALL                                         :Ölquellen, Ölbohrplattformen und Ölraffinerien
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Deaktiviert
+
+STR_PARAM_VALUABLES_CHAIN                                       :Banken-Kette
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Verwendung der Banken-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Die anderen Einstellungen legen fest, welche Frachtarten von Banken akzeptiert werden sollen.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Abhängig vom Klima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Wertsachen
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Gold
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamanten
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Gold und Diamanten
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Deaktiviert
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Eisenerz-Kette
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Verwendung der Eisenerz-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Abhängig vom Klima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Aktiv
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Deaktiviert
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Kupfererz-Kette
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Verwendung der Kupfererz-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Abhängig vom Klima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Aktiv
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Deaktiviert
+
+STR_PARAM_RUBBER_CHAIN                                          :Kautschuk-Kette
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Verwendung der Kautschuk-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Abhängig vom Klima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Aktiv
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Deaktiviert
+
+STR_PARAM_FARM_CHAIN                                            :Bauernhof-Kette
+STR_PARAM_FARM_CHAIN_DESC                                       :Verwendung der Bauernhof-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Abhängig vom Klima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Getreide
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Vieh
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Getreide und Vieh
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Deaktiviert
+
+STR_PARAM_FARM_DESTINATION                                      :Empfänger für landwirschaftliche Erzeugnisse
+STR_PARAM_FARM_DESTINATION_DESC                                 :Abnehmer der landwirtschaftlichen Erzeugnisse. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Die anderen Einstellungen legen fest, wohin die landwirtschaftlichen Erzeugnisse geliefert werden können. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei für diese ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Abhängig vom Klima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Lebensmittelfabrik
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabrik
+
+STR_PARAM_FRUIT_CHAIN                                           :Früchte-Kette
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Verwendung der Früchte-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Abhängig vom Klima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Aktiv
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Deaktiviert
+
+STR_PARAM_WOOD_PRODUCER                                         :Holzlieferant
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Industrie, die Holz produziert. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Die anderen Einstellungen legen fest, welche Industrie Holz produziert. Die Auswahl verändert außerdem noch den für den Transport von Holz gezahlten Frachtpreis.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Abhängig vom Klima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Wald
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Sägemühle
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Deaktiviert
+
+STR_PARAM_WOOD_DESTINATION                                      :Holzabnehmer
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Industrie, die Holz akzeptiert. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden. Die anderen Einstellungen legen fest, welche Industrie Holz akzeptiert. Beachte, dass eine Fabrik nur drei Frachtarten akzeptieren kann. Wenn mehr als drei ausgewählt werden, werden einige stattdessen von anderen Industrien nachgefragt (landwirtschaftliche Erzeugnisse von der Lebensmittelfabrik, Holz vom Sägewerk).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Abhängig vom Klima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Sägewerk
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papiermühle
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabrik
+
+STR_PARAM_WATER_CHAIN                                           :Wasser-Kette
+STR_PARAM_WATER_CHAIN_DESC                                      :Verwendung der Wasser-Kette. "Abhängig vom Klima" heißt, dass die standardmäßig im ausgewählten Klima vorkommenden Industrien verwendet werden.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Abhängig vom Klima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Aktiv
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Deaktiviert
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Beschränkungen für den Bau von Ölquellen abschalten
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Ölquellen werden auch im gemäßigten Klima gebaut und nach 1950 auch im tropischen und arktischen Klima. Ölquellen im gemäßigten Klima können ihre Produktion auch erhöhen.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Beschränkungen für Ölbohrplattformen abschalten
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Ölbohrplattformen werden auch vor 1960 errichtet und werden auch ggf. bei der Kartenerstellung generiert.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Beschränkungen für Bank mit Wertsachen
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Wenn Banken Wertsachen annehmen, werden sie auch bei der Kartenerstellung generiert.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Generierung, Veränderung und Schließung von Hauptindustrien
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Schalte das zufällige Eröffnen und Schließen von standard OpenTTD-Industrie aus.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Generierung, Veränderung und Schließung städtischer Industrien
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Schalte das zufällige Eröffnen und Schließen von Banken, Läden und Wassertürmen aus.

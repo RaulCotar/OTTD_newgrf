@@ -1,0 +1,368 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#define DEFINE_FACTORY_TILES(label1, number1, label2, number2, label3, number3) \
+	item(FEAT_INDUSTRYTILES, factory_tile_1) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, factory_tile_2) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, factory_tile_3) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	} \
+ \
+	item(FEAT_INDUSTRYTILES, factory_tile_4) { \
+		property { \
+			accepted_cargos: [[label1, number1], [label2, number2], [label3, number3]]; \
+		} \
+	}
+
+
+#define DEFINE_FACTORY_INDUSTRY_3(label1, label2, label3) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 ), cargotype( #label2 ), cargotype( #label3 )]; \
+		} \
+	}
+
+#define DEFINE_FACTORY_INDUSTRY_2(label1, label2) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 ), cargotype( #label2 )]; \
+		} \
+	}
+
+#define DEFINE_FACTORY_INDUSTRY_1(label1) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			accept_cargo_types: [cargotype( #label1 )]; \
+		} \
+	}
+
+
+#define DEFINE_FACTORY_CONFLICTING_3(industry1, industry2, industry3) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			conflicting_ind_types: [industry_type(IND_TYPE_NEW, industry1), industry_type(IND_TYPE_NEW, industry2), industry_type(IND_TYPE_NEW, industry3)]; \
+		} \
+	}
+
+#define DEFINE_FACTORY_CONFLICTING_2(industry1, industry2) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			conflicting_ind_types: [industry_type(IND_TYPE_NEW, industry1), industry_type(IND_TYPE_NEW, industry2)]; \
+		} \
+	}
+
+#define DEFINE_FACTORY_CONFLICTING_1(industry1) \
+	item(FEAT_INDUSTRIES, industry_factory) { \
+		property { \
+			conflicting_ind_types: [industry_type(IND_TYPE_NEW, industry1)]; \
+		} \
+	}
+
+
+if (FACTORY_ENABLED) {
+
+	if (NUM_FACTORY_CARGOS == 3) {
+		if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(GRAI, 8, LVST, 8, WOOD, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, LVST, WOOD)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_forest)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_lumber_mill)
+			}
+
+		} else if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, LVST, 8, STEL, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, LVST, STEL)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_steel_mill)
+
+		} else if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, LVST, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, LVST, CORE)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_copper_ore_mine)
+
+		} else if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, LVST, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, LVST, RUBR)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_rubber_plantation)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, WOOD, 8, STEL, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, WOOD, STEL)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_steel_mill)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_steel_mill)
+			}
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, WOOD, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, WOOD, CORE)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_copper_ore_mine)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_copper_ore_mine)
+			}
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, WOOD, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, WOOD, RUBR)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_rubber_plantation)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_rubber_plantation)
+			}
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, STEL, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, STEL, CORE)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_steel_mill, industry_copper_ore_mine)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, STEL, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, STEL, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_steel_mill, industry_rubber_plantation)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, CORE, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(GRAI, CORE, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_copper_ore_mine, industry_rubber_plantation)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, WOOD, 8, STEL, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, WOOD, STEL)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_steel_mill)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_steel_mill)
+			}
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, WOOD, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, WOOD, CORE)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_copper_ore_mine)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_copper_ore_mine)
+			}
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, WOOD, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, WOOD, RUBR)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_rubber_plantation)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_lumber_mill, industry_rubber_plantation)
+			}
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, STEL, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, STEL, CORE)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_steel_mill, industry_copper_ore_mine)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, STEL, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, STEL, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_steel_mill, industry_rubber_plantation)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, CORE, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(LVST, CORE, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_copper_ore_mine, industry_rubber_plantation)
+
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, STEL, 8, CORE, 8)
+			DEFINE_FACTORY_INDUSTRY_3(WOOD, STEL, CORE)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_forest, industry_steel_mill, industry_copper_ore_mine)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_lumber_mill, industry_steel_mill, industry_copper_ore_mine)
+			}
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, STEL, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(WOOD, STEL, RUBR)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_forest, industry_steel_mill, industry_rubber_plantation)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_lumber_mill, industry_steel_mill, industry_rubber_plantation)
+			}
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, CORE, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(WOOD, CORE, RUBR)
+			if (FOREST_ENABLED) {
+				DEFINE_FACTORY_CONFLICTING_3(industry_forest, industry_copper_ore_mine, industry_rubber_plantation)
+			} else {
+				DEFINE_FACTORY_CONFLICTING_3(industry_lumber_mill, industry_copper_ore_mine, industry_rubber_plantation)
+			}
+
+		} else if (STEEL_ENABLED && COPPER_ORE_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(STEL, 8, CORE, 8, RUBR, 8)
+			DEFINE_FACTORY_INDUSTRY_3(STEL, CORE, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_steel_mill, industry_copper_ore_mine, industry_rubber_plantation)
+		}
+	}
+
+
+
+	if (NUM_FACTORY_CARGOS == 2) {
+		if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(GRAI, 8, LVST, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(GRAI, LVST)
+			DEFINE_FACTORY_CONFLICTING_1(industry_farm)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(GRAI, 8, WOOD, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(GRAI, WOOD)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_lumber_mill)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, STEL, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(GRAI, STEL)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_steel_mill)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, CORE, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(GRAI, CORE)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_copper_ore_mine)
+
+		} else if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(GRAI, 8, RUBR, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(GRAI, RUBR)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_rubber_plantation)
+
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(LVST, 8, WOOD, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(LVST, WOOD)
+			DEFINE_FACTORY_CONFLICTING_3(industry_farm, industry_forest, industry_lumber_mill)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, STEL, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(LVST, STEL)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_steel_mill)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, CORE, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(LVST, CORE)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_copper_ore_mine)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+				RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(LVST, 8, RUBR, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(LVST, RUBR)
+			DEFINE_FACTORY_CONFLICTING_2(industry_farm, industry_rubber_plantation)
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, STEL, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(WOOD, STEL)
+			DEFINE_FACTORY_CONFLICTING_3(industry_steel_mill, industry_forest, industry_lumber_mill)
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, CORE, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(WOOD, CORE)
+			DEFINE_FACTORY_CONFLICTING_3(industry_copper_ore_mine, industry_forest, industry_lumber_mill)
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(WOOD, 8, RUBR, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(WOOD, RUBR)
+			DEFINE_FACTORY_CONFLICTING_3(industry_rubber_plantation, industry_forest, industry_lumber_mill)
+
+		} else if (STEEL_ENABLED && COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(STEL, 8, CORE, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(STEL, CORE)
+			DEFINE_FACTORY_CONFLICTING_2(industry_steel_mill, industry_copper_ore_mine)
+
+		} else if (STEEL_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(STEL, 8, RUBR, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(STEL, RUBR)
+			DEFINE_FACTORY_CONFLICTING_2(industry_steel_mill, industry_rubber_plantation)
+
+		} else if (COPPER_ORE_ENABLED && RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(CORE, 8, RUBR, 8, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_2(CORE, RUBR)
+			DEFINE_FACTORY_CONFLICTING_2(industry_copper_ore_mine, industry_rubber_plantation)
+
+		}
+	}
+
+
+	if (NUM_FACTORY_CARGOS == 1) {
+		if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(GRAI, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(GRAI)
+			DEFINE_FACTORY_CONFLICTING_1(industry_farm)
+
+		} else if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(LVST, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(LVST)
+			DEFINE_FACTORY_CONFLICTING_1(industry_farm)
+
+		} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY) {
+			DEFINE_FACTORY_TILES(WOOD, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(WOOD)
+			DEFINE_FACTORY_CONFLICTING_2(industry_forest, industry_lumber_mill)
+
+		} else if (STEEL_ENABLED) {
+			DEFINE_FACTORY_TILES(STEL, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(STEL)
+			DEFINE_FACTORY_CONFLICTING_1(industry_steel_mill)
+
+		} else if (COPPER_ORE_ENABLED) {
+			DEFINE_FACTORY_TILES(CORE, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(CORE)
+			DEFINE_FACTORY_CONFLICTING_1(industry_copper_ore_mine)
+
+		} else if (RUBBER_ENABLED) {
+			DEFINE_FACTORY_TILES(RUBR, 8, PASS, 0, PASS, 0)
+			DEFINE_FACTORY_INDUSTRY_1(RUBR)
+			DEFINE_FACTORY_CONFLICTING_1(industry_rubber_plantation)
+
+		}
+	}
+}

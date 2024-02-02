@@ -1,0 +1,74 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Piece goods wagon:
+ *
+ * goods, food, paper, fruits, fruit + vegetables,
+ * farm supplies, engineering supplies,
+ * manufacturing supplies, wool
+ * ***************************
+ */
+
+#define THIS_ID(...) monorail_piecegoods_wagon ## __VA_ARGS__
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_temperate, "mono_goods", "mono_goods_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_arctic, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_tropic, "mono_goods", "mono_goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 140, 0, 120) // 8 views needed
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_paper, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 380, 0, 360) // 8 views needed
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_fruit, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_food, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_livestock, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 180, 0, 160) // 8 views needed
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toyland, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 280, 0, 260) // 8 views needed
+
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toys, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 320, 0, 300) // 8 views needed
+
+switch(FEAT_TRAINS, SELF, monorail_piecegoods_wagon_climate_switch, climate) {
+	CLIMATE_ARCTIC: monorail_piecegoods_wagon_arctic_switch_gui;
+	CLIMATE_TROPIC: monorail_piecegoods_wagon_tropic_switch_gui;
+	monorail_piecegoods_wagon_temperate_switch_gui;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_piecegoods_wagon_switch, cargo_type_in_veh) {
+    BATT: monorail_piecegoods_wagon_toyland_switch_gui;
+    FRUT: monorail_piecegoods_wagon_fruit_switch_gui;
+    FRVG: monorail_piecegoods_wagon_fruit_switch_gui;
+    FOOD: monorail_piecegoods_wagon_food_switch_gui;
+    LVST: monorail_piecegoods_wagon_livestock_switch_gui;
+    PAPR: monorail_piecegoods_wagon_paper_switch_gui;
+    SWET: monorail_piecegoods_wagon_toyland_switch_gui;
+    TOYS: monorail_piecegoods_wagon_toys_switch_gui;
+    monorail_piecegoods_wagon_climate_switch;
+}
+
+item(FEAT_TRAINS, monorail_piecegoods_wagon) {
+    property {
+        // We try to simulate the stats of the temperate goods wagon
+        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_PIECE_GOODS
+        cost_factor:                    190;
+        cargo_capacity:                 25;
+        weight:                         21;
+    }
+    graphics {
+        weight:         piecegoods_wagon_weight_switch;
+        cargo_capacity: piecegoods_wagon_capacity_switch;
+        refit_cost:     piecegoods_refit_cost_switch;
+
+        purchase:       monorail_piecegoods_wagon_climate_switch;
+        monorail_piecegoods_wagon_switch;
+    }
+}
+
+#undef THIS_ID

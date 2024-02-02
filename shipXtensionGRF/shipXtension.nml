@@ -1,0 +1,139 @@
+/*
+	Made by Raul Cotar, with (slightly modified) sprites from "redFISH".
+	Build using: nmlc --grf dev/builds/shipXTension(4).grf shipXtension.nml -p DEFAULT
+	In-game debug: 	set newgrf_developer_tools 1		to enable dev tools
+					reload_newgrfs						to reload the active grfs
+					set newgrf_show_old_versions 1		to show all versions of the grfs
+*/
+
+grf {
+	grfid: "RC!\03";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 4;
+	min_compatible_version: 3;
+}
+
+// TABLES
+cargotable { // All cargo lables referenced in this file should be in here.
+	PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD, CORE, DIAM, FRUT, MAIZ, RUBR, WATR
+}
+
+// TEMPLATES
+template tmpl_ship(x, y) { // For ship sprites.
+	// Use y in steps of 90, and x=0.
+	//[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          28,        89,          -14,         -41]
+    [x+ 29,     y,         113,        71,          -47,         -22]
+    [x+143,     y,         138,        48,          -65,         -29]
+    [x+282,     y,         113,        71,          -21,         -22]
+    [x+396,     y,          28,        89,          -14,         -50]
+    [x+425,     y,         113,		   71,          -75,         -22]
+    [x+539,     y,         138,        48,          -65,         -29]
+    [x+678,     y,         113,        71,          -20,         -22]
+	// Offsets based on Santorini (ULCC)
+}
+template tmpl_ship_buy(x, y) { // Buy menu for both ships.
+	// HFS*2/3 East-heading
+	[100,     400,          92,        32,          -36,         -18] // use x,y as offs
+}
+
+// SPRITESETS
+spriteset (sprst_ULCC_hes,	"gfx/Supertanker.png")	{ tmpl_ship(0,  0) } // ULCC (hes not used for liquids)
+spriteset (sprst_ULCC_hfs,	"gfx/Supertanker.png")	{ tmpl_ship(0, 90) }
+spriteset (sprst_ULCC_lfs,	"gfx/Supertanker.png")	{ tmpl_ship(0,180) }
+spriteset (sprst_ULCC_lfm,	"gfx/Supertanker.png")	{ tmpl_ship(0,270) }
+spriteset (sprst_ULCC_buy,	"gfx/Supertanker.png")	{ tmpl_ship_buy(0, 0) }
+
+spriteset (sprst_CSP_hes,	"gfx/Cargobot.png")	{ tmpl_ship(0,  0) } // CSP
+spriteset (sprst_CSP_hfs,	"gfx/Cargobot.png")	{ tmpl_ship(0, 90) }
+spriteset (sprst_CSP_lfs,	"gfx/Cargobot.png")	{ tmpl_ship(0,180) }
+spriteset (sprst_CSP_lfm,	"gfx/Cargobot.png")	{ tmpl_ship(0,270) }
+spriteset (sprst_CSP_buy,	"gfx/Cargobot.png")	{ tmpl_ship_buy(0, 0) }
+
+// SWITCHES
+switch (FEAT_SHIPS, SELF, sw_ULCC_mov, (10 * current_speed / max_speed)) { // ULCC speed
+	0..4:	sprst_ULCC_lfs; // <50% speed
+	sprst_ULCC_lfm;
+}
+switch (FEAT_SHIPS, SELF, sw_ULCC_gfx, (10 * cargo_count / cargo_capacity)) { // ULCC load
+	0..4:	sprst_ULCC_hfs; // <50% load
+	sw_ULCC_mov;
+}
+switch (FEAT_SHIPS, SELF, sw_CSP_mov, (10 * current_speed / max_speed)) { // CSP speed
+	0..4:	sprst_CSP_lfs; // <50% speed
+	sprst_CSP_lfm;
+}
+switch (FEAT_SHIPS, SELF, sw_CSP_gfx, (10 * cargo_count / cargo_capacity)) { // CSP load
+	0..2:	sprst_CSP_hes; // <30% load
+	3..5:	sprst_CSP_hfs; // <60% load
+	sw_CSP_mov;
+}
+
+// ITEMS
+item (FEAT_SHIPS, item_CSP) { // CSP
+	property {
+		name:					string(STR_CSP_NAME);
+		climates_available:		ALL_CLIMATES;
+		introduction_date:		date(1962, 4, 1);
+		model_life:				VEHICLE_NEVER_EXPIRES;
+		vehicle_life:			50; // it's a ship, it should last
+		cost_factor:			220; // ~83k
+		running_cost_factor:	146; // ~6,5k
+		misc_flags:				bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT);
+		
+		sprite_id:				SPRITE_ID_NEW_SHIP;
+		visual_effect:			visual_effect(VISUAL_EFFECT_DIESEL, 7); // arg 2 = offs
+		sound_effect:			SOUND_SHIP_HORN;
+		
+		speed:					45 km/h; // =45, ~real-life max
+		ocean_speed_fraction:	1;
+		canal_speed_fraction:	2.0 / 3.0; // left fraction to use max digits
+		cargo_capacity:			460; // same for all cargos
+		loading_speed:			12; // default 10 units / 10 tics
+		default_cargo_type:		GOOD;
+		is_refittable:			1; // yes, yes it is
+		cargo_allow_refit:		[GOOD, GRAI, COAL, IORE, STEL, WOOD];
+		refit_cost:				0; // for easy autorefit
+		cargo_age_period:		444; // +1 age / 6 days, default 185
+		
+	}
+	graphics {
+		purchase:			sprst_CSP_buy;
+		additional_text:	string(STR_CSP_DESC);
+		default:			sw_CSP_gfx;
+	}
+}
+item (FEAT_SHIPS, item_ULCC) { // ULCC
+	property {
+		name:					string(STR_ULCC_NAME);
+		climates_available:		ALL_CLIMATES;
+		introduction_date:		date(1965, 4, 1); // later than CSP
+		model_life:				VEHICLE_NEVER_EXPIRES;
+		vehicle_life:			50; // it's a ship, it should last
+		cost_factor:			255; // ~92k, maxed
+		running_cost_factor:	157; // ~7k
+		misc_flags:				bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT);
+		
+		sprite_id:				SPRITE_ID_NEW_SHIP;
+		visual_effect:			visual_effect(VISUAL_EFFECT_DIESEL, 7); // arg 2 = offs, max=7
+		sound_effect:			SOUND_SHIP_HORN;
+		
+		speed:					45 km/h; // =45, ~real-life max
+		ocean_speed_fraction:	1;
+		canal_speed_fraction:	2.0 / 3.0; // left fraction to use max digits
+		cargo_capacity:			480; // 16 rail wagons of oil
+		loading_speed:			12; // default 10 units / 10 tics
+		default_cargo_type:		OIL_;
+		is_refittable:			1; // !nu apa :)
+		cargo_allow_refit:		[OIL_, WATR];
+		refit_cost:				0; // for easy autorefit
+		cargo_age_period:		444; // +1 age / 6 days, default 185
+		
+	}
+	graphics {
+		purchase:			sprst_ULCC_buy;
+		additional_text:	string(STR_ULCC_DESC);
+		default:			sw_ULCC_gfx;
+	}
+}

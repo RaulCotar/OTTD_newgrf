@@ -1,0 +1,16 @@
+0.1.0		Actually 1.0.0rc1. Broken.
+1.1.0		Ok but without many features*.
+1.1.5		Working but unbalanced. Most of the features* available.
+1.1.7		Broken.
+1.1.8		Ok. Numbers for heavy are just a bit off.
+* Features are (until 1.1.8): Iron Horse /w all ok stats, Heavy Turbo /w all ok stats and working and balanaced hybrid mode.
+1.2.0		2cc recolour for heavy and slight adjustments to specs
+1.2.1		Darker second color on heavy. Even more fine-tuning on locos.
+1.3.0		Added the Freight Car. Broken.
+1.3.2		Still broken.
+1.3.3		All working properly. Needs a bit of fine-tuning.
+1.3.4		More fine tuning.
+1.3.5		Final version. (unless I change some related cargo in WorldXTension.grf) --ignore
+Just realized freight wagon was broken. (didn't show empty sprite even when it was empty)
+1.3.6		Fixed that bug. Final version before possible cargo change.
+1.3.7		Added increased capacity for freight wagon after 1972. (has to )

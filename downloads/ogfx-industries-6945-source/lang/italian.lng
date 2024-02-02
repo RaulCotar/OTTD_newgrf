@@ -1,0 +1,152 @@
+##grflangid 0x27
+##plural 0
+##gender m ma f
+##case fp fs mp ms
+STR_GRF_NAME                                                    :Industrie OpenGFX+ {VERSION}
+STR_GRF_DESCRIPTION                                             :Industrie OpenGFX+ migliora le industrie e dà più controllo sulle loro caratteristiche.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Distanza massima dall'acqua per le raffinerie
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Distanza massima dall'acqua per le raffinerie. Un valore pari a zero permette di costruire le raffinerie ovunque.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Senza limite
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} non é compatibile con {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} non funziona con toyland.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... le raffinerie hanno bisogno di acqua nelle vicinanze
+STR_ERR_FACTORY_CHAINS                                          :Sono state selezionate più di tre catene per {STRING}. Per ulteriori informazioni, leggere le descrizioni dei parametri delle varie catene.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... non può stare in una zona innevata
+STR_ERR_NO_DESERT_ONLY                                          :... non può stare nel deserto
+STR_ERR_TOWN_TOO_SMALL                                          :... questa città è troppo piccola per avere {COMMA} industrie di questo tipo (ce ne può essere solo una per ogni {COMMA} case)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Quando {STRING} è usato con il Set di Cambiamento Totale Cittadino (TTRS), la catena bancaria definita dal clima scelto (insieme con le relative merci) sarà sempre attivata.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Negozio
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Miniera di carbone
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Centrale elettrica
+STR_SAWMILL_STATION_NAME                                        :{STRING} Segheria
+STR_FOREST_STATION_NAME                                         :{STRING} Foresta
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Raffineria
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Piattaforma petrolifera
+STR_FACTORY_STATION_NAME                                        :{STRING} Fabbrica
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Tipografia
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Acciaieria
+STR_FARM_STATION_NAME                                           :{STRING} Fattoria
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Miniera di rame
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Pozzo di petrolio
+STR_BANK_STATION_NAME                                           :{STRING} Banca
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} Fabbrica alimentare
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Cartiera
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Miniera d'oro
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Miniera di diamanti
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Miniera di ferro
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Frutteto
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Piantagione di gomma
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Falda acquifera
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Torre dell'acqua
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Segheria
+STR_SHOP_STATION_NAME                                           :{STRING} Negozio
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Catena del carbone
+STR_PARAM_COAL_CHAIN_DESC                                       :Questo parametro controlla la presenza della catena del carbone. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dalle impostazioni di default del clima scelto.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :A seconda del clima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Attivata
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Disattivata
+
+STR_PARAM_OIL_CHAIN                                             :Catena petrolifera
+STR_PARAM_OIL_CHAIN_DESC                                        :Questo parametro imposta la presenza della catena petrolifera. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dal clima scelto. "Disattivata" toglie la catena petrolifera. Le altre impostazioni servono a scegliere i tipi di industrie petrolifere presenti nel gioco.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :A secondo del clima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Pozzi di petrolio e raffinerie
+STR_PARAM_OIL_CHAIN_RIG                                         :Piattaforme petrolifere e raffinerie
+STR_PARAM_OIL_CHAIN_ALL                                         :Pozzi di petrolio, piattaforme petrolifere e raffinerie
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Disattivata
+
+STR_PARAM_VALUABLES_CHAIN                                       :Catena bancaria
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Questo parametro imposta la presenza della catena bancaria. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dal clima scelto. "Disattivata" toglie la catena bancaria. Le altre impostazioni servono ad attivare le banche e scegliere quali tipi di merci vengono accettate da esse (ed eventualmente la quantità di Valori che esse producono).
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :A seconda del clima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Valori
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Oro
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamanti
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Oro e diamanti
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Disattivata
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Catena del minerale di ferro
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Questo parametro imposta la presenza della catena del minerale di ferro. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dal clima scelto. Nota: solo tre catene di merci possono essere attive allo stesso tempo. Se ne vengono selezionate più di tre, alcune merci saranno accettate da un'industria diversa (i prodotti agricoli dalla fabbrica alimentare, e il legname dalla segheria).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :A secondo del clima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Attivata
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Disattivata
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Catena del minerale di rame
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Questo parametro imposta la presenza della catena del minerale di rame. Quando il parametro è impostato sul "A seconda del clima", la presenza di questa catena dipende dal clima scelto. Nota: solo tre catene di merci possono essere attive allo stesso tempo. Se ne vengono selezionate più di tre, alcune merci saranno accettate da un'industria diversa (i prodotti agricoli dalla fabbrica alimentare, e il legname dalla segheria).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :A seconda del clima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Attivata
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Disattivata
+
+STR_PARAM_RUBBER_CHAIN                                          :Catena della gomma
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Questo parametro imposta la presenza della catena della gomma. Quando il parametro è impostato sul "A seconda del clima", la presenza di questa catena dipende dal clima scelto. Nota: solo tre catene di merci possono essere attive allo stesso tempo. Se ne vengono selezionate più di tre, alcune merci saranno accettate da un'industria diversa (i prodotti agricoli dalla fabbrica alimentare, e il legname dalla segheria).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :A seconda del clima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Attivata
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Disattivata
+
+STR_PARAM_FARM_CHAIN                                            :Catena agricola
+STR_PARAM_FARM_CHAIN_DESC                                       :Questo parametro imposta la presenza della catena agricola. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dal clima scelto. "Disattivata" toglie la catena agricola. Le altre impostazioni servono a scegliere quali tipi di merci verranno attivate. Nota: solo tre catene di merci possono essere attive allo stesso tempo. Se ne vengono selezionate più di tre, alcune merci saranno accettate da un'industria diversa (i prodotti agricoli dalla fabbrica alimentare, e il legname dalla segheria).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :A secondo del clima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Grano
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Bestiame
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Grano e bestiame
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Disattivata
+
+STR_PARAM_FARM_DESTINATION                                      :Destinazione delle merci agricole
+STR_PARAM_FARM_DESTINATION_DESC                                 :Questo parametro imposta le destinazioni delle merci agricole. Quanto è impostato su "A seconda del clima", le destinazioni di queste merci saranno dettate dal clima attuale. Le altre opzioni scelgono quali industrie richiedono le merci agricole. Se più di tre tipi di industrie vengono selezionate allo stesso tempo, le merci agricole potrebbero essere richieste solo dalla fabbrica alimentare.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :A seconda del clima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Fabbrica di produzione alimentare
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabbrica
+
+STR_PARAM_FRUIT_CHAIN                                           :Catena della frutta
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Questo parametro imposta la presenza della catena della frutta. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dal clima scelto.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :A secondo del clima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Attivata
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Disattivata
+
+STR_PARAM_WOOD_PRODUCER                                         :Produttore del legname
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Questo parametro imposta il tipo di industria che produce il legname. Se impostato su "A seconda del clima", il produttore di legname viene deciso dal clima scelto. Il tipo di industria scelta cambierà la curva di pagamento per il legname.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :A secondo del clima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Foresta
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Segheria
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Disattivato
+
+STR_PARAM_WOOD_DESTINATION                                      :Destinazione del legname
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Questo parametro imposta le destinazioni del legname. Quanto è impostato su "A seconda del clima", l'industria che accetta il legname sarà quella di default del clima scelto. Le altre opzioni scelgono quale industria lavora il legname. Nota: un'industria può accettare fino a tre tipi di merci contemporaneamente. Se ne vengono selezionati più di tre, alcune merci saranno accettate da un'industria diversa (i prodotti agricoli dalla fabbrica alimentare, e il legname dalla segheria).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :A seconda del clima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Segheria
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Cartiera
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabbrica
+
+STR_PARAM_WATER_CHAIN                                           :Catena dell'acqua
+STR_PARAM_WATER_CHAIN_DESC                                      :Questo parametro controlla la presenza della catena dell'acqua. Quando il parametro è impostato su "A seconda del clima", la presenza di questa catena dipende dalle impostazioni di default del clima scelto.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :A seconda del clima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Attivata
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Disattivata
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Disattiva le restrizioni per la costruzione dei pozzi di petrolio
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Nuovi pozzi di petrolio apriranno durante il gioco normale nel clima temperato, e anche dopo il 1950 nei climi artico e tropicale. Nel clima temperato, i pozzi petroliferi potranno aumentare la produzione.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Disattiva le restrizioni per la costruzione delle piattaforme petrolifere
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Le piattaforme petrolifere verranno costruite prima del 1960 e appariranno durante la generazione della mappa.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Disattiva le restrizioni per la costruzione delle banche che accettano i Valori
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Le banche che accettano i Valori compariranno già durante la generazione della mappa.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Apertura/cambiamento/chiusura di industrie principali
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Se attivato, abilita il ciclo di vita standard delle industrie; se disattivato, blocca le aperture e le chiusure casuali.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Apertura/cambiamento/chiusura di industrie cittadine
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Se disattivato, blocca l'apertura e la chiusura casuale di banche, negozi e torri dell'acqua.

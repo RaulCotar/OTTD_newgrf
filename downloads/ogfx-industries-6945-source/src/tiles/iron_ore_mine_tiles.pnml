@@ -1,0 +1,180 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Iron ore mine */
+
+#define ironore_base_sprite 2293
+
+/* Replace all the original iron ore mine sprites by the semi-transparent ones without snow
+ * We'll need to supply possibly our own snowy versions
+ * In any case, we add a ground tile later in the tile layouts
+ */
+replace (ironore_base_sprite+ 0, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(626,   8) }
+replace (ironore_base_sprite+ 1, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(706,   8) }
+replace (ironore_base_sprite+ 2, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(  2,  72) }
+replace (ironore_base_sprite+ 3, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground( 82,  72) }
+replace (ironore_base_sprite+ 4, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(162,  72) }
+replace (ironore_base_sprite+ 5, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(242,  72) }
+replace (ironore_base_sprite+ 6, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(322,  72) }
+replace (ironore_base_sprite+ 7, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(402,  72) }
+replace (ironore_base_sprite+ 8, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(482,  72) }
+replace (ironore_base_sprite+ 9, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(562,  72) }
+replace (ironore_base_sprite+10, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(642,  72) }
+replace (ironore_base_sprite+11, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(722,  72) }
+replace (ironore_base_sprite+12, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(  2, 120) }
+replace (ironore_base_sprite+13, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground( 82, 120) }
+replace (ironore_base_sprite+14, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(162, 120) }
+replace (ironore_base_sprite+15, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(242, 120) }
+
+replace (ironore_base_sprite+16+ 0, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(322, 120) }
+replace (ironore_base_sprite+16+ 1, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(402, 120) }
+replace (ironore_base_sprite+16+ 2, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(482, 120) }
+replace (ironore_base_sprite+16+ 3, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(562, 120) }
+replace (ironore_base_sprite+16+ 4, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(642, 120) }
+replace (ironore_base_sprite+16+ 5, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(722, 120) }
+replace (ironore_base_sprite+16+ 6, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(  2, 168) }
+replace (ironore_base_sprite+16+ 7, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground( 82, 168) }
+replace (ironore_base_sprite+16+ 8, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(162, 168) }
+replace (ironore_base_sprite+16+ 9, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(242, 168) }
+replace (ironore_base_sprite+16+10, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(322, 168) }
+replace (ironore_base_sprite+16+11, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(402, 168) }
+replace (ironore_base_sprite+16+12, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(482, 168) }
+replace (ironore_base_sprite+16+13, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(562, 168) }
+replace (ironore_base_sprite+16+14, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(642, 168) }
+replace (ironore_base_sprite+16+15, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(722, 168) }
+
+replace (ironore_base_sprite+32+ 0, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(  2, 216) }
+replace (ironore_base_sprite+32+ 1, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground( 82, 216) }
+replace (ironore_base_sprite+32+ 2, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(162, 216) }
+replace (ironore_base_sprite+32+ 3, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(242, 216) }
+replace (ironore_base_sprite+32+ 4, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(322, 216) }
+replace (ironore_base_sprite+32+ 5, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(402, 216) }
+replace (ironore_base_sprite+32+ 6, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(482, 216) }
+replace (ironore_base_sprite+32+ 7, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(562, 216) }
+replace (ironore_base_sprite+32+ 8, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(642, 216) }
+replace (ironore_base_sprite+32+ 9, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(722, 216) }
+replace (ironore_base_sprite+32+10, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(  2, 264) }
+replace (ironore_base_sprite+32+11, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground( 82, 264) }
+replace (ironore_base_sprite+32+12, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(162, 264) }
+replace (ironore_base_sprite+32+13, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(242, 264) }
+replace (ironore_base_sprite+32+14, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(322, 264) }
+replace (ironore_base_sprite+32+15, "src/gfx/iron_ore_mine/iron_ore_mine.png") { tmpl_level_ground(402, 264) }
+
+#define IRONORE_TILE(number, groundtype, stage) \
+spritelayout ironore_mine_tile_ ## number ## _ ## groundtype ## _construction ## stage { \
+	ground   { sprite: GROUNDSPRITE_ ## groundtype; } \
+	building { sprite: ironore_base_sprite + number + stage * 16; } \
+}
+
+#define IRONORE_TILE_TERRAIN(number) \
+IRONORE_TILE(number, NORMAL, 0) \
+IRONORE_TILE(number, NORMAL, 1) \
+IRONORE_TILE(number, NORMAL, 2) \
+IRONORE_TILE(number, SNOW, 0) \
+IRONORE_TILE(number, SNOW, 1) \
+IRONORE_TILE(number, SNOW, 2) \
+IRONORE_TILE(number, DESERT, 0) \
+IRONORE_TILE(number, DESERT, 1) \
+IRONORE_TILE(number, DESERT, 2) \
+
+IRONORE_TILE_TERRAIN(0)
+IRONORE_TILE_TERRAIN(1)
+IRONORE_TILE_TERRAIN(2)
+IRONORE_TILE_TERRAIN(3)
+IRONORE_TILE_TERRAIN(4)
+IRONORE_TILE_TERRAIN(5)
+IRONORE_TILE_TERRAIN(6)
+IRONORE_TILE_TERRAIN(7)
+IRONORE_TILE_TERRAIN(8)
+IRONORE_TILE_TERRAIN(9)
+IRONORE_TILE_TERRAIN(10)
+IRONORE_TILE_TERRAIN(11)
+IRONORE_TILE_TERRAIN(12)
+IRONORE_TILE_TERRAIN(13)
+IRONORE_TILE_TERRAIN(14)
+IRONORE_TILE_TERRAIN(15)
+
+#define IRONORE_TILE_CONSTRUCTION_SWITCH(number, terraintype) \
+switch (FEAT_INDUSTRYTILES, SELF, ironore_mine_tile_ ## number ## _ ## terraintype ## _construction_switch, construction_state) { \
+	0: ironore_mine_tile_ ## number ## _ ## terraintype ## _construction0; \
+	1: ironore_mine_tile_ ## number ## _ ## terraintype ## _construction1; \
+	ironore_mine_tile_ ## number ## _ ## terraintype ## _construction2; \
+}
+#define IRONORE_TILE_CONSTRUCTION_SWITCHES(number) \
+IRONORE_TILE_CONSTRUCTION_SWITCH(number, SNOW) \
+IRONORE_TILE_CONSTRUCTION_SWITCH(number, DESERT) \
+IRONORE_TILE_CONSTRUCTION_SWITCH(number, NORMAL)
+
+IRONORE_TILE_CONSTRUCTION_SWITCHES(0)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(1)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(2)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(3)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(4)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(5)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(6)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(7)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(8)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(9)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(10)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(11)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(12)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(13)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(14)
+IRONORE_TILE_CONSTRUCTION_SWITCHES(15)
+
+
+#define IRONORE_TILE_CLIMATE_SWITCH(number) \
+switch (FEAT_INDUSTRYTILES, SELF, ironore_mine_tile_ ## number ## _terrain_switch, terrain_type) { \
+	TILETYPE_SNOW: ironore_mine_tile_ ## number ## _ ## SNOW_construction_switch; \
+	TILETYPE_DESERT: ironore_mine_tile_ ## number ## _ ## DESERT_construction_switch; \
+	ironore_mine_tile_ ## number ## _ ## NORMAL_construction_switch; \
+}
+IRONORE_TILE_CLIMATE_SWITCH(0)
+IRONORE_TILE_CLIMATE_SWITCH(1)
+IRONORE_TILE_CLIMATE_SWITCH(2)
+IRONORE_TILE_CLIMATE_SWITCH(3)
+IRONORE_TILE_CLIMATE_SWITCH(4)
+IRONORE_TILE_CLIMATE_SWITCH(5)
+IRONORE_TILE_CLIMATE_SWITCH(6)
+IRONORE_TILE_CLIMATE_SWITCH(7)
+IRONORE_TILE_CLIMATE_SWITCH(8)
+IRONORE_TILE_CLIMATE_SWITCH(9)
+IRONORE_TILE_CLIMATE_SWITCH(10)
+IRONORE_TILE_CLIMATE_SWITCH(11)
+IRONORE_TILE_CLIMATE_SWITCH(12)
+IRONORE_TILE_CLIMATE_SWITCH(13)
+IRONORE_TILE_CLIMATE_SWITCH(14)
+IRONORE_TILE_CLIMATE_SWITCH(15)
+
+#define IRONORE_TILE_REDEFINE(number) \
+item(FEAT_INDUSTRYTILES, ironore_mine_tile ## number) { \
+	property { \
+		substitute:         100 + number; \
+		override:           100 + number; \
+	} \
+	graphics { \
+		ironore_mine_tile_ ## number ## _terrain_switch; \
+	} \
+}
+
+IRONORE_TILE_REDEFINE(0)
+IRONORE_TILE_REDEFINE(1)
+IRONORE_TILE_REDEFINE(2)
+IRONORE_TILE_REDEFINE(3)
+IRONORE_TILE_REDEFINE(4)
+IRONORE_TILE_REDEFINE(5)
+IRONORE_TILE_REDEFINE(6)
+IRONORE_TILE_REDEFINE(7)
+IRONORE_TILE_REDEFINE(8)
+IRONORE_TILE_REDEFINE(9)
+IRONORE_TILE_REDEFINE(10)
+IRONORE_TILE_REDEFINE(11)
+IRONORE_TILE_REDEFINE(12)
+IRONORE_TILE_REDEFINE(13)
+IRONORE_TILE_REDEFINE(14)
+IRONORE_TILE_REDEFINE(15)

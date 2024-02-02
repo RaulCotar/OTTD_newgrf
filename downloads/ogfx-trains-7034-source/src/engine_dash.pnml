@@ -1,0 +1,85 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * =============================================================================
+ * Dash
+ * =============================================================================
+ */
+
+/*
+ * SH Dash
+ * Livery override for passenger and mail wagons
+ */
+
+#define THIS_ID(...) dash ## __VA_ARGS__
+
+MU_8SPRITES_LOADING_32BPP (dash_engine,
+    "dash",
+    "dash_loading",
+    "src/gfx/mus/dash/DashLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
+MU_8SPRITES_LOADING_32BPP (dash_engine_cargo,
+    "dash_cargo",
+    "dash_cargo_loading",
+    "src/gfx/mus/dash/DashLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
+WAGON_BULK_32BPP (dash_passenger,
+    modern,
+    "passenger_dash",
+    "passenger_dash_loading",
+    "src/gfx/mus/dash/DashLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 27, 0, 27)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_passenger, passenger_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (dash_mail,
+    modern,
+    "mail_dash",
+    "mail_dash_loading",
+    "src/gfx/mus/dash/DashLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 54, 0, 54)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_mail, mail_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (dash_valuables,
+    modern,
+    "armoured_dash",
+    "armoured_dash_loading",
+    "src/gfx/mus/dash/DashLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 80, 0, 80)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_valuables, valuables_wagon_climate_switch, modern)
+
+switch(FEAT_TRAINS, SELF, dash_cargo_switch, cargo_type_in_veh) {
+    PASS: dash_engine_switch_gui;
+    TOUR: dash_engine_switch_gui;
+    dash_engine_cargo_switch_gui;
+}
+
+#include "template_refit_cost_mu.pnml"
+
+item(FEAT_TRAINS, dash, 12) {
+    property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
+        REFIT_PROPERTIES_MU
+        default_cargo_type:             PASS;
+    }
+    graphics {
+        refit_cost: THIS_ID(refit_cost_switch);
+
+        dash_cargo_switch;
+    }
+    livery_override (passenger_wagon) { dash_passenger_year_switch; }
+    livery_override (mail_wagon)      { dash_mail_year_switch; }
+    livery_override (valuables_wagon) { dash_valuables_year_switch; }
+}
+
+#undef THIS_ID

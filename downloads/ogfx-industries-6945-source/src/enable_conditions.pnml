@@ -1,0 +1,238 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* 
+ * =============================================================================
+ * ENABLE CONDITIONS
+ * =============================================================================
+ */
+
+/* Industry chain variables. */
+
+FOOD_PROCESSING_PLANT_ENABLED = 0;
+FACTORY_ENABLED = 0;
+
+/* Industry chain parameters. */
+#define COAL_CHAIN_CLIMATE                       0
+#define COAL_CHAIN_ENABLED                       1
+#define COAL_CHAIN_DISABLED                      2
+
+#define OIL_CHAIN_CLIMATE                        0
+#define OIL_CHAIN_WELLS                          1
+#define OIL_CHAIN_RIG                            2
+#define OIL_CHAIN_ALL                            3
+#define OIL_CHAIN_DISABLED                       4
+
+#define VALUABLES_CHAIN_CLIMATE                  0
+#define VALUABLES_CHAIN_VALUABLES                1
+#define VALUABLES_CHAIN_GOLD                     2
+#define VALUABLES_CHAIN_DIAMONDS                 3
+#define VALUABLES_CHAIN_GOLD_DIAMONDS            4
+#define VALUABLES_CHAIN_DISABLED                 5
+
+#define IRON_ORE_CHAIN_CLIMATE                   0
+#define IRON_ORE_CHAIN_ENABLED                   1
+#define IRON_ORE_CHAIN_DISABLED                  2
+
+#define COPPER_ORE_CHAIN_CLIMATE                 0
+#define COPPER_ORE_CHAIN_ENABLED                 1
+#define COPPER_ORE_CHAIN_DISABLED                2
+
+#define RUBBER_CHAIN_CLIMATE                     0
+#define RUBBER_CHAIN_ENABLED                     1
+#define RUBBER_CHAIN_DISABLED                    2
+
+#define FARM_CHAIN_CLIMATE                       0
+#define FARM_CHAIN_GRAIN                         1
+#define FARM_CHAIN_LIVESTOCK                     2
+#define FARM_CHAIN_GRAIN_LIVESTOCK               3
+#define FARM_CHAIN_DISABLED                      4
+
+#define FARM_DESTINATION_CLIMATE                 0
+#define FARM_DESTINATION_FOOD_PROCESSING_PLANT   1
+#define FARM_DESTINATION_FACTORY                 2
+
+#define FRUIT_CHAIN_CLIMATE                      0
+#define FRUIT_CHAIN_ENABLED                      1
+#define FRUIT_CHAIN_DISABLED                     2
+
+#define WOOD_PRODUCER_CLIMATE                    0
+#define WOOD_PRODUCER_FOREST                     1
+#define WOOD_PRODUCER_LUMBER_MILL                2
+#define WOOD_PRODUCER_DISABLED                   3
+
+#define WOOD_DESTINATION_CLIMATE                 0
+#define WOOD_DESTINATION_SAWMILL                 1
+#define WOOD_DESTINATION_PAPER_MILL              2
+#define WOOD_DESTINATION_FACTORY                 3
+
+#define WATER_CHAIN_CLIMATE                      0
+#define WATER_CHAIN_ENABLED                      1
+#define WATER_CHAIN_DISABLED                     2
+
+GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY =   (param_farm_destination == FARM_DESTINATION_CLIMATE && climate == CLIMATE_TEMPERATE ||
+                                         param_farm_destination == FARM_DESTINATION_FACTORY);
+
+/* Cargo enable conditions. */
+#define COAL_ENABLED                    (param_coal_chain == COAL_CHAIN_CLIMATE && \
+                                        (climate == CLIMATE_TEMPERATE || climate == CLIMATE_ARCTIC) || \
+                                        param_coal_chain == COAL_CHAIN_ENABLED)
+#define OIL_ENABLED                     (climate != CLIMATE_TOYLAND && param_oil_chain != OIL_CHAIN_DISABLED)
+#define LIVESTOCK_ENABLED               (param_farm_chain == FARM_CHAIN_CLIMATE && \
+                                        (climate == CLIMATE_TEMPERATE || climate == CLIMATE_ARCTIC) || \
+                                         param_farm_chain == FARM_CHAIN_LIVESTOCK || \
+                                         param_farm_chain == FARM_CHAIN_GRAIN_LIVESTOCK)
+#define GRAIN_ENABLED                   (climate == CLIMATE_TEMPERATE && \
+                                         param_farm_chain != FARM_CHAIN_LIVESTOCK && \
+                                         param_farm_chain != FARM_CHAIN_DISABLED)
+#define WHEAT_ENABLED                   (climate == CLIMATE_ARCTIC && \
+                                         param_farm_chain != FARM_CHAIN_LIVESTOCK && \
+                                         param_farm_chain != FARM_CHAIN_DISABLED)
+#define MAIZE_ENABLED                   (climate == CLIMATE_TROPIC && \
+                                         param_farm_chain != FARM_CHAIN_LIVESTOCK && \
+                                         param_farm_chain != FARM_CHAIN_DISABLED)
+#define ANY_GRAIN_ENABLED               (GRAIN_ENABLED || WHEAT_ENABLED || MAIZE_ENABLED)
+#define WOOD_ENABLED                    (param_wood_producer == WOOD_PRODUCER_CLIMATE && climate != CLIMATE_TOYLAND || \
+                                         param_wood_producer != WOOD_PRODUCER_DISABLED)
+#define IRON_ORE_ENABLED                (param_iron_ore_chain == IRON_ORE_CHAIN_CLIMATE && climate == CLIMATE_TEMPERATE || \
+                                         param_iron_ore_chain == IRON_ORE_CHAIN_ENABLED)
+#define WATER_ENABLED                   (param_water_chain == WATER_CHAIN_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_water_chain == WATER_CHAIN_ENABLED)
+#define VALUABLES_ENABLED               (param_valuables_chain == VALUABLES_CHAIN_CLIMATE && climate == CLIMATE_TEMPERATE || \
+                                         param_valuables_chain == VALUABLES_CHAIN_VALUABLES)
+#define FOOD_ENABLED                    (FOOD_PROCESSING_PLANT_ENABLED == 1)
+#define STEEL_ENABLED                    IRON_ORE_ENABLED
+#define COPPER_ORE_ENABLED              (param_copper_ore_chain == COPPER_ORE_CHAIN_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_copper_ore_chain == COPPER_ORE_CHAIN_ENABLED)
+#define FRUIT_ENABLED                   (param_fruit_chain == FRUIT_CHAIN_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_fruit_chain == FRUIT_CHAIN_ENABLED)
+#define DIAMONDS_ENABLED                (param_valuables_chain == VALUABLES_CHAIN_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_valuables_chain == VALUABLES_CHAIN_DIAMONDS || \
+                                         param_valuables_chain == VALUABLES_CHAIN_GOLD_DIAMONDS)
+#define PAPER_ENABLED                   (param_wood_destination == WOOD_DESTINATION_CLIMATE && climate == CLIMATE_ARCTIC || \
+                                         WOOD_ENABLED && param_wood_destination == WOOD_DESTINATION_PAPER_MILL)
+#define GOLD_ENABLED                    (param_valuables_chain == VALUABLES_CHAIN_CLIMATE && climate == CLIMATE_ARCTIC || \
+                                         param_valuables_chain == VALUABLES_CHAIN_GOLD || \
+                                         param_valuables_chain == VALUABLES_CHAIN_GOLD_DIAMONDS)
+#define RUBBER_ENABLED                  (param_rubber_chain == RUBBER_CHAIN_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_rubber_chain == RUBBER_CHAIN_ENABLED)
+
+/* Industry enable conditions, sorted by chain when possible. */
+
+/* Coal chain */
+#define COAL_MINE_ENABLED               COAL_ENABLED
+#define POWER_PLANT_ENABLED             COAL_ENABLED
+
+/* Wood chain */
+#define FOREST_ENABLED                  (param_wood_producer == WOOD_PRODUCER_CLIMATE && \
+                                        (climate == CLIMATE_TEMPERATE || climate == CLIMATE_ARCTIC) || \
+                                         param_wood_producer == WOOD_PRODUCER_FOREST)
+#define LUMBER_MILL_ENABLED             (param_wood_producer == WOOD_PRODUCER_CLIMATE && climate == CLIMATE_TROPIC || \
+                                         param_wood_producer == WOOD_PRODUCER_LUMBER_MILL)
+#define SAWMILL_ENABLED                 (param_wood_destination == WOOD_DESTINATION_CLIMATE && climate == CLIMATE_TEMPERATE || \
+                                         param_wood_producer != WOOD_PRODUCER_DISABLED && param_wood_destination == WOOD_DESTINATION_SAWMILL || \
+                                         param_wood_producer != WOOD_PRODUCER_DISABLED && \
+                                         WOOD_ACCEPTED_BY_FACTORY == 0 && param_wood_destination == WOOD_DESTINATION_FACTORY)
+#define PAPER_MILL_ENABLED              PAPER_ENABLED
+#define PRINTING_WORKS_ENABLED          PAPER_ENABLED
+
+WOOD_ACCEPTED_BY_FACTORY =              (param_wood_producer != WOOD_PRODUCER_DISABLED &&
+                                        (param_wood_destination == WOOD_DESTINATION_CLIMATE && climate == CLIMATE_TROPIC ||
+                                         param_wood_destination == WOOD_DESTINATION_FACTORY));
+
+/* Oil chain */
+#define OIL_WELLS_ENABLED               (param_oil_chain == OIL_CHAIN_CLIMATE && climate != CLIMATE_TOYLAND || \
+                                         param_oil_chain == OIL_CHAIN_WELLS || \
+                                         param_oil_chain == OIL_CHAIN_ALL)
+#define OIL_RIG_ENABLED                 (param_oil_chain == OIL_CHAIN_CLIMATE && climate == CLIMATE_TEMPERATE || \
+                                         param_oil_chain == OIL_CHAIN_RIG || \
+                                         param_oil_chain == OIL_CHAIN_ALL)
+#define OIL_REFINERY_ENABLED            OIL_ENABLED
+
+/* Food chain */
+#define FARM_ENABLED                    (climate != CLIMATE_TOYLAND && param_farm_chain != FARM_CHAIN_DISABLED)
+#define FRUIT_PLANTATION_ENABLED        FRUIT_ENABLED
+#define SHOP_ENABLED                    (climate == CLIMATE_TEMPERATE && FOOD_PROCESSING_PLANT_ENABLED)
+
+/* Iron ore chain */
+#define IRON_ORE_MINE_ENABLED           IRON_ORE_ENABLED
+#define STEEL_MILL_ENABLED              IRON_ORE_ENABLED
+
+/* Copper ore chain */
+#define COPPER_ORE_MINE_ENABLED         COPPER_ORE_ENABLED
+
+/* Rubber plantation chain */
+#define RUBBER_PLANTATION_ENABLED       RUBBER_ENABLED
+
+/* Valuables chain */
+#define GOLD_MINE_ENABLED               GOLD_ENABLED
+#define DIAMOND_MINE_ENABLED            DIAMONDS_ENABLED
+#define BANK_ENABLED                    VALUABLES_ENABLED || \
+                                        GOLD_ENABLED || \
+                                        DIAMONDS_ENABLED
+
+/* Water chain */
+#define WATER_SUPPLY_ENABLED            WATER_ENABLED
+#define WATER_TOWER_ENABLED             WATER_ENABLED
+
+
+/* Cargo dependent on industry defines. */
+#define GOODS_ENABLED                   (FACTORY_ENABLED || OIL_REFINERY_ENABLED || SAWMILL_ENABLED || PRINTING_WORKS_ENABLED)
+
+/* Decide which cargos will be accepted by the Factory and the Food Processing Plant. */
+
+NUM_FACTORY_CARGOS = 0;
+
+if (ANY_GRAIN_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+if (LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY) { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY)                 { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+if (STEEL_ENABLED)                                            { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+if (COPPER_ORE_ENABLED)                                       { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+if (RUBBER_ENABLED)                                           { NUM_FACTORY_CARGOS = NUM_FACTORY_CARGOS + 1; }
+
+if (NUM_FACTORY_CARGOS > 0) { FACTORY_ENABLED = 1; }
+
+if (NUM_FACTORY_CARGOS > 3) {
+	error(WARNING, string(STR_ERR_FACTORY_CHAINS));
+}
+
+
+if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+		WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && NUM_FACTORY_CARGOS == 6) {
+	/* All factory cargos are active. */
+	GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY = 0;
+	WOOD_ACCEPTED_BY_FACTORY = 0;
+	NUM_FACTORY_CARGOS = 3;
+} else if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY && NUM_FACTORY_CARGOS == 5) {
+	/* All factory cargos besides Wood are active. */
+	GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY = 0;
+	NUM_FACTORY_CARGOS = 3;
+} else if ((ANY_GRAIN_ENABLED || LIVESTOCK_ENABLED) && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY &&
+		WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && NUM_FACTORY_CARGOS == 5) {
+	/* All factory cargos besides either Grain or Livestock are active. */
+	GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY = 0;
+	WOOD_ACCEPTED_BY_FACTORY = 0;
+	NUM_FACTORY_CARGOS = 3;
+} else if (WOOD_ENABLED && WOOD_ACCEPTED_BY_FACTORY && NUM_FACTORY_CARGOS == 4) {
+	/* Wood and any other three factory cargos are active. */
+	WOOD_ACCEPTED_BY_FACTORY = 0;
+	NUM_FACTORY_CARGOS = 3;
+} else if ((ANY_GRAIN_ENABLED || LIVESTOCK_ENABLED) && GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY && NUM_FACTORY_CARGOS == 4) {
+	/* Grain and/or Livestock are active. */
+	GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY = 0;
+	if (ANY_GRAIN_ENABLED && LIVESTOCK_ENABLED) {
+		NUM_FACTORY_CARGOS = 2;
+	} else {
+		NUM_FACTORY_CARGOS = 3;
+	}
+}
+
+
+if (FRUIT_ENABLED || ((ANY_GRAIN_ENABLED || LIVESTOCK_ENABLED) && !GRAIN_LIVESTOCK_ACCEPTED_BY_FACTORY)) {
+	FOOD_PROCESSING_PLANT_ENABLED = 1;
+}

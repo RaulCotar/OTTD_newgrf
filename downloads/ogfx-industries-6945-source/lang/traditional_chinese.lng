@@ -1,0 +1,45 @@
+##grflangid 0x0c
+##plural 1
+STR_GRF_NAME                                                    :OpenGFX+ 工業設施套件 {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ 工業設施套件是預設 OpenTTD 工業設施的擴充。本套件亦讓玩家更能控制甚麼工業會在遊戲中出現。
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING}與{STRING}並不兼容。
+STR_ERR_NO_TOYLAND                                              :... 無法在玩具樂園建造{STRING}
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... 您必須在海域附近建造煉油廠
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... 您只能在雪線以下建造這座工業設施
+STR_ERR_NO_DESERT_ONLY                                          :... 您不能在沙漠建造這座工業設施
+STR_ERR_TOWN_TOO_SMALL                                          :... 這座市鎮太小，無法支持 {COMMA} 座這類工業設施。 (每一座這類工業設施需要 {COMMA} 所房子支援)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :當您在同一遊戲中使用 {STRING} 與 TTRS 時，遊戲場景的預設銀行的貨物供應鏈與相關貨物必然會被啟用。
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :店舖
+
+
+#Station names.
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING}銅礦場
+
+
+#Industry chain parameters.
+
+
+
+
+
+
+
+
+
+
+
+
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :依遊戲場景而定
+
+
+
+
+

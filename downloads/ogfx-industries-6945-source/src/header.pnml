@@ -1,0 +1,284 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+grf {
+	grfid : "OG+3";
+	name : string(STR_GRF_NAME);
+	desc : string(STR_GRF_DESCRIPTION);
+	url : string(STR_GRF_URL);
+	version : REPO_REVISION;
+	min_compatible_version: 1;
+
+	param {
+		param_oil_refinery_distance {
+			type:    int;
+			name:    string(STR_PARAM_OIL_REFINERY_DISTANCE);
+			desc:    string(STR_PARAM_OIL_REFINERY_DISTANCE_DESC);
+			min_value: 0;
+			max_value: 48;
+			def_value: 16;
+			names: {
+				0: string(STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0);
+			};
+		}
+	}
+
+	param {
+		param_coal_chain {
+			type:      int;
+			name:      string(STR_PARAM_COAL_CHAIN);
+			desc:      string(STR_PARAM_COAL_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_COAL_CHAIN_CLIMATE);
+				1: string(STR_PARAM_COAL_CHAIN_ENABLED);
+				2: string(STR_PARAM_COAL_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_oil_chain {
+			type:      int;
+			name:      string(STR_PARAM_OIL_CHAIN);
+			desc:      string(STR_PARAM_OIL_CHAIN_DESC);
+			min_value: 0;
+			max_value: 4;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_OIL_CHAIN_CLIMATE);
+				1: string(STR_PARAM_OIL_CHAIN_WELLS);
+				2: string(STR_PARAM_OIL_CHAIN_RIG);
+				3: string(STR_PARAM_OIL_CHAIN_ALL);
+				4: string(STR_PARAM_OIL_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_valuables_chain {
+			type:      int;
+			name:      string(STR_PARAM_VALUABLES_CHAIN);
+			desc:      string(STR_PARAM_VALUABLES_CHAIN_DESC);
+			min_value: 0;
+			max_value: 5;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_VALUABLES_CHAIN_CLIMATE);
+				1: string(STR_PARAM_VALUABLES_CHAIN_VALUABLES);
+				2: string(STR_PARAM_VALUABLES_CHAIN_GOLD);
+				3: string(STR_PARAM_VALUABLES_CHAIN_DIAMONDS);
+				4: string(STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS);
+				5: string(STR_PARAM_VALUABLES_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_oil_wells_disable_restrictions {
+			type:      bool;
+			name:      string(STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS);
+			desc:      string(STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC);
+		}
+	}
+
+	param {
+		param_oil_rig_disable_restrictions {
+			type:      bool;
+			name:      string(STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS);
+			desc:      string(STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC);
+		}
+	}
+
+	param {
+		param_valuables_bank_disable_restrictions {
+			type:      bool;
+			name:      string(STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS);
+			desc:      string(STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC);
+		}
+	}
+
+	param {
+		param_iron_ore_chain {
+			type:      int;
+			name:      string(STR_PARAM_IRON_ORE_CHAIN);
+			desc:      string(STR_PARAM_IRON_ORE_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_IRON_ORE_CHAIN_CLIMATE);
+				1: string(STR_PARAM_IRON_ORE_CHAIN_ENABLED);
+				2: string(STR_PARAM_IRON_ORE_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_copper_ore_chain {
+			type:      int;
+			name:      string(STR_PARAM_COPPER_ORE_CHAIN);
+			desc:      string(STR_PARAM_COPPER_ORE_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_COPPER_ORE_CHAIN_CLIMATE);
+				1: string(STR_PARAM_COPPER_ORE_CHAIN_ENABLED);
+				2: string(STR_PARAM_COPPER_ORE_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_rubber_chain {
+			type:      int;
+			name:      string(STR_PARAM_RUBBER_CHAIN);
+			desc:      string(STR_PARAM_RUBBER_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_RUBBER_CHAIN_CLIMATE);
+				1: string(STR_PARAM_RUBBER_CHAIN_ENABLED);
+				2: string(STR_PARAM_RUBBER_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_farm_chain {
+			type:      int;
+			name:      string(STR_PARAM_FARM_CHAIN);
+			desc:      string(STR_PARAM_FARM_CHAIN_DESC);
+			min_value: 0;
+			max_value: 4;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_FARM_CHAIN_CLIMATE);
+				1: string(STR_PARAM_FARM_CHAIN_GRAIN);
+				2: string(STR_PARAM_FARM_CHAIN_LIVESTOCK);
+				3: string(STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK);
+				4: string(STR_PARAM_FARM_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_farm_destination {
+			type:      int;
+			name:      string(STR_PARAM_FARM_DESTINATION);
+			desc:      string(STR_PARAM_FARM_DESTINATION_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_FARM_DESTINATION_CLIMATE);
+				1: string(STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT);
+				2: string(STR_PARAM_FARM_DESTINATION_FACTORY);
+			};
+		}
+	}
+
+	param {
+		param_fruit_chain {
+			type:      int;
+			name:      string(STR_PARAM_FRUIT_CHAIN);
+			desc:      string(STR_PARAM_FRUIT_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_FRUIT_CHAIN_CLIMATE);
+				1: string(STR_PARAM_FRUIT_CHAIN_ENABLED);
+				2: string(STR_PARAM_FRUIT_CHAIN_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_wood_producer {
+			type:      int;
+			name:      string(STR_PARAM_WOOD_PRODUCER);
+			desc:      string(STR_PARAM_WOOD_PRODUCER_DESC);
+			min_value: 0;
+			max_value: 3;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_WOOD_PRODUCER_CLIMATE);
+				1: string(STR_PARAM_WOOD_PRODUCER_FOREST);
+				2: string(STR_PARAM_WOOD_PRODUCER_LUMBER_MILL);
+				3: string(STR_PARAM_WOOD_PRODUCER_DISABLED);
+			};
+		}
+	}
+
+	param {
+		param_wood_destination {
+			type:      int;
+			name:      string(STR_PARAM_WOOD_DESTINATION);
+			desc:      string(STR_PARAM_WOOD_DESTINATION_DESC);
+			min_value: 0;
+			max_value: 3;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_WOOD_DESTINATION_CLIMATE);
+				1: string(STR_PARAM_WOOD_DESTINATION_SAWMILL);
+				2: string(STR_PARAM_WOOD_DESTINATION_PAPER_MILL);
+				3: string(STR_PARAM_WOOD_DESTINATION_FACTORY);
+			};
+		}
+	}
+
+	param {
+		param_water_chain {
+			type:      int;
+			name:      string(STR_PARAM_WATER_CHAIN);
+			desc:      string(STR_PARAM_WATER_CHAIN_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_WATER_CHAIN_CLIMATE);
+				1: string(STR_PARAM_WATER_CHAIN_ENABLED);
+				2: string(STR_PARAM_WATER_CHAIN_DISABLED);
+			};
+		}
+	}
+/* options for freezing industry closure/appearance */
+        param {
+		param_industry_changes {
+			type: bool;
+			def_value: 1;
+			name: string(STR_PARAM_INDUSTRY_CHANGES);
+                        desc: string(STR_PARAM_INDUSTRY_CHANGES_DESC);
+		}
+	}
+        param {
+		param_smallindustry_changes {
+			type: bool;
+			def_value: 1;
+			name: string(STR_PARAM_SMALLINDUSTRY_CHANGES);
+                        desc: string(STR_PARAM_SMALLINDUSTRY_CHANGES_DESC);
+		}
+	}
+}
+
+/* The cargo table includes all default cargos, except Maize and Wheat.
+ * These cargos share the "GRAI" label in order to simplify the code. */
+cargotable {
+	PASS, COAL, MAIL, OIL_,
+	LVST, GOOD, GRAI, WOOD,
+	IORE, WATR, VALU, FOOD,
+	STEL, CORE, FRUT, DIAM,
+	PAPR, GOLD, RUBR,
+}
+
+#define NUM_HOUSES_PER_INDUSTRY 150

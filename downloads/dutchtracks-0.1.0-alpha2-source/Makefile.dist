@@ -1,0 +1,15 @@
+################################################################
+# Definitions needed for tar releases
+# This part is automatically generated
+################################################################
+REPO_REVISION := 5382
+NEWGRF_VERSION := 5382
+REPO_HASH := 884913194360
+REPO_VERSION_STRING := 0.1.0-alpha2
+REPO_TITLE := Dutch Tracks 0.1.0-alpha2
+REPO_DATE := 2014-09-26
+REPO_BRANCH := 
+REPO_MODIFIED := 
+REPO_TAGS    := 0.1.0-alpha2
+HG := :
+PYTHON := :

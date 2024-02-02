@@ -1,0 +1,151 @@
+##grflangid 0x22
+##plural 0
+##gender Masculin Femenin
+STR_GRF_NAME                                                    :OpenGFX+ Indústries {VERSION}
+STR_GRF_DESCRIPTION                                             :Les indústries d'OpenGFX+ amplien les indústries per defecte i es dóna major control sobre quines indústries estaran disponibles.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Distància màxima a l'aigua per a les refineries de petroli
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Distància màxima de les refineries de petroli a l'aigua. Un valor de zero permetrà construir refineries en qualsevol lloc.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Sense límit
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} és incompatible amb {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} no està dissenyat per a funcionar amb el clima "toyland".
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... les refineries de petroli s'han de construir prop de l'aigua
+STR_ERR_FACTORY_CHAINS                                          :Has seleccionat més de tres càrregues per a la Fàbrica en {STRING}. Comprova la descripció dels paràmetres de les cadenes per a més informació.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... només es pot construir per sota de l'estatge de les neus
+STR_ERR_NO_DESERT_ONLY                                          :... no es pot construir al desert
+STR_ERR_TOWN_TOO_SMALL                                          :... aquesta població és massa petita per tenir {COMMA} indústries d'aquest tipus (només n'hi pot haver una d'aquest tipus per cada {COMMA} cases)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Quan {STRING} s'usa amb el Total Town Replacement Set (TTRS), sempre estaran activades tant la cadena Banc per defecte al clima com les seves corresponents càrregues.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Botiga
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :Mina de carbó {STRING}
+STR_POWER_STATION_STATION_NAME                                  :Central tèrmica {STRING}
+STR_SAWMILL_STATION_NAME                                        :Serradora {STRING}
+STR_FOREST_STATION_NAME                                         :Bosc {STRING}
+STR_OIL_REFINERY_STATION_NAME                                   :Refineria de petroli {STRING}
+STR_OIL_RIG_STATION_NAME                                        :Plataforma petrolífera {STRING}
+STR_FACTORY_STATION_NAME                                        :Fàbrica {STRING}
+STR_PRINTING_WORKS_STATION_NAME                                 :Impremta {STRING}
+STR_STEEL_MILL_STATION_NAME                                     :Alt forn {STRING}
+STR_FARM_STATION_NAME                                           :Granja {STRING}
+STR_COPPER_ORE_MINE_STATION_NAME                                :Mina de mineral de coure {STRING}
+STR_OIL_WELL_STATION_NAME                                       :Pou de petroli {STRING}
+STR_BANK_STATION_NAME                                           :Banc {STRING}
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :Planta de Manipulació de Queviures {STRING}
+STR_PAPER_MILL_STATION_NAME                                     :Papereria {STRING}
+STR_GOLD_MINE_STATION_NAME                                      :Mina d'or {STRING}
+STR_DIAMOND_MINE_STATION_NAME                                   :Mina de diamants {STRING}
+STR_IRON_ORE_MINE_STATION_NAME                                  :Mina de mineral de ferro {STRING}
+STR_FRUIT_PLANTATION_STATION_NAME                               :Plantació de fruita {STRING}
+STR_RUBBER_PLANTATION_STATION_NAME                              :Plantació de Cautxú {STRING}
+STR_WATER_SUPPLY_STATION_NAME                                   :Sortidor d'aigua {STRING}
+STR_WATER_TOWER_STATION_NAME                                    :Torre d'aigua {STRING}
+STR_LUMBER_MILL_STATION_NAME                                    :Serradora {STRING}
+STR_SHOP_STATION_NAME                                           :Botiga {STRING}
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Cadena Carbó
+STR_PARAM_COAL_CHAIN_DESC                                       :Aquest paràmetre controla la presència de la cadena Carbó. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Depenent del clima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Activada
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Desactivada
+
+STR_PARAM_OIL_CHAIN                                             :Cadena Petroli
+STR_PARAM_OIL_CHAIN_DESC                                        :Aquest paràmetre controla la presència de la cadena Petroli. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. "Desactivada" desactivarà la cadena Petroli. La resta d'opcions determinen quines indústries relacionades amb el Petroli estan actives.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Depenent del clima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Pous Petrolífers i Refineria de Petroli
+STR_PARAM_OIL_CHAIN_RIG                                         :Torre Petrolífera i Refineria de Petroli
+STR_PARAM_OIL_CHAIN_ALL                                         :Pous Petrolífers, Torre Petrolífera i Refineria de Petroli
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Desactivada
+
+STR_PARAM_VALUABLES_CHAIN                                       :Cadena Banc
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Aquest paràmetre controla la presència de la cadena Banc. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. "Desactivada" desactivarà la cadena Banc. Les altres opcions activaran els Banc i determinaran quines càrregues hi seran acceptades (en el cas de Valors també seran produïts).
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Depenent del clima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Càrrega Valors
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Càrrega Or
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Càrrega Diamants
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Càrregues d'Or i Diamants
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Desactivada
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Cadena Mineral de Ferro
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Aquest paràmetre controla la presència de la cadena Mineral de Ferro. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. Observar que la Fàbrica només pot acceptar 3 tipus de càrregues al mateix temps. Si se'n seleccionen més de tres, algunes càrregues seran acceptades per d'altres indústries (càrregues de Granja per la Planta de Manipulació de Queviures, Fusta per la Serradora).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Depenent del clima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Activada
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Desactivada
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Cadena Mineral de Coure
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Aquest paràmetre controla la presència de la cadena Mineral de Coure. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. Observar que la Fàbrica només pot acceptar 3 tipus de càrregues al mateix temps. Si se'n seleccionen més de tres, algunes càrregues seran acceptades per d'altres indústries (càrregues de Granja per la Planta de Manipulació de Queviures, Fusta per la Serradora).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Depenent del clima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Activada
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Desactivada
+
+STR_PARAM_RUBBER_CHAIN                                          :Cadena Cautxú
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Aquest paràmetre controla la presència de la cadena Cautxú. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. Observar que la Fàbrica només pot acceptar 3 tipus de càrregues al mateix temps. Si se'n seleccionen més de tres, algunes càrregues seran acceptades per d'altres indústries (càrregues de Granja per la Planta de Manipulació de Queviures, Fusta per la Serradora).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Depenent del clima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Activada
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Desactivada
+
+STR_PARAM_FARM_CHAIN                                            :Cadena Granja
+STR_PARAM_FARM_CHAIN_DESC                                       :Aquest paràmetre controla la presència de la cadena Granja. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent. "Desactivada" desactivarà la cadena Granja. Les altres opcions determinen quines càrregues de Granja estan actives. Observar que la Fàbrica només pot acceptar 3 tipus de càrregues al mateix temps. Si se'n seleccionen més de tres, algunes càrregues seran acceptades per d'altres indústries (càrregues de Granja per la Planta de Manipulació de Queviures, Fusta per la Serradora).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Depenent del clima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Gra
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Ramaderia
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Gra i ramaderia
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Desactivada
+
+STR_PARAM_FARM_DESTINATION                                      :Destinació de les càrregues de Granja
+STR_PARAM_FARM_DESTINATION_DESC                                 :Aquest paràmetre controla la destinació de les càrregues de la cadena Granja. Quan el paràmetre es fixa a "Depenent del clima", les indústries que acceptaran aquestes càrregues seran les corresponents per defecte al clima. La resta de les opcions permeten decidir quina indústria acceptarà les càrregues de la cadena Granja. Si es seleccionen més de 3 càrregues per a la Fàbrica al mateix temps, és possible que es forci a aquestes càrregues a ser acceptades per la Planta de Manipulació de Queviures.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Depenent del clima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Planta de Manipulació de Queviures
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fàbrica
+
+STR_PARAM_FRUIT_CHAIN                                           :Cadena Fruita
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Aquest paràmetre controla la presència de la cadena Fruita. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Depenent del clima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Activada
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Desactivada
+
+STR_PARAM_WOOD_PRODUCER                                         :Productor de Fusta
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Aquest paràmetre controla quina indústria produeix la càrrega Fusta. Quan el paràmetre es fixa a "Depenent del clima", la indústria que produeix Fusta serà la corresponent per defecte al clima. La resta de les opcions permeten decidir quina indústria produirà la càrrega Fusta. Això també afecta als ratis de pagament de Fusta.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Depenent del clima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Bosc
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Serradora
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Desactivada
+
+STR_PARAM_WOOD_DESTINATION                                      :Destinació de la Fusta
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Aquest paràmetre controla la destinació de la càrrega Fusta. Quan el paràmetre es fixa a "Depenent del clima", la indústria que accepta Fusta serà la corresponent per defecte al clima. La resta de les opcions permeten decidir quina indústria acceptarà la càrrega Fusta. Observar que la Fàbrica només pot acceptar 3 tipus de càrregues al mateix temps. Si se'n seleccionen més de tres, algunes càrregues seran acceptades per d'altres indústries (càrregues de Granja per la Planta de Manipulació de Queviures, Fusta per la Serradora).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Depenent del clima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Serradora
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papereria
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fàbrica
+
+STR_PARAM_WATER_CHAIN                                           :Cadena Aigua
+STR_PARAM_WATER_CHAIN_DESC                                      :Aquest paràmetre controla la presència de la cadena Aigua. Quan el paràmetre es fixa a "Depenent del clima", la presència d'aquesta cadena dependrà de la configuració per defecte del clima corresponent.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Depenent del clima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Activada
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Desactivada
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Desactiva les restriccions de construcció dels Pous Petrolífers
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Els Pous Petrolífers es crearan en el clima temperat durant el transcurs del joc i també després de l'any 1950 en els climes subàrtic i subtropical. Els Pous Petrolífers en el clima temperat poden incrementar la seva producció.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Desactivar les restriccions de la construcció de Torres Petrolíferes
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Les Torres Petrolíferes es construiran abans del 1960 i apareixeran durant la generació del mapa
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Desactivar les restriccions de construcció de Bancs que accepten Valors
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Durant la generació del mapa apareixeran Bancs que accepten Valors.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Creació/canvis/tancaments de les indústries principals
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Activa per a què la vida de les indústries sigui l'estàndard de l'OpenTTD; desactiva per a parar l'aparició/tancament aleatori.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Creació/canvis/tancaments de les indústries de les poblacions
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Desactiva per a parar l'aparició/tancament aleatori de bancs, botigues, torres d'aigua,...

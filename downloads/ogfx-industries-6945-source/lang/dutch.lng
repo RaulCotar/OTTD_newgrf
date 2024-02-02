@@ -1,0 +1,150 @@
+##grflangid 0x1f
+##plural 0
+STR_GRF_NAME                                                    :OpenGFX+ Industrieën {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industrieën verbeteren de standaard industrieën en geven meer controle over welke industrieën beschikbaar worden.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maximum afstand tot water voor olieraffinaderijen.
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maximum afstand tot water voor olieraffinaderijen. Waarde nul staat bouwen van olieraffinaderijen overal toe.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Geen beperkingen
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} is niet compatibel met {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} is niet ontworpen om in het speelgoedlandschap te werken.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... olieraffinaderijen mmoeten nabij water gebouwd worden
+STR_ERR_FACTORY_CHAINS                                          :Je hebt meer dan drie fabriekskettingen geselecteerd voor {STRING}. Controleer de beschrijving van de ketting parameters voor meer informatie.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... kan alleen onder de sneeuwgrens
+STR_ERR_NO_DESERT_ONLY                                          :... kan niet gebouwd worden in woestijn
+STR_ERR_TOWN_TOO_SMALL                                          :... deze stad is te klein voor {COMMA} industrieën van dit type (er kan slechts één industrie per {COMMA} huizen gebouwd worden)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :wanneer {STRING} gebruikt worden samen met de Total Town Replacement Set (TTRS), zal de standaard bankketting van het landschap altijd aanwezig zijn..
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Winkel
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} mijn
+STR_POWER_STATION_STATION_NAME                                  :{STRING} centrale
+STR_SAWMILL_STATION_NAME                                        :{STRING} zagerij
+STR_FOREST_STATION_NAME                                         :{STRING} woud
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} raffinaderij
+STR_OIL_RIG_STATION_NAME                                        :{STRING} platform
+STR_FACTORY_STATION_NAME                                        :{STRING} fabriek
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} drukkerij
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} staalfabriek
+STR_FARM_STATION_NAME                                           :{STRING} boerderij
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} koperertsmijn
+STR_OIL_WELL_STATION_NAME                                       :{STRING} oliebron
+STR_BANK_STATION_NAME                                           :{STRING} Bank
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} voedselfabriek
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} papierfabriek
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} goudmijn
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} diamantmijn
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} ijzerertsmijn
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} plantage
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} plantage
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} bron
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} watertoren
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} zagerij
+STR_SHOP_STATION_NAME                                           :{STRING} winkel
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Kolenketting
+STR_PARAM_COAL_CHAIN_DESC                                       :Deze parameter bestuurt de aanwezigheid van de kolenketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Afhankelijk van het landschap
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Aan
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Uit
+
+STR_PARAM_OIL_CHAIN                                             :Olieketting
+STR_PARAM_OIL_CHAIN_DESC                                        :Deze parameter bestuurt de aanwezigheid van de olieketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. "Uit" zal de hele olieketting uitzetten, de andere instellingen bepalen precies welke olie-gerelateerde industrieën aktief zijn.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Afhankelijk van het landschap
+STR_PARAM_OIL_CHAIN_WELLS                                       :Oliebronnen en olieraffinaderij
+STR_PARAM_OIL_CHAIN_RIG                                         :Olieplatform en olieraffinaderij
+STR_PARAM_OIL_CHAIN_ALL                                         :Oliebronnen, olieplatform en olieraffinaderij
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Uit
+
+STR_PARAM_VALUABLES_CHAIN                                       :Bankketting
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Deze parameter bestuurt de aanwezigheid van de bankketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. "Uit" zal de hele bankketting uitzetten, de andere instellingen bepalen precies welke bank-gerelateerde goederen aktief zijn.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Afhankelijk van het landschap
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Kostbaarheden
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Goud
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamanten
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Goud en diamanten
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Uit
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Ijzerertsketting
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Deze parameter bestuurt de aanwezigheid van de ijzerertsketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. Merk op dat je slechts drie fabrieksgoederen tegelijk kunt aan kunt hebben. Als je meer dan drie goederen selecteert, zullen sommige goederen door andere industrieën geaccepteerd worden (boerderijgoederen door de voedselfabriek, hout door de zagerij).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Afhankelijk van het landschap
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Aan
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Uit
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Koperertsketting
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Deze parameter bestuurt de aanwezigheid van de koperertsketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. Merk op dat je slechts drie fabrieksgoederen tegelijk kunt aan kunt hebben. Als je meer dan drie goederen selecteert, zullen sommige goederen door andere industrieën geaccepteerd worden (boerderijgoederen door de voedselfabriek, hout door de zagerij).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Afhankelijk van het landschap
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Aan
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Uit
+
+STR_PARAM_RUBBER_CHAIN                                          :Rubberketting
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Deze parameter bestuurt de aanwezigheid van de rubberketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. Merk op dat je slechts drie fabrieksgoederen tegelijk kunt aan kunt hebben. Als je meer dan drie goederen selecteert, zullen sommige goederen door andere industrieën geaccepteerd worden (boerderijgoederen door de voedselfabriek, hout door de zagerij).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Afhankelijk van het landschap
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Aan
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Uit
+
+STR_PARAM_FARM_CHAIN                                            :Boerderijketting
+STR_PARAM_FARM_CHAIN_DESC                                       :Deze parameter bestuurt de aanwezigheid van de boerderijketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap. "Uit" zal de hele boerderijketting uitzetten, de andere instellingen bepalen precies welke boerderij goederen aktief zijn. Merk op dat je slechts drie fabrieksgoederen tegelijk kunt aan kunt hebben. Als je meer dan drie goederen selecteert, zullen sommige goederen door andere industrieën geaccepteerd worden (boerderijgoederen door de voedselfabriek, hout door de zagerij).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Afhankelijk van het landschap
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Graan
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Vee
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Graan and vee
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Uit
+
+STR_PARAM_FARM_DESTINATION                                      :Bestemming van boerderijgoederen
+STR_PARAM_FARM_DESTINATION_DESC                                 :Deze parameter bestuurt de bestemming van de goederen van de boerderijketting. Wanneer de parameter op "Afhankelijk van het landschap" staat, wordt de standaardbestemming van het huidige landschap gebruikt. De andere opties maken het mogelijk om zelf vast te stellen welke industrie de boerderijgoederen zal accepteren. Als je meer dan drie fabrieksgoederen selecteert, is het mogelijk dat de voedselfabriek de boerderijgoederen toegewezen krijgt.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Afhankelijk van het landschap
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Voedselfabriek
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabriek
+
+STR_PARAM_FRUIT_CHAIN                                           :Fruitketting
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Deze parameter bestuurt de aanwezigheid van de fruitketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Afhankelijk van het landschap
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Aan
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Uit
+
+STR_PARAM_WOOD_PRODUCER                                         :Houtproducent
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Deze parameter bestuurt welke industrie hout produceert. Als de parameter op "Afhankelijk van het landschap" staat, is de keuze welke industrie hout produceert afhankelijk van de standaardinstelling van het huidige landschap. De andere opties maken het mogelijk om zelf vast te stellen welke industrie het hout zal produceren. Dit heeft ook gevolgen voor de betalingen bij afleveren van het hout.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Afhankelijk van het landschap
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Bossen
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Houtzagerij
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Uit
+
+STR_PARAM_WOOD_DESTINATION                                      :Houtbestemming
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Deze parameter bestuurt de bestemming van het hout. Als de parameter op "Afhankelijk van het landschap" staat, wordt de standaardbestemming van het huidige landschap gebruikt. De andere opties maken het mogelijk om zelf vast te stellen welke industrie het hout zal accepteren. Merk op dat je slechts drie fabrieksgoederen tegelijk kunt aan kunt hebben. Als je meer dan drie goederen selecteert, zullen sommige goederen door andere industrieën geaccepteerd worden (boerderijgoederen door de voedselfabriek, hout door de zagerij).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Afhankelijk van het landschap
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Zagerij
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papierfabriek
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabriek
+
+STR_PARAM_WATER_CHAIN                                           :Waterketting
+STR_PARAM_WATER_CHAIN_DESC                                      :Deze parameter bestuurt de aanwezigheid van de waterketting. Als de parameter op "Afhankelijk van het landschap" staat, is aanwezigheid van deze ketting afhankelijk van de standaardinstelling van het huidige landschap.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Afhankelijk van het landschap
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Aan
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Uit
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Schakel oliebronbeperkingen uit
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Oliebronnen zullen gebouwd worden in het gematigde landschap tijdens het spel, en in de subarctische en subtropische landscahppen vanaf 1950. Tevens kunnen oliebronnen hun produktie verhogen in het gematigde landschap.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Schakel olieplatformbeperkingen uit
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Olieplatformen worden gebouwd voor 1960 en worden gebouwd tijdens het aanmaken van de kaart.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Shakel bouwbeperkingen van bank die kostbaarheden accepteren uit
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banken die kostbaarheden accepteren worden gebouwd tijdens het aanmaken van de kaart.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Bouwen, veranderen, en sluiten van hoofdindustrieën
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Kies het gedrag van de hoofdindustrieën. Zet aan om het normale OpenTTD industriegedrag te krijgen, zet uit om bouwen en sluiten van industrieën te voorkomen.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Bouwen, veranderen, en sluiten van stadsindustrieën
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Kies het gedrag van banken, winkels, en watertorens. Zet aan om het normale OpenTTD industriegedrag te krijgen, zet uit om bouwen en sluiten van de industrieën te voorkomen.

@@ -1,0 +1,150 @@
+##grflangid 0x23
+##plural 0
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industried erweidert d'Standardindustrien an erlabt engem besser ze entscheeden wellech Industrien verfügbar wäerte sinn.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maximal Distanz vum Waasser ewech fir Uelegraffinerien
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maximal Distanz vum Waasser ewech fir Uelegraffinerien. En Wäert vun 0 bedeit, dass iwwerall kënnen Uelegraffinerien gebaut ginn.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Keng Limite
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} ass net kompatibel mat {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} gouf net designt fir mam Spillsaacheland ze fonktionéieren.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :.. Uelegraffinerien musse beim Waasser gebaut ginn
+STR_ERR_FACTORY_CHAINS                                          :Du hues méi ewéi dräi Fabrikketten ausgewielt fir {STRING}. Lies d'Beschreiwung vun de Ketteparameter fir méi Informatiounen.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... kann nëmmen ënnert der Schnéilinn gebaut ginn
+STR_ERR_NO_DESERT_ONLY                                          :... kann net an der Wüst gebaut ginn
+STR_ERR_TOWN_TOO_SMALL                                          :... des Stad ass ze kleng fir {COMMA} Industrien vun dësem Typ ze hunn (et kann nëmmen eng Industrie pro {COMMA} Haiser existéieren)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Wann {STRING} mam Total Town Replacement Set (TTRS) benotzt gett, ass emmer dem Klima seng standard Bank-Ketten ugeschalt.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Buttek
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING}-Kuelestollen
+STR_POWER_STATION_STATION_NAME                                  :{STRING}-Kraaftwierk
+STR_SAWMILL_STATION_NAME                                        :{STRING} Seeërei
+STR_FOREST_STATION_NAME                                         :{STRING} Bësch
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Uelegraffinerie
+STR_OIL_RIG_STATION_NAME                                        :{STRING}-Uelegbuerinsel
+STR_FACTORY_STATION_NAME                                        :{STRING}-Fabrik
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING}-Drockerei
+STR_STEEL_MILL_STATION_NAME                                     :{STRING}-Stolwierk
+STR_FARM_STATION_NAME                                           :{STRING}-Bauerenhaff
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING}-Kofferäerzminn
+STR_OIL_WELL_STATION_NAME                                       :{STRING}-Uelegquell
+STR_BANK_STATION_NAME                                           :{STRING}-Bank
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING}-Liewensmëttelfabrik
+STR_PAPER_MILL_STATION_NAME                                     :{STRING}-Pabeierfabrik
+STR_GOLD_MINE_STATION_NAME                                      :{STRING}-Goldminn
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING}-Diamanteminn
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING}-Eisenäerzminn
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Friichteplantage
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING}-Kautschukplantage
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING}-Waasserpompel
+STR_WATER_TOWER_STATION_NAME                                    :{STRING}-Waassertuerm
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING}-Seeërei
+STR_SHOP_STATION_NAME                                           :{STRING} Buttek
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Kueleketten
+STR_PARAM_COAL_CHAIN_DESC                                       :Dëse Parameter kontrolléiert d'Präsenz vun der Kuele-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Ofhängeg vum Klima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Ugeschalt
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Ausgeschalt
+
+STR_PARAM_OIL_CHAIN                                             :Ueleg-Ketten
+STR_PARAM_OIL_CHAIN_DESC                                        :Dëse Parameter kontrolléiert d'Präsenz vun der Ueleg-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. "Ausgeschalt" deaktivéiert des Ketten. Déi aner Astellungen bestemmen wellech Ueleg-Industrien aktiv sinn.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Ofhängeg vum Klima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Uelegquellen an Uelegraffinerie
+STR_PARAM_OIL_CHAIN_RIG                                         :Uelegbuerinsel an Uelegraffinerie
+STR_PARAM_OIL_CHAIN_ALL                                         :Uelegquellen, Uelegbuerinsel an Uelegraffinerie
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Ausgeschalt
+
+STR_PARAM_VALUABLES_CHAIN                                       :Bank-Ketten
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Dëse Parameter kontrolléiert d'Präsenz vun der Bank-Ketten. Wann den de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. "Ausgeschalt" deaktivéiert d'Bank-Ketten. Déi aner Astellungen aktivéiren Banken an bestëmmen wellech Gidder akzeptéiert ginn (oder produzéiert ginn, am Fall vun Wäertsaachen).
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Ofhängeg vum Klima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Wäertsaachegidder
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Goldfracht
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamantefracht
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Gold- an Diamantefracht
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Ausgeschalt
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Eisenäerzketten
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Dëse Parameter kontrolléiert d'Präsenz vun der Eisenäerz-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Ofhängeg vum Klima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Ugeschalt
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Ausgeschalt
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Kofferäerzketten
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Dëse Parameter kontrolléiert d'Präsenz vun der Koffererzketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Ofhängeg vum Klima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Ugeschalt
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Ausgeschalt
+
+STR_PARAM_RUBBER_CHAIN                                          :Kautschuk-Ketten
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Dëse Parameter kontrolléiert d'Präsenz vun der Kautschuk-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Ofhängeg vum Klima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Ugeschalt
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Ausgeschalt
+
+STR_PARAM_FARM_CHAIN                                            :Bauerenhaff-Ketten
+STR_PARAM_FARM_CHAIN_DESC                                       :Dëse Parameter kontrolléiert d'Präsenz vun der Bauerenhaff-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of. "Ausgeschalt" deaktivéiert des Ketten. Déi aner Astellungen bestemmen wellech landwirtsch. Gidder aktiv sinn. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Ofhängeg vum Klima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Kar
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Véi
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Kar a Véi
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Ausgeschalt
+
+STR_PARAM_FARM_DESTINATION                                      :Destinatioun vun landwiertschaftlescher Fracht
+STR_PARAM_FARM_DESTINATION_DESC                                 :Dëse Parameter kontrolléiert d'Destinatioun vun der landwiertschaftlescher Fracht. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, akzeptéiert d'Standard-Industrie fir de Klima d'landwiertschaftlesch Fracht. De Rescht vun de Parameter léisst festleeën wellech Industrien landw. Fracht akzeptéieren. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Ofhängeg vum Klima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Liewensmëttelfabrik
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabrik
+
+STR_PARAM_FRUIT_CHAIN                                           :Friichte-Ketten
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Dëse Parameter kontrolléiert d'Präsenz vun der Friichte-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Ofhängeg vum Klima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Ugeschalt
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Ausgeschalt
+
+STR_PARAM_WOOD_PRODUCER                                         :Holzproduzent
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Dëse Parameter kontrolléiert wellech Industrien Holz verschaffen. Wann den de Parameter op "Ofhängeg vum Klima" gesat ass, verschafft d'Standard-Industrie fir de Klima d'Holz. De Rescht vun de Parameter léisst festleeën wellech Industrien d'Holz verschaffen. Dëst affektéiert och d'Bezuelungsraten vum Holz.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Ofhängeg vum Klima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Bësch
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Seeërei
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Ausgeschalt
+
+STR_PARAM_WOOD_DESTINATION                                      :Holz-Destinatioun
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Dëse Parameter kontrolléiert d'Destinatioun vun der Holz-Fracht. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, akzeptéiert d'Standard-Industrie fir de Klima d'Holz. De Rescht vun de Parameter léisst festleeën wellech Industrien Holz akzeptéieren. Et kënne just dräi Fabrikgidder gläichzäiteg aktiv sinn. Wann méi wéi dräi ausgewielt ginn, ginn verschidde Gidder vun enger anerer Fabrik akzeptéiert (Landwirtschaftlech wueren vun der Liewensmëttelfabrik, Holz an der Seeërei).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Ofhängeg vum Klima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Seeërei
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Pabeierfabrik
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabrik
+
+STR_PARAM_WATER_CHAIN                                           :Waasser-Ketten
+STR_PARAM_WATER_CHAIN_DESC                                      :Dëse Parameter kontrolléiert d'Präsenz vun der Waasser-Ketten. Wann de Parameter op "Ofhängeg vum Klima" gesat ass, hängt d'Präsenz vun den Standardastellungen vum aktuelle Klima of.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Ofhängeg vum Klima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Ugeschalt
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Ausgeschalt
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Baurestriktiounen fir Uelegquellen ausschalten
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Uelegquellen kënnen am geméissegte Klima während dem normalen Spillverlaf gebaut ginn, an och no 1950 am arkteschen an tropesche Klima. Uelegquellen am geméissegte Klima kënnen hier Produktioun erhéigen.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Baurestriktiounen fir Uelegbuerinselen ausschalten
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Uelegbuerinselen ginn firun 1960 gebaut an erschéngen während der Kaartegeneréirung.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Gebaierrestrictiounen fir Banken déi Wäertsaachen akzeptéieren ausschalten.
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banken déi Wäertsaachen unhuelen tauchen während der Erstellen vun der Kaart op.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Erstellen/änneren/zoumaachen vun Haaptindustrien
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Uschalten fir standard OpenTTD Industrie-Liewenszäiten ze wielen, ausschalten fir en zoufällegt optauchen/zoumaachen op Ais ze leeën.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Erstellung/Wiëssel/Zoumaachen vun städteschen Industrien.
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Ausschalten fir zoufällegt optauchen/zoumaachen vun Banken, Butteker an Waassertierm op Ais ze leeën.

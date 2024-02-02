@@ -1,0 +1,44 @@
+//Example train two!
+template template_turbo_single(x,y){
+	[x+0,y,8,24,-3,-11] //North
+	[x+10,y,20,16,-13,-8] //North East
+	[x+32,y,32,11,-16,-7] //East
+	[x+66,y,20,16,-5,-8] //South East
+}
+
+spriteset (cl172_lm_mid,   "gfx/class_172.png"){template_turbo_single(0,52)}
+
+item (FEAT_TRAINS, item_train_two, 2){
+	property{
+		name:string(STR_TRAIN_TWO_NAME);
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1, 1, 1);
+		model_life: VEHICLE_NEVER_EXPIRES;
+		vehicle_life: 30;
+		reliability_decay: 7;
+		refittable_cargo_classes: CC_PASSENGERS;
+		cargo_allow_refit: [PASS, TOUR];
+		loading_speed: 34;
+		cost_factor: 50;
+		running_cost_factor: 45;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 100 mph;
+		misc_flags: bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
+		refit_cost: 0;
+		track_type: RAIL;
+		ai_special_flag: AI_FLAG_CARGO;
+		power: 0 hp;
+		running_cost_base: RUNNING_COST_DIESEL;
+		dual_headed: 0;
+		default_cargo_type: PASS;
+		cargo_capacity: 85;
+		weight: 44 ton;
+		air_drag_coefficient: 0.08;
+		tractive_effort_coefficient: 0.41;
+		length: 8;
+		effect_spawn_model_and_powered: EFFECT_SPAWN_MODEL_DIESEL;
+	}
+	graphics{
+		default: cl172_lm_mid;
+	}
+}

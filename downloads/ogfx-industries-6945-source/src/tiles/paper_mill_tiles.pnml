@@ -1,0 +1,73 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Paper mill */
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_1) {
+	property {
+		substitute:      0x40;
+		override:        0x40;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_2) {
+	property {
+		substitute:      0x41;
+		override:        0x41;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_3) {
+	property {
+		substitute:      0x42;
+		override:        0x42;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_4) {
+	property {
+		substitute:      0x43;
+		override:        0x43;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_5) {
+	property {
+		substitute:      0x44;
+		override:        0x44;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_6) {
+	property {
+		substitute:      0x45;
+		override:        0x45;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_7) {
+	property {
+		substitute:      0x46;
+		override:        0x46;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}
+
+item(FEAT_INDUSTRYTILES, paper_mill_tile_8) {
+	property {
+		substitute:      0x47;
+		override:        0x47;
+		accepted_cargos: [[WOOD, 8]];
+	}
+}

@@ -1,0 +1,29 @@
+/*
+ * This file is part of the OpenGFX+ Industries NewGRF.
+ * OpenGFX+ Industries is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, version 2 or - upon your discretion - any later version.
+ * OpenGFX+ Industries is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Industries. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Shop */
+
+spriteset(shop_sprite, "src/gfx/shop/shop.png") {
+	[ 0, 0, 64, 36, -31,  -4 ]
+}
+
+spritelayout shop_tile_1_layout {
+	ground   { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite:    shop_sprite; }
+}
+
+item(FEAT_INDUSTRYTILES, shop_tile_1) {
+	property {
+		substitute: 0x00;
+		accepted_cargos: [[FOOD, 8], [PASS, 7]];
+		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+	}
+	graphics {
+		shop_tile_1_layout;
+	}
+}

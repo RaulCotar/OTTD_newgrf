@@ -1,0 +1,151 @@
+##grflangid 0x03
+##plural 2
+##gender m m2 f
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries améliore les industries de base et offre une meilleure gestion de leur disponibilité.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Distance maxium de la mer pour les raffineries pétrolières
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Distance maximum de la mer pour les raffineries pétrolières. Une valeur à zéro va permettre la création de raffinerie de pétrole n'importe où.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Aucune limite
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} est incompatible with {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} n'est pas conçu pour fonctionner dans le climat pays des jouets
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :les raffineries pétrolières doivent être créées proche de l'eau
+STR_ERR_FACTORY_CHAINS                                          :Vous avez sélectionné plus de trois chaînes d'usines pour {STRING}. Lisez la description des paramètres de la chaîne pour plus d'information.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... ne peut être construit que sous l'altitude d'enneigement
+STR_ERR_NO_DESERT_ONLY                                          :... ne peux être construit dans une zone désertique
+STR_ERR_TOWN_TOO_SMALL                                          :... cette ville est trop petite pour avoir {COMMA} industries de ce type (seulement une industrie de ce type pour {COMMA} maisons)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Quand {STRING} est utilisé avec le newGRF Total Town Replacement Set (TTRS), la chaîne Banque et sa cargaison par défaut pour ce climat seront toujours activés..
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Magasin
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :Mine de charbon de {STRING}
+STR_POWER_STATION_STATION_NAME                                  :Centrale électrique de {STRING}
+STR_SAWMILL_STATION_NAME                                        :Scierie de {STRING}
+STR_FOREST_STATION_NAME                                         :Forêt de {STRING}
+STR_OIL_REFINERY_STATION_NAME                                   :Raffinerie de {STRING}
+STR_OIL_RIG_STATION_NAME                                        :Plate-forme pétrolière de {STRING}
+STR_FACTORY_STATION_NAME                                        :Usine de {STRING}
+STR_PRINTING_WORKS_STATION_NAME                                 :Imprimerie de {STRING}
+STR_STEEL_MILL_STATION_NAME                                     :Aciérie de {STRING}
+STR_FARM_STATION_NAME                                           :{STRING} Ferme
+STR_COPPER_ORE_MINE_STATION_NAME                                :Mine de cuivre de {STRING}
+STR_OIL_WELL_STATION_NAME                                       :Puits de pétrole de {STRING}
+STR_BANK_STATION_NAME                                           :Banque de {STRING}
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :Usine alimentaire de {STRING}
+STR_PAPER_MILL_STATION_NAME                                     :Papeterie de {STRING}
+STR_GOLD_MINE_STATION_NAME                                      :Mine d'or de {STRING}
+STR_DIAMOND_MINE_STATION_NAME                                   :Mine de diamants de {STRING}
+STR_IRON_ORE_MINE_STATION_NAME                                  :Mine de fer de {STRING}
+STR_FRUIT_PLANTATION_STATION_NAME                               :Verger de {STRING}
+STR_RUBBER_PLANTATION_STATION_NAME                              :Plantation de caoutchouc de {STRING}
+STR_WATER_SUPPLY_STATION_NAME                                   :Source de {STRING}
+STR_WATER_TOWER_STATION_NAME                                    :Château d'eau de {STRING}
+STR_LUMBER_MILL_STATION_NAME                                    :Exploitation forestière de {STRING}
+STR_SHOP_STATION_NAME                                           :Magasin de {STRING}
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :chaîne Charbon
+STR_PARAM_COAL_CHAIN_DESC                                       :Ce paramètre contrôle la présence de la chaîne Charbon. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Dépendant du climat
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Activé
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Désactivé
+
+STR_PARAM_OIL_CHAIN                                             :chaîne Pétrolière
+STR_PARAM_OIL_CHAIN_DESC                                        :Ce paramètre contrôle la présence de la chaîne Pétrole. Quand ce paramètre est mis sur "Dépéndant du climat" la présence de cette chaîne dépendra des valeurs par défaut du climat joué. "Désactivé" va supprimer la chaîne Pétrole. Les autres options déterminent quelles industries Pétrolières seront active.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Dépendant du climat
+STR_PARAM_OIL_CHAIN_WELLS                                       :Puits de Pétrole et Raffinerie de Pétrole
+STR_PARAM_OIL_CHAIN_RIG                                         :Plate-forme Pétrolière et Raffinerie de pétrole
+STR_PARAM_OIL_CHAIN_ALL                                         :Puits de pétrole, Plate-forme Pétrolière et Raffinerie Pétrolière
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Désactivé
+
+STR_PARAM_VALUABLES_CHAIN                                       :chaîne Banque
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Ce paramètre contrôle la présence de la chaîne Banque. Quand ce paramètre est mis sur "Dépéndant du climat" la présence de cette chaîne dépendra des valeurs par défaut du climat joué. "Désactivé" va supprimer la chaîne Banque. Les autres options vont activer les Banques et déterminent quelles cargaisons seront acceptées (ou dans le cas des Objets de Valeur également produites)
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Dépendant du climat
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :cargaison d'Objets de Valeur
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :cargaison d'Or
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :cargaison de Diamants
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :cargaison d'Or et Diamants
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Désactivé
+
+STR_PARAM_IRON_ORE_CHAIN                                        :chaine Minerai de Fer
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Ce paramètre contrôle la présence de la chaîne Minerai de Fer. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué. Notez que vous ne pouvez avoir que trois cargaisons pour les Usines en même temps. Si vous en sélectionnez plus de trois, des cargaisons seront acceptées par d'autres type d'industries à la place (cargaisons de Ferme pour l'Usine Alimentaire, Bois pour la Scierie).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Dépendant du climat
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Activé
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Désactivé
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :chaîne Minerai de Cuivre
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Ce paramètre contrôle la présence de la chaîne Minerai de Cuivre. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué. Notez que vous ne pouvez avoir que trois cargaisons pour les Usines en même temps. Si vous en sélectionnez plus de trois, des cargaisons seront acceptées par d'autres type d'industries à la place (cargaisons de Ferme pour l'Usine Alimentaire, Bois pour la Scierie).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Dépendant du climat
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Activé
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Désactivé
+
+STR_PARAM_RUBBER_CHAIN                                          :chaîne Caoutchouc
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Ce paramètre contrôle la présence de la chaîne Caoutchouc. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué. Notez que vous ne pouvez avoir que trois cargaisons pour les Usines en même temps. Si vous en sélectionnez plus de trois, des cargaisons seront acceptées par d'autres type d'industries à la place (cargaisons de Ferme pour l'Usine Alimentaire, Bois pour la Scierie).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Dépendant du climat
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Activé
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Désactivé
+
+STR_PARAM_FARM_CHAIN                                            :chaîne Ferme
+STR_PARAM_FARM_CHAIN_DESC                                       :Ce paramètre contrôle la présence de la chaîne Ferme. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué. "Désactivé" va supprimer la chaîne Ferme. Les autres options déterminent quelle cargaisons de Ferme seront activées. Notez que vous ne pouvez avoir que trois cargaisons pour les Usines en même temps. Si vous en sélectionnez plus de trois, des cargaisons seront acceptées par d'autres type d'industries à la place (cargaisons de Ferme pour l'Usine Alimentaire, Bois pour la Scierie).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Dépendant du climat
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Grain
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Bétail
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Grain et Bétail
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Désactivé
+
+STR_PARAM_FARM_DESTINATION                                      :Destination des cargaisons des Fermes
+STR_PARAM_FARM_DESTINATION_DESC                                 :Ce paramètre controle la destination des cargaisons de la chaine de production Ferme. Quand ce paramètre est mis sur "Dépendant du climat", leur distribution sera celle par défaut du climat joué. Le reste des options permet de décider quelle industrie accepte les cargaisons des Fermes. Si vous sélectionnez plus de 3 Usines en même temps, il est possible que les cargaisons des Fermes soient acceptées par les Usines de Traitement de Nourriture.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Dépendant du climat
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Usine Alimentaire
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Usine
+
+STR_PARAM_FRUIT_CHAIN                                           :chaîne Fruit
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Ce paramètre controle la présence de la chaîne Fruit. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Dépendant du climat
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Activé
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Désactivé
+
+STR_PARAM_WOOD_PRODUCER                                         :producteur de Bois
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Ce paramètre controle quelles industries produisent la cargaison Bois. Quand ce paramètre est mis sur "Dépendant du climat" l'industrie qui produiera du Bois sera celle par défaut pour le climat joué. Le reste des options permet de décider quelle industrie produira du Bois. Ceci affectera également le taux de paiement du Bois.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Dépendant du climat
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Forêt
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Exploitation forestière
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Désactivé
+
+STR_PARAM_WOOD_DESTINATION                                      :destination pour le Bois
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Ce paramètre contrôle la destination des cargaisons de Bois. Quand ce paramètre est mis sur "Dépendant du climat" l'industrie qui acceptera Bois sera celle par défaut pour le climat joué. Le reste des options permet de décider quelle industrie acceptera les cargaisons de Bois. Notez que vous ne pouvez avoir que trois cargaisons pour les Usines en même temps. Si vous en sélectionnez plus de trois, des cargaisons seront acceptées par d'autres type d'industries à la place (cargaisons de Ferme pour l'Usine Alimentaire, Bois pour la Scierie).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Dépendant du climat
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Scierie
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papeterie
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Usine
+
+STR_PARAM_WATER_CHAIN                                           :chaîne Eau
+STR_PARAM_WATER_CHAIN_DESC                                      :Ce paramètre contrôle la présence de la chaîne Eau.. Quand ce paramètre est mis sur "Dépendant du climat" la présence de cette chaîne dépendra des options par défaut pour le climat joué.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Dépendant du climat
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Activé
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Désactivé
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Désactive les restrictions de construction pour les Raffineries de Pétrole
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Les Puits de Pétrole seront désactivés dans le climat tempéré sur une partie classique, ainsi que sur les climats subarctique et subtropical après 1950. Les Puits de Pétrole peuvent accroitre leur production dans le climat témpéré.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Désactive les restrictions de construction pour les Plate-formes Pétrolières
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :les Plate-formes Pétrolières seront construites avant 1960 et vont apparaitre pendant la création de la carte.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Désactive les restrictions pour les Banques qui acceptent les Objets de Valeur
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Les Banques qui acceptent les Objets de Valeur vont apparaitre pendant la création de la carte.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Fondation, évolution et fermeture des industries principales
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Quand il est désactivé, ce paramètre empêche la fondation/fermeture des industries.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Fondation, évolution et fermeture des industries citadines
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Quand il est désactivé, ce paramètre empêche la fondation/fermeture aléatoire des banques, magasins et châteaux d'eau.

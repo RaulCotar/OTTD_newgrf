@@ -1,0 +1,439 @@
+//------------------------------------------------ELECTRA CODE SECTION------------------------------------------------
+
+// add the trailing slices to articulated consist
+switch (FEAT_TRAINS, SELF, electra_articulated_cb_switch, extra_callback_info1) {
+    
+        0: return electra;
+    
+        1: return electra_1;
+    
+        2: return electra_2;
+    
+  return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_electra_1(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -17 ]
+            [76,        y,          22,        22,          -10, -15 ]
+            [107,       y,          32,        15,          -8, -11 ]
+            [156,       y,          22,        22,          -4, -13 ]
+            [188,       y,          8,         25,          -3, -10 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -16 ]
+        }
+    
+
+
+
+
+    spriteset(electra_1_ss_0, "gfx/electra_0.png") {
+      spriteset_template_electra_1(10 + 0, 0)
+    }
+
+    spritegroup electra_1_sg_0 {
+        loaded:  [
+            electra_1_ss_0,
+        ];
+        loading: [
+            electra_1_ss_0,
+        ];
+    }
+    // always include a switch to get to spritegroups even if it does nothing - the random switches need to route to it
+    switch (FEAT_TRAINS, SELF, electra_1_switch_graphics_0, 0) {
+        0: return electra_1_sg_0;
+        return electra_1_sg_0;
+    }
+
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(electra_1_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup electra_1_sg_hidden {
+    loaded:  [
+        electra_1_ss_hidden,
+    ];
+    loading: [
+        electra_1_ss_hidden,
+    ];
+}
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(1), electra_1_switch_graphics_random_0) {
+        
+            1: return electra_1_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, electra_1_switch_graphics_by_year, build_year) {
+    
+        0..5000000:electra_1_switch_graphics_random_0;
+    
+    return electra_1_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, electra_1_switch_graphics, extra_callback_info1) {
+    0x10: return electra_1_sg_hidden;
+    return electra_1_switch_graphics_by_year;
+}
+
+
+// buy menu graphics
+
+    
+
+    
+        template spriteset_template_purchase_electra_1() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 32, 15, -16, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+
+
+
+spriteset(electra_1_ss_purchase, "gfx/electra_0.png") {
+  spriteset_template_purchase_electra_1()
+}
+
+spritegroup electra_1_sg_purchase {
+    loaded:  [
+        electra_1_ss_purchase,
+    ];
+    loading: [
+        electra_1_ss_purchase,
+    ];
+}
+
+
+
+
+
+
+
+
+
+
+
+item(FEAT_TRAINS, electra_1, 171) {
+    property {
+        name:                           string(STR_NAME_electra_0, string(STR_NAME_SUFFIX_ELECTRIC));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_ELECTRIC;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1953,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          2400hp;
+        
+            speed:                          90mph;
+        
+        weight:                         105ton;
+        tractive_effort_coefficient:    0.32;
+        cost_factor:                    101.41666666666667;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            106.41666666666667;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         4;
+        track_type:                     ELRL;
+    }
+    graphics {
+        default:                        electra_1_switch_graphics;
+        purchase:                       electra_1_sg_purchase;
+        
+        
+        
+        
+        
+        
+    }
+}
+
+
+
+// -- end 171 -- 
+
+
+
+/*Null trailing slice for units */
+
+spriteset(electra_2_ss, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]   
+}
+
+spritegroup electra_2_sg {
+    loaded:  [
+        electra_2_ss,
+    ];
+    loading: [
+        electra_2_ss,
+    ];
+}
+
+item(FEAT_TRAINS, electra_2, 172) {
+    property {
+        climates_available:             NO_CLIMATE;
+        introduction_date:              date(01,01,01);
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          0hp;
+        weight:                         0ton;
+        cost_factor:                    0;
+        running_cost_factor:            0;
+        refit_cost:                     0;
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask();
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        misc_flags:                     bitmask(); // nml constants
+        length:                         2;
+    }
+    graphics {
+        default:                        electra_2_sg;
+    }
+}
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_electra(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -17 ]
+            [76,        y,          22,        22,          -10, -15 ]
+            [107,       y,          32,        15,          -8, -11 ]
+            [156,       y,          22,        22,          -4, -13 ]
+            [188,       y,          8,         25,          -3, -10 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -16 ]
+        }
+    
+
+
+
+
+    spriteset(electra_ss_0, "gfx/electra_0.png") {
+      spriteset_template_electra(10 + 0, 8)
+    }
+
+    spritegroup electra_sg_0 {
+        loaded:  [
+            electra_ss_0,
+        ];
+        loading: [
+            electra_ss_0,
+        ];
+    }
+    // always include a switch to get to spritegroups even if it does nothing - the random switches need to route to it
+    switch (FEAT_TRAINS, SELF, electra_switch_graphics_0, 0) {
+        0: return electra_sg_0;
+        return electra_sg_0;
+    }
+
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(electra_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup electra_sg_hidden {
+    loaded:  [
+        electra_ss_hidden,
+    ];
+    loading: [
+        electra_ss_hidden,
+    ];
+}
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), electra_switch_graphics_random_0) {
+        
+            1: return electra_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, electra_switch_graphics_by_year, build_year) {
+    
+        0..5000000:electra_switch_graphics_random_0;
+    
+    return electra_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, electra_switch_graphics, extra_callback_info1) {
+    0x10: return electra_switch_graphics_by_year;
+    return electra_sg_hidden;
+}
+
+
+// buy menu graphics
+
+    
+
+    
+        template spriteset_template_purchase_electra() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 32, 15, -16, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+
+
+
+spriteset(electra_ss_purchase, "gfx/electra_0.png") {
+  spriteset_template_purchase_electra()
+}
+
+spritegroup electra_sg_purchase {
+    loaded:  [
+        electra_ss_purchase,
+    ];
+    loading: [
+        electra_ss_purchase,
+    ];
+}
+
+
+
+
+
+
+    // -- smoke etc -- //
+    
+    switch (FEAT_TRAINS, SELF, electra_switch_visual_effect_and_powered_by_variant_0, current_railtype) {
+        
+        return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC, 0, DISABLE_WAGON_POWER);
+    }
+
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), electra_switch_visual_effect_and_powered_random_0) {
+        dependent: electra_switch_graphics_random_0;
+        
+            1: electra_switch_visual_effect_and_powered_by_variant_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, electra_switch_visual_effect_and_powered, build_year) {
+    
+        0..5000000:electra_switch_visual_effect_and_powered_random_0;
+    
+    return electra_switch_visual_effect_and_powered_random_0;
+}
+
+
+
+
+
+
+
+item(FEAT_TRAINS, electra, 170) {
+    property {
+        name:                           string(STR_NAME_electra_0, string(STR_NAME_SUFFIX_ELECTRIC));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_ELECTRIC;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1953,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          2400hp;
+        
+            speed:                          90mph;
+        
+        weight:                         105ton;
+        tractive_effort_coefficient:    0.32;
+        cost_factor:                    25;
+        running_cost_base:              RUNNING_COST_ELECTRIC;
+        running_cost_factor:            212;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         2;
+        track_type:                     ELRL;
+    }
+    graphics {
+        default:                        electra_switch_graphics;
+        purchase:                       electra_sg_purchase;
+        
+        
+        
+        
+        
+            visual_effect_and_powered:      electra_switch_visual_effect_and_powered;
+        
+        
+            articulated_part: electra_articulated_cb_switch;
+        
+    }
+}
+
+
+    if (param[1]==0) {
+        item(FEAT_TRAINS, electra, 170) {
+            property {
+                climates_available:             ALL_CLIMATES;
+            }
+        }
+    }
+
+
+// -- end 170 -- 
+

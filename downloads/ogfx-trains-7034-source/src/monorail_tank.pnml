@@ -1,0 +1,95 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals,
+ * cola
+ * ***************************
+ */
+
+#define THIS_ID(...) monorail_tank_wagon ## __VA_ARGS__
+
+// DEFAULT
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_temperate, "mono_tank", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_tropic, "mono_tank", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 100) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_arctic, "mono_tank", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// CMNT:
+MU_8SPRITES_32BPP(monorail_tank_wagon_cement, "mono_tank", "src/gfx/tank/rail_cement_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// COLA
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_tank_wagon_cola, "mono_tank_cola_empty", "mono_tank_cola", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 220, 0, 240)
+
+// FZDR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_tank_wagon_fizzy, "mono_tank_fizzy_drink_empty", "mono_tank_fizzy_drink", "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140, 0, 140)
+
+// MILK:
+MU_8SPRITES_32BPP(monorail_tank_wagon_milk, "mono_tank_milk", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// OIL_
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_temperate, "mono_tank_oil", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_tropic, "mono_tank_oil", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 100) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_arctic, "mono_tank_oil", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// PETR
+MU_8SPRITES_32BPP(monorail_tank_wagon_fueloil, "mono_tank_petrol", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// RFPR:
+MU_8SPRITES_32BPP(monorail_tank_wagon_refineryproducts, "mono_tank_refinery", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// WATR
+MU_8SPRITES_32BPP(monorail_tank_wagon_water, "mono_tank_water", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_default_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_tank_wagon_default_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_tank_wagon_default_arctic_switch_gui;
+    monorail_tank_wagon_default_temperate_switch_gui;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_oil_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_tank_wagon_oil_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_tank_wagon_oil_arctic_switch_gui;
+    monorail_tank_wagon_oil_temperate_switch_gui;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_switch, cargo_type_in_veh) {
+    CMNT: monorail_tank_wagon_cement_switch_gui;
+    COLA: monorail_tank_wagon_cola_switch_gui;
+    FZDR: monorail_tank_wagon_fizzy_switch_gui;
+    MILK: monorail_tank_wagon_milk_switch_gui;
+    OIL_: monorail_tank_wagon_oil_climate_switch;
+    PETR: monorail_tank_wagon_fueloil_switch_gui;
+    RFPR: monorail_tank_wagon_refineryproducts_switch_gui;
+    WATR: monorail_tank_wagon_water_switch_gui;
+    monorail_tank_wagon_default_climate_switch;
+}
+
+item(FEAT_TRAINS, monorail_tank_wagon) {
+    property {
+        name:                           string(STR_NAME_TANK_WAGON);
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_TANK
+        cost_factor:                    200;
+        cargo_capacity:                 30;
+        weight:                         24;
+    }
+    graphics {
+	cargo_capacity:     tank_wagon_cb_capacity_switch;
+	weight:             tank_wagon_cb_property_weight_switch;
+        refit_cost:         tank_refit_cost_switch;
+
+        purchase:           monorail_tank_wagon_default_climate_switch;
+        monorail_tank_wagon_switch;
+    }
+}
+
+#undef THIS_ID

@@ -1,0 +1,90 @@
+/*  This file is part of The Dutch Track Set
+ *  This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+
+//Defines Betuwe (25 kV AC, 120 km/h)
+item(FEAT_RAILTYPES,item_BETUWE) {
+	property {
+		//Naming
+		label:						"SAEA";
+		name:						string(STR_NAME_BETUWE);
+		toolbar_caption:			string(STR_TOOL_BETUWE);
+		menu_text:					string(STR_MENU_BETUWE);
+		build_window_caption:		string(STR_BUIL_BETUWE);
+		autoreplace_text:			string(STR_REPL_BETUWE);
+		new_engine_text:			string(STR_NENG_BETUWE);
+		sort_order:					03;	
+
+		//Properties of the rail
+		compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA"];
+		powered_railtype_list:		["ELRL","SBCA","SBEE"];
+		acceleration_model:			ACC_MODEL_RAIL;
+		
+		//Costs
+		construction_cost:			16;
+		maintenance_cost:			16;
+
+		//Graphics and other stuff
+		station_graphics:			RAILTYPE_STATION_NORMAL;
+		railtype_flags:				bitmask(RAILTYPE_FLAG_CATENARY);
+		
+		//Long list with fallback types:
+		alternative_railtype_list:	["SAAA","SABA","SACA","SADA","SAEA"];
+		
+		//HSL and Betuweroute are the same power system, so both introduce each other
+		introduces_railtype_list:   ["SBCA"];
+	}
+	
+	//Properties that depend on the parameter settings
+	
+	//Speedlimits
+	//on
+	if ( param_speed_limit == 1 ) {
+		property {
+			speed_limit: 			120 km/h;
+		}
+	}
+	//off
+	else {
+		property {
+			speed_limit:		 	0 km/h;
+		}
+	}
+	
+	//Track Compatibility
+	//Non electrified, electrified, metro
+	if ( param_track_compat == 1) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD"];
+			powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD"];
+			introduces_railtype_list:   ["SBCA","SADD","ELRL"];
+		}	
+	}
+	//Full compatibility (Non electrfied, electrified)
+	if (param_track_compat == 2) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+			powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+			introduces_railtype_list:   ["SBCA","SADD","ELRL","SAA3"];
+		}
+	}	
+	
+	//Disable Level Crossings
+	if (param_levcross_high == 0) {
+		property {
+			railtype_flags:			bitmask(RAILTYPE_FLAG_CATENARY,RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+		}
+	}
+	
+	graphics {
+		track_overlay:		spriteset_betuwe_overlay;
+		underlay:			spriteset_betuwe_underlay;
+		tunnels:			spriteset_betuwe_tunnel;
+		level_crossings:  	switch_betuwe_levcross;
+		bridge_surfaces:  	spriteset_betuwe_bridge;
+		catenary_pylons:	spriteset_betuwe_catpol;
+		fences:				switch_betuwe_fences;
+	}
+}

@@ -1,0 +1,38 @@
+##grflangid 0x01
+# Language id for english is 0x01
+# I didn't use custom tags (yet) 'cause they seem kinda useless...
+
+# GRF data
+STR_GRF_NAME		:Train XTension 1.4.0-dev
+STR_GRF_VER			:1.4.0-dev
+STR_GRF_DESC		:{}Extends the train selection with the following:{}{BLUE}EAR Iron Horse {BLACK}-> a fast steam engine,{}{BLUE}EAR GTHL {BLACK}-> a heavy hybrid freight engine,{}{BLUE}Intermodal Freight Car {BLACK}-> a nice goods wagon,{}{BLUE}HSRL {BLACK}-> a new high-speed rail type,{}{BLACK}...and that's it for now.{}{BLACK}Made by {ORANGE}Raul Cotar{}{WHITE}github.com/raulcotar/
+
+# Params
+STR_PARAM_USE2CCC_NAME	:2cc containers
+STR_PARAM_USE2CCC_DESC	:Enable 2cc on freight wagon containers?
+
+STR_PARAM_SPEEDLIMITS_NAME  :Speed limits
+STR_PARAM_SPEEDLIMITS_DESC  :Enable speed limits for RAIL, ELRL and HSRL (high-speed track)?
+
+STR_PARAM_LVLCROSS_NAME     :HSRL level crossings
+STR_PARAM_LVLCROSS_DESC     :Enable high-speed railway level crossings?
+
+# Veh names
+STR_RST_STEAM		:EAR Iron Horse (Steam)
+STR_RST_STEAM_DESC	:A streamlined locomotive from East Atlantic Railways designed for fast passenger transportation.
+
+STR_RST_HEAVY		:EAR GTHL (Hybrid)
+STR_RST_HEAVY_DESC	:A gas turbine hybrid freight locomotive from East Atlantic Railways. Increased power and speed when on electrified rails.{}Hybrid mode specs:{}Speed: {ORANGE}120km/h{}{BLACK}Power: {ORANGE}6998hp{}{BLACK}Running cost: {ORANGE}€7257/year
+
+STR_RST_FREIGHT		:Intermodal Freight Car
+
+# HSRL
+STR_HSRL_NAME       :High-Speed Railway
+STR_HSRL_TOOL       :High-speed railway construction
+STR_HSRL_MENU       :High-speed railway construction
+STR_HSRL_BUIL       :High-Speed railway
+STR_HSRL_REPL       :High-Speed railway
+STR_HSRL_NENG       :High-Speed railway
+
+# Misc
+STR_FOO				:foo

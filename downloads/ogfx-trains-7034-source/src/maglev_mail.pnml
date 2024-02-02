@@ -1,0 +1,29 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * ***************************
+ * Mail wagon:
+ * ***************************
+ */
+
+#define THIS_ID(...) maglev_mail_wagon ## __VA_ARGS__
+
+item(FEAT_TRAINS, maglev_mail_wagon, 90) {
+    property {
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_MAIL
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
+        refit_cost:                     0; // refit is free
+    }
+    graphics {
+	monorail_mail_wagon_climate_switch;
+    }
+}
+
+#undef THIS_ID

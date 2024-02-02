@@ -1,0 +1,151 @@
+##grflangid 0x3a
+##plural 11
+##gender m f
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OPENGFX+ INDUSTRIES는 기존의 산업 시설ㅢ 성능을 향상시키고, 더 많은 종류의 설정을 사용 가능하게 합니다.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :물가로부터 정유 공장이 건설될 수 있는 최대 거리
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :물가로부터 정유 공장이 건설될 수 있는 최대 거리입니다. 값을 0으로 설정하면 정유 공장을 어디에나 건설할 수 있습니다.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :제한 없음
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING}은 {STRING}과 함께 존재할 수 없습니다.
+STR_ERR_NO_TOYLAND                                              :{STRING} : 장난감나라에서는 사용할 수 없습니다.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :정유 공장은 물 주위에 건설되어야 합니다.
+STR_ERR_FACTORY_CHAINS                                          :{STRING}에 대한 공장 화물을 4개 이상 선택하셨습니다. 자세한 정보를 보시려면 설정의 설명을 확인하십시오.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :만년설 고도 이하에만 지어질 수 있습니다.
+STR_ERR_NO_DESERT_ONLY                                          :사막 지대에는 지을 수 없습니다.
+STR_ERR_TOWN_TOO_SMALL                                          :... 이 도시는 이런 종류의 {COMMA} 산업 시설을 갖기에는 너무 작습니다. (이 산업시설은 개당 매 {COMMA}개의 집이 있어야 합니다.)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :{STRING}(이)가 Total Town Replacement Set (TTRS)와 함께 사용될 경우, 이 기후의 기본 은행 수송 옵션은 항상 '사용'으로 설정될 것입니다.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :상점
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} 탄광
+STR_POWER_STATION_STATION_NAME                                  :{STRING} 발전소
+STR_SAWMILL_STATION_NAME                                        :{STRING} 제재소
+STR_FOREST_STATION_NAME                                         :{STRING} 숲
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} 정유 공장
+STR_OIL_RIG_STATION_NAME                                        :{STRING} 유전
+STR_FACTORY_STATION_NAME                                        :{STRING} 공장
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} 인쇄소
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} 제철소
+STR_FARM_STATION_NAME                                           :{STRING} 농장
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} 구리 광산
+STR_OIL_WELL_STATION_NAME                                       :{STRING} 유정
+STR_BANK_STATION_NAME                                           :{STRING} 은행
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} 식품 처리 공장
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} 제지소
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} 금광
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} 다이아몬드 광산
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} 철 광산
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} 과일 농장
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} 고무 농장
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} 상수도
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} 급수탑
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} 제목소
+STR_SHOP_STATION_NAME                                           :{STRING} 상점
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :석탄 수송
+STR_PARAM_COAL_CHAIN_DESC                                       :이 매개 변수는 석탄 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :기후에 따라서
+STR_PARAM_COAL_CHAIN_ENABLED                                    :사용
+STR_PARAM_COAL_CHAIN_DISABLED                                   :사용 안 함
+
+STR_PARAM_OIL_CHAIN                                             :석유 수송
+STR_PARAM_OIL_CHAIN_DESC                                        :이 매개 변수는 석유 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. "사용 안 함"으로 설정하면 석유 수송이 사라집니다. 나머지 설정은 어떤 석유와 관련된 시설을 사용할 지를 결정합니다.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :기후에 따라서
+STR_PARAM_OIL_CHAIN_WELLS                                       :유전, 정유 공장
+STR_PARAM_OIL_CHAIN_RIG                                         :유정, 정유 공장
+STR_PARAM_OIL_CHAIN_ALL                                         :유정, 유전, 정유 공장
+STR_PARAM_OIL_CHAIN_DISABLED                                    :사용 안 함
+
+STR_PARAM_VALUABLES_CHAIN                                       :은행 수송
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :이 매개 변수는 은행 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. "사용 안 함"으로 설정하면 은행 수송이 사라집니다. 나머지 설정은 은행을 사용하고 어떤 종류의 화물을 받을지(또 귀금속의 경우 생산을 할수 있게 할 지)를 결정합니다.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :기후에 따라서
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :귀금속 화물
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :금 화물
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :다이아몬드 화물
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :금, 다이아몬드 화물
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :사용 안 함
+
+STR_PARAM_IRON_ORE_CHAIN                                        :철광석 수송
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :이 매개 변수는 철 광석 수송의 존재 유무를 조절합니다.  이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 단 동시에 3종류의 공장 화물만 사용할 수 있음을 알아두십시오. 만약 4종류 이상 선택할 경우 일부 화물은 대신 다른 산업 시설이 받게 됩니다. (농장 화물은 식품 처리 공장에서, 목재는 제재소에서)
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :기후에 따라서
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :사용
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :사용 안 함
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :구리 광석 수송
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :이 매개 변수는 구리 광석 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 단 동시에 3종류의 공장 화물만 사용할 수 있음을 알아두십시오. 만약 4종류 이상 선택할 경우 일부 화물은 대신 다른 산업 시설이 받게 됩니다. (농장 화물은 식품 처리 공장에서, 목재는 제재소에서)
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :기후에 따라
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :사용
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :사용 안 함
+
+STR_PARAM_RUBBER_CHAIN                                          :고무 수송
+STR_PARAM_RUBBER_CHAIN_DESC                                     :이 매개 변수는 고무 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 단 동시에 3종류의 공장 화물만 사용할 수 있음을 알아두십시오. 만약 4종류 이상 선택할 경우 일부 화물은 대신 다른 산업 시설이 받게 됩니다. (농장 화물은 식품 처리 공장에서, 목재는 제재소에서)
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :기후에 따라서
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :사용
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :사용 안 함
+
+STR_PARAM_FARM_CHAIN                                            :농장 수송
+STR_PARAM_FARM_CHAIN_DESC                                       : 이 매개 변수는 농장 화물 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 단 동시에 3종류의 공장 화물만 사용할 수 있음을 알아두십시오. 만약 4종류 이상 선택할 경우 일부 화물은 대신 다른 산업 시설이 받게 됩니다. (농장 화물은 식품 처리 공장에서, 목재는 제재소에서)
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :기후에 따라서
+STR_PARAM_FARM_CHAIN_GRAIN                                      :곡물
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :가축
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :곡물, 가축
+STR_PARAM_FARM_CHAIN_DISABLED                                   :사용 안 함
+
+STR_PARAM_FARM_DESTINATION                                      :농장 화물의 목적지
+STR_PARAM_FARM_DESTINATION_DESC                                 :이 매개 변수는 농장 화물 수송의 목적지를 결정합니다.이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 나머지 설정은 어떤 산업 시설이 농장 화물을 받을 수 있도록 할 지를 설정합니다. 단 동시에 3종류 이상의 화물을 공장에 남품하도록 설정하면 농장 화물은 식품 처리 공장에서만 받게 됩니다.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :기후에 따라서
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :식품 처리 공장
+STR_PARAM_FARM_DESTINATION_FACTORY                              :공장
+
+STR_PARAM_FRUIT_CHAIN                                           :과일 수송
+STR_PARAM_FRUIT_CHAIN_DESC                                      :이 매개 변수는 과일 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :기후에 따라서
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :사용
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :사용 안 함
+
+STR_PARAM_WOOD_PRODUCER                                         :목재 생산지
+STR_PARAM_WOOD_PRODUCER_DESC                                    :이 매개 변수는 목재 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 나머지 옵션으로 어떤 산업 시설이 목재 화물을 생산할 지 결정할 수 있습니다. 이는 목재 수송 단가에도 영향을 미칩니다.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :기후에 따라서
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :숲
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :제목소
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :사용 안 함
+
+STR_PARAM_WOOD_DESTINATION                                      :목재의 목적지
+STR_PARAM_WOOD_DESTINATION_DESC                                 :이 매개 변수는 목재 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다. 나머지 설정은 어떤 산업 시설이 목재 화물을 받을 수 있도록 할 지를 설정합니다. 단 동시에 3종류의 공장 화물만 사용할 수 있음을 알아두십시오. 만약 4종류 이상 선택할 경우 일부 화물은 대신 다른 산업 시설이 받게 됩니다. (농장 화물은 식품 처리 공장에서, 목재는 제재소에서)
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :기후에 따라서
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :제재소
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :제지소
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :공장
+
+STR_PARAM_WATER_CHAIN                                           :물 수송
+STR_PARAM_WATER_CHAIN_DESC                                      :이 매개 변수는 물 수송의 존재 유무를 조절합니다. 이 매개 변숫값이 "기후에 따라서"로 설정되어 있으면 현재 기후의 설정에 따를 것입니다.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :기후에 따라서
+STR_PARAM_WATER_CHAIN_ENABLED                                   :사용
+STR_PARAM_WATER_CHAIN_DISABLED                                  :사용 안 함
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :유정 건설 제한 없앰
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :유정은 온대 기후의 보통 게임 플레이 중에, 그리고 냉대와 아열대 기후의 1950년대 이후에 건설됩니다. 온대 기후의 유정은 생산량이 늘어날 수 있습니다.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :정유 공장 건설 제한 사용 안함
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :유정은 1960년 이전에 지어지며 지도 생성 중에 나타날 것입니다.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :귀금속을 받는 은행의 건설 제한 없앰
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :귀금속을 받는 은행들은 맵 생성중에 나타날 것 입니다.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :주 산업시설의 생성/변경/폐쇄
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :OpenTTD의 기본 산업시설을 이용하시려면 옵션을 "켬"으로 설정하십시오. 또한 산업시설의 임의적 생성/폐쇄를 막으려면 이 옵션을 "끔"으로 설정하십시오.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :도시 산업시설의 생성/변경/폐쇄
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :은행, 상점, 급수탑등의 임의 생성/폐쇄를 막으시려면 옵션을 "끔" 으로 설정하십시오

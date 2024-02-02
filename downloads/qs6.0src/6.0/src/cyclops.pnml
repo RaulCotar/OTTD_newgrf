@@ -1,0 +1,402 @@
+//------------------------------------------------CYCLOPS CODE SECTION------------------------------------------------
+
+// add the trailing slices to articulated consist
+switch (FEAT_TRAINS, SELF, cyclops_articulated_cb_switch, extra_callback_info1) {
+    
+        0: return cyclops;
+    
+        1: return cyclops_1;
+    
+        2: return cyclops;
+    
+  return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_cyclops(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -17 ]
+            [76,        y,          22,        22,          -10, -15 ]
+            [107,       y,          32,        15,          -8, -11 ]
+            [156,       y,          22,        22,          -4, -13 ]
+            [188,       y,          8,         25,          -3, -10 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -16 ]
+        }
+    
+
+
+
+
+    spriteset(cyclops_ss_0, "gfx/cyclops_0.png") {
+      spriteset_template_cyclops(10 + 0, 8)
+    }
+
+    spritegroup cyclops_sg_0 {
+        loaded:  [
+            cyclops_ss_0,
+        ];
+        loading: [
+            cyclops_ss_0,
+        ];
+    }
+    // always include a switch to get to spritegroups even if it does nothing - the random switches need to route to it
+    switch (FEAT_TRAINS, SELF, cyclops_switch_graphics_0, 0) {
+        0: return cyclops_sg_0;
+        return cyclops_sg_0;
+    }
+
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(cyclops_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup cyclops_sg_hidden {
+    loaded:  [
+        cyclops_ss_hidden,
+    ];
+    loading: [
+        cyclops_ss_hidden,
+    ];
+}
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), cyclops_switch_graphics_random_0) {
+        
+            1: return cyclops_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, cyclops_switch_graphics_by_year, build_year) {
+    
+        0..5000000:cyclops_switch_graphics_random_0;
+    
+    return cyclops_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, cyclops_switch_graphics, extra_callback_info1) {
+    0x10: return cyclops_switch_graphics_by_year;
+    return cyclops_sg_hidden;
+}
+
+
+// buy menu graphics
+
+    
+
+    
+        template spriteset_template_purchase_cyclops() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 32, 15, -16, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+
+
+
+spriteset(cyclops_ss_purchase, "gfx/cyclops_0.png") {
+  spriteset_template_purchase_cyclops()
+}
+
+spritegroup cyclops_sg_purchase {
+    loaded:  [
+        cyclops_ss_purchase,
+    ];
+    loading: [
+        cyclops_ss_purchase,
+    ];
+}
+
+
+
+
+
+
+    // -- smoke etc -- //
+    
+    switch (FEAT_TRAINS, SELF, cyclops_switch_visual_effect_and_powered_by_variant_0, current_railtype) {
+        
+        return visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+    }
+
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(0), cyclops_switch_visual_effect_and_powered_random_0) {
+        dependent: cyclops_switch_graphics_random_0;
+        
+            1: cyclops_switch_visual_effect_and_powered_by_variant_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, cyclops_switch_visual_effect_and_powered, build_year) {
+    
+        0..5000000:cyclops_switch_visual_effect_and_powered_random_0;
+    
+    return cyclops_switch_visual_effect_and_powered_random_0;
+}
+
+
+
+
+
+
+
+item(FEAT_TRAINS, cyclops, 130) {
+    property {
+        name:                           string(STR_NAME_cyclops_0, string(STR_NAME_SUFFIX_DIESEL));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_DIESEL;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1999,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          3200hp;
+        
+            speed:                          125mph;
+        
+        weight:                         95ton;
+        tractive_effort_coefficient:    0.3;
+        cost_factor:                    37;
+        running_cost_base:              RUNNING_COST_DIESEL;
+        running_cost_factor:            255;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         2;
+        track_type:                     RAIL;
+    }
+    graphics {
+        default:                        cyclops_switch_graphics;
+        purchase:                       cyclops_sg_purchase;
+        
+        
+        
+        
+        
+            visual_effect_and_powered:      cyclops_switch_visual_effect_and_powered;
+        
+        
+            articulated_part: cyclops_articulated_cb_switch;
+        
+    }
+}
+
+
+    if (param[1]==0) {
+        item(FEAT_TRAINS, cyclops, 130) {
+            property {
+                climates_available:             ALL_CLIMATES;
+            }
+        }
+    }
+
+
+// -- end 130 -- 
+
+
+
+
+
+
+
+
+
+
+
+// graphics
+
+
+    
+
+    
+        template spriteset_template_cyclops_1(y, adjust_xoffs) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,        y,          8,         25,          -3, -17 ]
+            [76,        y,          22,        22,          -10, -15 ]
+            [107,       y,          32,        15,          -8, -11 ]
+            [156,       y,          22,        22,          -4, -13 ]
+            [188,       y,          8,         25,          -3, -10 ]
+            [204,       y,          22,        22,          -17, -12 ]
+            [235,       y,          32,        15,          -24 + adjust_xoffs, -11 ]
+            [284,       y,          22,        22,          -10, -16 ]
+        }
+    
+
+
+
+
+    spriteset(cyclops_1_ss_0, "gfx/cyclops_0.png") {
+      spriteset_template_cyclops_1(10 + 0, 0)
+    }
+
+    spritegroup cyclops_1_sg_0 {
+        loaded:  [
+            cyclops_1_ss_0,
+        ];
+        loading: [
+            cyclops_1_ss_0,
+        ];
+    }
+    // always include a switch to get to spritegroups even if it does nothing - the random switches need to route to it
+    switch (FEAT_TRAINS, SELF, cyclops_1_switch_graphics_0, 0) {
+        0: return cyclops_1_sg_0;
+        return cyclops_1_sg_0;
+    }
+
+
+/*Empty sprites for slices that are invisible - same for all vehicles */
+
+spriteset(cyclops_1_ss_hidden, "gfx/null_trailing_part.png") {
+    [0, 0, 10, 10, 0, 0]
+}
+
+spritegroup cyclops_1_sg_hidden {
+    loaded:  [
+        cyclops_1_ss_hidden,
+    ];
+    loading: [
+        cyclops_1_ss_hidden,
+    ];
+}
+
+
+    random_switch (FEAT_TRAINS, FORWARD_SELF(1), cyclops_1_switch_graphics_random_0) {
+        
+            1: return cyclops_1_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_TRAINS, SELF, cyclops_1_switch_graphics_by_year, build_year) {
+    
+        0..5000000:cyclops_1_switch_graphics_random_0;
+    
+    return cyclops_1_switch_graphics_random_0;
+}
+
+// show default graphics, or special cases like depot? (purchase is handled separately using purchase cb)
+switch (FEAT_TRAINS, SELF, cyclops_1_switch_graphics, extra_callback_info1) {
+    0x10: return cyclops_1_sg_hidden;
+    return cyclops_1_switch_graphics_by_year;
+}
+
+
+// buy menu graphics
+
+    
+
+    
+        template spriteset_template_purchase_cyclops_1() {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [107,   10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [60,    10, 1, 1, 0, 0]
+            [316,   10, 32, 15, -16, -10 ]
+            [60,    10, 1, 1, 0, 0]
+        }
+    
+
+
+
+spriteset(cyclops_1_ss_purchase, "gfx/cyclops_0.png") {
+  spriteset_template_purchase_cyclops_1()
+}
+
+spritegroup cyclops_1_sg_purchase {
+    loaded:  [
+        cyclops_1_ss_purchase,
+    ];
+    loading: [
+        cyclops_1_ss_purchase,
+    ];
+}
+
+
+
+
+
+
+
+
+
+
+
+item(FEAT_TRAINS, cyclops_1, 131) {
+    property {
+        name:                           string(STR_NAME_cyclops_0, string(STR_NAME_SUFFIX_DIESEL));
+        climates_available:             NO_CLIMATE; // nml constant
+        engine_class:                   ENGINE_CLASS_DIESEL;
+        visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        introduction_date:              date(1999,01,01); // consist just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 0;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN; //enable new graphics - nml constant
+        power:                          3200hp;
+        
+            speed:                          125mph;
+        
+        weight:                         95ton;
+        tractive_effort_coefficient:    0.3;
+        cost_factor:                    149.25;
+        running_cost_base:              RUNNING_COST_DIESEL;
+        running_cost_factor:            149.25;
+        refit_cost:                     0; // btw this needs to be 0 if we want autorefit without using cb
+        refittable_cargo_classes:       bitmask();
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [];
+        default_cargo_type:             PASS;
+        cargo_age_period:               185;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC); // nml constants
+        dual_headed:                    0;
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+        length:                         4;
+        track_type:                     RAIL;
+    }
+    graphics {
+        default:                        cyclops_1_switch_graphics;
+        purchase:                       cyclops_1_sg_purchase;
+        
+        
+        
+        
+        
+        
+    }
+}

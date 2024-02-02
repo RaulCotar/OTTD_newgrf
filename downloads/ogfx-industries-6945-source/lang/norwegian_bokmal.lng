@@ -1,0 +1,149 @@
+##grflangid 0x2f
+##plural 0
+##gender masculine feminine neuter
+##case small
+STR_GRF_NAME                                                    :OpenGFX+ Industrier {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industrier forbedrer standardindustriene og gir mer kontroll over hvilke industrier som blir tilgjengelige.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Maks avstand fra vann for oljeraffinerier
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Maks avstand fra vann for oleraffinerier. Null gjør at du kan bygge hvor som helst.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Ingen grense
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} er ikke kompatibel med {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} er ikke laget for å virke i lekelandklima.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... oljeraffinerier må bygges nær vann
+STR_ERR_FACTORY_CHAINS                                          :Du har valgt flere enn tre fabrikk-kjeder for {STRING}. Sjekk beskrivelsen for kjedeparametere for mer informasjon.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... kan bare bygges under snøgrensa
+STR_ERR_NO_DESERT_ONLY                                          :... kan ikke bygges i ørkenstrøk
+STR_ERR_TOWN_TOO_SMALL                                          :... denne byen er for liten til å ha {COMMA} industrier av denne typen (det kan bare være en av disse industriene for hvert {COMMA} hus)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Når {STRING} blir brukt sammen med Total Town Replacement Set (TTRS), vil klimaets vanlige bankkjede sammen med verdisakene alltid være på.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Butikk
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Kullgruve
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Kraftstasjon
+STR_SAWMILL_STATION_NAME                                        :{STRING} Sagbruk
+STR_FOREST_STATION_NAME                                         :{STRING} Skog
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Oljeraffineri
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Oljeplatform
+STR_FACTORY_STATION_NAME                                        :{STRING} Fabrikk
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Trykkeri
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Stålverk
+STR_FARM_STATION_NAME                                           :{STRING} Gård
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Kobbergruve
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Oljebrønn
+STR_BANK_STATION_NAME                                           :{STRING} Bank
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Papirfabrikk
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Gullgruve
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Diamantgruve
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Jerngruve
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Fruktplantasje
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Gummiplantasje
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Vannkilde
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Vanntårn
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Sagbruk
+STR_SHOP_STATION_NAME                                           :{STRING} Butikk
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Kullkjede
+STR_PARAM_COAL_CHAIN_DESC                                       :Dette parameteret kontrollerer om kullkjeden er aktiv. Når parameteret settes til "avhengig av klima" så vil denne kjeden tilpasse seg standardinnstillingene for det aktuelle klimaet.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Avhengig av klima
+STR_PARAM_COAL_CHAIN_ENABLED                                    :På
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Av
+
+STR_PARAM_OIL_CHAIN                                             :Oljekjede
+STR_PARAM_OIL_CHAIN_DESC                                        :Dette parameteret bestemmer mottaker for varer fra Oljekjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. 'Avslått' vil deaktivere Oljekjeden. De andre instillingene bestemmer hvilke oljerelaterte industrier som er aktive.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Avhenger av klima
+STR_PARAM_OIL_CHAIN_WELLS                                       :Oljebrønner og oljeraffineri
+STR_PARAM_OIL_CHAIN_RIG                                         :Iljeplatform og Oljeraffineri
+STR_PARAM_OIL_CHAIN_ALL                                         :Oljebrønner, oljeplatformer og oljeraffinerier
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Av
+
+STR_PARAM_VALUABLES_CHAIN                                       :Bank-kjede
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Dette parameteret bestemmer mottaker for varer fra Bankkjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. 'Avslått' vil deaktivere Bankkjeden. De andre instiilingene vil aktivere Banker, og bestemme hvilke varer som blir godtatt (eller om verdisaker blir produsert) av dem.
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Avhenger av klima
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Verditransport
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Gulltransport
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Diamanttransport
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Gull og diamanttransport
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Av
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Jernmalmkjede
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Dette parameteret bestemmer mottaker for varer fra Jernmalmkjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. Du kan bare ha tre fabrikkvarer på en gang. Om du velger flere kan det være at noen produkter vil bli tvunget til å bli akseptert av andre industrier i stedet. (Gårdsvarer til matforedlingsfabrikken, tømmer til sagbruket).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Avhenger av klima
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :På
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Av
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Kopperkjede
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Dette parameteret bestemmer mottaker for varer fra Kobberkjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. Du kan bare ha tre fabrikkvarer på en gang. Om du velger flere kan det være at noen produkter vil bli tvunget til å bli akseptert av andre industrier i stedet. (Gårdsvarer til matforedlingsfabrikken, tømmer til sagbruket).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Avhenger av klima
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :På
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Av
+
+STR_PARAM_RUBBER_CHAIN                                          :Gummikjede
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Dette parameteret bestemmer mottaker for varer fra Gummikjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. Du kan bare ha tre fabrikkvarer på en gang. Om du velger flere kan det være at noen produkter vil bli tvunget til å bli akseptert av andre industrier i stedet. (Gårdsvarer til matforedlingsfabrikken, tømmer til sagbruket).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Avhenger av klima
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :På
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Av
+
+STR_PARAM_FARM_CHAIN                                            :Gårdskjede
+STR_PARAM_FARM_CHAIN_DESC                                       :Dette parameteret bestemmer mottaker for varer fra Gårdskjeden. Når parameteret er satt til "avhengig av klima" vil tilstedeværelsen av denne kjeden avhenge av standardinstillingene for det aktuelle klima. 'Av' vil deaktivere Gårdskjeden. De andre instillingene bestemmer hvilke Gårdsprodukter som er aktive. Du kan bare ha tre fabrikkvarer på en gang. Om du velger flere kan det være at noen produkter vil bli tvunget til å bli akseptert av andre industrier i stedet. (Gårdsvarer til matforedlingsfabrikken, tømmer til sagbruket).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Avhengig av klima
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Korn
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Buskap
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Korn og buskap
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Av
+
+STR_PARAM_FARM_DESTINATION                                      :Mottaker av gårdsprodukter
+STR_PARAM_FARM_DESTINATION_DESC                                 :Dette parameteret bestemmer mottaker for varer fra Gårdskjeden. Når parameteret er satt til "avhengig av klima" er mottaker for gårdsprodukter den som er standard for det aktuelle klima. Resten av instillingene gir deg lov til å velge hvilke bedrifter som tar imot gårsprodukter. Om du velger mer enn tre fabrikkvarer på en gang, kan det være at gårdsprodukter vil bli tvunget til å bli akseptert av matforedlingsfabrikken.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Avhenger av klima
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Matforedlingsfabrikk
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Fabrikk
+
+STR_PARAM_FRUIT_CHAIN                                           :Fruktkjede
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Dette parameteret kontrollerer om fruktkjeden er aktiv. Når parameteret settes til "avhengig av klima" så vil denne kjeden tilpasse seg standardinnstillingene for det aktuelle klimaet.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Avhengig av klima
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :På
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Av
+
+STR_PARAM_WOOD_PRODUCER                                         :Produsent av tømmer
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Dette parameteret bestemmer hvilken industri som produserer fra tømmeret. Når parameteret er satt til "avhengig av klima" er mottaker for tømmer den som er standard for det aktuelle klima. Resten av instillingene gir deg lov til å velge hvilke bedrifter som tar imot tømmer. Dette vil også påvirke prisen for tømmer.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Avhengig av klima
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Skog
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Trelast
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Av
+
+STR_PARAM_WOOD_DESTINATION                                      :Tømmer mottaker
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Dette parameteret bestemmer mottaker for varer fra Tømmerkjeden. Når parameteret er satt til "avhengig av klima" er mottaker for tømmer den som er standard for det aktuelle klima. Resten av instillingene gir deg lov til å velge hvilke bedrifter som tar imot tømmer. Om du velger mer enn tre fabrikkvarer på en gang, kan det være at tømmer vil bli tvunget til å bli akseptert av andre bedrifter (Gårdsvarer til matforedlingsfabrikken, tømmer til sagbruket).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Avhenger av klima
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Sagbruk
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Papirfabrikk
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Fabrikk
+
+STR_PARAM_WATER_CHAIN                                           :Vannkjede
+STR_PARAM_WATER_CHAIN_DESC                                      :Dette parameteret kontrollerer om vannkjeden er aktiv. Når parameteret settes til  "avhengig av klima" så vil denne kjeden tilpasse seg standardinnstillingene for det aktuelle klimaet.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Avhenger av klima
+STR_PARAM_WATER_CHAIN_ENABLED                                   :På
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Av
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Slå av restriksjoner for bygging av oljebrønner
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Oljebrønner vil bli bygget i temperert klima under vanlig spilling, og også etter 1950 i arktisk og tropisk klima. Oljebrønner i temperert klima kan øke produksjonen.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Slå av restriksjoner for bygging av oljeplatformer
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Oljekilder vil bli bygget før 1960 og vil dukke opp når banen lages.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Slå av restriksjoner for banker som godtar verdisaker
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banker som godtar verdisaker vil bli generert når banen blir laget.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Start/endring/stenging for hovedindustri
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Start/endring/stenging av byindustri

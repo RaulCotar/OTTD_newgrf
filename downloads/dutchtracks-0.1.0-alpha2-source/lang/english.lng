@@ -1,0 +1,92 @@
+﻿##grflangid 0x01
+
+#Main grf title and description
+STR_GRF_NAME			:{TITLE}
+STR_GRF_DESCRIPTION		:Dutch Tracks for OpenTTD {}(c)Dutch Trackset Team {}License: GPLv2 or higher. {}See readme for details.
+STR_GRF_LOAD_ORDER		:Load this NewGRF before any trainset for a correct working (OpenTTD < r24272)
+
+# Parameter descriptions
+# Rail speed
+STR_PARAM_NAME_SPEED	:Speed limits
+STR_PARAM_DESC_SPEED	:Use this parameter to turn off speed limits.
+
+# Track compatibility
+STR_PARAM_NAME_TRACK_COMPAT		:Track compatibility
+STR_PARAM_DESC_TRACK_COMPAT		:Use this parameter to switch between different track compatibility lists. Use this when you have no compatible train set loaded! This does not influence the engine power if it depends on the tracktype, since this is controlled by train sets.
+STR_PARAM_TRACK_COMPAT_DEF		:Non electrified, DC, AC, Metro (Default)
+STR_PARAM_TRACK_COMPAT_POW		:Non electrified, electrified, Metro (No distinction AC/DC)
+STR_PARAM_TRACK_COMPAT_FULL		:Non electrified, electrified (No distinction AC/DC/Metro)
+
+# Level Crossing Highspeed
+STR_PARAM_NAME_LEVCROSS_HIGH	:Level crossings for HSL/Betuwe/Futuristic
+STR_PARAM_DESC_LEVCROSS_HIGH	:Use this parameter to enable/disable level crossings for the HSL/Betuwe/Futuristic tracks
+
+# Level Crossing Metro
+STR_PARAM_NAME_LEVCROSS_METRO	:Level crossings for Metro
+STR_PARAM_DESC_LEVCROSS_METRO	:Use this parameter to enable/disable level crossings for Metro tracks
+
+# Fences
+STR_PARAM_NAME_FENCES			:Fences
+STR_PARAM_DESC_FENCES			:Use this parameter to set the fences used (Dutch tracks fences, OTTD fences or no fences)
+STR_PARAM_FENCES_DUTCH			:Dutch Track fences (if available)
+STR_PARAM_FENCES_OTTD			:OTTD fences
+STR_PARAM_FENCES_NONE			:No fences
+
+
+# Rail descriptions
+
+# Unelectrified Rail
+STR_NAME_RAIL	:Unelectrified Rail
+STR_TOOL_RAIL	:Unelectrified Rail
+STR_MENU_RAIL	:Unelectrified Rail
+STR_BUIL_RAIL	:Unelectrified Rail
+STR_REPL_RAIL	:Unelectrified
+STR_NENG_RAIL	:Unelectrified Engine
+
+# YARD Rail
+STR_NAME_YARD	:Yard/Station [Universal]
+STR_TOOL_YARD	:Yard/Station [Universal]
+STR_MENU_YARD	:Yard/Station [Universal]
+STR_BUIL_YARD	:Yard/Station [Universal]
+STR_REPL_YARD	:Electrical (Yard/Station)
+STR_NENG_YARD	:Electrical (Multisystem) Engine
+
+# Electrified [1500V DC]
+STR_NAME_STANDARDRAIL	:Standard Rail [1500V DC]
+STR_TOOL_STANDARDRAIL	:Standard Rail [1500V DC]
+STR_MENU_STANDARDRAIL	:Standard Rail [1500V DC]
+STR_BUIL_STANDARDRAIL	:Standard Rail [1500V DC]
+STR_REPL_STANDARDRAIL	:1500V DC (Standard Rail)
+STR_NENG_STANDARDRAIL	:1500V DC Engine
+
+# Betuweroute [25kV AC]
+STR_NAME_BETUWE	:Betuweroute [25kV AC]
+STR_TOOL_BETUWE	:Betuweroute [25kV AC]
+STR_MENU_BETUWE	:Betuweroute [25kV AC]
+STR_BUIL_BETUWE	:Betuweroute [25kV AC]
+STR_REPL_BETUWE	:25kV AC (Betuweroute)
+STR_NENG_BETUWE	:25kV AC (Betuweroute) Engine
+
+# Metro
+STR_NAME_METRO	:Metro
+STR_TOOL_METRO	:Metro
+STR_MENU_METRO	:Metro
+STR_BUIL_METRO	:Metro
+STR_REPL_METRO	:Metro
+STR_NENG_METRO	:Metro Engine
+
+# HSL [25kV AC]
+STR_NAME_HSL	:HSL [25kV AC]
+STR_TOOL_HSL	:HSL [25kV AC]
+STR_MENU_HSL	:HSL [25kV AC]
+STR_BUIL_HSL	:HSL [25kV AC]
+STR_REPL_HSL	:25kV AC (HSL)
+STR_NENG_HSL	:25kV AC (HSL) Engine
+
+# Futuristic [Universal]
+STR_NAME_FUTURISTIC	:Futuristic [Universal]
+STR_TOOL_FUTURISTIC	:Futuristic [Universal]
+STR_MENU_FUTURISTIC	:Futuristic [Universal]
+STR_BUIL_FUTURISTIC	:Futuristic [Universal]
+STR_REPL_FUTURISTIC	:Electrical (Futuristic)
+STR_NENG_FUTURISTIC	:Electrical (Futuristic) Engine

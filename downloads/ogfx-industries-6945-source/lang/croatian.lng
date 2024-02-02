@@ -1,0 +1,152 @@
+##grflangid 0x38
+##plural 6
+##gender male female middle
+##case aku dat gen ins lok nom vok
+STR_GRF_NAME                                                    :OpenGFX+ Industries {VERSION}
+STR_GRF_DESCRIPTION                                             :OpenGFX+ Industries unapređuje osnovne industrije i daje više kontrole nad dostupnim industrijama.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/ogfx-industries
+
+STR_PARAM_OIL_REFINERY_DISTANCE                                 :Najveća udaljenost od vode za rafinerije nafte
+STR_PARAM_OIL_REFINERY_DISTANCE_DESC                            :Najveća udaljenost od vode za rafinerije nafte. Vrijednost 0 dozvoljava gradnju rafinerija bilo gdje.
+STR_PARAM_OIL_REFINERY_DISTANCE_VALUE_0                         :Bez limita
+
+STR_ERR_INCOMPATIBLE_NEWGRF                                     :{STRING} nije kompatibilno sa {STRING}.
+STR_ERR_NO_TOYLAND                                              :{STRING} nije predviđeno za funkcioniranje sa Zemljom Igračaka.
+STR_ERR_OIL_REFINERY_NEAR_WATER                                 :... rafinerije nafte moraju biti sagrađene blizu vode
+STR_ERR_FACTORY_CHAINS                                          :Odabrali ste više od tri industrijska lanca za {STRING}. Provjerite opis svakog pojedinog lanca za više informacija.
+STR_ERR_BELOW_SNOWLINE_ONLY                                     :... može biti sagrađeno samo ispod linije snijega
+STR_ERR_NO_DESERT_ONLY                                          :... ne može biti sagrađeno u pustinjama
+STR_ERR_TOWN_TOO_SMALL                                          :... ovaj grad je premali da bi imao {COMMA} industrija ovo tipa (može postojati samo jedna od ovih industrija na svakih {COMMA} kuća)
+
+STR_WARNING_TTRS_COMPATIBILITY                                  :Kada se {STRING} koristi sa Total Town Replacement Set (TTRS), osnovni lanac banke prema klimi i njegov teret će uvijek biti uključen.
+
+
+#Industry strings.
+
+STR_SHOP_NAME                                                   :Trgovina
+
+
+#Station names.
+STR_COAL_MINE_STATION_NAME                                      :{STRING} Rudnik ugljena
+STR_POWER_STATION_STATION_NAME                                  :{STRING} Elektrana
+STR_SAWMILL_STATION_NAME                                        :{STRING} Pilana
+STR_FOREST_STATION_NAME                                         :{STRING} Šuma
+STR_OIL_REFINERY_STATION_NAME                                   :{STRING} Rafinerija nafte
+STR_OIL_RIG_STATION_NAME                                        :{STRING} Naftna platforma
+STR_FACTORY_STATION_NAME                                        :{STRING} Tvornica
+STR_PRINTING_WORKS_STATION_NAME                                 :{STRING} Tiskara
+STR_STEEL_MILL_STATION_NAME                                     :{STRING} Čeličana
+STR_FARM_STATION_NAME                                           :{STRING} Farma
+STR_COPPER_ORE_MINE_STATION_NAME                                :{STRING} Rudnik bakrene rude
+STR_OIL_WELL_STATION_NAME                                       :{STRING} Naftna bušotina
+STR_BANK_STATION_NAME                                           :{STRING} Banka
+STR_FOOD_PROCESSING_PLANT_STATION_NAME                          :{STRING} Tvornica hrane
+STR_PAPER_MILL_STATION_NAME                                     :{STRING} Tvornica papira
+STR_GOLD_MINE_STATION_NAME                                      :{STRING} Rudnik zlata
+STR_DIAMOND_MINE_STATION_NAME                                   :{STRING} Rudnik dijamanata
+STR_IRON_ORE_MINE_STATION_NAME                                  :{STRING} Rudnik željezne rude
+STR_FRUIT_PLANTATION_STATION_NAME                               :{STRING} Plantaža voća
+STR_RUBBER_PLANTATION_STATION_NAME                              :{STRING} Plantaža gume
+STR_WATER_SUPPLY_STATION_NAME                                   :{STRING} Izvor vode
+STR_WATER_TOWER_STATION_NAME                                    :{STRING} Vodotoranj
+STR_LUMBER_MILL_STATION_NAME                                    :{STRING} Pilana
+STR_SHOP_STATION_NAME                                           :{STRING} Trgovina
+
+
+#Industry chain parameters.
+
+STR_PARAM_COAL_CHAIN                                            :Lanac ugljena
+STR_PARAM_COAL_CHAIN_DESC                                       :Ovaj parametar kontrolira prisutstvo lanca ugljena. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu.
+STR_PARAM_COAL_CHAIN_CLIMATE                                    :Ovisno o klimi
+STR_PARAM_COAL_CHAIN_ENABLED                                    :Uključeno
+STR_PARAM_COAL_CHAIN_DISABLED                                   :Isključeno
+
+STR_PARAM_OIL_CHAIN                                             :Lanac nafte
+STR_PARAM_OIL_CHAIN_DESC                                        :Ovaj parametar kontrolira prisutstvo lanca nafte. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. "Isključeno" će isključiti lanac nafte. Ostale postavke određuju koje će industrije vezane za naftu biti uključene.
+STR_PARAM_OIL_CHAIN_CLIMATE                                     :Ovisno o klimi
+STR_PARAM_OIL_CHAIN_WELLS                                       :Naftne bušotine i rafinerija nafte
+STR_PARAM_OIL_CHAIN_RIG                                         :Naftna platforma i rafinerija nafte
+STR_PARAM_OIL_CHAIN_ALL                                         :Naftne bušotine, naftna platforma, i rafinerija nafte
+STR_PARAM_OIL_CHAIN_DISABLED                                    :Isključeno
+
+STR_PARAM_VALUABLES_CHAIN                                       :Lanac banke
+STR_PARAM_VALUABLES_CHAIN_DESC                                  :Ovaj parametar kontrolira prisutstvo lanca banke. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. "Isključeno" će isključiti lanac banke. Ostale postavke uključuju lanac banke i određuju koji tereti se prihvaćaju (ili također proizvode u slučaju vrijednosnica).
+STR_PARAM_VALUABLES_CHAIN_CLIMATE                               :Ovisno o klimi
+STR_PARAM_VALUABLES_CHAIN_VALUABLES                             :Teret vrijednosnica
+STR_PARAM_VALUABLES_CHAIN_GOLD                                  :Teret zlata
+STR_PARAM_VALUABLES_CHAIN_DIAMONDS                              :Teret dijamanata
+STR_PARAM_VALUABLES_CHAIN_GOLD_DIAMONDS                         :Teret zlata i dijamanata
+STR_PARAM_VALUABLES_CHAIN_DISABLED                              :Isključeno
+
+STR_PARAM_IRON_ORE_CHAIN                                        :Lanac željezne rude
+STR_PARAM_IRON_ORE_CHAIN_DESC                                   :Ovaj parametar kontrolira prisutstvo lanca željezne rude. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. Pripazite jer možete imati samo tri tvornička tereta u bilo kojem trenutku. Ako odaberete više od tri, neki tereti će biti prihvaćani od drugih industrija (npr. tereti s farme od strane industrije hrane, drvo od strane pilane).
+STR_PARAM_IRON_ORE_CHAIN_CLIMATE                                :Ovisno o klimi
+STR_PARAM_IRON_ORE_CHAIN_ENABLED                                :Uključeno
+STR_PARAM_IRON_ORE_CHAIN_DISABLED                               :Isključeno
+
+STR_PARAM_COPPER_ORE_CHAIN                                      :Lanac bakrene rude
+STR_PARAM_COPPER_ORE_CHAIN_DESC                                 :Ovaj parametar kontrolira prisutstvo lanca bakrene rude. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. Pripazite jer možete imati samo tri tvornička tereta u bilo kojem trenutku. Ako odaberete više od tri, neki tereti će biti prihvaćani od drugih industrija (npr. tereti s farme od strane industrije hrane, drvo od strane pilane).
+STR_PARAM_COPPER_ORE_CHAIN_CLIMATE                              :Ovisno o klimi
+STR_PARAM_COPPER_ORE_CHAIN_ENABLED                              :Uključeno
+STR_PARAM_COPPER_ORE_CHAIN_DISABLED                             :Isključeno
+
+STR_PARAM_RUBBER_CHAIN                                          :Lanac gume
+STR_PARAM_RUBBER_CHAIN_DESC                                     :Ovaj parametar kontrolira prisutstvo lanca gume. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. Pripazite jer možete imati samo tri tvornička tereta u bilo kojem trenutku. Ako odaberete više od tri, neki tereti će biti prihvaćani od drugih industrija (npr. tereti s farme od strane industrije hrane, drvo od strane pilane).
+STR_PARAM_RUBBER_CHAIN_CLIMATE                                  :Ovisno o klimi
+STR_PARAM_RUBBER_CHAIN_ENABLED                                  :Uključeno
+STR_PARAM_RUBBER_CHAIN_DISABLED                                 :Isključeno
+
+STR_PARAM_FARM_CHAIN                                            :Lanac farme
+STR_PARAM_FARM_CHAIN_DESC                                       :Ovaj parametar kontrolira prisutstvo lanca farme. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu. "Isključeno" će isključiti lanac farme. Ostale postavke određuju koji će tereti s farme biti uključeni. Pripazite jer možete imati samo tri tvornička tereta u bilo kojem trenutku. Ako odaberete više od tri, neki tereti će biti prihvaćani od drugih industrija (npr. tereti s farme od strane industrije hrane, drvo od strane pilane).
+STR_PARAM_FARM_CHAIN_CLIMATE                                    :Ovisno o klimi
+STR_PARAM_FARM_CHAIN_GRAIN                                      :Žito
+STR_PARAM_FARM_CHAIN_LIVESTOCK                                  :Stoka
+STR_PARAM_FARM_CHAIN_GRAIN_LIVESTOCK                            :Žito i stoka
+STR_PARAM_FARM_CHAIN_DISABLED                                   :Isključeno
+
+STR_PARAM_FARM_DESTINATION                                      :Odredište tereta s farmi
+STR_PARAM_FARM_DESTINATION_DESC                                 :Ovaj parametar kontrolira odredište tereta iz lanca farme. Kada je parametar namješten na "Ovisno o klimi", odredište ovih tereta će ovisiti o osnovnim postavkama za trenutnu klimu. Ostale postavke određuju koje će industrije prihvaćati terete s farme. Ako odaberete više od tri tvornička tereta odjednom, moguće je da će tereti s farme biti phvaćani od strane industrije hrane.
+STR_PARAM_FARM_DESTINATION_CLIMATE                              :Ovisno o klimi
+STR_PARAM_FARM_DESTINATION_FOOD_PROCESSING_PLANT                :Tvornica hrane
+STR_PARAM_FARM_DESTINATION_FACTORY                              :Tvornica
+
+STR_PARAM_FRUIT_CHAIN                                           :Lanac voća
+STR_PARAM_FRUIT_CHAIN_DESC                                      :Ovaj parametar kontrolira prisutstvo lanca voća. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu.
+STR_PARAM_FRUIT_CHAIN_CLIMATE                                   :Ovisno o klimi
+STR_PARAM_FRUIT_CHAIN_ENABLED                                   :Uključeno
+STR_PARAM_FRUIT_CHAIN_DISABLED                                  :Isključeno
+
+STR_PARAM_WOOD_PRODUCER                                         :Proizvođač drva
+STR_PARAM_WOOD_PRODUCER_DESC                                    :Ovaj parametar kontrolira koja industrija proizvodi drvo. Kada je parametar namješten na "Ovisno o klimi", industrija koja proizvodi drvo će ovisiti o osnovnim postavkama za trenutnu klimu. Ostale postavke određuju koje će industrije proizvoditi drvo. Ovo također utječe i na tarife za prijevoz drveta.
+STR_PARAM_WOOD_PRODUCER_CLIMATE                                 :Ovisno o klimi
+STR_PARAM_WOOD_PRODUCER_FOREST                                  :Šuma
+STR_PARAM_WOOD_PRODUCER_LUMBER_MILL                             :Pilana
+STR_PARAM_WOOD_PRODUCER_DISABLED                                :Isključeno
+
+STR_PARAM_WOOD_DESTINATION                                      :Odredište drva
+STR_PARAM_WOOD_DESTINATION_DESC                                 :Ovaj parametar kontrolira odredište tereta drva. Kada je parametar namješten na "Ovisno o klimi", industrije koje prihvaćaju teret drva će ovisiti o osnovnim postavkama za trenutnu klimu. Ostale postavke određuju koje će industrije prihvaćati terete drva. Pripazite jer možete imati samo tri tvornička tereta u bilo kojem trenutku. Ako odaberete više od tri, neki tereti će biti prihvaćani od drugih industrija (npr. tereti s farme od strane industrije hrane, drvo od strane pilane).
+STR_PARAM_WOOD_DESTINATION_CLIMATE                              :Ovisno o klimi
+STR_PARAM_WOOD_DESTINATION_SAWMILL                              :Pilana
+STR_PARAM_WOOD_DESTINATION_PAPER_MILL                           :Tvornica papira
+STR_PARAM_WOOD_DESTINATION_FACTORY                              :Tvornica
+
+STR_PARAM_WATER_CHAIN                                           :Lanac vode
+STR_PARAM_WATER_CHAIN_DESC                                      :Ovaj parametar kontrolira prisutstvo lanca vode. Kada je parametar namješten na "Ovisno o klimi", prisutstvo ovog lanca će ovisiti o osnovnim postavkama za trenutnu klimu.
+STR_PARAM_WATER_CHAIN_CLIMATE                                   :Ovisno o klimi
+STR_PARAM_WATER_CHAIN_ENABLED                                   :Uključeno
+STR_PARAM_WATER_CHAIN_DISABLED                                  :Isključeno
+
+
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS                        :Isključiti ograničenja gradnje naftnih bušotina
+STR_PARAM_OIL_WELLS_DISABLE_RESTRICTIONS_DESC                   :Naftne bušotine će biti sagrađene u umjerenoj klimi tijekom normalne igre te u arktičkoj i tropskoj klimi nakon 1950. godine. Naftne bušotine u umjerenoj klimi mogu povećavati proizvodnju.
+
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS                          :Isključiti ograničenja gradnje naftnih platformi
+STR_PARAM_OIL_RIG_DISABLE_RESTRICTIONS_DESC                     :Naftne platforme će biti izgrađene prije 1960. godine i pojaviti će se tijekom generacije mape.
+
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS                   :Isključiti ograničenja gradnje banaka koje prihvaćaju vrijednosnice
+STR_PARAM_VALUABLES_BANK_DISABLE_RESTRICTIONS_DESC              :Banke koje prihvaćaju vrijednosnice će se pojaviti tijekom generacije mape.
+
+STR_PARAM_INDUSTRY_CHANGES                                      :Stvaranje/izmjena/zatvaranje glavnih industrija
+STR_PARAM_INDUSTRY_CHANGES_DESC                                 :Uključite za standardni način vijeka trajanja OpenTTD industrija, isključite za zamrzavanje nasumičnog stvaranja/zatvaranja.
+STR_PARAM_SMALLINDUSTRY_CHANGES                                 :Stvaranje/izmjena/zatvaranje gradskih industrija
+STR_PARAM_SMALLINDUSTRY_CHANGES_DESC                            :Isključite za zamrzavanje nasumičnog stvaranja/zatvaranja banki, dućana, vodotornjeva.

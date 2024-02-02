@@ -1,0 +1,91 @@
+/*  This file is part of The Dutch Track Set
+ *  This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+
+//Defines HSL (25 kV AC, 300 km/h)
+item(FEAT_RAILTYPES,item_HSL) {
+	property {
+		//Naming
+		label:						"SBCA";
+		name:						string(STR_NAME_HSL);
+		toolbar_caption:			string(STR_TOOL_HSL);
+		menu_text:					string(STR_MENU_HSL);
+		build_window_caption:		string(STR_BUIL_HSL);
+		autoreplace_text:			string(STR_REPL_HSL);
+		new_engine_text:			string(STR_NENG_HSL);
+		sort_order:					04;	
+
+		//Properties of the rail
+		compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA"];
+		powered_railtype_list:		["ELRL","SBEE","SAEA"];
+		acceleration_model:			ACC_MODEL_RAIL;
+
+		//Costs
+		construction_cost:			24;
+		maintenance_cost:			24;
+
+		//Graphics and other stuff
+		station_graphics:			RAILTYPE_STATION_NORMAL;
+		railtype_flags:				bitmask(RAILTYPE_FLAG_CATENARY);
+		
+		//Long list with fallback types:
+		alternative_railtype_list:	["SBAA","SBBA","SBCA","SBDA","SBEA"];
+
+		//HSL and Betuweroute are the same power system, so both introduce each other
+		introduces_railtype_list:   ["SAEA"];		
+	}
+	
+	//Properties that depend on the parameter settings
+	
+	//Speedlimits
+	//on
+	if ( param_speed_limit == 1 ) {
+		property {
+			speed_limit: 			300 km/h;
+		}
+	}
+	//off
+	else {
+		property {
+			speed_limit:		 	0 km/h;
+		}
+	}
+	
+	//Track Compatibility
+	//Non electrified, electrified, metro
+	if ( param_track_compat == 1) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD"];
+			powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD"];
+			introduces_railtype_list:   ["SAEA","SADD","ELRL"];
+		}	
+	}
+	//Full compatibility (Non electrfied, electrified)
+	if (param_track_compat == 2) {
+		property {
+			compatible_railtype_list:	["RAIL","ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+			powered_railtype_list:		["ELRL","SAEA","SBEE","SBCA","SADD","SAA3"];
+			introduces_railtype_list:   ["SAEA","SADD","ELRL","SAA3"];
+		}
+	}	
+	
+	//Disable Level Crossings
+	if (param_levcross_high == 0) {
+		property {
+			railtype_flags:			bitmask(RAILTYPE_FLAG_CATENARY,RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+		}
+	}
+	
+	graphics {
+		track_overlay:		spriteset_HSL_overlay;
+		underlay:			spriteset_HSL_underlay;
+		tunnels:			spriteset_HSL_tunnel;
+		level_crossings:  	switch_HSL_levcross;
+		bridge_surfaces:  	spriteset_HSL_bridges;
+		catenary_wire:		spriteset_HSL_catwire;
+		catenary_pylons:	spriteset_HSL_catpol;
+		fences:				switch_HSL_fences;
+	}
+}

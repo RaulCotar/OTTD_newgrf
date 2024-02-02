@@ -1,0 +1,86 @@
+template template_pneumatic_tube(x, y) {
+            //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+            [x,        y,          10,        25,          -4, -19 ]
+            [16,       y,          22,        17,          -14, -9 ]
+            [48,       y,          32,        12,          -6, -8 ]
+            [96,       y,          22,        17,          -8, -10 ]
+}
+
+spriteset(spriteset_pneumatic_pass, "gfx/pneumatic_tube_0.png") {
+      template_pneumatic_tube(0, 0)
+    }
+
+spriteset(spriteset_pneumatic_mail, "gfx/pneumatic_tube_0.png") {
+      template_pneumatic_tube(256, 0)
+    }
+	
+spriteset(spriteset_pneumatic_mail_load, "gfx/pneumatic_tube_0.png") {
+      template_pneumatic_tube(512, 0)
+    }
+
+spritegroup pneumatic_mail {
+    loaded:  [
+        spriteset_pneumatic_mail,
+    ];
+    loading: [
+        spriteset_pneumatic_mail_load,
+    ];
+}
+
+switch (FEAT_TRAINS, SELF, set_pneumatic_tube_0_default, [STORE_TEMP(0, 0x10F), var[0x61, 0, 0x000000FF, 0x47]]) {
+                MAIL: return pneumatic_mail;
+                PASS: return spriteset_pneumatic_pass;
+                return spriteset_pneumatic_pass;
+            }
+
+//------------------------------------------------PNEUMATIC TUBE CODE SECTION------------------------------------------------
+
+/* Define the actual train */
+item(FEAT_TRAINS, item_pneumatic_tube_0) {
+    /* Define properties first, make sure to set all of them */
+    property {
+        name:                         string(STR_NAME_pneumatic_tube_0);
+        // not available in toyland:
+        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL, CLIMATE_TOYLAND); 
+        introduction_date:            date(2072, 1, 1);
+        model_life:                   VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                 48;
+		retire_early:                 36; // magic from Eddi
+        reliability_decay:            20;
+        refittable_cargo_classes:     bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes: bitmask();
+        // refitting is done via cargo classes only, no cargo types need explicit enabling/disabling
+        // It's an intercity train, loading is relatively slow:
+        loading_speed:                6; 
+        cost_factor:                  213.33333333333331;
+        running_cost_factor:          168.33333333333331;
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;
+        speed:                        4100 km/h;
+        misc_flags:                   bitmask(TRAIN_FLAG_2CC);
+        refit_cost:                   0; //refit costs don't apply to subcargo display 
+        // callback flags are not set manually
+        track_type:                   FUTURE;
+        ai_special_flag:              AI_FLAG_PASSENGER;
+        power:                        32000 hp;
+        running_cost_base:            RUNNING_COST_DIESEL;
+        dual_headed:                  0;
+        cargo_capacity:               255; // per part, changed by callback
+        weight:                       40000 kg; // Total, changed by callback
+        ai_engine_rank:               0; // not intended to be used by the ai
+        engine_class:                 ENGINE_CLASS_DIESEL;
+        extra_power_per_wagon:        0 kW;
+        // 4/12 of weight on driving wheels, with a default friction coefficient of 0.3:
+        tractive_effort_coefficient:  0.3 / 3; // changed by callback
+        air_drag_coefficient:         0.06;
+        // Overridden by callback to disable for non-powered wagons:
+        visual_effect_and_powered:    visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        extra_weight_per_wagon:       0 ton;
+        bitmask_vehicle_info:         0;
+		length:						  8;
+    }
+    /* Define graphics and callbacks
+     * Setting all callbacks is not needed, only define what is used */
+    graphics {
+        default:                      set_pneumatic_tube_0_default;
+    }
+}

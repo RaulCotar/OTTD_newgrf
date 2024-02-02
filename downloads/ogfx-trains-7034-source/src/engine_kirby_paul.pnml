@@ -1,0 +1,27 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * Kirby Paul steam engine
+ */
+
+ENGINE_GRAPHICS_GROUP_32BPP(kirbypaul, "kirby_paul", default,
+    "src/gfx/engines/temperate_kirbypaul_88.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
+
+item(FEAT_TRAINS, kirbypaul) {
+    property {
+            sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+            misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+	}
+	graphics {
+            default:            kirbypaul_default_indepot_switch;
+            purchase:           kirbypaul_default_switch_gui;
+	}
+}
