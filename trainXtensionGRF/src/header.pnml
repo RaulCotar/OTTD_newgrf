@@ -1,0 +1,55 @@
+grf {
+	grfid: "RC!\02";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: _VER_NR;
+	min_compatible_version: _VER_COMP_NR;
+	param {
+		param_use_2cc_cargo { // a value of the param 0
+			name:		string(STR_PARAM_USE2CCC_NAME);
+			desc:		string(STR_PARAM_USE2CCC_DESC);
+			type:		bool;
+			def_value:	1; // use 2cc by default
+			bit:		1; // uses 1st bit (whose bits?). Idk how many bits I can use (64?)
+		}
+	}
+	param {
+		param_enable_speed_limits {
+			desc:		string(STR_PARAM_SPEEDLIMITS_NAME);
+			name:		string(STR_PARAM_SPEEDLIMITS_DESC);
+			type:		bool;
+			def_value:	1; // limits enabled by default
+			bit:		1; // idfk
+		}
+	}
+	param {
+		param_enable_lvlcross {
+			desc:		string(STR_PARAM_LVLCROSS_NAME);
+			name:		string(STR_PARAM_LVLCROSS_DESC);
+			type:		bool;
+			def_value:	0; // level crossings disabled by default
+			bit:		1; // idfk
+		}
+	}
+}
+	
+railtypetable {
+	RAIL,
+	ELRL,
+	SBCA,
+	MONO,
+	MGLV
+}
+
+cargotable { // All cargo lables referenced in this file should be in here.
+	//Default cargos
+   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
+	//Tropical cargos
+   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
+	//ECS
+   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR,SAND, SULP, TOUR, VEHI, WDPR, WOOL,
+	//FIRS
+   BEER, CLAY, ENSP, FMSP, FRVG, GRVL, MILK, MNSP, PHOS, PORE, RCYC, SCMT, SGBT, SGCN, JAVA, COPR, SUGR,
+	//Nuclear stuff (huh?)
+	URAN, NWST
+}

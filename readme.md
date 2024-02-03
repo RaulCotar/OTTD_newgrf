@@ -1,13 +1,12 @@
 ## TODO:
-- (re)implement RAIL, ELRL to fix speed and compat issues
-- implement and draw the double stack intermodal freight wagon
-
-## How to build
-- go into your grf's directory
-- command: `..\program\nmlc -l lang --grf foo_buildNo_ver.grf foo.nml`
-- to install the grf copy it into [here](C:\Users\Raul\Documents\OpenTTD\newgrf)
+- finish the sprites for th double stacker
+- take a look at industry and ship and do a maintenance update to them
+- write down sources and licenses
 
 ## Misc
 Useful links:
+- https://github.com/JGRennison/nml
+- https://newgrf-specs.tt-wiki.net/wiki/NML
 - https://www.tt-forums.net/viewtopic.php?t=65598
-- https://github.com/OpenTTD/nml#4-usage
+- https://pythonhosted.org/nml/nml-language.html
+- https://github.com/OpenTTD/nml4-usage

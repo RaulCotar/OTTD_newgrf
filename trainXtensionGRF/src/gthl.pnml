@@ -1,0 +1,63 @@
+spriteset (spriteset_engine_heavy, 			"gfx/HeavyTurbo_2cc.png")	{ tmpl_engine(0, 0) 	} // for 'Heavy Turbo'
+spriteset (spriteset_engine_heavy_buy, 		"gfx/HeavyTurbo_2cc.png")	{ tmpl_engine_buy(0, 0) }
+
+item (FEAT_TRAINS, item_engine_heavy) { // HEAVY TURBO item
+	property { // See docs for more info
+		name:							string(STR_EAR_HEAVY);
+		misc_flags:						bitmask(TRAIN_FLAG_TILT, TRAIN_FLAG_2CC); // +20% corner speed, 2 comp colours
+		ai_special_flag:				AI_FLAG_CARGO; // PASSENGER or CARGO
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1976, 4, 1); // later diesel loco
+		model_life:						45; // stays at peak reliability until ~2022
+		vehicle_life:					20; // time before replacement, usually ~20y
+		reliability_decay:				18; // decay speed, usually 20
+		refittable_cargo_classes:		bitmask(); // no cargo, try comment these
+		non_refittable_cargo_classes:	bitmask(); // idk if I should specify these
+		track_type:						RAIL; // from table, see cb for ELRL part
+		dual_headed:					0; // [0/1]
+		
+		cost_factor:					36; // buy cost multiplier. Trial & error.
+		running_cost_base:				RUNNING_COST_DIESEL; // internal calcs
+		weight:							218 ton; // [f] heaviest single unit in the game
+		air_drag_coefficient:			0.05; // in range(.004, .75)
+		length:							8; // 8 = full length veh
+		
+		tractive_effort_coefficient: 	0.3; // max TE (ish) = coef * 10 * mass
+		power:							1 hp; // all these sholud be specified in here
+		speed:							1 km/h; // but should be handled by cb
+		running_cost_factor:			1; // see graphics block for details
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN; // to enable new gfx
+		engine_class:					ENGINE_CLASS_DIESEL; // for audio-video effects defaults
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 1, DISABLE_WAGON_POWER); // arg2 = in-game offset, see README
+		bitmask_vehicle_info:			0; // idk
+		
+		/* Unused:
+			retire_early: [y]; // disallow purchase y years after model life
+			cargo_allow_refit: [array of cargo labels]; // allow refit to these no matter the classes
+			cargo_disallow_refit: [array of cargo labels];
+			loading_speed: [x]; // more = faster [un]loading
+			cargo_age_period: [x]; // x tics to age++. day=74, def=185
+			refit_cost: [x]; // mult of 50% of base cost of veh
+			default_cargo_type: [cargo label] // too long, read wiki
+			cargo_capacity: [x]; // if different across cargos, use callback
+			extra_power_per_wagon: [f]; // effects only if there is also a livery override for that wag
+			extra_weight_per_wagon: [f]; // default = 0, use for powered wagons
+			effect_spawn_model_and_powered: see docs. A more elaborate way of doing effects.
+		*/
+		
+	}
+	graphics { // Everything related to graphics and callbacks
+		default:						spriteset_engine_heavy; // default spriteset
+		
+		purchase:						spriteset_engine_heavy_buy; // buy menu spriteset
+		additional_text:				return string(STR_EAR_HEAVY_DESC); // buy menu desc + hybrid stats
+		purchase_power:					6522; // all these should match ELRL specs from below
+		purchase_speed:					100; // buy menu
+		purchase_running_cost_factor:	172; // buy menu
+		
+		power:							return (current_railtype == ELRL)? 9384 : 6522; // this * 0.74571 kW
+		speed:							return (current_railtype == ELRL)? 120 : 100; // 120 : 100 km/h
+		running_cost_factor:			return (current_railtype == ELRL)? 190 : 172; // this * 40.37 = price_eur
+	}
+}

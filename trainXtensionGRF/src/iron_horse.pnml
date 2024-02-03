@@ -1,0 +1,55 @@
+spriteset (spriteset_engine_steam,		"gfx/IronHorse.png") { tmpl_engine(0, 0) }
+spriteset (spriteset_engine_steam_buy,	"gfx/IronHorse.png") { tmpl_engine_buy(0, 0) }
+
+item (FEAT_TRAINS, item_engine_steam) {
+	property {
+		name:							string(STR_EAR_STEAM);
+		misc_flags:						bitmask(TRAIN_FLAG_TILT, TRAIN_FLAG_2CC); // +20% corner speed, 2 comp colours
+		ai_special_flag:				AI_FLAG_PASSENGER; // PASSENGER or CARGO
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1956, 4, 1); // last steam loco
+		model_life:						45; // stays at peak reliability until ~2002
+		vehicle_life:					22; // time before replacement, usually ~20y
+		reliability_decay:				11; // decay speed, usually 20
+		refittable_cargo_classes:		bitmask(); // no cargo, try comment these
+		non_refittable_cargo_classes:	bitmask(); // idk if I should specify this
+		track_type:						RAIL; // from table
+		dual_headed:					0; // [0/1]
+		
+		cost_factor:					24; // buy cost multiplier. Trial & error.
+		running_cost_base:				RUNNING_COST_STEAM; // internal calcs
+		running_cost_factor:			120; // mult to above. Trial & error.
+		weight:							156 ton; // On the heavy side. float maybe
+		power:							1479 hp; // [f], =1500hp, 2nd most powerful, 1 hp = 0.7457 kW
+		tractive_effort_coefficient:	0.27; // total TE = f * 10 * weight <kN>
+		speed:							156 km/h; // [f],there are conversion roundings to 'km-ish'
+		air_drag_coefficient:			0.04; // in range(.004, .75)
+		length:							8; // 8 = full length veh
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN; // to enable new gfx
+		engine_class:					ENGINE_CLASS_STEAM; // for audio-video effects defaults
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_STEAM, -1, DISABLE_WAGON_POWER); // arg2 = in-game offset, see README
+		bitmask_vehicle_info:			0; // idk
+		
+		/* Unused:
+			retire_early: [y]; // disallow purchase y years after model life
+			cargo_allow_refit: [array of cargo labels]; // allow refit to these no matter the classes
+			cargo_disallow_refit: [array of cargo labels];
+			loading_speed: [x]; // more = faster [un]loading
+			cargo_age_period: [x]; // x tics to age++. day=74, def=185
+			refit_cost: [x]; // mult of 50% of base cost of veh
+			default_cargo_type: [cargo label] // too long, read wiki
+			cargo_capacity: [x]; // if different across cargos, use callback
+			extra_power_per_wagon: [f]; // effects only if there is also a livery override for that wag
+			extra_weight_per_wagon: [f]; // default = 0, use for powered wagons
+			effect_spawn_model_and_powered: see docs. A more elaborate way of doing effects.
+		*/
+		
+	}
+	graphics { // Everything related to graphics and callbacks
+		default:						spriteset_engine_steam; // default spriteset
+		purchase:						spriteset_engine_steam_buy; // buy menu spriteset
+		additional_text:				return string(STR_EAR_STEAM_DESC); // buy menu desc
+	}
+	//livery_override() {}
+}

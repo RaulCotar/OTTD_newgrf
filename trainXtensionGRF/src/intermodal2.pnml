@@ -1,0 +1,51 @@
+spriteset (spriteset_intermodal2_empty, 	"gfx/FreightCar.png")		{ tmpl_wagon(0, 0) } // for 'Freight wagon', empty
+spriteset (spriteset_intermodal2_cc1,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 25) } // for 'Freight wagon', cc1
+spriteset (spriteset_intermodal2_cc2,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 50) } // for 'Freight wagon', cc2
+spriteset (spriteset_intermodal2_buy,		"gfx/FreightCar.png")		{ tmpl_wagon_buy(0, 25) } // using cc1
+
+switch (FEAT_TRAINS, SELF, sw_intermodal2_cc, position_in_consist % 2 || !param_use_2cc_cargo) { // freight sprite (pos decision)
+	0: spriteset_intermodal2_cc2; // positions start from 1 (loco=0)
+	spriteset_intermodal2_cc1; // if even pos or no 2cc, see param
+}
+switch (FEAT_TRAINS, SELF, sw_intermodal2_gfx, (10 * cargo_count / cargo_capacity) >= 5) { // freight sprite (load decision)
+	0: spriteset_intermodal2_empty; // empty
+	1: sw_intermodal2_cc;
+}
+
+item (FEAT_TRAINS, item_wagon_intermodal2) {
+	property {
+		name:							string(STR_INTERMODAL2);
+		misc_flags:						bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1982, 4, 1); // late for a wagon
+		model_life:						100; // ~2082
+		vehicle_life:					30;
+		track_type:						RAIL;
+		cost_factor:					244;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		weight:							22 ton; // use settings for weight mult
+		speed:							160 km/h; // vanilla = infinit
+		power:							0; // it's a wagon, hopefully
+		tractive_effort_coefficient: 	0;
+        air_drag_coefficient: 			0;
+		extra_power_per_wagon: 			0; // idk if I should specify this
+		
+		cargo_allow_refit:				[GOOD, MAIL, FOOD, FRUT, PAPR, ENSP, FMSP, MNSP];
+		refit_cost:						0; // for easier refit without cb
+		default_cargo_type:				GOOD;
+		cargo_capacity:					64;
+		cargo_age_period:				190; // 74 = +1 age / day, default 185
+		loading_speed:					7; // 5 default
+		
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		engine_class:					ENGINE_CLASS_DIESEL; // does it matter for a wagon?
+		bitmask_vehicle_info:			0; // idk
+		visual_effect_and_powered: 		visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+	}
+	graphics {
+		default: 						sw_intermodal2_gfx; // see sw
+		purchase:						spriteset_intermodal2_buy;
+		additional_text:				return string(STR_INTERMODAL2_DESC);
+	}
+}

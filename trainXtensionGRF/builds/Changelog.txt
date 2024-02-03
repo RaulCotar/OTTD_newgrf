@@ -13,4 +13,6 @@
 1.3.5		Final version. (unless I change some related cargo in WorldXTension.grf) --ignore
 Just realized freight wagon was broken. (didn't show empty sprite even when it was empty)
 1.3.6		Fixed that bug. Final version before possible cargo change.
-1.3.7		Added increased capacity for freight wagon after 1972. (has to )
+1.3.7		Added increased capacity for freight wagon after 1972.
+1.4.0		Added new rail type (broken) and removed changing freight capacity.
+1.4.2		Fixed new rail type, speed limits and added a double-stack car (placeholder sprites). Project now uses a build script.
