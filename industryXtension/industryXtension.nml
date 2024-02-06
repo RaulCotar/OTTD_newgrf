@@ -10,13 +10,22 @@ grf {
 	grfid: "RC!\04";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 3;
+	version: 4;
 	min_compatible_version: 3;
 }
 
 // TABLES
 cargotable { // All cargo lables referenced in this file should be in here.
-	PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD, CORE, DIAM, FRUT, MAIZ, RUBR, WATR
+	//Default cargos
+   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
+	//Tropical cargos
+   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
+	//ECS
+   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR,SAND, SULP, TOUR, VEHI, WDPR, WOOL,
+	//FIRS
+   BEER, CLAY, ENSP, FMSP, FRVG, GRVL, MILK, MNSP, PHOS, PORE, RCYC, SCMT, SGBT, SGCN, JAVA, COPR, SUGR,
+	//Nuclear stuff (huh?)
+	URAN, NWST
 }
 
 // CARGOS

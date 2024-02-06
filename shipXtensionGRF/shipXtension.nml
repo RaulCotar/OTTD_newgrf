@@ -10,27 +10,36 @@ grf {
 	grfid: "RC!\03";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 4;
+	version: 5;
 	min_compatible_version: 3;
 }
 
 // TABLES
 cargotable { // All cargo lables referenced in this file should be in here.
-	PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD, CORE, DIAM, FRUT, MAIZ, RUBR, WATR
+	//Default cargos
+   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
+	//Tropical cargos
+   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
+	//ECS
+   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR,SAND, SULP, TOUR, VEHI, WDPR, WOOL,
+	//FIRS
+   BEER, CLAY, ENSP, FMSP, FRVG, GRVL, MILK, MNSP, PHOS, PORE, RCYC, SCMT, SGBT, SGCN, JAVA, COPR, SUGR,
+	//Nuclear stuff (huh?)
+	URAN, NWST
 }
 
 // TEMPLATES
 template tmpl_ship(x, y) { // For ship sprites.
 	// Use y in steps of 90, and x=0.
-	//[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
-    [x,         y,          28,        89,          -14,         -41]
-    [x+ 29,     y,         113,        71,          -47,         -22]
-    [x+143,     y,         138,        48,          -65,         -29]
-    [x+282,     y,         113,        71,          -21,         -22]
-    [x+396,     y,          28,        89,          -14,         -50]
-    [x+425,     y,         113,		   71,          -75,         -22]
-    [x+539,     y,         138,        48,          -65,         -29]
-    [x+678,     y,         113,        71,          -20,         -22]
+	//[left_x,  upper_y,    width,     height,     offset_x,     offset_y, flags]
+    [x,         y,          28,        89,          -14,         -41,	ANIM]
+    [x+ 29,     y,         113,        71,          -47,         -22,	ANIM]
+    [x+143,     y,         138,        48,          -65,         -29,	ANIM]
+    [x+282,     y,         113,        71,          -21,         -22,	ANIM]
+    [x+396,     y,          28,        89,          -14,         -50,	ANIM]
+    [x+425,     y,         113,		   71,          -75,         -22,	ANIM]
+    [x+539,     y,         138,        48,          -65,         -29,	ANIM]
+    [x+678,     y,         113,        71,          -20,         -22,	ANIM]
 	// Offsets based on Santorini (ULCC)
 }
 template tmpl_ship_buy(x, y) { // Buy menu for both ships.
@@ -84,7 +93,7 @@ item (FEAT_SHIPS, item_CSP) { // CSP
 		
 		sprite_id:				SPRITE_ID_NEW_SHIP;
 		visual_effect:			visual_effect(VISUAL_EFFECT_DIESEL, 7); // arg 2 = offs
-		sound_effect:			SOUND_SHIP_HORN;
+		sound_effect:			SOUND_DEPARTURE_CARGO_SHIP;
 		
 		speed:					45 km/h; // =45, ~real-life max
 		ocean_speed_fraction:	1;
@@ -93,7 +102,7 @@ item (FEAT_SHIPS, item_CSP) { // CSP
 		loading_speed:			12; // default 10 units / 10 tics
 		default_cargo_type:		GOOD;
 		is_refittable:			1; // yes, yes it is
-		cargo_allow_refit:		[GOOD, GRAI, COAL, IORE, STEL, WOOD];
+		cargo_allow_refit:		[GOOD, GRAI, COAL, IORE, STEL, WOOD, FOOD, PAPR, WHEA, FRUT, MAIZ, AORE, BRCK, CERE, CMNT, DYES, FERT, FISH, GLAS, PLAS, POTA, SAND, WOOL, CLAY, FMSP, GRVL, MNSP, RCYC, COPR, SUGR, ENSP];
 		refit_cost:				0; // for easy autorefit
 		cargo_age_period:		444; // +1 age / 6 days, default 185
 		
@@ -117,7 +126,7 @@ item (FEAT_SHIPS, item_ULCC) { // ULCC
 		
 		sprite_id:				SPRITE_ID_NEW_SHIP;
 		visual_effect:			visual_effect(VISUAL_EFFECT_DIESEL, 7); // arg 2 = offs, max=7
-		sound_effect:			SOUND_SHIP_HORN;
+		sound_effect:			SOUND_DEPARTURE_CARGO_SHIP;
 		
 		speed:					45 km/h; // =45, ~real-life max
 		ocean_speed_fraction:	1;
@@ -126,7 +135,7 @@ item (FEAT_SHIPS, item_ULCC) { // ULCC
 		loading_speed:			12; // default 10 units / 10 tics
 		default_cargo_type:		OIL_;
 		is_refittable:			1; // !nu apa :)
-		cargo_allow_refit:		[OIL_, WATR];
+		cargo_allow_refit:		[OIL_, WATR, RUBR, BEER, MILK];
 		refit_cost:				0; // for easy autorefit
 		cargo_age_period:		444; // +1 age / 6 days, default 185
 		

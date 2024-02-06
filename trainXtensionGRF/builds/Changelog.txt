@@ -16,3 +16,4 @@ Just realized freight wagon was broken. (didn't show empty sprite even when it w
 1.3.7		Added increased capacity for freight wagon after 1972.
 1.4.0		Added new rail type (broken) and removed changing freight capacity.
 1.4.2		Fixed new rail type, speed limits and added a double-stack car (placeholder sprites). Project now uses a build script.
+1.4.3		Made proper sprites for the double-stacker. Fixed other small sprite-related issues. Bug: no catenary in buy menu.

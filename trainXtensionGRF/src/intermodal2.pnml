@@ -1,11 +1,11 @@
-spriteset (spriteset_intermodal2_empty, 	"gfx/FreightCar.png")		{ tmpl_wagon(0, 0) } // for 'Freight wagon', empty
-spriteset (spriteset_intermodal2_cc1,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 25) } // for 'Freight wagon', cc1
-spriteset (spriteset_intermodal2_cc2,	  	"gfx/FreightCar.png")		{ tmpl_wagon(0, 50) } // for 'Freight wagon', cc2
-spriteset (spriteset_intermodal2_buy,		"gfx/FreightCar.png")		{ tmpl_wagon_buy(0, 25) } // using cc1
+spriteset (spriteset_intermodal2_empty, 	"gfx/DoubleFreightCar.png")		{ tmpl_wagon(0, 0) } // for 'Freight wagon', empty
+spriteset (spriteset_intermodal2_cc1,	  	"gfx/DoubleFreightCar.png")		{ tmpl_wagon(0, 31) } // for 'Freight wagon', cc1
+spriteset (spriteset_intermodal2_cc2,	  	"gfx/DoubleFreightCar.png")		{ tmpl_wagon(0, 62) } // for 'Freight wagon', cc2
+spriteset (spriteset_intermodal2_buy,		"gfx/DoubleFreightCar.png")		{ tmpl_wagon_buy(0, 31) } // using cc1
 
 switch (FEAT_TRAINS, SELF, sw_intermodal2_cc, position_in_consist % 2 || !param_use_2cc_cargo) { // freight sprite (pos decision)
-	0: spriteset_intermodal2_cc2; // positions start from 1 (loco=0)
-	spriteset_intermodal2_cc1; // if even pos or no 2cc, see param
+	0: spriteset_intermodal2_cc1; // positions start from 1 (loco=0)
+	spriteset_intermodal2_cc2; // odd position
 }
 switch (FEAT_TRAINS, SELF, sw_intermodal2_gfx, (10 * cargo_count / cargo_capacity) >= 5) { // freight sprite (load decision)
 	0: spriteset_intermodal2_empty; // empty
@@ -21,7 +21,7 @@ item (FEAT_TRAINS, item_wagon_intermodal2) {
 		model_life:						100; // ~2082
 		vehicle_life:					30;
 		track_type:						RAIL;
-		cost_factor:					244;
+		cost_factor:					245;
 		running_cost_base:				RUNNING_COST_NONE;
 		
 		weight:							22 ton; // use settings for weight mult

@@ -1,8 +1,8 @@
 ##grflangid 0x01
 
 # GRF data
-STR_GRF_NAME		:Industry XTension 1.0.0
-STR_GRF_VER			:1.0.0
+STR_GRF_NAME		:Industry XTension 1.0.1
+STR_GRF_VER			:1.0.1
 STR_GRF_DESC		:{}Extends the industrial chain by adding the {BLUE}Industrial Plant{BLACK}, a new tertiary industry.{}Also tweaks some cargo parameters to make the game more enjoyable.{}{WHITE}Now in 2cc!{}{BLACK}Made by {ORANGE}Raul Cotar
 
 # Item strings

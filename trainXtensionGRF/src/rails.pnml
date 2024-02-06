@@ -2,18 +2,19 @@ spriteset(spriteset_HSRL_overlay,"gfx/HSRL/Overlay-HSRL.png")			{tmpl_overlay()}
 spriteset(spriteset_HSRL_underlay,"gfx/HSRL/Underlay-HSRL.png")			{tmpl_underlay()}
 spriteset(spriteset_HSRL_tunnel,"gfx/HSRL/Tunnel-HSRL.png")				{tmpl_tunnel()}
 spriteset(spriteset_HSRL_bridges,"gfx/HSRL/Bridge-HSRL.png")			{tmpl_bridge()}
+//spriteset(spriteset_HSRL_buy,"grfx/HSRL/Overlay-HSRL.png") {}
 spriteset(spriteset_HSRL_levcrossclosed,"gfx/HSRL/LevelCrossing-HSRL.png") {
-	//left_x, upper_y, width, height, offset_x, offset_y
-	[  1,     1,       64,    31,       -31,          0]
-	[ 66,     1,       64,    31,       -31,          0]
-	[148,     7,       14,    15,       -11,         -9]	
-	[233,     8,       14,    15,        -2,        -10]
-	[148,     7,       14,    15,       -13,         -9]		
-	[207,     7,       13,    13,       -11,        -10]
-	[175,     6,       13,    13,         0,        -10]
-	[233,     8,       14,    15,         5,        -11]	
-	[175,     6,       13,    13,        -2,        -10]	
-	[207,     7,       13,    13,        -6,        -12]
+	//left_x, upper_y, width, height, offset_x, offset_y, flags
+	[  1,     1,       64,    31,       -31,          0,	ANIM]
+	[ 66,     1,       64,    31,       -31,          0,	ANIM]
+	[148,     7,       14,    15,       -11,         -9,	ANIM]	
+	[233,     8,       14,    15,        -2,        -10,	ANIM]
+	[148,     7,       14,    15,       -13,         -9,	ANIM]		
+	[207,     7,       13,    13,       -11,        -10,	ANIM]
+	[175,     6,       13,    13,         0,        -10,	ANIM]
+	[233,     8,       14,    15,         5,        -11,	ANIM]	
+	[175,     6,       13,    13,        -2,        -10,	ANIM]	
+	[207,     7,       13,    13,        -6,        -12,	ANIM]
 }
 spriteset(spriteset_HSRL_levcrossopen,"gfx/HSRL/LevelCrossing-HSRL.png") {
 	//left_x, upper_y, width, height, offset_x, offset_y
@@ -27,6 +28,50 @@ spriteset(spriteset_HSRL_levcrossopen,"gfx/HSRL/LevelCrossing-HSRL.png") {
 	[233,    29,        5,    15,         5,        -13]	
 	[175,    27,        5,    15,        -2,        -12]	
 	[215,    28,        5,    15,         2,        -14]
+}
+spriteset(spriteset_HSRL_catpol,"gfx/HSRL/CatenaryPoles-HSRL.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[      1,       1,     8,     22,       -7, 	 -20]
+	[     17,       1,     8,     24,        0, 	 -23]
+	[     33,       1,     8,     22,        0, 	 -20]
+	[     49,       1,     8,     24,       -7, 	 -23]
+	[     65,       1,     2,     28,        0,  	 -21]
+	[     81,       1,     2,     22,        0,  	 -22]
+	[     97,       1,     8,     22, 	     0,  	 -23]
+	[    113,       1,     8,     22,       -7, 	 -21]
+}
+spriteset(spriteset_HSRL_catwire,"gfx/HSRL/CatenaryWires-HSRL.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[      1,       1,    32,     22,      -29, 	  -8]
+	[     49,       1,    32,     22,       -1, 	  -8]
+	[     97,       1,    32,      7,       -1, 	  -8]
+	[    145,       1,     1,     22,        0, 	  -9]
+	[    161,       1,    32,     30,      -29,  	  -8]
+	[    209,       1,    32,     15,       -1,  	   0]
+	[    257,       1,    32,     15, 	   -29,  	   1]
+	[    305,       1,    32,     30,       -1, 	  -8]
+	[    353,       1,    32,     19,      -29, 	  -5]
+	[    401,       1,    32,     19,       -1, 	  -5]
+	[    449,       1,    32,      7,       -1,  	  -8]
+	[    497,       1,     1,     19,        0,  	  -6]
+	[    513,       1,    32,     27, 	   -29,  	  -5]
+	[    561,       1,    32,     12,       -1, 	   3]
+	[    609,       1,    32,     12,      -29, 	   3]
+	[    657,       1,    32,     27,       -1, 	  -5]
+	[      1,       49,   32,     22,      -29, 	  -8]
+	[     49,       49,   32,     22,       -1, 	  -8]
+	[     97,       49,   32,      7,       -1, 	  -8]
+	[    145,       49,    1,     22,        0, 	  -9]
+	[    161,       49,   32,     20,      -29,  	  -8]
+	[    209,       49,   32,     15,       -1,  	   0]
+	[    257,       49,   32,     15, 	   -29,  	   0]
+	[    305,       49,   32,     30,       -1, 	  -8]
+	[    353,       49,   16,     11,      -29, 	   2]
+	[    385,       49,   16,     14, 	    -1,  	  -8]
+	[    417,       49,   16,     14,      -13, 	  -8]
+	[    449,       49,   16,     11,       15, 	   3]		
 }
 
 switch(FEAT_RAILTYPES,SELF,switch_HSRL_levcross,level_crossing_status) {
@@ -82,11 +127,11 @@ item(FEAT_RAILTYPES, item_HSRL) {
 		maintenance_cost:			24;
 
 		station_graphics:			RAILTYPE_STATION_NORMAL;
-		railtype_flags:				bitmask(0);
+		railtype_flags:				bitmask(RAILTYPE_FLAG_CATENARY);
 	}	
 	if (param_enable_lvlcross == 0) {
 		property {
-			railtype_flags:			bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+			railtype_flags:			bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_CATENARY);
 		}
 	}
 	if (param_enable_speed_limits == 1) {
@@ -101,8 +146,9 @@ item(FEAT_RAILTYPES, item_HSRL) {
 		tunnels:			spriteset_HSRL_tunnel;
 		level_crossings:  	switch_HSRL_levcross;
 		bridge_surfaces:  	spriteset_HSRL_bridges;
-		//catenary_wire:	spriteset_HSRL_catwire;
-		//catenary_pylons:	spriteset_HSRL_catpol;
+		//purchase:			spriteset_HSRL_buy;
+		catenary_wire:		spriteset_HSRL_catwire;
+		catenary_pylons:	spriteset_HSRL_catpol;
 		//fences:			switch_HSRL_fences;
 	}
 }

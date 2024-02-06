@@ -1,8 +1,8 @@
 ##grflangid 0x01
 
 # GRF data
-STR_GRF_NAME		:Ship XTension 1.0.0
-STR_GRF_VER			:1.0.0
+STR_GRF_NAME		:Ship XTension 1.0.1
+STR_GRF_VER			:1.0.1
 STR_GRF_DESC		:{}Extends the ship selection with the following:{}{BLUE}CSP Cargobot {BLACK}-> a large diesel freighter,{}{BLUE}ULCC Supertanker {BLACK}-> a large oil tanker,{}{BLACK}...and that's it for now.{}{WHITE}Now in 2cc!{}{BLACK}Made by {ORANGE}Raul Cotar
 
 # Veh names

@@ -3,8 +3,8 @@
 # I didn't use custom tags (yet) 'cause they seem kinda useless...
 
 # GRF data
-STR_GRF_NAME		:Train XTension 1.4.2
-STR_GRF_VER			:1.4.2
+STR_GRF_NAME		:Train XTension 1.4.3
+STR_GRF_VER			:1.4.3
 STR_GRF_DESC		:{}Extends the train selection with the following:{}{BLUE}EAR Iron Horse {BLACK}-> a fast steam engine,{}{BLUE}EAR GTHL {BLACK}-> a heavy hybrid freight engine,{}{BLUE}Intermodal Freight Car {BLACK}-> a nice goods wagon,{}{BLUE}HSRL {BLACK}-> a new high-speed rail type,{}{BLACK}...and that's it for now.{}{BLACK}Made by {ORANGE}Raul Cotar{}{WHITE}github.com/raulcotar/OTTD_newgrf{}{RED}Please load before any train sets!
 
 # Params
